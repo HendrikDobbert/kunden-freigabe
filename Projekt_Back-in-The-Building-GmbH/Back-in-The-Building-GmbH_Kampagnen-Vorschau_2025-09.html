@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back in the Building GmbH: Kampagnen-Vorschau Monat 1 (KW 33-36)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px-150x119.png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Domine:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ci-primary: #66ACB1;
+            --ci-secondary: #3C797D;
+            --ci-secondary-hover: #2E5A5D;
+            --ci-text-dark: #333333;
+            --ci-text-grey: #54595F;
+            --ci-accent-green: #0CE72A;
+            --bg-light: #F7F7F7;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--ci-text-grey);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        .header {
+            background-color: var(--bg-white);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header img {
+            max-height: 50px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            font-family: 'Figtree', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+            color: var(--ci-secondary);
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13); 
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-of-type { border-bottom: none; }
+        
+        .section p {
+            font-size: 18px;
+            color: var(--ci-text-grey);
+            line-height: 1.7;
+        }
+        
+        h2 {
+            font-family: 'Domine', serif;
+            font-weight: 400;
+            font-size: 25px;
+            color: var(--ci-secondary);
+            border-bottom: 2px solid var(--ci-primary);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .kpi-box {
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            border-left: 5px solid var(--ci-secondary);
+        }
+        .kpi-box-title {
+            font-family: 'Domine', serif;
+            font-weight: 400;
+            color: var(--ci-text-dark);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .week-plan { margin-bottom: 30px; }
+        .week-plan:last-child { margin-bottom: 0; }
+        .week-plan h3 {
+            font-family: 'Figtree', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--ci-text-dark);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .week-plan ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--ci-text-grey);
+        }
+        .week-plan ul li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .week-plan ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--ci-secondary);
+            font-weight: bold;
+        }
+        
+        .feedback-item { 
+            background-color: var(--bg-light); 
+            border-radius: 8px; 
+            padding: 20px; 
+            margin-bottom: 15px; 
+            border: 1px solid var(--border-color);
+        }
+        .feedback-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;}
+        .feedback-item-header h4 { margin: 0; font-family: 'Figtree', sans-serif; font-weight: 600; color: var(--ci-text-dark); font-size: 16px;}
+        
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; gap: 2px; }
+        .rating > input { display: none; }
+        .rating > label { position: relative; width: 1.2em; font-size: 22px; color: #cccccc; cursor: pointer; transition: color 0.2s; }
+        .rating > label::before { content: "\2605"; }
+        .rating > label:hover, .rating > label:hover ~ label { color: var(--ci-secondary); }
+        .rating > input:checked ~ label { color: var(--ci-secondary); }
+        
+        .feedback-textarea { 
+            width: 100%; 
+            box-sizing: border-box; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            padding: 12px; 
+            font-family: 'Figtree', sans-serif; 
+            font-size: 14px; 
+            margin-top: 10px; 
+            resize: vertical; 
+        }
+
+        .submit-button { 
+            border: none;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-family: 'Figtree', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1;
+            border-radius: 3px;
+            cursor: pointer;
+            background-color: var(--ci-secondary);
+            color: white;
+            transition: all .3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+        }
+        .submit-button:hover { 
+            background-color: var(--ci-secondary-hover);
+            transform: scale(1.05);
+        }
+
+        .submit-button .button-spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        .submit-button.loading .button-spinner { display: block; }
+        .submit-button.loading .button-text { display: none; }
+
+        #successMessage, #errorMessage { display: none; padding: 12px; margin-top: 20px; border-radius: 8px; font-weight: bold; }
+        #successMessage { color: #0f5132; background-color: #d1e7dd; border: 1px solid #badbcc; }
+        #errorMessage { color: #842029; background-color: #f8d7da; border: 1px solid #f5c2c7; }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #aaaaaa;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .brochure { border: none; box-shadow: none; }
+            .header, .section { padding: 25px 15px; }
+            .header h1 { font-size: 24px; }
+            .feedback-item-header { flex-direction: column; align-items: flex-start; }
+            .submit-button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px.png" alt="Logo Back in the Building GmbH">
+            <h1>Kampagnen-Vorschau & Redaktionsplan-Freigabe</h1>
+            <p>Erster Monat: 15. August - 13. September 2025</p>
+        </header>
+
+        <section class="section">
+            <h2>Unsere Mission für den ersten Monat</h2>
+            <p>Die ersten vier Wochen der Kampagne <strong>"Proof of Authority"</strong> legen das Fundament. Wir konzentrieren uns darauf, zu jedem unserer Kern-USPs (Pflegekasse, Sauberkeit, Verlässlichkeit, Sicherheit) einen tiefgehenden "Pillar Content" zu erstellen und diesen über alle Kanäle zu verteilen, um maximale Sichtbarkeit bei unseren Personas zu erzielen und erste, starke Signale für LLMs zu setzen.</p>
+        </section>
+
+        <section class="section">
+            <h2>Der Content-Fahrplan: KW 33 - 36</h2>
+            
+            <div class="week-plan">
+                <h3>KW 33 (18.08. - 22.08.): Launch-Woche – Fokus Pflegekassen-Service (für "Sabine")</h3>
+                <ul>
+                    <li><strong>Lead Magnet:</strong> Start mit dem PDF-Leitfaden "Pflegekassen-Antrag leicht gemacht".</li>
+                    <li><strong>Blog:</strong> Veröffentlichung des Pillar-Artikels "So sichern Sie sich bis zu 4.000 € Zuschuss!".</li>
+                    <li><strong>Social Media:</strong> Emotionales Reel zum "Stressfaktor Antrag" und ein Post zur "1-Tag-Garantie" für "Günther".</li>
+                    <li><strong>Google Business:</strong> Teaser zum Blogartikel und ein direkter Angebot-Post für das "Rundum-sorglos-Paket".</li>
+                    <li><strong>E-Mail:</strong> Newsletter, der den Blogartikel und den neuen Lead Magneten bewirbt.</li>
+                </ul>
+            </div>
+            
+            <div class="week-plan">
+                <h3>KW 34 (25.08. - 29.08.): Fokus Sauberkeit & Vertrauen (für "Günther")</h3>
+                <ul>
+                    <li><strong>Blog:</strong> Veröffentlichung des Pillar-Artikels "Die staubfreie Badsanierung: So bleibt Ihr Zuhause sauber & stressfrei".</li>
+                    <li><strong>Social Media:</strong> Interaktive Umfrage zum "Umbau-Schrecken" (Staub, Lärm) und ein Video zur "1-Tag-Umsetzung".</li>
+                    <li><strong>Google Business:</strong> Teaser zum "staubfrei"-Artikel und Post einer Kundenstimme zum Thema Sauberkeit.</li>
+                    <li><strong>E-Mail:</strong> Newsletter mit dem Fokus auf einen stress- und chaosfreien Umbau.</li>
+                    <li><strong>Outreach:</strong> Beginn der Recherche nach 10 potenziellen A-Level Partnerblogs zum Thema Pflege & Wohnen im Alter.</li>
+                </ul>
+            </div>
+
+            <div class="week-plan">
+                <h3>KW 35 (01.09. - 06.09.): Fokus Verlässlichkeit & "Kümmerer"-Prinzip</h3>
+                <ul>
+                    <li><strong>Blog:</strong> Veröffentlichung des emotionalen Artikels "Sorgenfrei im eigenen Bad: Warum Verlässlichkeit alles ist".</li>
+                    <li><strong>Social Media:</strong> Verbreitung eines starken Zitats aus einer Kundenrezension und eine Erklärung des "1-Tag-Ablaufs".</li>
+                    <li><strong>Google Business:</strong> Direkter Angebot-Post mit CTA zur Buchung eines Erstgesprächs.</li>
+                    <li><strong>E-Mail:</strong> Newsletter, der Sorgenfreiheit und Verlässlichkeit in den Mittelpunkt stellt.</li>
+                    <li><strong>Outreach:</strong> Erstellung des Gastartikels "Barrierefreiheit in Dortmund" für die gefundenen Partner.</li>
+                </ul>
+            </div>
+
+            <div class="week-plan">
+                <h3>KW 36 (08.09. - 13.09.): Fokus Produktsicherheit & Kooperationen</h3>
+                <ul>
+                    <li><strong>Blog:</strong> Veröffentlichung des Artikels "Rutschgefahr im Bad: Unsichtbare Lösungen für mehr Sicherheit".</li>
+                    <li><strong>Social Media:</strong> Ein Blick "Hinter die Kulissen" unserer staubfreien Methode und ein interaktives Quiz.</li>
+                    <li><strong>Google Business:</strong> Angebot für eine kostenlose Erstberatung zum Thema Badsicherheit.</li>
+                    <li><strong>E-Mail:</strong> Newsletter, der die Anti-Rutsch-Lösungen thematisiert.</li>
+                    <li><strong>Outreach:</strong> Aktiver Pitch des Gastartikels an Partner & Start der Recherche für Social-Media-Kooperationen.</li>
+                </ul>
+            </div>
+
+        </section>
+        
+        <section class="section">
+            <h2>Feedback & Freigabe des Plans für den ersten Monat</h2>
+            <p>Dieser detaillierte Plan für die ersten vier Wochen ist die Grundlage für einen erfolgreichen Kampagnenstart. Bitte geben Sie uns Ihr finales "Go", damit wir in die Umsetzung starten können.</p>
+
+            <div id="feedbackDashboard">
+                <div class="feedback-item">
+                    <div class="feedback-item-header">
+                        <h4>Ihre Gesamteinschätzung des Plans für Monat 1:</h4>
+                        <div class="rating">
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-5" value="5"><label for="rating-redaktionsplan-5"></label>
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-4" value="4"><label for="rating-redaktionsplan-4"></label>
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-3" value="3"><label for="rating-redaktionsplan-3"></label>
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-2" value="2"><label for="rating-redaktionsplan-2"></label>
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-1" value="1"><label for="rating-redaktionsplan-1"></label>
+                        </div>
+                    </div>
+                    <textarea name="feedback-text-redaktionsplan" class="feedback-textarea" rows="3" placeholder="Ihre Anmerkungen, Wünsche oder Bedenken zum Plan..."></textarea>
+                </div>
+                <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+                    <button id="submitFeedback" class="submit-button">
+                        <span class="button-text">Monatsplan freigeben</span>
+                        <span class="button-spinner"></span>
+                    </button>
+                </div>
+                <div id="successMessage"></div>
+                <div id="errorMessage"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Erstellt für Back in the Building GmbH | August 2025</p>
+        </footer>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzvkJLvkLmp75M2ZtOc5HJrxs5W8Tvd8wFSoJ3pCLN8bdtLvYSDkTnXCcZ3QIvbzlUI/exec';
+        const storageKey = 'campaignApproval_Monat1_BITB';
+
+        const feedbackDashboard = document.getElementById('feedbackDashboard');
+        if (!feedbackDashboard) return;
+
+        const submitButton = document.getElementById('submitFeedback');
+        const successMessageDiv = document.getElementById('successMessage');
+        const errorMessageDiv = document.getElementById('errorMessage');
+
+        const showMessage = (element, message) => {
+            element.textContent = message;
+            element.style.display = 'block';
+        };
+
+        const hideMessages = () => {
+            successMessageDiv.style.display = 'none';
+            errorMessageDiv.style.display = 'none';
+        };
+
+        const setLoadingState = (isLoading) => {
+            submitButton.classList.toggle('loading', isLoading);
+            submitButton.disabled = isLoading;
+        };
+
+        window.feedbackGesendet = function(response) {
+            setLoadingState(false);
+            if (response.status === 'Erfolg') {
+                showMessage(successMessageDiv, `✔ Feedback erfolgreich übermittelt.`);
+                submitButton.querySelector('.button-text').textContent = 'Freigabe aktualisieren';
+                setTimeout(() => { successMessageDiv.style.display = 'none'; }, 6000);
+            } else {
+                showMessage(errorMessageDiv, "Ein Fehler ist aufgetreten: " + response.nachricht);
+            }
+        };
+
+        const saveData = () => {
+            const data = {};
+            feedbackDashboard.querySelectorAll('input[type="radio"]:checked, textarea').forEach(el => {
+                data[el.name] = el.value;
+            });
+            localStorage.setItem(storageKey, JSON.stringify(data));
+        };
+
+        const loadData = () => {
+            const savedData = localStorage.getItem(storageKey);
+            if (!savedData) return;
+            const data = JSON.parse(savedData);
+            for (const name in data) {
+                const el = feedbackDashboard.querySelector(`[name="${name}"][value="${data[name]}"]`);
+                if (el && el.type === 'radio') {
+                    el.checked = true;
+                } else {
+                    const textarea = feedbackDashboard.querySelector(`[name="${name}"]`);
+                    if (textarea) textarea.value = data[name];
+                }
+            }
+        };
+
+        submitButton.addEventListener('click', function() {
+            hideMessages();
+            const ratingInput = feedbackDashboard.querySelector('input[name="rating-redaktionsplan"]:checked');
+            if (!ratingInput) {
+                showMessage(errorMessageDiv, 'Bitte geben Sie eine Sterne-Bewertung ab, um den Plan freizugeben.');
+                return;
+            }
+
+            setLoadingState(true);
+            const feedbackInput = feedbackDashboard.querySelector('textarea[name="feedback-text-redaktionsplan"]');
+            
+            const payload = {
+                kundenId: 'KUNDE_003',
+                freigabeTyp: 'Kampagnenplan',
+                kampagnenId: 'PROOF_OF_VALUE_Q3',
+                zeitraum: 'Monat-1_KW33-36',
+                daten: [{
+                    bewertung: ratingInput.value,
+                    feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                    status: 'Freigegeben'
+                }]
+            };
+
+            const dataString = encodeURIComponent(JSON.stringify(payload));
+            const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${dataString}`;
+            
+            document.querySelectorAll('script[src*="script.google.com"]').forEach(s => s.remove());
+
+            let scriptTag = document.createElement('script');
+            scriptTag.src = finalUrl;
+            scriptTag.onerror = () => {
+                setLoadingState(false);
+                showMessage(errorMessageDiv, 'Netzwerkfehler: Das Feedback konnte nicht gesendet werden.');
+            };
+            document.body.appendChild(scriptTag);
+        });
+
+        feedbackDashboard.addEventListener('input', saveData);
+        loadData();
+    });
+    </script>
+</body>
+</html>

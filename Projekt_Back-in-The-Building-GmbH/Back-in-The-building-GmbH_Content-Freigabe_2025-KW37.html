@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back in the Building GmbH: Finale Content-Freigabe KW 34</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px-150x119.png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Domine:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ci-primary: #66ACB1;
+            --ci-secondary: #3C797D;
+            --ci-secondary-hover: #2E5A5D;
+            --ci-text-dark: #333333;
+            --ci-text-grey: #54595F;
+            --ci-accent-green: #0CE72A;
+            --ci-red-reset: #dc3545;
+            --bg-light: #F7F7F7;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--ci-text-grey);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        .header {
+            background-color: var(--bg-white);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header img {
+            max-height: 50px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            font-family: 'Figtree', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+            color: var(--ci-secondary);
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-of-type { border-bottom: none; }
+
+        .section p {
+            font-size: 18px;
+            color: var(--ci-text-dark);
+            line-height: 1.7;
+        }
+        
+        h2 {
+            font-family: 'Domine', serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--ci-secondary);
+            border-bottom: 2px solid var(--ci-primary);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .responsive-table th {
+            padding: 12px;
+            border-bottom: 2px solid var(--border-color);
+            text-align: left;
+            font-family: 'Figtree', sans-serif;
+            font-weight: 600;
+            color: var(--ci-text-dark);
+        }
+        .responsive-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        .responsive-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .asset-title {
+            display: block;
+            color: var(--ci-text-dark);
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .asset-description {
+            font-size: 14px;
+            color: var(--ci-text-grey);
+        }
+        
+        .view-button {
+            display: inline-block;
+            background-color: var(--ci-text-grey);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all .2s;
+        }
+        .view-button:hover {
+            background-color: var(--ci-secondary);
+        }
+
+        .feedback-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            font-family: 'Figtree', sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 40px;
+        }
+        .approval-checkbox { display: none; }
+        .approval-label {
+            display: inline-block;
+            background-color: #6c757d;
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            min-width: 90px;
+        }
+        .approval-label .text-approve { display: inline; }
+        .approval-label .text-approved { display: none; }
+        .approval-checkbox:checked + .approval-label {
+            background-color: var(--ci-accent-green);
+        }
+        .approval-checkbox:checked + .approval-label .text-approve { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approved { display: inline; }
+        
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; }
+        .rating input { display: none; }
+        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; }
+        .rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label { color: var(--ci-secondary); }
+
+        .footer-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-button {
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Figtree', sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .reset-button {
+            background-color: var(--bg-white);
+            color: var(--ci-red-reset);
+            border: 2px solid var(--ci-red-reset);
+        }
+        .reset-button:hover {
+            background-color: var(--ci-red-reset);
+            color: white;
+        }
+        .submit-global-button {
+            background-color: var(--ci-secondary);
+            color: #ffffff;
+        }
+        .submit-global-button:hover {
+            background-color: var(--ci-secondary-hover);
+            transform: scale(1.05);
+        }
+        
+        .content-funnel { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
+        .funnel-stage { background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 8px; }
+        .funnel-header {
+            display: flex; align-items: center; gap: 15px;
+            padding: 15px 20px; background-color: #f0f5f5;
+            border-bottom: 1px solid var(--border-color);
+            border-top-left-radius: 8px; border-top-right-radius: 8px;
+        }
+        .funnel-icon { font-size: 1.8rem; line-height: 1; }
+        .funnel-stage-title {
+            margin: 0; font-family: 'Domine', serif;
+            font-size: 18px; color: var(--ci-text-dark);
+        }
+        .funnel-body { padding: 20px; }
+        .funnel-content-piece { font-weight: 600; color: #000; margin-top: 0; font-family: 'Figtree', sans-serif; }
+        .funnel-explanation { font-size: 15px; margin-bottom: 0; color: var(--ci-text-grey); }
+
+        #successMessage, #errorMessage { display: none; text-align:center; padding: 12px; margin-top: 20px; border-radius: 8px; font-weight: bold; }
+        #successMessage { color: #0f5132; background-color: #d1e7dd; border: 1px solid #badbcc; }
+        #errorMessage { color: #842029; background-color: #f8d7da; border: 1px solid #f5c2c7; }
+        
+        @media (max-width: 768px) {
+            .responsive-table thead { display: none; }
+            .responsive-table tr { display: block; margin-bottom: 20px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+            .responsive-table td { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 12px 15px; text-align: right; border-bottom: 1px solid #eee; }
+            .responsive-table tr td:last-child { border-bottom: none; }
+            .responsive-table td::before { content: attr(data-label); font-weight: bold; text-align: left; margin-right: 15px; color: var(--ci-text-dark); }
+            .responsive-table td:first-child { display: block; text-align: left; background-color: #f9f9f9; padding: 15px; }
+            .responsive-table td:first-child::before { display: none; }
+            .footer-button-container {justify-content: center;}
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px.png" alt="Logo Back in the Building GmbH">
+            <h1>Content-Freigabe: KW 34</h1>
+            <p>Kampagne: Proof of Authority | Fokus: Staubfreiheit & 1-Tages-Garantie</p>
+        </header>
+        <section class="section">
+            <h2>Die Strategie für KW 34</h2>
+            <p>In dieser Woche zementieren wir unsere Autorität und bauen auf dem Erfolg von Woche 1 auf. Der strategische Fokus liegt auf der detaillierten Beweisführung unserer stärksten USPs: der **staubfreie Umbau** und die **1-Tages-Garantie**. Jedes Asset ist darauf ausgelegt, die größten Ängste der Zielgruppe (Lärm, Schmutz, Dauer) proaktiv zu entkräften und uns als die einzig logische, stressfreie Lösung zu positionieren.</p>
+            
+            <div class="content-funnel">
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">📚</span>
+                        <h3 class="funnel-stage-title">Das Herzstück (Beweisführung)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Asset:</strong> Blog-Artikel "Die staubfreie Badsanierung"</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Dient als ultimativer Beweis für unsere USPs. Der Artikel erklärt detailliert das "Wie" und "Warum" unseres Prozesses und festigt unsere Expertenposition.</p>
+                    </div>
+                </div>
+
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">💬</span>
+                        <h3 class="funnel-stage-title">Die Interaktion (Ängste ansprechen)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Assets:</strong> Facebook Post (Frage), GMB Post (Kundenstimme)</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Wir gehen proaktiv auf die Sorgen der Community ein, nutzen Social Proof (Testimonials) und schaffen eine Brücke zum Herzstück-Content, der die Lösung präsentiert.</p>
+                    </div>
+                </div>
+
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">🎬</span>
+                        <h3 class="funnel-stage-title">Die Visualisierung (Zeigen, nicht nur sagen)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Assets:</strong> Facebook Post (Video)</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Visueller Content, der unseren USP der Geschwindigkeit auf emotionale und leicht verständliche Weise transportiert und so die Botschaft verstärkt.</p>
+                    </div>
+                </div>
+                 <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">📈</span>
+                        <h3 class="funnel-stage-title">Die Skalierung (Partnerschaften)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Assets:</strong> Outreach Recherche</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Legt den Grundstein, um unsere Expertise über unsere eigenen Kanäle hinaus zu tragen und durch hochwertige Backlinks unsere Autorität langfristig zu steigern.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="approvalSection">
+            <h2>Entwürfe zur finalen Prüfung & Freigabe</h2>
+            <p>Hier finden Sie die finalen Entwürfe für alle geplanten Inhalte der KW 34. Bitte prüfen Sie die Dokumente, geben Sie Feedback und erteilen Sie Ihre Freigabe direkt in der Tabelle.</p>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Inhalt (Asset)</th>
+                        <th>Entwurf</th>
+                        <th style="text-align: center;">Bewertung</th>
+                        <th style="width: 25%;">Änderungswunsch</th>
+                        <th style="text-align: center;">Freigabe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-asset-id="BLOG_002">
+                        <td data-label="Inhalt"><span class="asset-title">Blog-Artikel</span><span class="asset-description">"Die staubfreie Badsanierung"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/BLOG_002_artikel_staubfreier-umbau.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-blog2" name="rating-BLOG_002" value="5"><label for="star5-blog2">★</label><input type="radio" id="star4-blog2" name="rating-BLOG_002" value="4"><label for="star4-blog2">★</label><input type="radio" id="star3-blog2" name="rating-BLOG_002" value="3"><label for="star3-blog2">★</label><input type="radio" id="star2-blog2" name="rating-BLOG_002" value="2"><label for="star2-blog2">★</label><input type="radio" id="star1-blog2" name="rating-BLOG_002" value="1"><label for="star1-blog2">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-BLOG_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-BLOG_002" name="approve-BLOG_002" class="approval-checkbox"><label for="approve-BLOG_002" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                     <tr data-asset-id="GMB_005">
+                        <td data-label="Inhalt"><span class="asset-title">GMB: Neuigkeit</span><span class="asset-description">"Kein Chaos beim Umbau"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/GMB_005_gmb-post_kein-chaos.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-gmb5" name="rating-GMB_005" value="5"><label for="star5-gmb5">★</label><input type="radio" id="star4-gmb5" name="rating-GMB_005" value="4"><label for="star4-gmb5">★</label><input type="radio" id="star3-gmb5" name="rating-GMB_005" value="3"><label for="star3-gmb5">★</label><input type="radio" id="star2-gmb5" name="rating-GMB_005" value="2"><label for="star2-gmb5">★</label><input type="radio" id="star1-gmb5" name="rating-GMB_005" value="1"><label for="star1-gmb5">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_005" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-GMB_005" name="approve-GMB_005" class="approval-checkbox"><label for="approve-GMB_005" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="FB_003">
+                        <td data-label="Inhalt"><span class="asset-title">Facebook: Post</span><span class="asset-description">"Umbau-Schrecken: Was ist Ihre größte Angst?"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/FB_003_facebook-post_umbau-schrecken.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-fb3" name="rating-FB_003" value="5"><label for="star5-fb3">★</label><input type="radio" id="star4-fb3" name="rating-FB_003" value="4"><label for="star4-fb3">★</label><input type="radio" id="star3-fb3" name="rating-FB_003" value="3"><label for="star3-fb3">★</label><input type="radio" id="star2-fb3" name="rating-FB_003" value="2"><label for="star2-fb3">★</label><input type="radio" id="star1-fb3" name="rating-FB_003" value="1"><label for="star1-fb3">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-FB_003" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-FB_003" name="approve-FB_003" class="approval-checkbox"><label for="approve-FB_003" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="GMB_006">
+                        <td data-label="Inhalt"><span class="asset-title">GMB: Kundenstimme</span><span class="asset-description">"Erstaunt, wie sauber alles blieb!"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/GMB_006_gmb-post_kundenstimme.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-gmb6" name="rating-GMB_006" value="5"><label for="star5-gmb6">★</label><input type="radio" id="star4-gmb6" name="rating-GMB_006" value="4"><label for="star4-gmb6">★</label><input type="radio" id="star3-gmb6" name="rating-GMB_006" value="3"><label for="star3-gmb6">★</label><input type="radio" id="star2-gmb6" name="rating-GMB_006" value="2"><label for="star2-gmb6">★</label><input type="radio" id="star1-gmb6" name="rating-GMB_006" value="1"><label for="star1-gmb6">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_006" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-GMB_006" name="approve-GMB_006" class="approval-checkbox"><label for="approve-GMB_006" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="FB_004">
+                        <td data-label="Inhalt"><span class="asset-title">Facebook: Video-Post</span><span class="asset-description">"Ihr Bad in nur einem Tag: Video"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/FB_004_facebook-post_1-tag-video.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-fb4" name="rating-FB_004" value="5"><label for="star5-fb4">★</label><input type="radio" id="star4-fb4" name="rating-FB_004" value="4"><label for="star4-fb4">★</label><input type="radio" id="star3-fb4" name="rating-FB_004" value="3"><label for="star3-fb4">★</label><input type="radio" id="star2-fb4" name="rating-FB_004" value="2"><label for="star2-fb4">★</label><input type="radio" id="star1-fb4" name="rating-FB_004" value="1"><label for="star1-fb4">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-FB_004" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-FB_004" name="approve-FB_004" class="approval-checkbox"><label for="approve-FB_004" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="MAIL_002">
+                        <td data-label="Inhalt"><span class="asset-title">E-Mail Newsletter</span><span class="asset-description">"Ihr stressfreier Badumbau"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/MAIL_002_newsletter_staubfrei.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-mail2" name="rating-MAIL_002" value="5"><label for="star5-mail2">★</label><input type="radio" id="star4-mail2" name="rating-MAIL_002" value="4"><label for="star4-mail2">★</label><input type="radio" id="star3-mail2" name="rating-MAIL_002" value="3"><label for="star3-mail2">★</label><input type="radio" id="star2-mail2" name="rating-MAIL_002" value="2"><label for="star2-mail2">★</label><input type="radio" id="star1-mail2" name="rating-MAIL_002" value="1"><label for="star1-mail2">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-MAIL_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-MAIL_002" name="approve-MAIL_002" class="approval-checkbox"><label for="approve-MAIL_002" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="OUTREACH_001">
+                        <td data-label="Inhalt"><span class="asset-title">Outreach-Recherche</span><span class="asset-description">"Top 10 Partner für Gastbeiträge"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/OUTREACH_001_recherche_partnerliste.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-out" name="rating-OUTREACH_001" value="5"><label for="star5-out">★</label><input type="radio" id="star4-out" name="rating-OUTREACH_001" value="4"><label for="star4-out">★</label><input type="radio" id="star3-out" name="rating-OUTREACH_001" value="3"><label for="star3-out">★</label><input type="radio" id="star2-out" name="rating-OUTREACH_001" value="2"><label for="star2-out">★</label><input type="radio" id="star1-out" name="rating-OUTREACH_001" value="1"><label for="star1-out">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-OUTREACH_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-OUTREACH_001" name="approve-OUTREACH_001" class="approval-checkbox"><label for="approve-OUTREACH_001" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="footer-button-container">
+                <button id="resetButton" class="footer-button reset-button">Eingaben zurücksetzen</button>
+                <button id="submitButton" class="footer-button submit-global-button">
+                    <span class="button-text">Alle Freigaben & Feedback Senden</span>
+                </button>
+            </div>
+            <div id="successMessage"></div>
+            <div id="errorMessage"></div>
+        </section>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const approvalSection = document.getElementById('approvalSection');
+    const submitButton = document.getElementById('submitButton');
+    const resetButton = document.getElementById('resetButton');
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzvkJLvkLmp75M2ZtOc5HJrxs5W8Tvd8wFSoJ3pCLN8bdtLvYSDkTnXCcZ3QIvbzlUI/exec'; // HIER IHRE WEB APP URL EINFÜGEN
+    const storageKey = 'contentApproval_BITB_KW34_2025';
+
+    const successMessageDiv = document.getElementById('successMessage');
+    const errorMessageDiv = document.getElementById('errorMessage');
+
+    window.feedbackGesendet = function(response) {
+        submitButton.disabled = false;
+        submitButton.querySelector('.button-text').textContent = 'Alle Freigaben & Feedback Senden';
+
+        if (response.status === 'Erfolg') {
+            successMessageDiv.innerHTML = `✔ ${response.processedCount} Einträge erfolgreich übermittelt.`;
+            successMessageDiv.style.display = 'block';
+            submitButton.querySelector('.button-text').textContent = 'Eingaben aktualisieren';
+            setTimeout(() => { successMessageDiv.style.display = 'none'; }, 5000);
+        } else {
+            errorMessageDiv.innerHTML = `Ein Fehler ist aufgetreten: ${response.nachricht}`;
+            errorMessageDiv.style.display = 'block';
+        }
+    };
+
+    submitButton.addEventListener('click', function() {
+        submitButton.disabled = true;
+        submitButton.querySelector('.button-text').textContent = 'Sende...';
+        successMessageDiv.style.display = 'none';
+        errorMessageDiv.style.display = 'none';
+
+        const feedbackPayload = [];
+        const assetRows = approvalSection.querySelectorAll('tbody tr[data-asset-id]');
+        
+        assetRows.forEach(row => {
+            const assetId = row.dataset.assetId;
+            const ratingInput = row.querySelector(`input[name="rating-${assetId}"]:checked`);
+            const feedbackInput = row.querySelector(`textarea[name="feedback-${assetId}"]`);
+            const approvalInput = row.querySelector(`input[name="approve-${assetId}"]`);
+            
+            feedbackPayload.push({
+                asset_id: assetId,
+                bewertung: ratingInput ? ratingInput.value : 'N/A',
+                feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                status: approvalInput.checked ? 'Freigegeben' : 'Offen'
+            });
+        });
+
+        const payload = {
+            kundenId: 'KUNDE_003',
+            freigabeTyp: 'Wochenfreigabe',
+            zeitraum: 'KW34-2025',
+            daten: feedbackPayload
+        };
+        
+        const dataString = encodeURIComponent(JSON.stringify(payload));
+        const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${dataString}`;
+        
+        document.querySelectorAll('script[src*="script.google.com"]').forEach(s => s.remove());
+        
+        let scriptTag = document.createElement('script');
+        scriptTag.src = finalUrl;
+
+        scriptTag.onerror = function() {
+            errorMessageDiv.innerHTML = 'Netzwerkfehler: Das Freigabe-Skript konnte nicht geladen werden. Bitte prüfen Sie Ihre Internetverbindung.';
+            errorMessageDiv.style.display = 'block';
+            submitButton.disabled = false;
+            submitButton.querySelector('.button-text').textContent = 'Alle Freigaben & Feedback Senden';
+        };
+        
+        document.body.appendChild(scriptTag);
+    });
+
+    const saveData = () => {
+        const data = {};
+        approvalSection.querySelectorAll('input[type="radio"], input[type="checkbox"], textarea').forEach(el => {
+            const name = el.name;
+            if (el.type === 'radio') { if (el.checked) data[name] = el.value; } 
+            else if (el.type === 'checkbox') { data[name] = el.checked; } 
+            else { data[name] = el.value; }
+        });
+        localStorage.setItem(storageKey, JSON.stringify(data));
+    };
+
+    const loadData = () => {
+        const savedData = localStorage.getItem(storageKey);
+        if (!savedData) return;
+        const data = JSON.parse(savedData);
+        for (const name in data) {
+            const elements = approvalSection.querySelectorAll(`[name="${name}"]`);
+            elements.forEach(el => {
+                if (el.type === 'radio') { if (el.value === data[name]) el.checked = true; } 
+                else if (el.type === 'checkbox') { el.checked = data[name]; } 
+                else { el.value = data[name]; }
+            });
+        }
+    };
+    
+    resetButton.addEventListener('click', function() {
+        if (confirm('Möchten Sie wirklich alle Bewertungen, Kommentare und Freigaben zurücksetzen?')) {
+            approvalSection.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(el => el.checked = false);
+            approvalSection.querySelectorAll('textarea').forEach(el => el.value = '');
+            localStorage.removeItem(storageKey);
+            document.querySelector('#submitButton .button-text').textContent = 'Alle Freigaben & Feedback Senden';
+        }
+    });
+
+    approvalSection.addEventListener('input', saveData);
+    loadData();
+});
+</script>
+</body>
+</html>
+

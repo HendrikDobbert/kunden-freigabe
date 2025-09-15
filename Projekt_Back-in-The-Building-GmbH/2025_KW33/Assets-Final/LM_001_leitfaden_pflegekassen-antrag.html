@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitfaden: Pflegekassen-Antrag leicht gemacht</title>
+    
+    <!-- Google Fonts Import für Figtree und Domine -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="icon" href="https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px-150x119.png" sizes="32x32">    <style>
+        /* * =============================================
+         * CSS STYLES FOR LM_001 LEAD MAGNET (CI-ANGEPASST)
+         * Primärfarbe: #66ACB1
+         * Sekundärfarbe: #3C797D
+         * Schriftarten: Figtree (H1, Body), Domine (H2)
+         * =============================================
+        */
+
+        /* -- GENERAL BODY & PAGE SETUP -- */
+        body {
+            font-family: 'Figtree', sans-serif;
+            line-height: 1.7;
+            color: #3a3a3a;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            font-size: 22px; /* CI-Vorgabe */
+        }
+
+        .page {
+            max-width: 8.5in;
+            min-height: 11in;
+            margin: 30px auto;
+            padding: 1in;
+            background-color: #ffffff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* -- TYPOGRAPHY -- */
+        h1, h2, h3, h4 {
+            line-height: 1.3;
+            font-weight: 800;
+        }
+
+        h1 {
+            font-family: 'Figtree', sans-serif;
+            font-size: 33px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #3C797D;
+            margin: 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Domine', serif;
+            font-size: 25px;
+            color: #3C797D;
+            text-transform: none;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #66ACB1;
+            padding-bottom: 15px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-family: 'Figtree', sans-serif;
+            font-size: 1.6em;
+            color: #3C797D;
+            margin-top: 30px;
+        }
+        
+        h4 {
+            font-size: 1.2em;
+            color: #3a3a3a;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1em; /* Relativ zu Body-Schriftgröße */
+            margin-bottom: 1.5em;
+        }
+
+        a {
+            color: #66ACB1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #3C797D;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #3C797D;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* -- COVER PAGE -- */
+        .cover-page {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 40px;
+        }
+
+        .cover-page h2.subtitle {
+            color: #66ACB1;
+            font-size: 1.4em;
+            font-weight: 400;
+            margin: 10px 0 40px 0;
+            border: none; /* Überschreibt generisches h2-Styling */
+        }
+
+        .cover-page .author {
+            font-size: 1.2em;
+            margin-top: 50px;
+        }
+
+        /* -- SPECIAL BOXES -- */
+        .info-box {
+            padding: 25px 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            border-left-width: 5px;
+            border-left-style: solid;
+        }
+        .info-box h3 { margin-top: 0; font-size: 1.4em; }
+        .info-box ul { padding-left: 20px; margin: 0; }
+        .info-box li { margin-bottom: 10px; }
+        
+        .toc {
+            background-color: #f0f7f7;
+            border-left-color: #66ACB1;
+        }
+        .toc ul { list-style-type: none; }
+
+        .kfw-box {
+            background-color: #f5f5f5;
+            border-left-color: #3C797D;
+        }
+        .pitfall-box {
+            background-color: #f8d7da;
+            border-left-color: #dc3545;
+        }
+        .pitfall-box h3 { color: #721c24; }
+
+        /* -- CHECKLIST -- */
+        .checklist {
+            list-style-type: none;
+            padding: 0;
+        }
+        .checklist li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .checklist .checkbox {
+            width: 25px;
+            height: 25px;
+            border: 2px solid #3C797D;
+            border-radius: 4px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* -- FORM SECTION -- */
+        .form-section {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .form-section .field {
+            margin-bottom: 20px;
+        }
+        .form-section label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #3a3a3a;
+        }
+        .form-section .line {
+            border-bottom: 1px solid #999;
+            height: 25px;
+        }
+
+        /* -- FINAL CTA & FOOTER -- */
+        .final-cta {
+            background-image: linear-gradient(180deg, #66ACB1 59%, #3C797D 100%);
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+        .final-cta h3, .final-cta p {
+            color: #ffffff;
+        }
+        .final-cta .cta-button {
+            display: inline-block;
+            background-color: transparent;
+            color: #ffffff;
+            padding: 10px 30px;
+            text-decoration: none;
+            font-family: 'Figtree', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .final-cta .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-color: #3C797D;
+            border-radius: 8px;
+        }
+        .final-cta .cta-button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            background-color: #2e5f62;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            transition: all .3s;
+            transform: scale(1.2, 1.2);
+            border-radius: 8px;
+        }
+        .final-cta .cta-button:hover::after {
+            opacity: 1;
+            transform: scale(1, 1);
+        }
+        .final-cta .cta-button:hover {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+                font-size: 12pt;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 0.5in;
+                page-break-after: always;
+            }
+            .final-cta, .cta-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================================================================= -->
+    <!-- Seite 1: Deckblatt                                                -->
+    <!-- ================================================================= -->
+    <div class="page" style="background-image: url('../Bilder/deckblatt-hintergrund.png');">
+        <div class="cover-page">
+            <img src="https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px.png" alt="Back in the Building Logo" class="logo">
+            <h1>Pflegekassen-Antrag leicht gemacht</h1>
+            <h2 class="subtitle">Ihr umfassender Leitfaden für den Zuschuss zum Badumbau</h2>
+            <p class="author">
+                Erstellt von Ihren Experten für barrierefreies Wohnen
+            </p>
+        </div>
+        <footer>
+            Back in the Building GmbH | Emil Figge Straße 91, 44227 Dortmund | https://backinthebuilding.com/
+        </footer>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- Seite 2: Einleitung & Inhaltsverzeichnis                          -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>Ein Wort an Sie, die Kümmerer</h2>
+        <p>
+            Liebe Angehörige,
+        </p>
+        <p>
+            wir wissen, was Sie leisten. Sie organisieren, telefonieren, recherchieren und tragen die Sorge für die Menschen, die Ihnen am wichtigsten sind. Der Wunsch, Ihren Eltern oder Angehörigen ein sicheres und selbstständiges Leben zu ermöglichen, ist Ihr Antrieb. Doch oft stehen bürokratische Hürden wie ein Berg vor Ihnen.
+        </p>
+        <p>
+            Dieser Leitfaden ist für Sie. Wir möchten Ihnen diesen Berg abtragen und den Weg zum Pflegekassen-Zuschuss so einfach und verständlich wie möglich machen. Betrachten Sie dies als Ihr persönliches Werkzeug, um die finanzielle Unterstützung zu erhalten, die Ihnen zusteht – ohne Stress und ohne Kopfzerbrechen.
+        </p>
+        <p>
+            Ihr Team von Back in the Building
+        </p>
+
+        <div class="info-box toc">
+            <h3>Inhaltsverzeichnis</h3>
+            <ul>
+                <li>1. Das Einmaleins des Pflegegrads: Wer hat Anspruch?</li>
+                <li>2. Die ultimative Checkliste vor dem Antrag</li>
+                <li>3. Der Antrag Schritt für Schritt im Detail</li>
+                <li>4. Musterformular zum Ausfüllen & Kopieren</li>
+                <li>5. Mehr als nur Pflegekasse: Weitere Fördertöpfe clever nutzen</li>
+                <li>6. Die häufigsten Fallstricke (und wie Sie sie umschiffen)</li>
+                <li>7. Worauf Sie bei der Wahl des Handwerkspartners achten sollten</li>
+                <li>8. Häufig gestellte Fragen (FAQ)</li>
+                <li>9. Unser Versprechen an Sie: Das Sorglos-Paket</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- ================================================================= -->
+    <!-- Seite 3: Das Einmaleins des Pflegegrads                           -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>1. Das Einmaleins des Pflegegrads: Wer hat Anspruch?</h2>
+        <p>
+            Die wichtigste Voraussetzung für den Zuschuss ist ein <strong>anerkannter Pflegegrad</strong>. Doch was bedeutet das genau? Das System der Pflegegrade (1-5) löste 2017 die alten Pflegestufen ab und bewertet die Selbstständigkeit einer Person in sechs Lebensbereichen.
+        </p>
+        <h3>Anspruch schon ab Pflegegrad 1!</h3>
+        <p>
+            Hier liegt der Schlüssel: Für den Badumbau-Zuschuss reicht bereits <strong>Pflegegrad 1</strong>. Dieser wird bei "geringen Beeinträchtigungen der Selbständigkeit" vergeben. Viele Betroffene und Angehörige unterschätzen, wie schnell diese Kriterien erfüllt sind.
+        </p>
+        <ul>
+            <img src="../Bilder/pflegegrad-icons.png" alt="Icons für Kriterien des Pflegegrad 1" style="width: 100%; margin: 20px 0;">
+            <li>Fällt das Aufstehen aus der tiefen Wanne schwer?</li>
+            <li>Besteht eine leichte Unsicherheit beim Gehen auf nassen Fliesen?</li>
+            <li>Wird Hilfe bei der Fußpflege oder beim Anziehen von Kompressionsstrümpfen benötigt?</li>
+        </ul>
+        <p>Schon eines dieser Kriterien kann für die Einstufung in Pflegegrad 1 ausreichen. Wenn noch kein Pflegegrad vorliegt, aber der Bedarf offensichtlich ist, unterstützen wir Sie bei der Beantragung. Der Antrag auf den Pflegegrad und der Antrag auf den Zuschuss können parallel laufen.</p>
+        
+        <h3>Sonderfall: Bis zu 8.000 € für Ehepaare</h3>
+        <p>
+            Leben zwei anspruchsberechtigte Personen (z.B. ein Ehepaar mit jeweils eigenem Pflegegrad) im selben Haushalt, kann der Zuschuss auf <strong>bis zu 8.000 €</strong> steigen, da der Anspruch pro Person gilt.
+        </p>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- Seite 4: Checkliste                                               -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>2. Die ultimative Checkliste vor dem Antrag</h2>
+        <p>Eine gute Vorbereitung ist die halbe Miete. Haken Sie diese Punkte ab, bevor Sie den Antrag stellen, um Rückfragen und Verzögerungen zu vermeiden.</p>
+        <ul class="checklist">
+            <li>
+                <div class="checkbox"></div>
+                <div>
+                    <strong>Pflegegrad-Status klären:</strong> Ist ein Pflegegrad vorhanden? Wenn ja, welcher? Wenn nein, ist der Antrag auf Einstufung bereits gestellt?
+                </div>
+            </li>
+            <li>
+                <div class="checkbox"></div>
+                <div>
+                    <strong>Unverbindliches Beratungsgespräch:</strong> Haben Sie mit einem Fachexperten gesprochen, um den genauen Bedarf zu ermitteln?
+                </div>
+            </li>
+            <li>
+                <div class="checkbox"></div>
+                <div>
+                    <strong>Detaillierter Kostenvoranschlag:</strong> Liegt Ihnen ein schriftlicher, detaillierter Kostenvoranschlag vor, der die barrierefreien Maßnahmen klar ausweist?
+                </div>
+            </li>
+            <li>
+                <div class="checkbox"></div>
+                <div>
+                    <strong>Fotomaterial (Optional, aber empfohlen):</strong> Haben Sie einige Fotos von der aktuellen Badsituation gemacht, die die Schwierigkeiten (z.B. den hohen Wanneneinstieg) dokumentieren?
+                </div>
+            </li>
+            <li>
+                <div class="checkbox"></div>
+                <div>
+                    <strong>Kontaktdaten der Pflegekasse:</strong> Haben Sie die genaue Anschrift der zuständigen Pflegekasse und die Versichertennummer des Angehörigen parat?
+                </div>
+            </li>
+             <li>
+                <div class="checkbox"></div>
+                <div>
+                    <strong>Zustimmung des Vermieters (für Mieter):</strong> Liegt Ihnen die schriftliche Zustimmung Ihres Vermieters für den Umbau vor?
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- Seite 5: Der Antrag im Detail                                     -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>3. Der Antrag Schritt für Schritt im Detail</h2>
+        <img src="../Bilder/prozess-grafik.png" alt="Prozess-Grafik zum Antrag in 4 Schritten" style="width: 100%; margin: 10px 0 30px 0;">
+        <h3>Schritt 1: Der Kostenvoranschlag – Das Fundament Ihres Antrags</h3>
+        <p>Ein guter Kostenvoranschlag ist mehr als nur eine Zahl. Er muss für die Pflegekasse klar und nachvollziehbar sein. Unser Kostenvoranschlag listet daher detailliert auf, welche Maßnahmen (z.B. "Entfernung der Badewanne", "Einbau einer bodengleichen Duschtasse", "Montage von Sicherheitsgriffen") direkt zur Verbesserung des Wohnumfeldes beitragen.</p>
+
+        <h3>Schritt 2: Das Antrags-Schreiben – Formlos, aber aussagekräftig</h3>
+        <p>Wie im Blogartikel erwähnt, reicht ein formloses Schreiben. Wichtig ist die Begründung. Beschreiben Sie kurz die alltäglichen Schwierigkeiten. Sätze wie "Der hohe Wannenrand stellt eine erhebliche Sturzgefahr dar" oder "Die selbstständige Körperpflege ist ohne Hilfe nicht mehr sicher möglich" sind für die Kasse klare Indikatoren für die Notwendigkeit.</p>
+
+        <h3>Schritt 3: Die Genehmigungsphase – Geduld zahlt sich aus</h3>
+        <p>Nach Einreichung prüft die Kasse den Antrag. Die gesetzliche Frist für eine Entscheidung liegt bei fünf Wochen. Warten Sie unbedingt die <strong>schriftliche Zusage</strong> ab. Eine mündliche Auskunft am Telefon ist nicht ausreichend!</p>
+        
+        <h3>Schritt 4: Umsetzung & Abrechnung</h3>
+        <p>Sobald die Zusage da ist, vereinbaren wir den Umsetzungstermin. Nach dem erfolgreichen Umbau (der bei uns oft nur einen Tag dauert) erhalten Sie von uns die finale Rechnung. Diese reichen Sie im Original bei der Pflegekasse ein, die Ihnen den Zuschuss dann überweist.</p>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- Seite 6: Musterformular                                           -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>4. Musterformular zum Ausfüllen & Kopieren</h2>
+        <p>Nutzen Sie diese Vorlage für Ihr Anschreiben. Füllen Sie einfach die markierten Felder aus.</p>
+        <div class="form-section">
+            <div class="field">
+                <label>Ihr Name & Adresse:</label>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="field">
+                <label>Name & Adresse der Pflegekasse:</label>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="field">
+                <label>Datum:</label>
+                <div class="line"></div>
+            </div>
+            <p style="margin-top: 30px;"><strong>Betreff: Antrag auf Zuschuss für wohnumfeldverbessernde Maßnahmen nach § 40 SGB XI</strong></p>
+            <p>Antrag für: [Name des/der Pflegebedürftigen]</p>
+            <p>Geburtsdatum: [Datum]</p>
+            <p>Versichertennummer: [Nummer]</p>
+            <br>
+            <p>Sehr geehrte Damen und Herren,</p>
+            <p>hiermit beantrage ich für meine/n oben genannte/n Angehörige/n einen Zuschuss für wohnumfeldverbessernde Maßnahmen.</p>
+            <p>Die aktuelle Badsituation mit einer [z.B. hohen Badewanne] erschwert die tägliche Körperpflege erheblich und stellt eine akute Sturzgefahr dar. Um die Selbstständigkeit zu erhalten und die Pflegesituation zu erleichtern, ist der Umbau zu einer barrierearmen Dusche dringend erforderlich.</p>
+            <p>Anbei finden Sie den Kostenvoranschlag der Firma Back in the Building GmbH.</p>
+            <p>Ich bitte um Prüfung und schriftliche Genehmigung der Kostenübernahme.</p>
+            <p>Mit freundlichen Grüßen,</p>
+            <div class="line" style="margin-top: 40px;"></div>
+            <p>(Ihre Unterschrift)</p>
+        </div>
+    </div>
+    
+    <!-- ================================================================= -->
+    <!-- Seite 7: Weitere Fördertöpfe                                      -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>5. Mehr als nur Pflegekasse: Weitere Fördertöpfe clever nutzen</h2>
+        <p>Der Pflegekassen-Zuschuss ist der bekannteste, aber bei weitem nicht der einzige Weg, um finanzielle Unterstützung zu erhalten. Als Experten betrachten wir immer das Gesamtbild.</p>
+        <img src="../bilder/foerdertoepfe-grafik.png" alt="Grafik zur Kombination von Fördertöpfen" style="width: 100%; margin: 10px 0 20px 0;">
+        <div class="info-box kfw-box">
+            <h3>Die KfW-Bank: Ihr zweiter starker Partner</h3>
+            <p>Die Kreditanstalt für Wiederaufbau (KfW) bietet altersunabhängige Programme zur Reduzierung von Barrieren an:</p>
+            <ul>
+                <li><strong>Zuschuss 455-B:</strong> Ein direkter Investitionszuschuss von bis zu 6.250 €. Dieser Topf ist sehr beliebt und oft schnell leer – schnelles Handeln lohnt sich!</li>
+                <li><strong>Kredit 159:</strong> Ein zinsgünstiger Kredit von bis zu 50.000 € für umfassendere Umbauten.</li>
+            </ul>
+            <p><strong>Wichtig:</strong> Auch hier gilt: Der Antrag muss vor Beginn der Maßnahmen gestellt werden!</p>
+        </div>
+
+        <h3>Steuervorteile nicht vergessen!</h3>
+        <p>
+            Handwerkerleistungen für den Umbau können Sie als "haushaltsnahe Dienstleistungen" von der Steuer absetzen. Bis zu 1.200 € pro Jahr können Sie so direkt von Ihrer Steuerschuld abziehen. Heben Sie die Rechnung und den Zahlungsbeleg gut auf!
+        </p>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- Seite 8: Fallstricke                                              -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>6. Die häufigsten Fallstricke (und wie Sie sie umschiffen)</h2>
+        <p>Aus unserer jahrelangen Erfahrung kennen wir die kleinen Hürden, die den Prozess unnötig verkomplizieren. Hier sind die häufigsten Fehler und unsere Tipps, um sie zu vermeiden.</p>
+
+        <div class="info-box pitfall-box">
+            <h3>Fehler #1: Zu früh anfangen</h3>
+            <p>Der mit Abstand häufigste und teuerste Fehler: Der Handwerker wird beauftragt, bevor die <strong>schriftliche Zusage</strong> der Kasse vorliegt. Kosten für Maßnahmen, die vor der Genehmigung durchgeführt wurden, werden grundsätzlich nicht erstattet.</p>
+        </div>
+        
+        <div class="info-box pitfall-box">
+            <h3>Fehler #2: Unvollständige Begründung</h3>
+            <p>Ein einfacher Satz wie "Wir brauchen eine neue Dusche" reicht der Kasse nicht. Der Antrag muss klar und nachvollziehbar begründen, warum der Umbau die Pflegesituation verbessert und die Selbstständigkeit fördert. Nutzen Sie unsere Mustervorlage als Orientierung.</p>
+        </div>
+
+        <div class="info-box pitfall-box">
+            <h3>Fehler #3: Falscher Kostenvoranschlag</h3>
+            <p>Das Angebot muss detailliert die Maßnahmen auflisten, die der Barrierefreiheit dienen. Ein Pauschalangebot für "Badsanierung" wird oft abgelehnt. Wir stellen sicher, dass unser Kostenvoranschlag alle Anforderungen der Kassen erfüllt.</p>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- Seite 9: Partnerwahl                                              -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>7. Worauf Sie bei der Wahl des Handwerkspartners achten sollten</h2>
+        <p>Die Auswahl des richtigen Betriebs ist entscheidend für einen stressfreien Ablauf. Achten Sie auf diese Qualitätsmerkmale:</p>
+        
+        <h4>Erfahrung mit Pflegekassen</h4>
+        <p>Fragen Sie direkt, ob der Betrieb regelmäßig mit Pflegekassen abrechnet und den Prozess kennt. Das erspart Ihnen viele Rückfragen und Korrekturschleifen.</p>
+        
+        <h4>Festpreisgarantie</h4>
+        <p>Ein seriöser Anbieter gibt Ihnen eine Festpreisgarantie. So sind Sie vor unerwarteten Nachforderungen geschützt und haben volle finanzielle Planbarkeit.</p>
+        
+        <h4>Spezialisierung auf Senioren</h4>
+        <p>Ein Betrieb, der sich auf seniorengerechte Umbauten spezialisiert hat, kennt die besonderen Anforderungen – von der richtigen Höhe der Haltegriffe bis zur optimalen Rutschfestigkeit des Bodens.</p>
+        
+        <h4>Sauberkeit & Pünktlichkeit</h4>
+        <p>Versprechen wie "staubfreier Umbau" oder "Umbau an einem Tag" sind entscheidend, um die Belastung für Ihre Angehörigen so gering wie möglich zu halten. Lesen Sie Kundenbewertungen, um zu sehen, ob diese Versprechen auch gehalten werden.</p>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- Seite 10: FAQ                                                     -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>8. Häufig gestellte Fragen (FAQ)</h2>
+        <div class="faq-section">
+            <details>
+                <summary>Was genau wird gefördert?</summary>
+                <p>Gefördert werden alle Maßnahmen, die Barrieren reduzieren. Beim Badumbau sind das typischerweise: Der Einbau einer bodengleichen Dusche, rutschfeste Fliesen, die Montage von Haltegriffen oder der Einbau eines unterfahrbaren Waschtischs.</p>
+            </details>
+            <details>
+                <summary>Kann ich den Zuschuss mehrmals beantragen?</summary>
+                <p>Der Zuschuss von 4.000 € ist eine einmalige Pauschale. Sollte sich der Pflegezustand jedoch erheblich verschlechtern und dadurch neue Umbauten notwendig werden, kann unter Umständen ein erneuter Antrag gestellt werden.</p>
+            </details>
+            <details>
+                <summary>Was ist, wenn ich den Umbau selbst durchführe?</summary>
+                <p>Die Pflegekasse bezuschusst auch Materialkosten, wenn Sie den Umbau in Eigenleistung durchführen. Sie benötigen dafür ebenfalls einen Kostenvoranschlag (vom Baumarkt) und müssen die Rechnungen für das Material einreichen.</p>
+            </details>
+            <details>
+                <summary>Muss ich das Geld an die Kasse zurückzahlen?</summary>
+                <p>Nein. Der Zuschuss für wohnumfeldverbessernde Maßnahmen ist eine Leistung der Pflegeversicherung und muss nicht zurückgezahlt werden, auch wenn sich die Wohnsituation ändert.</p>
+            </details>
+            <details>
+                <summary>Wie lange dauert die Genehmigung?</summary>
+                <p>Die gesetzliche Frist für eine Entscheidung liegt bei fünf Wochen. In der Praxis geht es oft schneller, aber Sie sollten diese Zeitspanne einplanen.</p>
+            </details>
+        </div>
+    </div>
+    
+    <!-- ================================================================= -->
+    <!-- Seite 11: Unser Versprechen                                       -->
+    <!-- ================================================================= -->
+    <div class="page">
+        <h2>9. Unser Versprechen an Sie: Das Sorglos-Paket</h2>
+        <p>
+            Wir wissen, dass Ihre Zeit kostbar ist. Deshalb bieten wir Ihnen mehr als nur den handwerklichen Umbau. Unser <strong>Sorglos-Paket</strong> ist unser Versprechen an Sie, den gesamten Prozess so einfach wie möglich zu gestalten.
+        </p>
+        <p>
+            Wir übernehmen die komplette Kommunikation mit der Pflegekasse, stellen sicher, dass alle Unterlagen korrekt sind und kümmern uns um die fristgerechte Einreichung. Sie haben einen festen Ansprechpartner für alle Fragen – handwerklich und administrativ.
+        </p>
+        <div class="final-cta">
+            <h3>Lassen Sie uns den Papierkram machen!</h3>
+            <p>Konzentrieren Sie sich auf das, was wirklich zählt. Wir kümmern uns um den Rest.</p>
+            <a href="https://backinthebuilding.com/kontakt.html" class="cta-button">Jetzt kostenloses Beratungsgespräch vereinbaren</a>
+        </div>
+        <footer>
+            Back in the Building GmbH | Emil Figge Straße 91, 44227 Dortmund | https://backinthebuilding.com/
+        </footer>
+    </div>
+
+</body>
+</html>

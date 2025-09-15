@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Post Vorschau: FB_002</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px-150x119.png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Figtree:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .fb-post-card {
+            width: 100%;
+            max-width: 500px;
+            background-color: #ffffff;
+            border: 1px solid #dddfe2;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .fb-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+        }
+        .fb-pfp {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .fb-title {
+            margin-left: 12px;
+        }
+        .fb-title h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: #050505;
+        }
+        .fb-title p {
+            margin: 0;
+            font-size: 12px;
+            color: #65676b;
+        }
+        .fb-text {
+            padding: 4px 16px 16px 16px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #050505;
+            white-space: pre-wrap;
+        }
+        .fb-text .hashtags {
+            color: #0866FF;
+            font-weight: 500;
+        }
+        .fb-carousel-wrapper {
+            position: relative;
+        }
+        .fb-carousel-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0 16px;
+            gap: 8px;
+            scrollbar-width: none; /* Firefox */
+        }
+        .fb-carousel-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        .fb-carousel-card {
+            flex: 0 0 100%;
+            width: 100%;
+            scroll-snap-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #dddfe2;
+        }
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .fb-link-preview {
+            display: block;
+            margin: 16px;
+            text-decoration: none;
+            color: inherit;
+        }
+        .fb-link-preview-content {
+            padding: 12px;
+            background-color: #f0f2f5;
+            border: 1px solid #dddfe2;
+            border-radius: 8px;
+        }
+        .fb-link-preview-content p {
+            margin: 0;
+            font-size: 12px;
+            color: #65676b;
+            text-transform: uppercase;
+        }
+        .fb-link-preview-content h4 {
+            margin: 4px 0 0 0;
+            font-size: 15px;
+            font-weight: 700;
+            color: #050505;
+        }
+        .fb-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 8px;
+            border-top: 1px solid #dddfe2;
+            margin: 16px 16px 0 16px;
+        }
+        .fb-action-button {
+            color: #65676b;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fb-post-card">
+        <div class="fb-header">
+            <div class="fb-pfp"></div>
+            <div class="fb-title">
+                <h3>Back in the building GmbH</h3>
+                <p>Gepostet: 21. Aug. 2025 · 🌐</p>
+            </div>
+        </div>
+        
+        <div class="fb-text">Sie möchten mehr Sicherheit in Ihrem Bad, aber scheuen den Gedanken an eine wochenlange, laute und schmutzige Baustelle in Ihrem Zuhause? Das verstehen wir.
+
+Deshalb haben wir unseren Prozess perfektioniert. Unser Versprechen: Gestern Wanne, heute Dusche. Garantiert. 💪
+
+Wir verwandeln Ihr altes Bad in nur einem einzigen Tag in eine sichere und komfortable Wohlfühloase – und das komplett staubfrei. Sie verlassen morgens Ihr Zuhause und kommen abends in Ihr fertiges, sofort nutzbares Bad zurück.
+
+Kein wochenlanger Lärm, kein Schmutz, keine Kompromisse. Wischen Sie nach links und sehen Sie den Unterschied! 👉
+
+<span class="hashtags">#Badumbau #Senioren #Komfort #SchnellUndSauber #Handwerk #Dortmund #Barrierefrei #Lebensqualität #Renovierung</span>
+        </div>
+        
+        <div class="fb-carousel-wrapper">
+            <div class="fb-carousel-container">
+                <div class="fb-carousel-card">
+                    <img src="../Bilder/fb-post-002-vorher.png" alt="Altes Badezimmer mit hoher Badewanne" class="carousel-image">
+                </div>
+                <div class="fb-carousel-card">
+                    <img src="../Bilder/fb-post-002-nachher.png
+                    " alt="Neues Badezimmer mit moderner, begehbarer Dusche" class="carousel-image">
+                </div>
+            </div>
+        </div>
+        
+        <a href="https://backinthebuilding.com/wanne-zu-dusche" target="_blank" class="fb-link-preview">
+            <div class="fb-link-preview-content">
+                <p>BACKINTHEBUILDING.COM</p>
+                <h4>Erfahren Sie mehr über unseren einzigartigen 1-Tag-Umbau</h4>
+            </div>
+        </a>
+
+        <div class="fb-actions">
+            <div class="fb-action-button">👍 Gefällt mir</div>
+            <div class="fb-action-button">💬 Kommentieren</div>
+            <div class="fb-action-button">🔁 Teilen</div>
+        </div>
+    </div>
+
+</body>
+</html>

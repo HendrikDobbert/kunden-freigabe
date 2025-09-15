@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Post Vorschau: FB_004</title>
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px-150x119.png" sizes="32x32">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .fb-post-card {
+            width: 100%;
+            max-width: 500px;
+            background-color: #ffffff;
+            border: 1px solid #dddfe2;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .fb-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+        }
+        .fb-pfp {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('https://backinthebuilding.com/wp-content/uploads/2024/12/cropped-LOGOS.pdf-200-x-200-px.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .fb-title {
+            margin-left: 12px;
+        }
+        .fb-title h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: #050505;
+        }
+        .fb-title p {
+            margin: 0;
+            font-size: 12px;
+            color: #65676b;
+        }
+        .fb-text {
+            padding: 4px 16px 16px 16px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #050505;
+            white-space: pre-wrap;
+        }
+        .fb-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* 1:1 Aspect Ratio for Square Video */
+            background-color: #000;
+        }
+        .fb-video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .play-button::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 20px solid white;
+            margin-left: 4px;
+        }
+        .fb-link-preview {
+            display: block;
+            margin: 0 16px 0 16px;
+            text-decoration: none;
+            color: inherit;
+        }
+        .fb-link-preview-content {
+            padding: 12px;
+            background-color: #f0f2f5;
+        }
+        .fb-link-preview-content p {
+            margin: 0;
+            font-size: 12px;
+            color: #65676b;
+            text-transform: uppercase;
+        }
+        .fb-link-preview-content h4 {
+            margin: 4px 0 0 0;
+            font-size: 15px;
+            font-weight: 700;
+            color: #050505;
+        }
+        .fb-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 8px;
+            border-top: 1px solid #dddfe2;
+            margin: 0 16px;
+        }
+        .fb-action-button {
+            color: #65676b;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 8px;
+            flex-grow: 1;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .fb-action-button:hover {
+            background-color: #f0f2f5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fb-post-card">
+        <div class="fb-header">
+            <div class="fb-pfp"></div>
+            <div class="fb-title">
+                <h3>Back in the building GmbH</h3>
+                <p>Gepostet: 28. Aug. 2025 · 🌐</p>
+            </div>
+        </div>
+        
+        <div class="fb-text">
+Ihr Bad in nur einem Tag: Unglaublich? ⏱️ Sehen Sie selbst!
+
+Viele glauben, ein Badumbau dauert ewig. Wir zeigen Ihnen, dass es auch anders geht. Dieses kurze Video visualisiert unseren perfektionierten Prozess, der es uns ermöglicht, Ihr Bad in nur 8 Stunden zu verwandeln.
+
+Gestern Wanne, heute Dusche. Garantiert.
+
+Alle Details zu unserem schnellen und sauberen Umbau finden Sie im ausführlichen Blogartikel.
+        </div>
+        
+        <a href="https://backinthebuilding.com/badumbau-1-tag-staubfrei/" target="_blank" class="fb-link-preview">
+            <div class="fb-video-wrapper">
+                <img src="../Bilder/FB_004_final_graphic.png" alt="Zeitraffer-Video des Badumbaus" class="fb-video-placeholder">
+                <div class="play-button"></div>
+            </div>
+            <div class="fb-link-preview-content">
+                <p>BACKINTHEBUILDING.COM</p>
+                <h4>Der komplette 1-Tages-Prozess im Detail erklärt</h4>
+            </div>
+        </a>
+
+        <div class="fb-actions">
+            <div class="fb-action-button">👍 Gefällt mir</div>
+            <div class="fb-action-button">💬 Kommentieren</div>
+            <div class="fb-action-button">🔁 Teilen</div>
+        </div>
+    </div>
+
+</body>
+</html>
