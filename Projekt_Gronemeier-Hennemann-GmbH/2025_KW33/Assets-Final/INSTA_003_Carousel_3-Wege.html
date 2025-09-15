@@ -87,13 +87,15 @@
             color: #fff;
             position: relative;
         }
-        .slide::before { /* Dunkler Overlay für bessere Lesbarkeit */
+        /* Der Overlay wird bei Bedarf durch das Bild selbst erzeugt, daher hier auskommentiert
+        .slide::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
             background-color: rgba(0,0,0,0.5);
             border-radius: 0;
         }
+        */
         .slide-content {
             position: relative;
             z-index: 2;
@@ -149,61 +151,22 @@
             </div>
             <div class="carousel-container">
                 <div class="carousel-track">
-                    <!-- Slide 1 -->
-                    <div class="slide slide-title" style="background-image: url('gmb_post_teuerster_fehler.png');">
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="slide" style="background-image: url('fsgh-master-foto-tiktok-kosten-ueber-4000-euro-2025-08-02_v01.jpg');">
-                        <div class="slide-content">
-                            <h2>...ist für Stunden zu zahlen, die du nie gebraucht hättest.</h2>
+                    <div class="slide slide-title" style="background-image: url('../Bilder/INSTA_003_1_gronemeier_2025-09-15.png');">
                         </div>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="slide" style="background-image: url('fsgh-master-foto-theorie-unterricht-klasse-laptop-2025-07-28_v01.jpg');">
-                        <div class="slide-content">
-                            <h2>Weg #1: Wissen, das Geld spart</h2>
-                            <p>Unsere praxisnahe Theorie bereitet dich im Kopf so gut vor, dass du auf der Straße weniger Zeit für die Grundlagen brauchst.</p>
-                        </div>
-                    </div>
-                    <!-- Slide 4 -->
-                    <div class="slide" style="background-image: url('fsgh-master-foto-fahrsimulator-cockpit-technologie-2025-07-28_v01.jpg');">
-                        <div class="slide-content">
-                            <h2>Weg #2: Üben ohne Taxameter</h2>
-                            <p>Im Simulator trainierst du komplexe Situationen sicher und ohne Druck. Jede Minute hier spart dir bares Geld für echte Fahrstunden.</p>
-                        </div>
-                    </div><!-- Slide 5 -->
-                    <div class="slide" style="background-image: url('fsgh-master-grafik-app-drivebuzz-mockup-screens-2025-07-28_v01.png');">
-                        <div class="slide-content">
-                            <h2>Weg #3: Planung, die sich auszahlt</h2>
-                            <p>Unser 5-Meilenstein-Plan sorgt für einen klaren Ablauf und verhindert unnötige "Füll-Stunden". Du hast immer die volle Kostenkontrolle.</p>
-                        </div>
-                    </div>
-                    <!-- Slide 6 -->
-                    <div class="slide testimonial-slide" style="background-color: #009ee2;">
-                        <div class="slide-content">
-                            <p>"Preis-Leistungsverhältnis top!"</p>
-                            <h3>- Frank H. (Google-Bewertung)</h3>
-                        </div>
-                    </div>
-                    <!-- Slide 7 -->
-                    <div class="slide" style="background-image: url('fsgh-master-foto-buero-wartebereich-gruen-2025-07-28_v01.jpg');">
-                        <div class="slide-content">
-                            <h2>Dein Top-Spar-Tipp?</h2>
-                             <div class="poll-box">
-                                <strong>Stimm ab!</strong>
-                                <p>[ Hier wäre ein Instagram Poll-Sticker ]</p>
-                                <p><strong>Simulator</strong> vs. <strong>Planung</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide 8 -->
-                    <div class="slide" style="background-image: url('fsgh-master-foto-portrait-team-vanessa-fiala-2025-07-28_v01.jpg');">
-                        <div class="slide-content">
-                            <h2>Bereit, clever zu sparen?</h2>
-                            <p>Alle Details zu unserem System für weniger Fahrstunden findest du im neuen Blogartikel.</p>
-                            <span class="cta-button">Link in Bio!</span>
-                        </div>
-                    </div>
+                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_2_gronemeier_2025-09-15.png');">
+                         </div>
+                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_3_gronemeier_2025-09-15.png');">
+                         </div>
+                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_4_gronemeier_2025-09-15.png');">
+                         </div>
+                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_5_gronemeier_2025-09-15.png');">
+                         </div>
+                    <div class="slide testimonial-slide" style="background-image: url('../Bilder/INSTA_003_6_gronemeier_2025-09-15.png');">
+                         </div>
+                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_7_gronemeier_2025-09-15.png');">
+                         </div>
+                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_8_gronemeier_2025-09-15.png');">
+                         </div>
                 </div>
                 <button class="nav-arrow prev" onclick="navigate(-1)">&#10094;</button>
                 <button class="nav-arrow next" onclick="navigate(1)">&#10095;</button>
