@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arens GmbH: Strategische Ausrichtung Q3 2025 (Finale Version)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* === FINALE CI-KONFORME STYLES - BASIEREND AUF ALLEN FEEDBACKS === */
+        :root {
+            --ci-primary-lightblue: #6EC1E4;
+            --ci-corporate-teal: #1E9B93;
+            --ci-corporate-teal-hover: #16736E;
+            --ci-secondary-darkgrey: #54595F;
+            --ci-accent-green: #61CE70;
+            --ci-text-grey: #7A7A7A;
+            
+            --bg-light: #F7F7F7;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            background-color: var(--bg-light);
+            color: var(--ci-text-grey);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .header {
+            background-color: var(--bg-white);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header img {
+            max-height: 50px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+color: #1E9B93;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);    
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-of-type {
+            border-bottom: none;
+        }
+        
+        /* === FINALE, KORRIGIERTE H2-REGEL === */
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1.75rem;
+color: #1E9B93;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);            
+    border-bottom: 2px solid var(--ci-corporate-teal); /* Akzentlinie für klare Trennung */
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .kpi-box {
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 5px solid var(--ci-corporate-teal);
+        }
+        .kpi-box-title {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 400;
+            color: var(--ci-secondary-darkgrey);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .kpi-box ul, .kpi-box p {
+            font-size: 14px;
+            padding-left: 20px;
+            margin: 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #aaaaaa;
+            background-color: var(--bg-light);
+        }
+        
+        #approvalDashboard table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        #approvalDashboard th, #approvalDashboard td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+            vertical-align: middle;
+        }
+        #approvalDashboard thead th {
+            background-color: #f9f9f9;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            color: var(--ci-secondary-darkgrey);
+            border-bottom-width: 2px;
+        }
+
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; gap: 2px; }
+        .rating > input { display: none; }
+        .rating > label { position: relative; width: 1.2em; font-size: 22px; color: #cccccc; cursor: pointer; transition: color 0.2s; }
+        .rating > label::before { content: "\2605"; }
+        .rating > label:hover, .rating > label:hover ~ label { color: var(--ci-accent-green); }
+        .rating > input:checked ~ label { color: var(--ci-accent-green); }
+
+        .feedback-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 50px;
+        }
+        
+        .approval-checkbox { display: none; }
+        .approval-label { display: inline-block; background-color: #6c757d; color: var(--bg-white); padding: 10px 20px; border-radius: 3px; cursor: pointer; font-weight: bold; transition: all 0.2s ease; text-align: center; min-width: 100px; font-size: 15px; }
+        .approval-checkbox:checked + .approval-label { background-color: var(--ci-accent-green); }
+        .approval-label .text-approve { display: inline; }
+        .approval-label .text-approved { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approve { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approved { display: inline; }
+
+        /* === FINALE, 100% KORREKTE BUTTON-STYLES === */
+        #submitFeedback {
+            border: none;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1;
+            border-radius: 3px;
+            cursor: pointer;
+            background-color: var(--ci-corporate-teal);
+            color: white;
+            fill: white;
+            transition: all .3s;
+            float: right;
+        }
+        #submitFeedback:hover {
+            background-color: var(--ci-corporate-teal-hover);
+            color: #FFFFFF;
+            transform: scale(1.1);
+            border-radius: 3px; /* NEU: Veränderung des Radius beim Hover */
+        }
+        
+        #successMessage, #errorMessage { display: none; text-align: center; margin-top: 20px; padding: 12px; border-radius: 8px; font-weight: bold; clear: both; }
+        #successMessage { color: #1E9B93; background-color: #eaf7ec; border: 1px solid #1E9B93; }
+        #errorMessage { color: #dc3545; background-color: #fff0f1; border: 1px solid #dc3545; }
+        
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .brochure { border: none; box-shadow: none; border-radius: 0; }
+            .header, .section { padding: 20px 15px; }
+            .header h1 { font-size: 24px; }
+            .kpi-grid { grid-template-columns: 1fr; }
+            #approvalDashboard table, #approvalDashboard thead, #approvalDashboard tbody, #approvalDashboard th, #approvalDashboard td, #approvalDashboard tr { display: block; }
+            #approvalDashboard thead { display: none; }
+            #approvalDashboard tr { border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 20px; padding: 15px; background: #f9f9f9; }
+            #approvalDashboard td { border: none; border-bottom: 1px dotted #ccc; position: relative; padding-left: 50%; padding-top: 8px; padding-bottom: 8px; text-align: right; min-height: 24px; }
+            #approvalDashboard td:last-child { border-bottom: none; }
+            #approvalDashboard td:before { content: attr(data-label); position: absolute; left: 10px; width: 45%; padding-right: 10px; white-space: nowrap; font-weight: bold; text-align: left; color: var(--ci-secondary-darkgrey); }
+            .feedback-textarea, .approval-label { width: 100%; box-sizing: border-box; }
+            .rating { justify-content: flex-end; }
+            #submitFeedback { width: 100%; margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH.jpg" alt="Logo Fliesen Arens GmbH">
+            <h1>Strategische Ausrichtung: Q3 2025</h1>
+            <p>Proof of Value: Der saubere Weg zu warmer Behaglichkeit.</p>
+        </header>
+
+        <section class="section">
+            <h2>Die strategische Blaupause</h2>
+            <p>Kein lokaler Wettbewerber besetzt aktiv das Thema 'Fußbodenheizung nachträglich einfräsen'. Unsere Analyse zeigt jedoch ein hohes Suchvolumen mit geringer Konkurrenz. Wir werden diese Lücke mit einem gezielten Content-Angriff auf den USP 'staubfreie Sanierung' besetzen, um den Haupt-Schmerzpunkt (Schmutz, Aufwand) der Kern-Persona direkt zu lösen.</p>
+            
+            <div class="kpi-box" style="margin-top: 20px; border-left-color: var(--ci-accent-green);">
+                <span class="kpi-box-title">🎯 QUARTALS-MOTTO & HAUPTZIEL</span>
+                <p><strong>"Proof of Value: Der saubere Weg zu warmer Behaglichkeit"</strong></p>
+                <p style="margin-top: 5px; padding-left:0;">Innerhalb von 2 Monaten die lokale Marktführerschaft für "staubfreies Nachrüsten von Fußbodenheizungen" in Dortmund erlangen und eine messbare Anzahl qualifizierter Anfragen für diese hochprofitable Dienstleistung generieren.</p>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-box">
+                    <span class="kpi-box-title">👥 FOKUS-PERSONA</span>
+                    <ul>
+                        <li><b>Die anspruchsvolle Modernisiererin</b></li>
+                        <li style="color: var(--ci-text-grey); font-size: 13px;">Haupt-Sorge: Angst vor Baustellen-Chaos & Staubbelastung.</li>
+                    </ul>
+                </div>
+                <div class="kpi-box">
+                    <span class="kpi-box-title">🔑 FOKUS-THEMEN</span>
+                    <ul>
+                        <li>Intelligente Sanierung: Fußbodenheizung fräsen</li>
+                        <li>Wohnkomfort & Gesundheit: Staubfreie Baustelle</li>
+                        <li>Energieeffizienz & Wertsteigerung</li>
+                    </ul>
+                </div>
+                <div class="kpi-box">
+                    <span class="kpi-box-title">📈 PRIMÄRE ERFOLGSMETRIKEN</span>
+                    <ul>
+                        <li>10 qualifizierte Leads für 'Fußbodenheizung fräsen'</li>
+                        <li>Top-5-Ranking für 'fußbodenheizung fräsen dortmund'</li>
+                        <li>30% mehr Traffic auf der Landingpage</li>
+                    </ul>
+                </div>
+                <div class="kpi-box">
+                    <span class="kpi-box-title">📢 KANAL-FOKUS</span>
+                    <ul>
+                        <li>SEO-Blog (Themenführerschaft)</li>
+                        <li>Google Business Profile (Lokale Sichtbarkeit)</li>
+                        <li>Instagram (Visuelle Inspiration)</li>
+                        <li>Outreach (Backlink-Aufbau)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Strategisches Feedback & Freigabe</h2>
+            <p>Wir sind überzeugt, dass dies der schlagkräftigste Plan ist. Wie bewerten Sie diese strategische Ausrichtung? Ihr Feedback ist entscheidend für den gemeinsamen Erfolg.</p>
+
+            <div id="approvalDashboard">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 45%;">Strategie-Element</th>
+                            <th style="text-align: center;">Bewertung</th>
+                            <th style="width: 35%;">Änderungswunsch / Anmerkung</th>
+                            <th style="text-align: center;">Freigabe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-asset-id="Gesamtstrategie_Q3_2025_Arens">
+                            <td data-label="Element">
+                                <strong style="display: block; color: var(--ci-secondary-darkgrey);">Gesamtstrategie Q3 2025</strong>
+                                <span style="font-size: 13px;">"Der saubere Weg zu warmer Behaglichkeit"</span>
+                            </td>
+                            <td data-label="Bewertung">
+                                <div class="rating">
+                                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+                                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+                                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+                                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+                                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+                                </div>
+                            </td>
+                            <td data-label="Feedback">
+                                <textarea name="feedback" placeholder="Ihre Anmerkungen..." class="feedback-textarea"></textarea>
+                            </td>
+                            <td data-label="Freigabe">
+                                <input type="checkbox" name="approve" id="approve-strategy" class="approval-checkbox">
+                                <label for="approve-strategy" class="approval-label">
+                                    <span class="text-approve">Freigeben</span>
+                                    <span class="text-approved">Freigegeben ✔</span>
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+              <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+    <button id="submitFeedback">Feedback Senden</button>
+</div>
+                <div id="successMessage"></div>
+                <div id="errorMessage"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Erstellt für Fliesen Arens GmbH | August 2025</p>
+        </footer>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const submitButton = document.getElementById('submitFeedback');
+        const dashboard = document.getElementById('approvalDashboard');
+        const successMessageDiv = document.getElementById('successMessage');
+        const errorMessageDiv = document.getElementById('errorMessage');
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz35C09lLH_3fICgTdAWZl9_6dVlAKUyv0dwl7Z5dE3-Au8HO7sIqZm4lsXC6MCHEj6/exec'; 
+        const storageKey = 'approvalState_Strategy_Q3_2025_Arens';
+
+        const saveData = () => {
+            const data = {};
+            dashboard.querySelectorAll('input[type="checkbox"], input[type="radio"], textarea').forEach(el => {
+                if (el.type === 'checkbox') { data[el.name] = el.checked; } 
+                else if (el.type === 'radio') { if (el.checked) { data[el.name] = el.value; } } 
+                else { data[el.name] = el.value; }
+            });
+            localStorage.setItem(storageKey, JSON.stringify(data));
+        };
+
+        const loadData = () => {
+            const savedData = localStorage.getItem(storageKey);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const name in data) {
+                    if (name.startsWith('rating')) {
+                        const el = dashboard.querySelector(`input[name="${name}"][value="${data[name]}"]`);
+                        if (el) el.checked = true;
+                    } else {
+                        const el = dashboard.querySelector(`[name="${name}"]`);
+                        if (el) {
+                            if (el.type === 'checkbox') el.checked = data[name];
+                            else el.value = data[name];
+                        }
+                    }
+                }
+            }
+        };
+        
+        dashboard.addEventListener('input', saveData);
+        loadData();
+
+        submitButton.addEventListener('click', () => {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sende...';
+            successMessageDiv.style.display = 'none';
+            errorMessageDiv.style.display = 'none';
+            const ratingInput = dashboard.querySelector('input[name="rating"]:checked');
+            const feedbackInput = dashboard.querySelector('textarea[name="feedback"]');
+            const approvalInput = dashboard.querySelector('input[name="approve"]');
+            const approved = approvalInput ? approvalInput.checked : false;
+            const statusText = approved ? 'Freigegeben' : 'Änderungswunsch';
+            const payload = {
+                kundenId: 'Fliesen-Arens-GmbH',
+                freigabeTyp: 'Strategie',
+                strategieId: 'Q3_2025',
+                daten: [{
+                    assetId: 'Gesamtstrategie_Q3_2025_Arens',
+                    bewertung: ratingInput ? ratingInput.value : 'N/A',
+                    feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                    status: statusText
+                }]
+            };
+            const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${encodeURIComponent(JSON.stringify(payload))}`;
+            let scriptTag = document.createElement('script');
+            scriptTag.src = finalUrl;
+            document.body.appendChild(scriptTag);
+            setTimeout(() => {
+                if (submitButton.disabled) {
+                    errorMessageDiv.innerHTML = `Ein Fehler ist aufgetreten: Zeitüberschreitung bei der Anfrage.`;
+                    errorMessageDiv.style.display = 'block';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Erneut versuchen';
+                }
+            }, 8000);
+        });
+
+        window.feedbackGesendet = function(response) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Feedback senden';
+            if (response.status === 'Erfolg') {
+                successMessageDiv.innerHTML = `✔ Vielen Dank! Ihr Feedback wurde erfolgreich übermittelt. Sie können es bei Bedarf erneut senden, um es zu aktualisieren.`;
+                successMessageDiv.style.display = 'block';
+                submitButton.textContent = 'Feedback aktualisieren';
+                localStorage.removeItem(storageKey);
+                setTimeout(() => { successMessageDiv.style.display = 'none'; }, 6000);
+            } else {
+                errorMessageDiv.innerHTML = `Ein Fehler ist aufgetreten: ${response.nachricht || 'Unbekannter Fehler'}`;
+                errorMessageDiv.style.display = 'block';
+            }
+            const scripts = document.querySelectorAll('script[src*="script.google.com"]');
+            scripts.forEach(s => s.remove());
+        };
+    });
+    </script>
+</body>
+</html>

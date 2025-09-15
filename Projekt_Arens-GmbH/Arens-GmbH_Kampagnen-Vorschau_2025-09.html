@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arens GmbH: Kampagnen-Vorschau September 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ci-primary-lightblue: #6EC1E4;
+            --ci-corporate-teal: #1E9B93;
+            --ci-corporate-teal-hover: #16736E;
+            --ci-secondary-darkgrey: #54595F;
+            --ci-accent-green: #61CE70;
+            --ci-text-grey: #7A7A7A;
+            --ci-red-reset: #dc3545;
+            --bg-light: #F7F7F7;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--ci-text-grey);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        .header {
+            background-color: var(--bg-white);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header img {
+            max-height: 50px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+            color: var(--ci-corporate-teal);
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13); 
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-of-type { border-bottom: none; }
+        
+        .section p {
+            font-size: 18px;
+            color: #000000;
+            line-height: 1.7;
+        }
+        
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1.75rem;
+            color: var(--ci-corporate-teal);
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+            border-bottom: 2px solid var(--ci-corporate-teal);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .kpi-box {
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            border-left: 5px solid var(--ci-corporate-teal);
+        }
+        .kpi-box-title {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 400;
+            color: var(--ci-secondary-darkgrey);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .week-plan { margin-bottom: 30px; }
+        .week-plan:last-child { margin-bottom: 0; }
+        .week-plan h3 {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: var(--ci-secondary-darkgrey);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .week-plan ul {
+            list-style-type: '✓ ';
+            padding-left: 20px;
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #000;
+        }
+        .week-plan ul li::marker {
+            color: var(--ci-corporate-teal);
+            font-weight: bold;
+        }
+        
+        .feedback-item { 
+            background-color: var(--bg-light); 
+            border-radius: 8px; 
+            padding: 20px; 
+            margin-bottom: 15px; 
+            border: 1px solid var(--border-color);
+        }
+        .feedback-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;}
+        .feedback-item-header h4 { margin: 0; font-family: 'Roboto', sans-serif; font-weight: 600; color: var(--ci-secondary-darkgrey); font-size: 16px;}
+        
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; gap: 2px; }
+        .rating > input { display: none; }
+        .rating > label { position: relative; width: 1.2em; font-size: 22px; color: #cccccc; cursor: pointer; transition: color 0.2s; }
+        .rating > label::before { content: "\2605"; }
+        .rating > label:hover, .rating > label:hover ~ label { color: var(--ci-corporate-teal); }
+        .rating > input:checked ~ label { color: var(--ci-corporate-teal); }
+        
+        .feedback-textarea { 
+            width: 100%; 
+            box-sizing: border-box; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            padding: 12px; 
+            font-family: 'Roboto', sans-serif; 
+            font-size: 14px; 
+            margin-top: 10px; 
+            resize: vertical; 
+        }
+
+        .submit-button { 
+            border: none;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1;
+            border-radius: 3px;
+            cursor: pointer;
+            background-color: var(--ci-corporate-teal);
+            color: white;
+            transition: all .3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+        }
+        .submit-button:hover { 
+            background-color: var(--ci-corporate-teal-hover);
+            transform: scale(1.1);
+            border-radius: 3px;
+        }
+
+        .submit-button .button-spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        .submit-button.loading .button-spinner { display: block; }
+        .submit-button.loading .button-text { display: none; }
+
+        #successMessage, #errorMessage { display: none; padding: 12px; margin-top: 20px; border-radius: 8px; font-weight: bold; }
+        #successMessage { color: var(--ci-corporate-teal); background-color: #eaf7ec; border: 1px solid var(--ci-corporate-teal); }
+        #errorMessage { color: #dc3545; background-color: #fff0f1; border: 1px solid #dc3545; }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #aaaaaa;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .brochure { border: none; box-shadow: none; }
+            .header, .section { padding: 25px 15px; }
+            .header h1 { font-size: 24px; }
+            .feedback-item-header { flex-direction: column; align-items: flex-start; }
+            .submit-button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH.jpg" alt="Logo Fliesen Arens GmbH">
+            <h1>Kampagnen-Vorschau & Redaktionsplan-Freigabe</h1>
+            <p>September 2025</p>
+        </header>
+
+        <section class="section">
+            <h2>Unsere Mission für September</h2>
+            <p>Wir starten in das dritte Quartal mit der Kampagne <strong>"Der saubere Weg zu warmer Behaglichkeit"</strong>. Das Ziel für September ist, mit hochwertigen "Anker-Inhalten" sofortige Autorität aufzubauen, alle Kundenfragen proaktiv zu beantworten und erste Leads zu generieren.</p>
+            <div class="kpi-box">
+                <span class="kpi-box-title">Primäre KPIs:</span>
+                <ul style="padding-left: 20px; font-size: 14px; color: var(--ci-secondary-darkgrey);">
+                    <li>10+ qualifizierte Leads für "Fußbodenheizung fräsen"</li>
+                    <li>Top-5 Google-Ranking für "fußbodenheizung fräsen dortmund"</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Der Content-Fahrplan: September 2025</h2>
+            
+            <div class="week-plan">
+                <h3>KW 36 (01.09. - 05.09.): Launch-Woche & Experten-Anker</h3>
+                <ul>
+                    <li><strong>Lead Magnet:</strong> Checkliste: Ist mein Haus für eine gefräste Fußbodenheizung geeignet?</li>
+                    <li><strong>Grafik-Asset:</strong> Social Proof: Bestehende Google Review als Zitat-Grafik aufbereiten.</li>
+                    <li><strong>Video-Asset:</strong> Experten-Anker: 5 Fragen an Matthias Arens zu Mythen der FBH-Sanierung.</li>
+                    <li><strong>Blog:</strong> Der komplette Guide: Fußbodenheizung im Altbau nachrüsten – ohne Dreck und Stress.</li>
+                    <li><strong>GMB:</strong> Neuigkeit: Endlich warme Füße ohne Baustellen-Chaos!</li>
+                    <li><strong>Instagram:</strong> Reel: So fräsen wir eine Fußbodenheizung (fast) ohne Staub.</li>
+                    <li><strong>E-Mail:</strong> Newsletter: Ihr Zuhause kann mehr: Komfort-Upgrade ohne Baustelle.</li>
+                    <li><strong>Facebook:</strong> Mythos vs. Wahrheit: Fußbodenheizung im Altbau.</li>
+                    <li><strong>GMB:</strong> Angebot: Kostenlose Erstberatung für Ihre Heizungs-Modernisierung.</li>
+                </ul>
+            </div>
+            
+            <div class="week-plan">
+                <h3>KW 37 (08.09. - 12.09.): Fokus auf Kosten & Transparenz</h3>
+                <ul>
+                    <li><strong>Blog:</strong> Was kostet eine gefräste Fußbodenheizung? Eine ehrliche Kosten- & Spar-Analyse.</li>
+                    <li><strong>GMB:</strong> Neuigkeit: "Die Kosten im Detail: Lohnt sich eine gefräste FBH für Sie?"</li>
+                    <li><strong>Instagram:</strong> Infografik-Carousel: Die 3 größten Kostenfaktoren bei einer FBH-Fräsung.</li>
+                    <li><strong>Facebook:</strong> Experten-Zitat zum Thema Energieeffizienz & Sparen (Video-Recycling).</li>
+                    <li><strong>E-Mail:</strong> Newsletter: Die Antwort auf die häufigste Frage: "Was kostet der Komfort?"</li>
+                    <li><strong>GMB:</strong> Q&A: "Schadet das Fräsen meinem Estrich?"</li>
+                </ul>
+            </div>
+
+            <div class="week-plan">
+                <h3>KW 38 (15.09. - 19.09.): Der Prozess & das Kundenerlebnis</h3>
+                <ul>
+                    <li><strong>Grafik-Asset:</strong> Infografik: "Der 5-Tage-Plan zur staubfreien Sanierung".</li>
+                    <li><strong>Blog:</strong> FBH-Fräsen in 5 Tagen: Der staubfreie Prozess von der Anfrage bis zum warmen Boden.</li>
+                    <li><strong>GMB:</strong> Neuigkeit: "Wie läuft eine staubfreie Sanierung wirklich ab? Wir zeigen es Ihnen!"</li>
+                    <li><strong>Instagram:</strong> Vorher/Nachher-Carousel: "Von alten Heizkörpern zu freiem Wohnraum".</li>
+                    <li><strong>Facebook:</strong> Video-Clip: "Unser Versprechen für einen reibungslosen Ablauf" (Video-Recycling).</li>
+                    <li><strong>E-Mail:</strong> Newsletter: "Ein Blick hinter die Kulissen unserer staubfreien Sanierung".</li>
+                    <li><strong>GMB:</strong> "Was unsere Kunden sagen: Sauber, schnell und professionell." (Review-Recycling).</li>
+                </ul>
+            </div>
+
+            <div class="week-plan">
+                <h3>KW 39 (22.09. - 26.09.): Emotionale Vorteile & Wertsteigerung</h3>
+                <ul>
+                    <li><strong>Blog:</strong> Mehr als nur warme Füße: Wie eine FBH Gesundheit, Wohnraum & Immobilienwert verbessert.</li>
+                    <li><strong>GMB:</strong> Neuigkeit: "Heizung an, Stauballergie aus? Wie eine FBH Ihr Raumklima verbessert."</li>
+                    <li><strong>Instagram:</strong> Zitat-Post: "Der größte Gewinn war die neue Ruhe und Ästhetik im Raum."</li>
+                    <li><strong>Facebook:</strong> Video-Clip: "Eine moderne Heizung ist auch eine gesunde Heizung." (Video-Recycling).</li>
+                    <li><strong>E-Mail:</strong> Newsletter: "Ihr Zuhause ist mehr wert, als Sie denken."</li>
+                    <li><strong>GMB:</strong> Angebot: "Investieren Sie in Ihren Immobilienwert: Beratung zur Heizungsmodernisierung".</li>
+                </ul>
+            </div>
+
+             <div class="week-plan">
+                <h3>Laufende Monatsaufgaben (September)</h3>
+                <ul>
+                    <li><strong>Gastbeitrag:</strong> Erstellung & Platzierung des Artikels "Die 5 größten Fehler bei der Altbausanierung".</li>
+                    <li><strong>Netzwerkaufbau:</strong> Systematische Vernetzung mit lokalen Architekten & Designern auf LinkedIn.</li>
+                    <li><strong>Prozess-Optimierung:</strong> Implementierung des Prozesses zur Generierung von Google Reviews.</li>
+                </ul>
+            </div>
+
+        </section>
+        
+        <section class="section">
+            <h2>Strategisches Feedback & Freigabe des Plans</h2>
+            <p>Wir sind überzeugt, dass dieser Plan die richtige strategische Ausrichtung hat. Bitte geben Sie uns Ihr finales "Go", damit wir mit der Produktion der Inhalte beginnen können.</p>
+
+            <div id="feedbackDashboard">
+                <div class="feedback-item">
+                    <div class="feedback-item-header">
+                        <h4>Ihre Gesamteinschätzung des Redaktionsplans:</h4>
+                        <div class="rating">
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-5" value="5"><label for="rating-redaktionsplan-5"></label>
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-4" value="4"><label for="rating-redaktionsplan-4"></label>
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-3" value="3"><label for="rating-redaktionsplan-3"></label>
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-2" value="2"><label for="rating-redaktionsplan-2"></label>
+                             <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-1" value="1"><label for="rating-redaktionsplan-1"></label>
+                        </div>
+                    </div>
+                    <textarea name="feedback-text-redaktionsplan" class="feedback-textarea" rows="3" placeholder="Ihre Anmerkungen, Wünsche oder Bedenken zum Gesamtplan..."></textarea>
+                </div>
+                <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+                    <button id="submitFeedback" class="submit-button">
+                        <span class="button-text">Redaktionsplan freigeben</span>
+                        <span class="button-spinner"></span>
+                    </button>
+                </div>
+                <div id="successMessage"></div>
+                <div id="errorMessage"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Erstellt für Fliesen Arens GmbH | September 2025</p>
+        </footer>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz35C09lLH_3fICgTdAWZl9_6dVlAKUyv0dwl7Z5dE3-Au8HO7sIqZm4lsXC6MCHEj6/exec';
+        const storageKey = 'campaignApproval_Sep_2025_Arens';
+
+        const feedbackDashboard = document.getElementById('feedbackDashboard');
+        if (!feedbackDashboard) return;
+
+        const submitButton = document.getElementById('submitFeedback');
+        const successMessageDiv = document.getElementById('successMessage');
+        const errorMessageDiv = document.getElementById('errorMessage');
+
+        const showMessage = (element, message) => {
+            element.textContent = message;
+            element.style.display = 'block';
+        };
+
+        const hideMessages = () => {
+            successMessageDiv.style.display = 'none';
+            errorMessageDiv.style.display = 'none';
+        };
+
+        const setLoadingState = (isLoading) => {
+            submitButton.classList.toggle('loading', isLoading);
+            submitButton.disabled = isLoading;
+        };
+
+        window.feedbackGesendet = function(response) {
+            setLoadingState(false);
+            if (response.status === 'Erfolg') {
+                showMessage(successMessageDiv, `✔ Feedback erfolgreich übermittelt.`);
+                submitButton.querySelector('.button-text').textContent = 'Freigabe aktualisieren';
+                setTimeout(() => { successMessageDiv.style.display = 'none'; }, 6000);
+            } else {
+                showMessage(errorMessageDiv, "Ein Fehler ist aufgetreten: " + response.nachricht);
+            }
+        };
+
+        const saveData = () => {
+            const data = {};
+            feedbackDashboard.querySelectorAll('input[type="radio"]:checked, textarea').forEach(el => {
+                data[el.name] = el.value;
+            });
+            localStorage.setItem(storageKey, JSON.stringify(data));
+        };
+
+        const loadData = () => {
+            const savedData = localStorage.getItem(storageKey);
+            if (!savedData) return;
+            const data = JSON.parse(savedData);
+            for (const name in data) {
+                const el = feedbackDashboard.querySelector(`[name="${name}"][value="${data[name]}"]`);
+                if (el && el.type === 'radio') {
+                    el.checked = true;
+                } else {
+                    const textarea = feedbackDashboard.querySelector(`[name="${name}"]`);
+                    if (textarea) textarea.value = data[name];
+                }
+            }
+        };
+
+        submitButton.addEventListener('click', function() {
+            hideMessages();
+            const ratingInput = feedbackDashboard.querySelector('input[name="rating-redaktionsplan"]:checked');
+            if (!ratingInput) {
+                showMessage(errorMessageDiv, 'Bitte geben Sie eine Sterne-Bewertung ab, um den Plan freizugeben.');
+                return;
+            }
+
+            setLoadingState(true);
+            const feedbackInput = feedbackDashboard.querySelector('textarea[name="feedback-text-redaktionsplan"]');
+            
+            const payload = {
+                kundenId: 'Fliesen-Arens-GmbH',
+                freigabeTyp: 'Kampagnenplan',
+                kampagnenId: 'Q3-2025-Fussbodenheizung',
+                zeitraum: 'September-2025',
+                daten: [{
+                    bewertung: ratingInput.value,
+                    feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                    status: 'Freigegeben'
+                }]
+            };
+
+            const dataString = encodeURIComponent(JSON.stringify(payload));
+            const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${dataString}`;
+            
+            document.querySelectorAll('script[src*="script.google.com"]').forEach(s => s.remove());
+
+            let scriptTag = document.createElement('script');
+            scriptTag.src = finalUrl;
+            scriptTag.onerror = () => {
+                setLoadingState(false);
+                showMessage(errorMessageDiv, 'Netzwerkfehler: Das Feedback konnte nicht gesendet werden.');
+            };
+            document.body.appendChild(scriptTag);
+        });
+
+        feedbackDashboard.addEventListener('input', saveData);
+        loadData();
+    });
+    </script>
+</body>
+</html>

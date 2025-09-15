@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arens GmbH: Finale Content-Freigabe KW 36</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* ANPASSUNG: Farben aus der Arens CI DB */
+            --ci-corporate-teal: #1E9B93;
+            --ci-corporate-teal-hover: #16736E;
+            --ci-secondary-darkgrey: #54595F;
+            --ci-accent-green: #61CE70;
+            --ci-text-grey: #7A7A7A;
+            --ci-red-reset: #dc3545;
+            --bg-light: #F7F7F7;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--ci-text-grey);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        .header {
+            background-color: var(--bg-white);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header img {
+            max-height: 50px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+            color: var(--ci-corporate-teal);
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-of-type { border-bottom: none; }
+
+        .section p {
+            font-size: 18px;
+            color: #000000;
+            line-height: 1.7;
+        }
+        
+        h2 {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--ci-corporate-teal);
+            border-bottom: 2px solid var(--ci-corporate-teal);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+                       text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+        }
+        
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .responsive-table th {
+            padding: 12px;
+            border-bottom: 2px solid var(--border-color);
+            text-align: left;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            color: var(--ci-secondary-darkgrey);
+        }
+        .responsive-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        .responsive-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .asset-title {
+            display: block;
+            color: var(--ci-secondary-darkgrey);
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .asset-description {
+            font-size: 14px;
+            color: var(--ci-text-grey);
+        }
+        
+        .view-button {
+            display: inline-block;
+            background-color: var(--ci-secondary-darkgrey);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all .2s;
+        }
+
+        .feedback-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 40px;
+        }
+        .approval-checkbox { display: none; }
+        .approval-label {
+            display: inline-block;
+            background-color: var(--ci-accent-green);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            min-width: 90px;
+        }
+        .approval-label .text-approve { display: inline; }
+        .approval-label .text-approved { display: none; }
+        .approval-checkbox:checked + .approval-label {
+            background-color: var(--ci-secondary-darkgrey);
+        }
+        .approval-checkbox:checked + .approval-label .text-approve { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approved { display: inline; }
+        
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; }
+        .rating input { display: none; }
+        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; }
+        .rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label { color: var(--ci-corporate-teal); }
+
+        .footer-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-button {
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .reset-button {
+            background-color: var(--bg-white);
+            color: var(--ci-red-reset);
+            border: 2px solid var(--ci-red-reset);
+        }
+        .reset-button:hover {
+            background-color: var(--ci-red-reset);
+            color: white;
+        }
+        .submit-global-button {
+            background-color: var(--ci-corporate-teal);
+            color: #ffffff;
+        }
+        .submit-global-button:hover {
+            background-color: var(--ci-corporate-teal-hover);
+            transform: scale(1.05);
+        }
+        
+        .content-funnel { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
+        .funnel-stage { background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 8px; }
+        .funnel-header {
+            display: flex; align-items: center; gap: 15px;
+            padding: 15px 20px; background-color: #eaf7f6;
+            border-bottom: 1px solid var(--border-color);
+            border-top-left-radius: 8px; border-top-right-radius: 8px;
+        }
+        .funnel-icon { font-size: 1.8rem; line-height: 1; }
+        .funnel-stage-title {
+            margin: 0; font-family: 'Roboto Slab', serif;
+            font-size: 18px; color: var(--ci-secondary-darkgrey);
+        }
+        .funnel-body { padding: 20px; }
+        .funnel-content-piece { font-weight: 600; color: #000; margin-top: 0; font-family: 'Roboto', sans-serif; }
+        .funnel-explanation { font-size: 15px; margin-bottom: 0; color: var(--ci-text-grey); }
+
+        #successMessage, #errorMessage { display: none; text-align:center; padding: 12px; margin-top: 20px; border-radius: 8px; font-weight: bold; }
+        #successMessage { color: var(--ci-corporate-teal); background-color: #eaf7ec; border: 1px solid var(--ci-corporate-teal); }
+        #errorMessage { color: var(--ci-red-reset); background-color: #fff0f1; border: 1px solid var(--ci-red-reset); }
+        
+        @media (max-width: 768px) {
+            .responsive-table thead { display: none; }
+            .responsive-table tr { display: block; margin-bottom: 20px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+            .responsive-table td { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; text-align: right; border-bottom: 1px solid #eee; }
+            .responsive-table tr td:last-child { border-bottom: none; }
+            .responsive-table td::before { content: attr(data-label); font-weight: bold; text-align: left; margin-right: 15px; color: var(--ci-secondary-darkgrey); }
+            .responsive-table td:first-child { display: block; text-align: left; background-color: #f9f9f9; padding: 15px; }
+            .responsive-table td:first-child::before { display: none; }
+            .footer-button-container {justify-content: center;}
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH.jpg" alt="Logo Fliesen Arens GmbH">
+            <h1>Content-Freigabe: KW 36</h1>
+            <p>Kampagne: FBH_Q3_2025 | Fokus: Launch-Woche & Experten-Anker</p>
+        </header>
+        <section class="section">
+            <h2>Die Strategie für KW 36</h2>
+            <p>Diese Woche launchen wir die Kampagne. Das Ziel: Ihre Expertise im Bereich der staubfreien Sanierung zu zementieren und qualifizierte Anfragen zu generieren. So spielen die Inhalte zusammen:</p>
+            
+            <div class="content-funnel">
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">🧲</span>
+                        <h3 class="funnel-stage-title">Der Köder (Lead-Generierung)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Asset:</strong> Lead Magnet "Eignungs-Checkliste"</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Löst ein echtes Problem potenzieller Kunden und sammelt im Gegenzug wertvolle E-Mail-Adressen.</p>
+                    </div>
+                </div>
+
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">📚</span>
+                        <h3 class="funnel-stage-title">Das Herzstück (Vertrauen & SEO)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Asset:</strong> Blog-Artikel "Der komplette Guide"</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Etabliert Sie als Autorität, schafft Vertrauen und ist für Suchmaschinen optimiert. Alle anderen Inhalte führen hierher.</p>
+                    </div>
+                </div>
+
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">🚀</span>
+                        <h3 class="funnel-stage-title">Die Verstärker (Traffic & Reichweite)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Assets:</strong> Social Media Posts (GMB, Instagram, Facebook)</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Visuelle Formate erzeugen Aufmerksamkeit und leiten Nutzer gezielt zum Blog-Artikel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="approvalSection">
+            <h2>Entwürfe zur finalen Prüfung & Freigabe</h2>
+            <p>Hier finden Sie die finalen Entwürfe für alle geplanten Inhalte der KW 36. Bitte prüfen Sie die Dokumente, geben Sie Feedback und erteilen Sie Ihre Freigabe direkt in der Tabelle.</p>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Inhalt (Asset)</th>
+                        <th>Entwurf</th>
+                        <th style="text-align: center;">Bewertung</th>
+                        <th style="width: 25%;">Änderungswunsch</th>
+                        <th style="text-align: center;">Freigabe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-asset-id="LM_001">
+                        <td data-label="Inhalt"><span class="asset-title">Lead Magnet</span><span class="asset-description">Checkliste: Ist mein Haus geeignet?</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/LM_001_Checkliste.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-lm" name="rating-LM_001" value="5"><label for="star5-lm">★</label><input type="radio" id="star4-lm" name="rating-LM_001" value="4"><label for="star4-lm">★</label><input type="radio" id="star3-lm" name="rating-LM_001" value="3"><label for="star3-lm">★</label><input type="radio" id="star2-lm" name="rating-LM_001" value="2"><label for="star2-lm">★</label><input type="radio" id="star1-lm" name="rating-LM_001" value="1"><label for="star1-lm">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-LM_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-lm" name="approve-LM_001" class="approval-checkbox"><label for="approve-lm" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="BLOG_001">
+                        <td data-label="Inhalt"><span class="asset-title">Blog-Artikel</span><span class="asset-description">Der komplette Guide: FBH im Altbau</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/BLOG_001_Guide_FBH.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-blog" name="rating-BLOG_001" value="5"><label for="star5-blog">★</label><input type="radio" id="star4-blog" name="rating-BLOG_001" value="4"><label for="star4-blog">★</label><input type="radio" id="star3-blog" name="rating-BLOG_001" value="3"><label for="star3-blog">★</label><input type="radio" id="star2-blog" name="rating-BLOG_001" value="2"><label for="star2-blog">★</label><input type="radio" id="star1-blog" name="rating-BLOG_001" value="1"><label for="star1-blog">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-BLOG_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-blog" name="approve-BLOG_001" class="approval-checkbox"><label for="approve-blog" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="GMB_001">
+                        <td data-label="Inhalt"><span class="asset-title">GMB: Neuigkeit</span><span class="asset-description">"Endlich warme Füße ohne Baustellen-Chaos!"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/GMB_001_Post.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-gmb1" name="rating-GMB_001" value="5"><label for="star5-gmb1">★</label><input type="radio" id="star4-gmb1" name="rating-GMB_001" value="4"><label for="star4-gmb1">★</label><input type="radio" id="star3-gmb1" name="rating-GMB_001" value="3"><label for="star3-gmb1">★</label><input type="radio" id="star2-gmb1" name="rating-GMB_001" value="2"><label for="star2-gmb1">★</label><input type="radio" id="star1-gmb1" name="rating-GMB_001" value="1"><label for="star1-gmb1">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-gmb1" name="approve-GMB_001" class="approval-checkbox"><label for="approve-gmb1" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="INSTA_001">
+                        <td data-label="Inhalt"><span class="asset-title">Instagram: Reel</span><span class="asset-description">"So fräsen wir (fast) ohne Staub"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/INSTA_001_Reel_Drehbuch.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-insta" name="rating-INSTA_001" value="5"><label for="star5-insta">★</label><input type="radio" id="star4-insta" name="rating-INSTA_001" value="4"><label for="star4-insta">★</label><input type="radio" id="star3-insta" name="rating-INSTA_001" value="3"><label for="star3-insta">★</label><input type="radio" id="star2-insta" name="rating-INSTA_001" value="2"><label for="star2-insta">★</label><input type="radio" id="star1-insta" name="rating-INSTA_001" value="1"><label for="star1-insta">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-INSTA_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-insta" name="approve-INSTA_001" class="approval-checkbox"><label for="approve-insta" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="MAIL_001">
+                        <td data-label="Inhalt"><span class="asset-title">E-Mail Newsletter</span><span class="asset-description">"Ihr Zuhause kann mehr: Komfort-Upgrade"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/MAIL_001_Newsletter.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-mail" name="rating-MAIL_001" value="5"><label for="star5-mail">★</label><input type="radio" id="star4-mail" name="rating-MAIL_001" value="4"><label for="star4-mail">★</label><input type="radio" id="star3-mail" name="rating-MAIL_001" value="3"><label for="star3-mail">★</label><input type="radio" id="star2-mail" name="rating-MAIL_001" value="2"><label for="star2-mail">★</label><input type="radio" id="star1-mail" name="rating-MAIL_001" value="1"><label for="star1-mail">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-MAIL_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-mail" name="approve-MAIL_001" class="approval-checkbox"><label for="approve-mail" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="FB_001">
+                        <td data-label="Inhalt"><span class="asset-title">Facebook Post</span><span class="asset-description">"Mythos vs. Wahrheit: FBH im Altbau"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/FB_001_Carousel_Post.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-fb" name="rating-FB_001" value="5"><label for="star5-fb">★</label><input type="radio" id="star4-fb" name="rating-FB_001" value="4"><label for="star4-fb">★</label><input type="radio" id="star3-fb" name="rating-FB_001" value="3"><label for="star3-fb">★</label><input type="radio" id="star2-fb" name="rating-FB_001" value="2"><label for="star2-fb">★</label><input type="radio" id="star1-fb" name="rating-FB_001" value="1"><label for="star1-fb">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-FB_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-fb" name="approve-FB_001" class="approval-checkbox"><label for="approve-fb" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="GMB_002">
+                        <td data-label="Inhalt"><span class="asset-title">GMB: Angebot</span><span class="asset-description">"Kostenlose Erstberatung"</span></td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/GMB_002_Angebot.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-gmb2" name="rating-GMB_002" value="5"><label for="star5-gmb2">★</label><input type="radio" id="star4-gmb2" name="rating-GMB_002" value="4"><label for="star4-gmb2">★</label><input type="radio" id="star3-gmb2" name="rating-GMB_002" value="3"><label for="star3-gmb2">★</label><input type="radio" id="star2-gmb2" name="rating-GMB_002" value="2"><label for="star2-gmb2">★</label><input type="radio" id="star1-gmb2" name="rating-GMB_002" value="1"><label for="star1-gmb2">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-gmb2" name="approve-GMB_002" class="approval-checkbox"><label for="approve-gmb2" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="footer-button-container">
+                <button id="resetButton" class="footer-button reset-button">Eingaben zurücksetzen</button>
+                <button id="submitButton" class="footer-button submit-global-button">
+                    <span class="button-text">Alle Freigaben & Feedback Senden</span>
+                </button>
+            </div>
+            <div id="successMessage"></div>
+            <div id="errorMessage"></div>
+        </section>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const approvalSection = document.getElementById('approvalSection');
+    const submitButton = document.getElementById('submitButton');
+    const resetButton = document.getElementById('resetButton');
+    // Die URL zu Ihrem Google Web App Skript
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz35C09lLH_3fICgTdAWZl9_6dVlAKUyv0dwl7Z5dE3-Au8HO7sIqZm4lsXC6MCHEj6/exec';
+    const storageKey = 'contentApproval_Arens_KW36_2025';
+
+    const successMessageDiv = document.getElementById('successMessage');
+    const errorMessageDiv = document.getElementById('errorMessage');
+
+    // Diese globale Funktion wird vom Google Script aufgerufen
+    window.feedbackGesendet = function(response) {
+        submitButton.disabled = false;
+        submitButton.querySelector('.button-text').textContent = 'Alle Freigaben & Feedback Senden';
+
+        if (response.status === 'Erfolg') {
+            successMessageDiv.innerHTML = `✔ ${response.processedCount} Einträge erfolgreich übermittelt.`;
+            successMessageDiv.style.display = 'block';
+            submitButton.querySelector('.button-text').textContent = 'Eingaben aktualisieren';
+            setTimeout(() => { successMessageDiv.style.display = 'none'; }, 5000);
+        } else {
+            errorMessageDiv.innerHTML = `Ein Fehler ist aufgetreten: ${response.nachricht}`;
+            errorMessageDiv.style.display = 'block';
+        }
+    };
+
+    submitButton.addEventListener('click', function() {
+        submitButton.disabled = true;
+        submitButton.querySelector('.button-text').textContent = 'Sende...';
+        successMessageDiv.style.display = 'none';
+        errorMessageDiv.style.display = 'none';
+
+        const feedbackPayload = [];
+        const assetRows = approvalSection.querySelectorAll('tbody tr[data-asset-id]');
+        
+        assetRows.forEach(row => {
+            const assetId = row.dataset.assetId;
+            const ratingInput = row.querySelector(`input[name="rating-${assetId}"]:checked`);
+            const feedbackInput = row.querySelector(`textarea[name="feedback-${assetId}"]`);
+            const approvalInput = row.querySelector(`input[name="approve-${assetId}"]`);
+            
+            feedbackPayload.push({
+                asset_id: assetId,
+                bewertung: ratingInput ? ratingInput.value : 'N/A',
+                feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                status: approvalInput.checked ? 'Freigegeben' : 'Offen'
+            });
+        });
+
+        const payload = {
+            kundenId: 'Fliesen-Arens-GmbH',
+            freigabeTyp: 'Wochenfreigabe',
+            zeitraum: 'KW36-2025',
+            daten: feedbackPayload
+        };
+        
+        // JSONP-Methode: Daten als Text in die URL einbetten
+        const dataString = encodeURIComponent(JSON.stringify(payload));
+        const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${dataString}`;
+        
+        // Alte Skript-Tags entfernen, um Konflikte zu vermeiden
+        document.querySelectorAll('script[src*="script.google.com"]').forEach(s => s.remove());
+        
+        // Ein neues Skript-Tag erstellen, um die Anfrage zu senden
+        let scriptTag = document.createElement('script');
+        scriptTag.src = finalUrl;
+
+        // Fehlerbehandlung, falls das Skript nicht geladen werden kann (z.B. Netzwerkfehler)
+        scriptTag.onerror = function() {
+            errorMessageDiv.innerHTML = 'Netzwerkfehler: Das Freigabe-Skript konnte nicht geladen werden. Bitte prüfen Sie Ihre Internetverbindung.';
+            errorMessageDiv.style.display = 'block';
+            submitButton.disabled = false;
+            submitButton.querySelector('.button-text').textContent = 'Alle Freigaben & Feedback Senden';
+        };
+        
+        document.body.appendChild(scriptTag);
+    });
+
+    // Die restlichen Funktionen bleiben unverändert
+    const saveData = () => {
+        const data = {};
+        approvalSection.querySelectorAll('input[type="radio"], input[type="checkbox"], textarea').forEach(el => {
+            const name = el.name;
+            if (el.type === 'radio') { if (el.checked) data[name] = el.value; } 
+            else if (el.type === 'checkbox') { data[name] = el.checked; } 
+            else { data[name] = el.value; }
+        });
+        localStorage.setItem(storageKey, JSON.stringify(data));
+    };
+
+    const loadData = () => {
+        const savedData = localStorage.getItem(storageKey);
+        if (!savedData) return;
+        const data = JSON.parse(savedData);
+        for (const name in data) {
+            const elements = approvalSection.querySelectorAll(`[name="${name}"]`);
+            elements.forEach(el => {
+                if (el.type === 'radio') { if (el.value === data[name]) el.checked = true; } 
+                else if (el.type === 'checkbox') { el.checked = data[name]; } 
+                else { el.value = data[name]; }
+            });
+        }
+    };
+    
+    resetButton.addEventListener('click', function() {
+        if (confirm('Möchten Sie wirklich alle Bewertungen, Kommentare und Freigaben zurücksetzen?')) {
+            approvalSection.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(el => el.checked = false);
+            approvalSection.querySelectorAll('textarea').forEach(el => el.value = '');
+            localStorage.removeItem(storageKey);
+            document.querySelector('#submitButton .button-text').textContent = 'Alle Freigaben & Feedback Senden';
+        }
+    });
+
+    approvalSection.addEventListener('input', saveData);
+    loadData();
+});
+</script>
+</body>
+</html>

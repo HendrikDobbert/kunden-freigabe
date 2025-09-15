@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drehbuch: Instagram Reel (INSTA_001 - Arens GmbH)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+    <style>
+        /* --- Basis-Stile (Desktop First) --- */
+        :root {
+            /* ANPASSUNG: CI von Arens GmbH */
+            --primary-color: #1E9B93; 
+            --dark-text: #212529;
+            --light-bg: #f4f7f6;
+            --white: #fff;
+            --border-color: #ddd;
+            --header-font: 'Poppins', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+        }
+        body {
+            font-family: var(--body-font);
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            font-family: var(--header-font);
+            font-weight: 900;
+            color: #000;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        h2 {
+            margin-top: 40px;
+            font-size: 2rem;
+        }
+        .summary {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .summary-item {
+            font-size: 1rem;
+        }
+        .summary-item strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+            font-family: var(--header-font);
+            font-weight: 700;
+        }
+        table.storyboard {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table.storyboard th, table.storyboard td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        table.storyboard th {
+            background-color: #f2f2f2;
+            font-family: var(--header-font);
+            font-weight: 700;
+        }
+        .on-screen-text {
+            /* ANPASSUNG: CI von Arens GmbH */
+            font-family: var(--body-font); 
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        .assets-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .assets-list li {
+            background-color: #e8f5e9; /* Leicht grüner Hintergrund passend zum CI */
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* --- Mobile Optimierungen --- */
+        @media (max-width: 768px) {
+            body {
+                margin: 0;
+                -webkit-text-size-adjust: 100%;
+            }
+            .container {
+                padding: 15px;
+                margin: 10px;
+                width: auto;
+            }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            .summary { grid-template-columns: 1fr; gap: 15px; }
+            table.storyboard thead { display: none; }
+            table.storyboard tr {
+                display: block;
+                margin-bottom: 20px;
+                border: 1px solid var(--border-color);
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+            table.storyboard td {
+                display: block;
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+            table.storyboard td:last-child { border-bottom: none; }
+            table.storyboard td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: calc(50% - 20px);
+                padding-right: 10px;
+                text-align: left;
+                font-weight: bold;
+                font-family: var(--header-font);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Drehbuch: Instagram Reel</h1>
+
+        <div class="summary">
+            <div class="summary-item">
+                <strong>Arbeitstitel:</strong>
+                <span>So fräsen wir eine Fußbodenheizung (fast) ohne Staub</span>
+            </div>
+            <div class="summary-item">
+                <strong>Asset-ID:</strong>
+                <span>INSTA_001</span>
+            </div>
+            <div class="summary-item">
+                <strong>Konzept:</strong>
+                <span>Dynamisches Reel, das den sauberen Sanierungsprozess (staubfrei) dem chaotischen "Vorher" gegenüberstellt.</span>
+            </div>
+            <div class="summary-item">
+                <strong>Zieldauer:</strong>
+                <span>ca. 15 Sekunden</span>
+            </div>
+            <div class="summary-item">
+                <strong>Audio:</strong>
+                <span>Trend-Sound mit klarem Beat-Drop (vom Social-Media-Dynamiker auszuwählen).</span>
+            </div>
+            <div class="summary-item">
+                <strong>CTA:</strong>
+                <span>Link in Bio zum Blogartikel BLOG_001</span>
+            </div>
+        </div>
+
+        <h2>Storyboard & Shotlist</h2>
+        <table class="storyboard">
+            <thead>
+                <tr>
+                    <th style="width:5%;">Szene</th>
+                    <th style="width:10%;">Zeit (ca.)</th>
+                    <th style="width:35%;">Visuelle Anweisung (für Kamera & Schnitt)</th>
+                    <th style="width:25%;">On-Screen Text</th>
+                    <th style="width:25%;">Audio & Produktionsnotiz</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Szene"><strong>1</strong></td>
+                    <td data-label="Zeit (ca.)">0-2 Sek.</td>
+                    <td data-label="Visuelle Anweisung"><strong>Visuell: "Der Albtraum".</strong> Schneller Schnitt: Eine staubige, chaotische Baustelle (Archivmaterial). Eine Staubwolke entsteht. Kühle, graue Farbgebung.</td>
+                    <td data-label="On-Screen Text"><span class="on-screen-text">Altbau-Sanierung =<br>Staub-Albtraum? 😨</span></td>
+                    <td data-label="Audio & Notiz"><strong>Audio:</strong> Dramatischer Auftakt eines Trend-Sounds.</td>
+                </tr>
+                <tr>
+                    <td data-label="Szene"><strong>2</strong></td>
+                    <td data-label="Zeit (ca.)">2-5 Sek.</td>
+                    <td data-label="Visuelle Anweisung"><strong>Visuell: "Die Wende".</strong> Harter Schnitt. Klares, sauberes Bild der Arens-Fräsmaschine mit prominentem Absaugschlauch. Helle, warme Farbgebung.</td>
+                    <td data-label="On-Screen Text"><span class="on-screen-text">Nicht bei uns! ✨</span></td>
+                    <td data-label="Audio & Notiz"><strong>Audio:</strong> Der "Beat Drop" des Sounds. Der Schnitt muss exakt auf diesen Wechsel abgestimmt sein.</td>
+                </tr>
+                <tr>
+                    <td data-label="Szene"><strong>3</strong></td>
+                    <td data-label="Zeit (ca.)">5-10 Sek.</td>
+                    <td data-label="Visuelle Anweisung"><strong>Visuell: "Der Beweis".</strong> Schnelle, befriedigende Detailaufnahmen: 1. Fräskopf schneidet präzise eine saubere Nut. 2. Nahaufnahme, wie der Staub direkt in den Schlauch gesaugt wird. 3. Heizungsrohre werden perfekt in die Nuten gelegt.</td>
+                    <td data-label="On-Screen Text">(Text erscheint nacheinander)<br><span class="on-screen-text">1. Präzise fräsen...<br>2. Staub direkt absaugen...<br>3. Heizung verlegen.</span></td>
+                    <td data-label="Audio & Notiz"><strong>Audio:</strong> Rhythmischer Hauptteil des Songs. Die Schnitte sollten im Takt der Musik erfolgen.</td>
+                </tr>
+                <tr>
+                    <td data-label="Szene"><strong>4</strong></td>
+                    <td data-label="Zeit (ca.)">10-13 Sek.</td>
+                    <td data-label="Visuelle Anweisung"><strong>Visuell: "Das Ergebnis".</strong> Schöne Slow-Motion-Aufnahme: Barfuß laufende Füße auf einem neuen, sauberen Fliesenboden. Sonnenlicht fällt auf den Boden.</td>
+                    <td data-label="On-Screen Text"><span class="on-screen-text">Das Ergebnis:<br>Sauber. Schnell. Warm. ❤️</span></td>
+                    <td data-label="Audio & Notiz"><strong>Audio:</strong> Song schwillt an oder hat ein positives, abschließendes Element.</td>
+                </tr>
+                 <tr>
+                    <td data-label="Szene"><strong>5</strong></td>
+                    <td data-label="Zeit (ca.)">13-15 Sek.</td>
+                    <td data-label="Visuelle Anweisung"><strong>Visuell: "Der CTA".</strong> End-Screen. Das Logo von Fliesen Arens wird sauber eingeblendet.</td>
+                    <td data-label="On-Screen Text"><span class="on-screen-text" style="font-size: 1rem;">Der ganze Guide ➡️ Link in Bio!</span></td>
+                    <td data-label="Audio & Notiz"><strong>Audio:</strong> Sound endet / fade out.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="margin-top: 40px;">Benötigte Assets</h2>
+        <div class="assets-list">
+            <ul>
+                <li><strong>Videomaterial:</strong> Archiv-/Stock-Material einer staubigen Baustelle. Hochwertige Detailaufnahmen des Fräsprozesses und des Endergebnisses.</li>
+                <li><strong>Grafik-Assets:</strong> Fliesen Arens GmbH Logo (hochauflösendes PNG/Vektor).</li>
+                <li><strong>Schriftart:</strong> Roboto (Bold/Black für On-Screen Text).</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMB Post Vorschau: GMB_004 (Q&A) mit Bild</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+
+   <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #dcdcdc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .gmb-card {
+            width: 380px;
+            background-color: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+            overflow: hidden; /* Verhindert, dass das Bild über die abgerundeten Ecken hinausragt */
+        }
+        .gmb-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+        }
+        .gmb-header-left {
+            display: flex;
+            align-items: center;
+        }
+        .gmb-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('../Bilder/Logo_Kreis.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #eee;
+        }
+        .gmb-title {
+            margin-left: 12px;
+        }
+        .gmb-title h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #202124;
+        }
+        .gmb-title p {
+            margin: 0;
+            font-size: 12px;
+            color: #5f6368;
+        }
+        .gmb-menu {
+            color: #5f6368;
+        }
+        /* NEU: Styles für das Bild */
+        .gmb-image img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+        .gmb-content {
+            padding: 16px; /* Einheitliches Padding oben und unten */
+            font-size: 14px;
+            line-height: 1.5;
+            color: #3c4043;
+        }
+        .gmb-question {
+            font-weight: 700;
+            font-size: 16px;
+            color: #202124;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .gmb-question svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            fill: #5f6368;
+            flex-shrink: 0;
+        }
+        .gmb-answer-header {
+            font-weight: 500;
+            font-size: 14px;
+            color: #202124;
+            margin-bottom: 4px;
+        }
+        .gmb-cta {
+            padding: 8px 16px;
+        }
+        .gmb-button {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 8px;
+            background-color: #f1f3f4;
+            border: 1px solid #f1f3f4;
+            border-radius: 4px;
+            color: #1a73e8;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .gmb-button:hover {
+            background-color: #e8eaed;
+        }
+        .gmb-footer {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 8px 16px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .gmb-likes {
+            font-size: 14px;
+            color: #5f6368;
+        }
+   </style>
+</head>
+<body>
+
+    <div class="gmb-card">
+        <div class="gmb-header">
+            <div class="gmb-header-left">
+                <div class="gmb-logo"></div>
+                <div class="gmb-title">
+                    <h3>Fliesen Arens GmbH</h3>
+                    <p>hat eine Frage beantwortet · 12.09.2025</p>
+                </div>
+            </div>
+            <div class="gmb-menu">
+                <span>&#8942;</span>
+            </div>
+        </div>
+        
+        <div class="gmb-image">
+             <img src="../Bilder/GMB_004_final_graphic.png" alt="Teaser-Grafik mit Sparschwein und Fragezeichen zu den Kosten einer Fußbodenheizung" class="gmb-image">
+        </div>
+
+        <div class="gmb-content">
+            <div class="gmb-question">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-2h2v2h-2zm0-4V7h2v6h-2z"/></svg>
+                <strong>Frage: "Schadet das Fräsen meinem alten Estrich?"</strong>
+            </div>
+            <p class="gmb-answer-header"><strong>Antwort von Fliesen Arens GmbH (Inhaber):</strong></p>
+            <p>Eine sehr wichtige Frage! Die klare Antwort ist: Nein, bei fachmännischer Ausführung schadet unsere moderne Frästechnik Ihrem Estrich nicht. Im Gegenteil.</p>
+            <p>Unser Verfahren ist substanzerhaltend. Wir fräsen nur feine, präzise Nuten, die tief genug für die Heizrohre, aber nicht tief genug sind, um die Statik des Bodens zu beeinträchtigen. Anders als bei alten Methoden, bei denen der Estrich komplett herausgerissen wird, bleibt Ihre Bausubstanz vollständig intakt.</p>
+            <p>So erhalten Sie den Komfort einer neuen Heizung, ohne die Risiken und den Schmutz einer traditionellen Sanierung.</p>
+        </div>
+
+        <div class="gmb-cta">
+            <a href="BLOG_001_Fussbodenheizung-Altbau-nachruesten.html" class="gmb-button" target="_blank">Mehr zur Technik erfahren</a>
+        </div>
+
+        <div class="gmb-footer">
+            <div class="gmb-likes">👍 7 Gefällt-mir-Angaben</div>
+        </div>
+    </div>
+
+</body>
+</html>

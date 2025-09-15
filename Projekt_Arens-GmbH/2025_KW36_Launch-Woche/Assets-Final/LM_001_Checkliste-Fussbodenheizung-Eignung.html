@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkliste: Ist Ihr Haus für eine gefräste Fußbodenheizung geeignet?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+
+    <style>
+        :root {
+            --color-primary: #1E9B93;
+            --color-primary-darker: #16736E;
+            --color-secondary: rgb(74, 234, 220);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9e9e9;
+            margin: 0;
+            color: #333;
+            counter-reset: page;
+        }
+        
+        .page {
+            width: 210mm;
+            padding: 20mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+        .page:last-child {
+            page-break-after: avoid;
+        }
+        .page-content {
+            flex-grow: 1;
+        }
+
+        h1, h2, h3 {
+             line-height: 1.3;
+             color: var(--color-primary);
+             text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+        }
+
+        h1 { font-size: 38px; font-weight: 700; }
+        h2 { font-size: 28px; font-weight: 600; border-bottom: 2px solid var(--color-secondary); padding-bottom: 10px; margin-top: 0; margin-bottom: 20px;}
+        h3 { font-size: 20px; font-weight: 600; margin-top: 30px;}
+        p { line-height: 1.7; font-size: 16px; }
+
+        a {
+            color: var(--color-primary-darker);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 1px;
+            transition: all 0.2s;
+        }
+        a:hover { color: var(--color-primary); background-color: #f4f8f7; border-bottom-color: var(--color-primary-darker); }
+
+        .button-cta {
+            display: inline-block; background-color: var(--color-primary); color: #FFFFFF !important;
+            font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 600; padding: 15px 30px;
+            border-radius: 5px; text-decoration: none; text-align: center; border: none; cursor: pointer; transition: all .3s;
+        }
+        .button-cta:hover, .button-cta:focus { background-color: var(--color-primary-darker); transform: scale(1.05); border-bottom: none; }
+
+        .special-text-block { background: #f4f8f7; padding: 25px; border-left: 5px solid var(--color-secondary); border-radius: 4px; margin: 30px 0; }
+        
+        blockquote { margin: 30px 0; padding: 20px; font-size: 1.1em; border-left: 5px solid var(--color-primary); background-color: #f9f9f9; }
+        blockquote footer { text-align: right; font-style: italic; margin-top: 10px; color: #555;}
+        
+        .visual-prompt-box { padding: 20px; border: 2px dashed var(--color-primary); background-color: #f4f8f7; color: #333; border-radius: 8px; margin: 30px 0; font-family: monospace; line-height: 1.5; }
+        .visual-prompt-box strong { color: var(--color-primary-darker); display: block; margin-bottom: 10px; }
+        
+        .checklist-item { margin-bottom: 25px; }
+        .checklist-item p.question { font-weight: 600; margin: 0 0 10px 0; font-size: 17px; color: #333;}
+        .checklist-item .frage-warum { font-style: italic; color: #777; font-size: 14px; margin-top: 8px; padding-left: 15px; border-left: 3px solid #e8e8e8; }
+        .checkbox-container { display: flex; gap: 20px; }
+        .checkbox-container label { cursor: pointer; font-size: 16px; }
+
+        .final-cta-container { display: flex; flex-wrap: wrap; gap: 30px; align-items: stretch; margin-top:30px; }
+        .final-cta-box { flex: 1; min-width: 300px; text-align:center; padding: 25px; border: 2px solid var(--color-primary); border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .page-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+            color: #000000;
+            text-align: right;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .page-footer::after { counter-increment: page; content: "Seite " counter(page); }
+        
+        .deckblatt-header { text-align: center; }
+        .deckblatt-header img { max-width: 220px; margin-bottom: 30px; }
+        .deckblatt-title-area {
+            background-image: linear-gradient(90deg, #1E9B93 21%, #2FFCEF1A 100%);
+            padding: 40px; border-radius: 8px;
+        }
+        .deckblatt-title-area h1, .deckblatt-title-area p { color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.4); }
+        .deckblatt-title-area p { font-size: 1.2em; max-width: 650px; margin: 10px auto 0 auto; }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <div class="page-content">
+            <header class="deckblatt-header">
+                <img src="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH.jpg" alt="Logo Fliesen Arens GmbH">
+                <div class="deckblatt-title-area">
+                    <h1>Checkliste: Fußbodenheizung im Altbau</h1>
+                    <p>Ist Ihr Zuhause bereit für die modernste, sauberste und komfortabelste Heizmethode?</p>
+                </div>
+            </header>
+            <section style="margin-top: 30px;">
+                <p>Der erste Schritt zu einer stressfreien Sanierung beginnt hier. Oftmals ist die größte Hürde nicht die Technik, sondern die Unsicherheit: Lohnt sich der Aufwand? Ist mein Haus überhaupt geeignet? Kann ich den Prozess und die Kosten überblicken?</p>
+                <p>Diese professionelle Checkliste gibt Ihnen das nötige Werkzeug an die Hand, um die Eignung Ihres Zuhauses fundiert einzuschätzen. Wir führen Sie durch 10 einfache Schlüsselfragen und geben Ihnen die Sicherheit, die Sie für Ihre Entscheidung benötigen. Dies ist Ihr erster, sicherer Schritt zu einer wertsteigernden Modernisierung und dem guten Gefühl, eine <strong>kluge und zukunftssichere Entscheidung für Ihr Zuhause</strong> zu treffen.</p>
+            </section>
+        </div>
+        <footer class="page-footer"></footer>
+    </div>
+    
+    <div class="page">
+        <div class="page-content">
+            <section>
+                <h2>Die 10-Punkte-Checkliste</h2>
+                <p>Eine sorgfältige Bestandsaufnahme ist die Grundlage für eine transparente und ehrliche Kostenplanung. Beantworten Sie die folgenden Fragen und gewinnen Sie Klarheit für Ihr Projekt.</p>
+                
+                <h3>Teil A: Ihr Boden & Räume</h3>
+                <div class="checklist-item">
+                    <p class="question">1. Ist Ihr Estrich grundsätzlich eben und weist er keine großen, sichtbaren Risse auf?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Ein stabiler Estrich ist die ideale Basis für unsere Frästechnik.</p>
+                </div>
+                <div class="checklist-item">
+                    <p class="question">2. Haben Sie eine Raumhöhe von mindestens 2,40 Metern?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Unsere Methode erhält Ihre volle Raumhöhe, da der Boden nicht erhöht wird.</p>
+                </div>
+                <div class="checklist-item">
+                    <p class="question">3. Befindet sich unter dem aktuellen Bodenbelag ein Zement- oder Anhydritestrich?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Die Frästechnik ist für 99 % aller gängigen Estricharten perfekt geeignet.</p>
+                </div>
+
+                <h3>Teil B: Ihr aktuelles Heizsystem</h3>
+                <div class="checklist-item">
+                    <p class="question">4. Besitzen Sie bereits eine zentrale, wasserführende Heizungsanlage?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Eine gefräste Fußbodenheizung wird an den vorhandenen Heizkreislauf angeschlossen.</p>
+                </div>
+                <div class="checklist-item">
+                    <p class="question">5. Ist Ihr Heizkessel (Gas, Öl, Wärmepumpe etc.) weniger als 15 Jahre alt?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Ein modernes Heizsystem arbeitet besonders effizient mit den niedrigen Vorlauftemperaturen.</p>
+                </div>
+                <div class="checklist-item">
+                    <p class="question">6. Befindet sich der Heizkreisverteiler an einem zentralen, zugänglichen Ort?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Ein guter Zugang erleichtert den unkomplizierten Anschluss.</p>
+                </div>
+            </section>
+        </div>
+        <footer class="page-footer"></footer>
+    </div>
+    
+    <div class="page">
+        <div class="page-content">
+            <section>
+                <h2>Die 10-Punkte-Checkliste (Fortsetzung)</h2>
+                <h3>Teil C: Ihr Projekt</h3>
+                <div class="checklist-item">
+                    <p class="question">7. Legen Sie Wert darauf, dass während der Sanierung so wenig Schmutz wie möglich entsteht?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Unser Verfahren ist zu 99 % staubfrei und ideal für bewohnte Immobilien.</p>
+                </div>
+                <div class="checklist-item">
+                    <p class="question">8. Ist es für Sie wichtig, dass die Sanierung schnell (in unter einer Woche) abgeschlossen ist?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Die Frästechnik hat keine langen Trocknungszeiten, was Ihr Projekt beschleunigt.</p>
+                </div>
+                <div class="checklist-item">
+                    <p class="question">9. Planen Sie, den Bodenbelag (z.B. Fliesen, Parkett) ohnehin zu erneuern?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Die Kombination ist der effizienteste Weg zur Aufwertung Ihres Zuhauses.</p>
+                </div>
+                <div class="checklist-item">
+                    <p class="question">10. Ist Ihnen eine persönliche Beratung und Betreuung durch einen Meisterbetrieb wichtig?</p>
+                    <div class="checkbox-container"><label><input type="checkbox"> Ja</label><label><input type="checkbox"> Nein</label></div>
+                    <p class="frage-warum"><em>Warum wir das fragen:</em> Wir begleiten Sie von der ersten Idee bis zur finalen Übergabe persönlich.</p>
+                </div>
+            </section>
+        </div>
+        <footer class="page-footer"></footer>
+    </div>
+
+    <div class="page">
+        <div class="page-content">
+            <section>
+                <h2>Ihre Auswertung</h2>
+                <p>Ihre Antworten zeichnen ein klares Bild. Hier ist, was Ihr Ergebnis für Ihr Projekt bedeutet:</p>
+                <div class="special-text-block">
+                    <h3>Ergebnis: 8 - 10 Mal "Ja": Perfekte Voraussetzungen!</h3>
+                    <p>Herzlichen Glückwunsch! Ihr Zuhause scheint ideal für eine schnelle und saubere Nachrüstung zu sein.</p>
+                    <strong>Ihr nächster Schritt: <a href="https://fliesen-arens.de/rundum-sorglos-paket/">Kontaktieren Sie uns für ein konkretes Angebot.</a></strong>
+                </div>
+                 <div class="special-text-block">
+                    <h3>Ergebnis: 5 - 7 Mal "Ja": Ausgezeichnete Basis!</h3>
+                    <p>Die wichtigsten Kriterien sind erfüllt. Bei den offenen Punkten finden wir im Gespräch eine intelligente Lösung.</p>
+                    <strong>Ihr nächster Schritt: <a href="https://fliesen-arens.de/rundum-sorglos-paket/">Vereinbaren Sie eine kostenlose und unverbindliche Erstberatung.</a></strong>
+                </div>
+                <div class="special-text-block">
+                    <h3>Ergebnis: 0 - 4 Mal "Ja": Ein Fall für Experten!</h3>
+                    <p>Keine Sorge! Auch bei komplexeren Ausgangslagen gibt es oft innovative Möglichkeiten.</p>
+                    <strong>Ihr nächster Schritt: <a href="https://fliesen-arens.de/rundum-sorglos-paket/">Lassen Sie uns gemeinsam bei einem Vor-Ort-Termin die Möglichkeiten prüfen.</a></strong>
+                </div>
+            </section>
+        </div>
+        <footer class="page-footer"></footer>
+    </div>
+    
+    <div class="page">
+        <div class="page-content">
+            <section>
+                <h2>Eine sichere Entscheidung treffen</h2>
+                <h3>Mini-Erfolgsgeschichte: Was unsere Kunden sagen</h3>
+               <div class="testimonial-block">
+    <style>
+        .testimonial-block {
+            display: flex;
+            align-items: center;
+            gap: 25px; /* Abstand zwischen Bild und Text */
+            margin: 40px 0;
+            page-break-inside: avoid; /* Verhindert Seitenumbruch innerhalb des Blocks */
+        }
+        .testimonial-image-wrapper {
+            flex: 0 0 40%; /* Bild nimmt 40% der Breite ein */
+            min-width: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border: 1px solid #e0e0e0;
+            align-self: stretch; /* Stellt sicher, dass der Rahmen die volle Höhe hat */
+        }
+        .testimonial-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .testimonial-content {
+            flex: 1;
+        }
+        /* Stellt sicher, dass das Zitat im neuen Layout gut aussieht */
+        .testimonial-content blockquote {
+            margin: 0; 
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+
+    <div class="testimonial-image-wrapper">
+<img src="../Bilder/LM_001_CaseStudy-Grafik.png" alt="Beispiel einer gelungenen Sanierung von Fliesen Arens" style="width: 100%; height: auto; border-radius: 8px; margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">    </div>
+
+    <div class="testimonial-content">
+        </div>
+</div>
+                <blockquote>
+                  <p>Der Kontakt mit Herrn Arens war von Anfang an freundlich und kompetent. Auch wenn mal etwas nicht nach "Plan" lief, fühlte ich mich sehr gut aufgehoben, denn es wurde sich direkt um das "Problem" gekümmert! Von der Angebotserstellung bis zur Inbetriebnahme hat Herr Arens wunderbare Arbeit geleistet.</p>
+                  <footer>— Daniel Hueck, nach seiner FBH-Modernisierung</footer>
+                </blockquote>
+                <h3>Finanzielle Planungssicherheit</h3>
+                <p><strong>Kosten-Indikator:</strong> Die Kosten für das staubfreie Einfräsen liegen in der Regel zwischen 70,- und 100,- € pro Quadratmeter, abhängig vom Zustand des Estrichs.</p>
+                <p><strong>Förder-Booster:</strong> Wussten Sie, dass der Einbau einer effizienten Flächenheizung staatlich gefördert werden kann? <strong>Wir unterstützen Sie aktiv</strong> bei der Prüfung Ihrer Fördermöglichkeiten und helfen bei der Antragsstellung.</p>
+            </section>
+        </div>
+        <footer class="page-footer"></footer>
+    </div>
+    
+    <div class="page">
+        <div class="page-content">
+            <section>
+                <h2>Ihr Weg zum Komfort: Der nächste Schritt</h2>
+                <p>Sie haben den ersten Schritt getan. Der nächste ist noch einfacher. Wir bei Fliesen Arens lassen Sie nicht allein und geben Ihnen eine <strong>kostenlose, professionelle Ersteinschätzung</strong>.</p>
+                <div class="final-cta-container">
+                    <div class="final-cta-box">
+                        <h3>Lassen Sie uns sprechen</h3>
+                        <p>Fordern Sie jetzt Ihre unverbindliche Beratung mit dem Meister an, um Ihr Projekt im Detail zu besprechen.</p>
+                        <a href="https://fliesen-arens.de/rundum-sorglos-paket/" class="button-cta">Jetzt Beratungstermin anfragen</a>
+                    </div>
+                    <div class="final-cta-box">
+                         <h3>Erleben Sie Inspiration</h3>
+                         <p>Scannen Sie den Code und betreten Sie unseren digitalen Showroom, um Materialien live zu erleben.</p>
+                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://fliesen-arens.de/digitaler-showroom/" alt="QR Code zum Digitalen Showroom" style="margin-top:10px; display: block; margin-left: auto; margin-right: auto;">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="page-footer"></footer>
+    </div>
+
+</body>
+</html>
