@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="icon" href="../Bilder/fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" sizes="32x32">
+    <link rel="icon" href="../Bilder/fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" sizes="32x32">
 
     <style>
         :root {
@@ -19,6 +19,8 @@
             --ci-background-light-grey: #f9f9f9;
             --ci-border-color: #e0e0e0;
             --ci-border-accent: #bde0fe;
+            --success-green: #28a745;
+            --danger-red: #dc3545;
         }
         body {
             font-family: 'Roboto', sans-serif;
@@ -109,6 +111,7 @@
             align-items: center;
             gap: 15px;
             margin: 20px 0;
+            flex-wrap: wrap;
         }
         .calculator-input-group label { font-weight: 700; }
         .calculator-input-group input[type="range"] { width: 200px; }
@@ -124,13 +127,16 @@
             display: flex;
             justify-content: space-around;
             margin-top: 25px;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
         .result-box {
             padding: 15px;
             border-radius: 5px;
             width: 45%;
+            min-width: 200px;
         }
-        .result-box h4 { margin: 0 0 10px 0; font-family: 'Poppins', sans-serif; }
+        .result-box h4 { margin: 0 0 10px 0; font-family: 'Poppins', sans-serif; font-size: 1rem;}
         .result-box p { font-size: 2rem; font-weight: 900; margin: 0; }
         .result-standard { background-color: #fde2e2; }
         .result-gh { background-color: #dcfce7; }
@@ -190,6 +196,105 @@
             margin: 3rem 0;
             border: 1px solid var(--ci-border-accent);
         }
+
+        /* Quiz Styles */
+        .quiz-container {
+            text-align: left;
+        }
+        .quiz-page {
+            display: none;
+        }
+        .quiz-page.active {
+            display: block;
+        }
+        .quiz-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .quiz-options label {
+            display: block;
+            background-color: #fff;
+            padding: 15px;
+            border: 2px solid var(--ci-border-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .quiz-options label:hover {
+            border-color: var(--ci-bright-blue);
+        }
+        .quiz-options input[type="radio"] {
+            display: none;
+        }
+        .quiz-options input[type="radio"]:checked + label {
+            border-color: var(--ci-dark-blue);
+            background-color: #f0f8ff;
+        }
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .quiz-btn {
+            background-color: var(--ci-bright-blue);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .quiz-btn:hover {
+            background-color: var(--ci-dark-blue);
+        }
+        .quiz-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #results-screen {
+            display: none;
+            text-align: center;
+        }
+        #results-screen h2 {
+            border-bottom: none;
+        }
+        #score-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0 2rem 0;
+        }
+        .solution {
+            text-align: left;
+            margin-bottom: 1.5rem;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid;
+        }
+        .solution.correct {
+            border-color: var(--success-green);
+            background-color: #eafaf1;
+        }
+        .solution.incorrect {
+            border-color: var(--danger-red);
+            background-color: #fdeeee;
+        }
+        .solution p {
+            margin: 0;
+        }
+        .solution strong {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Media Queries for smaller screens */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .result-box { width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -197,39 +302,22 @@
     <div class="container">
         <article>
             
-            <img src="fsgh-grafik-blog-header-kosten-sparen-2025-08-11_v01.jpg" alt="Ein Sparschwein steht neben einem Fahrsimulator und symbolisiert das Sparen von Geld durch moderne Ausbildungsmethoden." class="header-image">
+            <img src="https://storage.googleapis.com/gemini-prod/images/Sparschwein_neben_Fahrsimulator.png" alt="Ein Sparschwein steht neben einem Fahrsimulator und symbolisiert das Sparen von Geld durch moderne Ausbildungsmethoden." class="header-image">
             
             <h1>Weniger Fahrstunden, mehr im Portemonnaie: Wie unser System dir bares Geld spart</h1>
 
-            <p>Die größte Sorge bei der Planung des Führerscheins? Fast immer sind es die Kosten. Es ist eine der ersten großen Investitionen im Leben eines jungen Erwachsenen und oft ein erheblicher Posten im Familienbudget. Man hört Horrorgeschichten von explodierenden Rechnungen, von Freunden, die plötzlich 30, 40 oder sogar mehr Fahrstunden benötigten. Viele Eltern und Fahranfänger fragen sich zu Recht: Wie kann man die <a href="https://fahrschule-in-dortmund.de/autowelt.html">Kosten beim Führerschein</a> im Griff behalten, ohne an der Qualität und vor allem der Sicherheit der Ausbildung zu sparen? Die Antwort ist einfacher und gleichzeitig tiefgreifender als gedacht: Es geht nicht darum, die billigste Fahrstunde zu finden, sondern die wenigsten zu benötigen.</p>
+            <p>Die größte Sorge bei der Planung des Führerscheins? Fast immer sind es die Kosten. Es ist eine der ersten großen Investitionen im Leben eines jungen Erwachsenen und oft ein erheblicher Posten im Familienbudget. Man hört Horrorgeschichten von explodierenden Rechnungen, von Freunden, die plötzlich 30, 40 oder sogar mehr Fahrstunden benötigten. Viele Eltern und Fahranfänger fragen sich zu Recht: Wie kann man die <a href="#">Kosten beim Führerschein</a> im Griff behalten, ohne an der Qualität und vor allem der Sicherheit der Ausbildung zu sparen? Die Antwort ist einfacher und gleichzeitig tiefgreifender als gedacht: Es geht nicht darum, die billigste Fahrstunde zu finden, sondern die wenigsten zu benötigen.</p>
 
             <h2>Die Psychologie der Kostenangst: Warum Transparenz der beste Berater ist</h2>
             <p>Die Angst vor den Führerscheinkosten kommt nicht von ungefähr. Sie wird durch einen Mangel an Transparenz in der Branche befeuert. Wenn man nicht weiß, was auf einen zukommt, malt man sich oft das schlimmste Szenario aus. Diese Unsicherheit ist ein enormer Stressfaktor. Ein klarer, strukturierter Plan, der von Anfang an kommuniziert wird, wirkt hier wie ein starkes Beruhigungsmittel. Er nimmt die Angst vor dem Unbekannten und ersetzt sie durch das sichere Gefühl, die Kontrolle zu haben. Eine Fahrschule, die ihre Prozesse offenlegt und Werkzeuge zur Effizienzsteigerung anbietet, zeigt, dass sie ein Partner auf Augenhöhe ist – und kein Verkäufer, der auf möglichst viele Stunden aus ist.</p>
 
-            <div class="checklist-container interactive-section">
-                <h2><svg style="width:38px; height:38px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14,1.5H5.5A2.5,2.5,0,0,0,3,4V20a2.5,2.5,0,0,0,2.5,2.5h13A2.5,2.5,0,0,0,21,20V8.5Zm-1.25,8a.75.75,0,0,1-.75.75H8.5a.75.75,0,0,1,0-1.5h3.5a.75.75,0,0,1,.75.75Zm0,4a.75.75,0,0,1-.75.75H8.5a.75.75,0,0,1,0-1.5h3.5a.75.75,0,0,1,.75.75Zm3.75-2.5a.76.76,0,0,1-.22.53l-3,3a.75.75,0,0,1-1.06-1.06l2.47-2.47-1.17-1.18a.75.75,0,1,1,1.06-1.06l2,2A.76.76,0,0,1,16.5,11Z"/><path d="M14.5,1,22,8V7.5a.5.5,0,0,0-.15-.35l-6-6a.5.5,0,0,0-.35-.15Z"/></svg>Bist du in der Kostenfalle?</h2>
-                <p style="font-size: 1rem; color: #555; text-align:center;">Erkennst du diese Punkte aus deiner aktuellen oder einer früheren Fahrschul-Erfahrung wieder?</p>
-                <div class="checklist-item">
-                    <input type="checkbox" id="check1"><label for="check1">Häufige Pausen oder Wartezeiten während der Fahrstunde.</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="check2"><label for="check2">Du musstest dieselben Grundübungen sehr oft wiederholen.</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="check3"><label for="check3">Dein Fahrlehrer war oft am Handy oder unkonzentriert.</label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="check4"><label for="check4">Es gab keinen klaren Plan, was in der nächsten Stunde geübt wird.</label>
-                </div>
-            </div>
-
             <h2>Unser 3-Säulen-System für maximale Effizienz</h2>
-            <p>Um die teure Zeit auf der Straße zu minimieren und den Lernerfolg zu maximieren, haben wir ein System aus drei leistungsstarken Werkzeugen entwickelt, die Hand in Hand arbeiten. Sie sind feste Bestandteile <a href="https://fahrschule-in-dortmund.de/blog/fuehrerschein-in-14-tagen-5-meilenstein-plan">unseres bewährten 5-Meilenstein-Prozesses</a> und der Grund, warum unsere Schüler oft deutlich weniger Stunden benötigen.</p>
+            <p>Um die teure Zeit auf der Straße zu minimieren und den Lernerfolg zu maximieren, haben wir ein System aus drei leistungsstarken Werkzeugen entwickelt, die Hand in Hand arbeiten. Sie sind feste Bestandteile <a href="#">unseres bewährten 5-Meilenstein-Prozesses</a> und der Grund, warum unsere Schüler oft deutlich weniger Stunden benötigen.</p>
 
             <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5,6.5H19V5.75A2.75,2.75,0,0,0,16.25,3h-8.5A2.75,2.75,0,0,0,5,5.75V6.5H4.5A2.5,2.5,0,0,0,2,9V16.5A2.5,2.5,0,0,0,4.5,19H5v1.25A2.75,2.75,0,0,0,7.75,23h8.5A2.75,2.75,0,0,0,19,20.25V19h.5a2.5,2.5,0,0,0,2.5-2.5V9A2.5,2.5,0,0,0,19.5,6.5ZM17.5,20.25a1.25,1.25,0,0,1-1.25,1.25h-8.5a1.25,1.25,0,0,1-1.25-1.25V3.75a1.25,1.25,0,0,1,1.25-1.25h8.5A1.25,1.25,0,0,1,17.5,3.75Z" transform="translate(-1 -1)"/><path d="M13,9h3.5v3.5H13Z"/><path d="M7,14h2.5v2.5H7Z"/><path d="M11,14h2.5v2.5H11Z"/><path d="M15,14h2.5v2.5H15Z"/><path d="M7,18h2.5v2.5H7Z"/><path d="M11,18h2.5v2.5H11Z"/><path d="M15,18h2.5v2.5H15Z"/></svg>Säule 1: Der "Fahrstundensparer" – Sicher üben, clever sparen</h3>
             <p>Stell dir vor, du könntest das Anfahren am Berg an der steilsten Straße Dortmunds, das seitliche Einparken am Phönixsee oder das Einfädeln auf die B1 so lange üben, bis es perfekt sitzt – ganz ohne den Druck des nachfolgenden Verkehrs, ohne Hupkonzerte und ohne dass der Zähler für die Fahrstunde tickt. Genau das ermöglicht unser hochmoderner Fahrsimulator. Er ist kein Videospiel, sondern ein professionelles Trainingsgerät, das dich reale Verkehrssituationen in einer absolut sicheren und fehlerverzeihenden Umgebung erleben lässt. Du baust hier das entscheidende Muskelgedächtnis für die Fahrzeugbedienung auf und gewinnst eine Routine, die dir im echten Verkehr eine immense Sicherheit gibt.</p>
             
-            <img src="fsgh-master-foto-fahrsimulator-cockpit-technologie-2025-07-28_v01.jpg" alt="Die Cockpit-Ansicht des modernen Fahrsimulators, der für eine effiziente Ausbildung eingesetzt wird." class="in-article-image">
+            <img src="https://storage.googleapis.com/gemini-prod/images/Cockpit_Ansicht_eines_modernen_Fahrsimulators.png" alt="Die Cockpit-Ansicht des modernen Fahrsimulators, der für eine effiziente Ausbildung eingesetzt wird." class="in-article-image">
 
             <blockquote>
                 <p>"Ich dachte, der Simulator sei nur Spielerei, aber er hat mir locker 5 teure Fahrstunden auf der Straße erspart."</p>
@@ -239,12 +327,12 @@
             <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.24,6.52,1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42A8,8,0,1,1,12,20a1,1,0,0,0,0,2,10,10,0,0,0,0-20Z"/><path d="M12,6a1,1,0,0,0-1,1V9a1,1,0,0,0,2,0V7A1,1,0,0,0,12,6Z"/><path d="M12,11a1,1,0,0,0-1,1v5a1,1,0,0,0,2,0V12A1,1,0,0,0,12,11Z"/></svg>Säule 2: Praxisnahe Theorie – Wissen, das sich auszahlt</h3>
             <p>Unser Theorieunterricht ist mehr als nur das Auswendiglernen von Regeln für die Prüfung. Wir nennen es das "Bedienungsanleitung"-Konzept: Wir vermitteln dir das "Warum" hinter den Verkehrsregeln so praxisnah, dass du es im Auto direkt anwenden kannst. Anstatt nur "Rechts vor Links" zu pauken, analysieren wir gemeinsam typische, knifflige Kreuzungen hier in Dortmund und besprechen, worauf man achten muss. Wenn du komplexe Vorfahrtsregeln nicht nur kennst, sondern im Kopf bereits verinnerlicht und auf reale Situationen übertragen hast, reagierst du auf der Straße schneller, vorausschauender und sicherer. Dieses tiefe Verständnis beschleunigt deine Lernkurve im Auto enorm und macht dich zu einem besseren Fahrer – und das spart am Ende wieder wertvolle und teure Fahrstunden.</p>
 
-            <img src="fsgh-master-foto-theorie-unterricht-raum-ausstattung-2025-08-02_v01.jpg" alt="Heller, moderner Theorieraum, der ein professionelles Lernumfeld zeigt." class="in-article-image">
+            <img src="https://storage.googleapis.com/gemini-prod/images/Heller_moderner_Theorieraum.jpg" alt="Heller, moderner Theorieraum, der ein professionelles Lernumfeld zeigt." class="in-article-image">
             
             <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,1.5a4.49,4.49,0,0,0-4.5,4.5A4.49,4.49,0,0,0,12,10.5a4.49,4.49,0,0,0,4.5-4.5A4.49,4.49,0,0,0,12,1.5Zm0,7.5a3,3,0,1,1,3-3A3,3,0,0,1,12,9Z"/><path d="M19.34,18.33,18,17.29a3,3,0,0,0-1.2-1.29L15.34,15a1,1,0,0,0-1.09.21L12.5,17a.5.5,0,0,1-.5,0l-1.75-1.75a.5.5,0,0,1,0-.5l1.75-1.75a1,1,0,0,0,.21-1.09l-1-1.46A3,3,0,0,0,8,6.71L6.66,5.67a1,1,0,0,0-1.32.32,10,10,0,0,0,12.33,12.33A1,1,0,0,0,19.34,18.33Z"/></svg>Säule 3: Der Mensch – Der entscheidende Faktor</h3>
             <p>Technologie und ein guter Plan sind mächtige Werkzeuge. Aber die beste Ausstattung nützt nichts ohne den richtigen Handwerker. Die dritte und vielleicht wichtigste Säule unseres Systems ist der erfahrene Fahrlehrer. Er ist kein bloßer Beifahrer, sondern dein persönlicher Coach. Er analysiert deine Fortschritte im Simulator, versteht deine individuellen Unsicherheiten und passt den praktischen Unterricht exakt darauf an. Ein guter Lehrer erkennt, wann du bereit für den nächsten Schritt bist, wo deine Unsicherheiten liegen und wie er dich gezielt fördern kann. Er sorgt dafür, dass die gewonnene Effizienz auch wirklich in weniger Fahrstunden resultiert und du nicht nur die Prüfung bestehst, sondern ein Leben lang sicher fährst.</p>
             
-            <img src="fsgh-master-foto-portrait-team-wolfgang-nolte-2025-07-28_v01.jpg" alt="Porträt eines erfahrenen und sympathischen Fahrlehrers, der den menschlichen Faktor repräsentiert." class="in-article-image">
+            <img src="https://storage.googleapis.com/gemini-prod/images/Portrait_eines_erfahrenen_Fahrlehrers.png" alt="Porträt eines erfahrenen und sympathischen Fahrlehrers, der den menschlichen Faktor repräsentiert." class="in-article-image">
             
             <h2>Die Anatomie einer (in)effizienten Fahrstunde: Ein Vergleich</h2>
             <p>Um den Unterschied greifbar zu machen, vergleichen wir zwei typische Szenarien für eine 45-minütige Fahrstunde zum Thema "Parken":</p>
@@ -311,26 +399,99 @@
                 <div id="savings">Deine potenzielle Ersparnis: <strong>300 €</strong></div>
             </div>
 
+            <!-- Quiz Section Start -->
+            <div class="quiz-container interactive-section">
+                <h2><svg style="width:38px; height:38px; margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,1.5H8A2.5,2.5,0,0,0,5.5,4V20a2.5,2.5,0,0,0,2.5,2.5h8A2.5,2.5,0,0,0,18.5,20V4A2.5,2.5,0,0,0,16,1.5ZM12,21a1,1,0,1,1,1-1A1,1,0,0,1,12,21Zm4-3.5H8A.5.5,0,0,1,7.5,17V4A.5.5,0,0,1,8,3.5h8A.5.5,0,0,1,16.5,4V17A.5.5,0,0,1,16,17.5Z"/></svg>Teste dein Wissen!</h2>
+                <p>Bist du fit für die Straße? Finde es mit unserem kleinen Quiz heraus!</p>
+
+                <form id="quizForm">
+                    <!-- Page 1 -->
+                    <div class="quiz-page active" id="page1">
+                        <p class="quiz-question">1/5: Sie nähern sich einer Kreuzung ohne Ampeln und Verkehrszeichen. Von rechts kommt ein anderes Fahrzeug. Wie verhalten Sie sich?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q1" id="q1a1" value="a"><label for="q1a1">Ich habe Vorfahrt, da ich auf der breiteren Straße fahre.</label>
+                            <input type="radio" name="q1" id="q1a2" value="b"><label for="q1a2">Ich hupe, um auf mich aufmerksam zu machen und fahre weiter.</label>
+                            <input type="radio" name="q1" id="q1a3" value="c"><label for="q1a3">Ich gewähre dem Fahrzeug von rechts die Vorfahrt.</label>
+                            <input type="radio" name="q1" id="q1a4" value="d"><label for="q1a4">Wer zuerst an der Kreuzung ist, darf zuerst fahren.</label>
+                        </div>
+                    </div>
+                    <!-- Page 2 -->
+                    <div class="quiz-page" id="page2">
+                        <p class="quiz-question">2/5: Sie fahren außerorts 100 km/h auf trockener Fahrbahn. Welchen Mindestabstand zum vorausfahrenden Fahrzeug sollten Sie einhalten?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q2" id="q2a1" value="a"><label for="q2a1">Ca. 15 Meter (eine Fahrzeuglänge).</label>
+                            <input type="radio" name="q2" id="q2a2" value="b"><label for="q2a2">Ca. 50 Meter (halber Tachowert).</label>
+                            <input type="radio" name="q2" id="q2a3" value="c"><label for="q2a3">Ca. 100 Meter (voller Tachowert).</label>
+                            <input type="radio" name="q2" id="q2a4" value="d"><label for="q2a4">Der Abstand spielt keine Rolle, solange ich bremsbereit bin.</label>
+                        </div>
+                    </div>
+                    <!-- Page 3 -->
+                    <div class="quiz-page" id="page3">
+                        <p class="quiz-question">3/5: Was bedeutet das "Reißverschlussverfahren"?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q3" id="q3a1" value="a"><label for="q3a1">Alle Fahrzeuge auf der linken Spur haben absolute Vorfahrt.</label>
+                            <input type="radio" name="q3" id="q3a2" value="b"><label for="q3a2">Fahrzeuge müssen sich abwechselnd direkt am Hindernis einordnen.</label>
+                            <input type="radio" name="q3" id="q3a3" value="c"><label for="q3a3">Man muss so früh wie möglich auf die freie Spur wechseln.</label>
+                            <input type="radio" name="q3" id="q3a4" value="d"><label for="q3a4">LKWs müssen immer bis zum Ende warten.</label>
+                        </div>
+                    </div>
+                    <!-- Page 4 -->
+                    <div class="quiz-page" id="page4">
+                        <p class="quiz-question">4/5: Wann dürfen Sie die Nebelschlussleuchte einschalten?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q4" id="q4a1" value="a"><label for="q4a1">Bei jeder Art von Nebel, um besser gesehen zu werden.</label>
+                            <input type="radio" name="q4" id="q4a2" value="b"><label for="q4a2">Nur bei starkem Regen oder Schneefall.</label>
+                            <input type="radio" name="q4" id="q4a3" value="c"><label for="q4a3">Nur wenn die Sichtweite durch Nebel unter 50 Meter beträgt.</label>
+                            <input type="radio" name="q4" id="q4a4" value="d"><label for="q4a4">Wenn das vorausfahrende Fahrzeug sie auch eingeschaltet hat.</label>
+                        </div>
+                    </div>
+                    <!-- Page 5 -->
+                    <div class="quiz-page" id="page5">
+                        <p class="quiz-question">5/5: Ein Bus mit eingeschaltetem Warnblinklicht steht an einer Haltestelle. Sie nähern sich in dieselbe Richtung. Wie müssen Sie sich verhalten?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q5" id="q5a1" value="a"><label for="q5a1">Mit mäßiger Geschwindigkeit vorbeifahren.</label>
+                            <input type="radio" name="q5" id="q5a2" value="b"><label for="q5a2">Anhalten und warten, bis der Bus weiterfährt.</label>
+                            <input type="radio" name="q5" id="q5a3" value="c"><label for="q5a3">Nur mit Schrittgeschwindigkeit vorbeifahren, auch auf der Gegenfahrbahn.</label>
+                            <input type="radio" name="q5" id="q5a4" value="d"><label for="q5a4">Hupen, um Fußgänger zu warnen und dann normal weiterfahren.</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-navigation">
+                        <button type="button" id="prevBtn" class="quiz-btn" onclick="navigateQuiz(-1)" disabled>Zurück</button>
+                        <button type="button" id="nextBtn" class="quiz-btn" onclick="navigateQuiz(1)">Weiter</button>
+                        <button type="button" id="submitBtn" class="quiz-btn" style="display: none;" onclick="submitQuiz()">Ergebnis anzeigen</button>
+                    </div>
+                </form>
+
+                <div id="results-screen">
+                     <h2>Quiz Auswertung</h2>
+                     <p id="score-text"></p>
+                     <div id="solutions-container"></div>
+                     <button type="button" class="quiz-btn" onclick="restartQuiz()">Quiz neustarten</button>
+                </div>
+            </div>
+            <!-- Quiz Section End -->
+
             <h2>Fazit: Klug investieren statt draufzahlen</h2>
             <p>Die <a href="https://www.adac.de/verkehr/rund-um-den-fuehrerschein/fahrausbildung/fuehrerscheinkosten/" target="_blank" rel="noopener">durchschnittlichen Kosten</a> für einen Führerschein sind eine erhebliche finanzielle Belastung. Doch Sie haben die Kontrolle. Die Entscheidung für eine Fahrschule, die in moderne Technologie, effiziente Lehrmethoden und exzellente menschliche Betreuung investiert, ist nicht nur eine Entscheidung für eine bessere Ausbildung, sondern auch die klügste für Ihr Budget. Statt am falschen Ende zu sparen und einen niedrigen Stundenpreis mit vielen ineffizienten Stunden zu bezahlen, investieren Sie in ein System, das Ihnen hilft, die Gesamtkosten aktiv zu senken und Ihr Kind optimal auf eine sichere Zukunft im Straßenverkehr vorzubereiten.</p>
             
             <div class="faq-container interactive-section">
                  <h2><svg style="width:38px; height:38px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,1.5A9.5,9.5,0,0,0,2.5,11v.5a1,1,0,0,0,1,1h.5a1,1,0,0,0,1-1V11a8,8,0,0,1,14.5,3.5,1,1,0,0,0,.5,1,1,1,0,0,0,1,0,10,10,0,0,0,1-1.5,1,1,0,0,0-1-1.5H20a8,8,0,0,1-7-7.93V2.5a1,1,0,0,0-2,0v.57A8,8,0,0,1,5.5,11a1,1,0,0,0,0,2,6,6,0,0,0,11,0,1,1,0,0,0-2,0,4,4,0,0,1-8,0,6,6,0,0,1,6-6,5.92,5.92,0,0,1,4.24,1.76,1,1,0,0,0,1.42-1.42A8,8,0,0,0,12,3.5Z"/><path d="M12,18.5a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,12,18.5Z"/></svg>Noch Fragen zu den Kosten?</h2>
                  <details>
-                    <summary>Ist der Simulator wirklich kostenlos?</summary>
-                    <p>Ja, der Einsatz des Fahrsimulators zur Vorbereitung ist in unseren Ausbildungspaketen enthalten und verursacht keine zusätzlichen Kosten. Wir sehen ihn als Investition in deine Effizienz.</p>
+                     <summary>Ist der Simulator wirklich kostenlos?</summary>
+                     <p>Ja, der Einsatz des Fahrsimulators zur Vorbereitung ist in unseren Ausbildungspaketen enthalten und verursacht keine zusätzlichen Kosten. Wir sehen ihn als Investition in deine Effizienz.</p>
                  </details>
                  <details>
-                    <summary>Was ist, wenn ich doch mehr Stunden brauche?</summary>
-                    <p>Unser System zielt darauf ab, die Stundenzahl zu reduzieren, aber die Ausbildung ist immer individuell. Solltest du mehr Zeit benötigen, planen wir das transparent mit dir. Unser Ziel ist immer deine Sicherheit, nicht eine bestimmte Stundenzahl.</p>
+                     <summary>Was ist, wenn ich doch mehr Stunden brauche?</summary>
+                     <p>Unser System zielt darauf ab, die Stundenzahl zu reduzieren, aber die Ausbildung ist immer individuell. Solltest du mehr Zeit benötigen, planen wir das transparent mit dir. Unser Ziel ist immer deine Sicherheit, nicht eine bestimmte Stundenzahl.</p>
                  </details>
                  <details>
-                    <summary>Sind die Sonderfahrten in der Ersparnis schon mitgerechnet?</summary>
-                    <p>Nein. Die gesetzlich vorgeschriebenen 12 Sonderfahrten (Autobahn, Überland, Nachtfahrt) sind fix und müssen von jedem absolviert werden. Unsere Ersparnis bezieht sich rein auf die variablen Übungsfahrten, wo die größten Kostenunterschiede entstehen.</p>
+                     <summary>Sind die Sonderfahrten in der Ersparnis schon mitgerechnet?</summary>
+                     <p>Nein. Die gesetzlich vorgeschriebenen 12 Sonderfahrten (Autobahn, Überland, Nachtfahrt) sind fix und müssen von jedem absolviert werden. Unsere Ersparnis bezieht sich rein auf die variablen Übungsfahrten, wo die größten Kostenunterschiede entstehen.</p>
                  </details>
             </div>
 
-            <p>Fühlen Sie sich bereit, den cleveren Weg zum Führerschein zu gehen? Holen Sie sich als ersten Schritt <a href="https://fahrschule-in-dortmund.de/downloads/anti-chaos-checkliste">unsere kostenlose Anti-Chaos-Checkliste</a>, um bei der Wahl Ihrer Fahrschule die richtigen Fragen zu stellen und Kostenfallen von vornherein zu vermeiden.</p>
+            <p>Fühlen Sie sich bereit, den cleveren Weg zum Führerschein zu gehen? Holen Sie sich als ersten Schritt <a href="#">unsere kostenlose Anti-Chaos-Checkliste</a>, um bei der Wahl Ihrer Fahrschule die richtigen Fragen zu stellen und Kostenfallen von vornherein zu vermeiden.</p>
 
             <hr style="margin-top: 40px; border: 1px solid #f0f0f0;">
             <p><strong>Welche Erfahrungen habt ihr mit den Kosten beim Führerschein gemacht? Teilt eure Tipps zum Sparen in den Kommentaren!</strong></p>
@@ -339,6 +500,7 @@
     </div>
 
     <script>
+        // Script for Cost Calculator
         const lessonsSlider = document.getElementById('lessonsSlider');
         const lessonsCount = document.getElementById('lessonsCount');
         const standardCostEl = document.getElementById('standardCost');
@@ -346,24 +508,148 @@
         const savingsEl = document.getElementById('savings');
 
         const PRICE_PER_LESSON = 60;
-        const SAVED_LESSONS_BY_SYSTEM = 5;
+        
+        // Reworked savings logic for exponential increase
+        function calculateSavedLessons(estimatedLessons) {
+            const minLessons = 15;
+            const maxLessons = 50;
+            const minSavings = 3; // Minimum 3 saved lessons
+            const maxSavings = 10; // Maximum 10 saved lessons
+
+            if (estimatedLessons <= minLessons) {
+                return minSavings;
+            }
+            // Calculate the position on the slider as a value between 0 and 1
+            const sliderPosition = (estimatedLessons - minLessons) / (maxLessons - minLessons);
+            
+            // Use an exponential curve (power of 1.5) to make the savings grow faster at higher lesson counts
+            const savingsFactor = Math.pow(sliderPosition, 1.5);
+            
+            const savedLessons = minSavings + (maxSavings - minSavings) * savingsFactor;
+            
+            return Math.round(savedLessons);
+        }
+
 
         function calculateCosts() {
+            if (!lessonsSlider) return; // a little safeguard
             const lessons = parseInt(lessonsSlider.value);
             lessonsCount.textContent = lessons;
 
+            const savedLessonsBySystem = calculateSavedLessons(lessons);
+
             const standardCost = lessons * PRICE_PER_LESSON;
-            const ghCost = Math.max(0, (lessons - SAVED_LESSONS_BY_SYSTEM)) * PRICE_PER_LESSON;
+            const ghCost = Math.max(0, (lessons - savedLessonsBySystem)) * PRICE_PER_LESSON;
             const savings = standardCost - ghCost;
 
             standardCostEl.textContent = `${standardCost} €`;
             ghCostEl.textContent = `${ghCost} €`;
-            savingsEl.innerHTML = `Deine potenzielle Ersparnis: <strong>${savings} €</strong>`;
+            savingsEl.innerHTML = `Deine potenzielle Ersparnis: <strong>${savings} €</strong> (${savedLessonsBySystem} Std. gespart)`;
+        }
+        
+        // Initial call for calculator
+        calculateCosts();
+        if (lessonsSlider) {
+            lessonsSlider.addEventListener('input', calculateCosts);
         }
 
-        lessonsSlider.addEventListener('input', calculateCosts);
+        // --- Script for Quiz ---
+        const quizData = [
+            { question: "Sie nähern sich einer Kreuzung ohne Ampeln und Verkehrszeichen. Von rechts kommt ein anderes Fahrzeug. Wie verhalten Sie sich?", answer: "c", options: { a: "Ich habe Vorfahrt, da ich auf der breiteren Straße fahre.", b: "Ich hupe, um auf mich aufmerksam zu machen und fahre weiter.", c: "Ich gewähre dem Fahrzeug von rechts die Vorfahrt.", d: "Wer zuerst an der Kreuzung ist, darf zuerst fahren."}},
+            { question: "Sie fahren außerorts 100 km/h auf trockener Fahrbahn. Welchen Mindestabstand zum vorausfahrenden Fahrzeug sollten Sie einhalten?", answer: "b", options: { a: "Ca. 15 Meter (eine Fahrzeuglänge).", b: "Ca. 50 Meter (halber Tachowert).", c: "Ca. 100 Meter (voller Tachowert).", d: "Der Abstand spielt keine Rolle, solange ich bremsbereit bin."}},
+            { question: "Was bedeutet das \"Reißverschlussverfahren\"?", answer: "b", options: { a: "Alle Fahrzeuge auf der linken Spur haben absolute Vorfahrt.", b: "Fahrzeuge müssen sich abwechselnd direkt am Hindernis einordnen.", c: "Man muss so früh wie möglich auf die freie Spur wechseln.", d: "LKWs müssen immer bis zum Ende warten."}},
+            { question: "Wann dürfen Sie die Nebelschlussleuchte einschalten?", answer: "c", options: {a: "Bei jeder Art von Nebel, um besser gesehen zu werden.", b: "Nur bei starkem Regen oder Schneefall.", c: "Nur wenn die Sichtweite durch Nebel unter 50 Meter beträgt.", d: "Wenn das vorausfahrende Fahrzeug sie auch eingeschaltet hat."}},
+            { question: "Ein Bus mit eingeschaltetem Warnblinklicht steht an einer Haltestelle. Sie nähern sich in dieselbe Richtung. Wie müssen Sie sich verhalten?", answer: "c", options: {a: "Mit mäßiger Geschwindigkeit vorbeifahren.", b: "Anhalten und warten, bis der Bus weiterfährt.", c: "Nur mit Schrittgeschwindigkeit vorbeifahren, auch auf der Gegenfahrbahn.", d: "Hupen, um Fußgänger zu warnen und dann normal weiterfahren."}}
+        ];
+
+        let currentPage = 1;
+        const totalPages = quizData.length;
+        const userAnswers = {};
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
         
-        calculateCosts();
+        function showPage(pageNumber) {
+            document.querySelectorAll('.quiz-page').forEach(page => page.classList.remove('active'));
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+
+            prevBtn.disabled = pageNumber === 1;
+            nextBtn.style.display = pageNumber === totalPages ? 'none' : 'inline-block';
+            submitBtn.style.display = pageNumber === totalPages ? 'inline-block' : 'none';
+        }
+
+        function navigateQuiz(direction) {
+            // Save answer before navigating
+            const currentPageElement = document.querySelector('.quiz-page.active');
+            const questionName = `q${currentPage}`;
+            const selectedOption = currentPageElement.querySelector(`input[name="${questionName}"]:checked`);
+            if (selectedOption) {
+                 userAnswers[questionName] = selectedOption.value;
+            }
+
+            currentPage += direction;
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            showPage(currentPage);
+        }
+
+        function submitQuiz() {
+            // Save answer of the last page
+            const currentPageElement = document.querySelector('.quiz-page.active');
+            const questionName = `q${currentPage}`;
+            const selectedOption = currentPageElement.querySelector(`input[name="${questionName}"]:checked`);
+            if (selectedOption) {
+                 userAnswers[questionName] = selectedOption.value;
+            }
+
+            let score = 0;
+            const solutionsContainer = document.getElementById('solutions-container');
+            solutionsContainer.innerHTML = ''; // Clear previous results
+
+            quizData.forEach((item, index) => {
+                const questionNum = index + 1;
+                const questionName = `q${questionNum}`;
+                const correctAnswer = item.answer;
+                const userAnswer = userAnswers[questionName];
+                
+                const solutionDiv = document.createElement('div');
+                solutionDiv.classList.add('solution');
+                
+                let solutionHTML = `<p><strong>Frage ${questionNum}:</strong> ${item.question}</p>`;
+                if (userAnswer === correctAnswer) {
+                    score++;
+                    solutionDiv.classList.add('correct');
+                    solutionHTML += `<p>Deine Antwort: "${item.options[userAnswer]}"</p><p><em>&#10003; Korrekt!</em></p>`;
+                } else {
+                    solutionDiv.classList.add('incorrect');
+                    const userAnswerText = userAnswer ? `"${item.options[userAnswer]}"` : "Keine Antwort gegeben";
+                    solutionHTML += `<p>Deine Antwort: ${userAnswerText}</p>`;
+                    solutionHTML += `<p>Richtige Antwort: "${item.options[correctAnswer]}"</p>`;
+                }
+                solutionDiv.innerHTML = solutionHTML;
+                solutionsContainer.appendChild(solutionDiv);
+            });
+            
+            document.getElementById('quizForm').style.display = 'none';
+            document.getElementById('results-screen').style.display = 'block';
+            document.getElementById('score-text').textContent = `Du hast ${score} von ${totalPages} Fragen richtig beantwortet!`;
+        }
+        
+        function restartQuiz() {
+            currentPage = 1;
+            for (let key in userAnswers) {
+                delete userAnswers[key];
+            }
+            document.getElementById('quizForm').reset();
+            document.getElementById('quizForm').style.display = 'block';
+            document.getElementById('results-screen').style.display = 'none';
+            showPage(1);
+        }
+
+        // Initial call for quiz
+        showPage(currentPage);
+
     </script>
 
 </body>
