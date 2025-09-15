@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="So sparst du bares Geld beim Führerschein in Dortmund: Unser System aus Simulator & praxisnaher Theorie reduziert teure Fahrstunden. Jetzt Ersparnis berechnen!">
+    <title>Weniger Fahrstunden, mehr im Portemonnaie | G+H Fahrschule Dortmund</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="icon" href="../Bilder/fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" sizes="32x32">
+
+    <style>
+        :root {
+            --ci-dark-blue: #1a2c48;
+            --ci-bright-blue: #009ee2;
+            --ci-text-dark: #212529;
+            --ci-background-white: #ffffff;
+            --ci-background-light-grey: #f9f9f9;
+            --ci-border-color: #e0e0e0;
+            --ci-border-accent: #bde0fe;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            color: var(--ci-text-dark);
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            color: #000;
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2.25rem;
+            margin-top: 3rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            color: #1d1d1d;
+            display: flex;
+            align-items: center;
+        }
+        h3 svg {
+            width: 32px;
+            height: 32px;
+            margin-right: 15px;
+            fill: var(--ci-bright-blue);
+        }
+        p, li {
+            font-size: 1.1rem;
+        }
+        a {
+            color: var(--ci-bright-blue);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img.header-image, img.in-article-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        blockquote {
+            border-left: 5px solid var(--ci-bright-blue);
+            margin: 25px 0;
+            padding: 20px 25px;
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background-color: var(--ci-background-light-grey);
+            color: #1d1d1d;
+        }
+        
+        /* Interaktive Elemente & Infografik */
+        .interactive-section {
+            background-color: var(--ci-background-light-grey);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 3rem 0;
+            border: 1px solid var(--ci-border-accent);
+            text-align: center;
+        }
+        .interactive-section h2 {
+            margin-top: 0;
+            border-bottom: none;
+        }
+        .calculator-input-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .calculator-input-group label { font-weight: 700; }
+        .calculator-input-group input[type="range"] { width: 200px; }
+        #lessonsCount {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--ci-bright-blue);
+            min-width: 50px;
+            display: inline-block;
+        }
+        .calculator-results {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+        }
+        .result-box {
+            padding: 15px;
+            border-radius: 5px;
+            width: 45%;
+        }
+        .result-box h4 { margin: 0 0 10px 0; font-family: 'Poppins', sans-serif; }
+        .result-box p { font-size: 2rem; font-weight: 900; margin: 0; }
+        .result-standard { background-color: #fde2e2; }
+        .result-gh { background-color: #dcfce7; }
+        #savings {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        
+        .checklist-container { text-align: left; }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .checklist-item input {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+        }
+
+        .faq-container { text-align: left; }
+        .faq-container details {
+            border-bottom: 1px solid var(--ci-border-color);
+            padding: 15px 0;
+        }
+        .faq-container details:last-child {
+            border-bottom: none;
+        }
+        .faq-container summary {
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-container summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--ci-bright-blue);
+        }
+        .faq-container details[open] summary::after {
+            content: '−';
+        }
+        .faq-container details p {
+            padding: 10px 0 0 0;
+            margin: 0;
+        }
+        
+        /* Infografik */
+        .infographic-box {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 3rem 0;
+            border: 1px solid var(--ci-border-accent);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <article>
+            
+            <img src="fsgh-grafik-blog-header-kosten-sparen-2025-08-11_v01.jpg" alt="Ein Sparschwein steht neben einem Fahrsimulator und symbolisiert das Sparen von Geld durch moderne Ausbildungsmethoden." class="header-image">
+            
+            <h1>Weniger Fahrstunden, mehr im Portemonnaie: Wie unser System dir bares Geld spart</h1>
+
+            <p>Die größte Sorge bei der Planung des Führerscheins? Fast immer sind es die Kosten. Es ist eine der ersten großen Investitionen im Leben eines jungen Erwachsenen und oft ein erheblicher Posten im Familienbudget. Man hört Horrorgeschichten von explodierenden Rechnungen, von Freunden, die plötzlich 30, 40 oder sogar mehr Fahrstunden benötigten. Viele Eltern und Fahranfänger fragen sich zu Recht: Wie kann man die <a href="https://fahrschule-in-dortmund.de/autowelt.html">Kosten beim Führerschein</a> im Griff behalten, ohne an der Qualität und vor allem der Sicherheit der Ausbildung zu sparen? Die Antwort ist einfacher und gleichzeitig tiefgreifender als gedacht: Es geht nicht darum, die billigste Fahrstunde zu finden, sondern die wenigsten zu benötigen.</p>
+
+            <h2>Die Psychologie der Kostenangst: Warum Transparenz der beste Berater ist</h2>
+            <p>Die Angst vor den Führerscheinkosten kommt nicht von ungefähr. Sie wird durch einen Mangel an Transparenz in der Branche befeuert. Wenn man nicht weiß, was auf einen zukommt, malt man sich oft das schlimmste Szenario aus. Diese Unsicherheit ist ein enormer Stressfaktor. Ein klarer, strukturierter Plan, der von Anfang an kommuniziert wird, wirkt hier wie ein starkes Beruhigungsmittel. Er nimmt die Angst vor dem Unbekannten und ersetzt sie durch das sichere Gefühl, die Kontrolle zu haben. Eine Fahrschule, die ihre Prozesse offenlegt und Werkzeuge zur Effizienzsteigerung anbietet, zeigt, dass sie ein Partner auf Augenhöhe ist – und kein Verkäufer, der auf möglichst viele Stunden aus ist.</p>
+
+            <div class="checklist-container interactive-section">
+                <h2><svg style="width:38px; height:38px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14,1.5H5.5A2.5,2.5,0,0,0,3,4V20a2.5,2.5,0,0,0,2.5,2.5h13A2.5,2.5,0,0,0,21,20V8.5Zm-1.25,8a.75.75,0,0,1-.75.75H8.5a.75.75,0,0,1,0-1.5h3.5a.75.75,0,0,1,.75.75Zm0,4a.75.75,0,0,1-.75.75H8.5a.75.75,0,0,1,0-1.5h3.5a.75.75,0,0,1,.75.75Zm3.75-2.5a.76.76,0,0,1-.22.53l-3,3a.75.75,0,0,1-1.06-1.06l2.47-2.47-1.17-1.18a.75.75,0,1,1,1.06-1.06l2,2A.76.76,0,0,1,16.5,11Z"/><path d="M14.5,1,22,8V7.5a.5.5,0,0,0-.15-.35l-6-6a.5.5,0,0,0-.35-.15Z"/></svg>Bist du in der Kostenfalle?</h2>
+                <p style="font-size: 1rem; color: #555; text-align:center;">Erkennst du diese Punkte aus deiner aktuellen oder einer früheren Fahrschul-Erfahrung wieder?</p>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check1"><label for="check1">Häufige Pausen oder Wartezeiten während der Fahrstunde.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check2"><label for="check2">Du musstest dieselben Grundübungen sehr oft wiederholen.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check3"><label for="check3">Dein Fahrlehrer war oft am Handy oder unkonzentriert.</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check4"><label for="check4">Es gab keinen klaren Plan, was in der nächsten Stunde geübt wird.</label>
+                </div>
+            </div>
+
+            <h2>Unser 3-Säulen-System für maximale Effizienz</h2>
+            <p>Um die teure Zeit auf der Straße zu minimieren und den Lernerfolg zu maximieren, haben wir ein System aus drei leistungsstarken Werkzeugen entwickelt, die Hand in Hand arbeiten. Sie sind feste Bestandteile <a href="https://fahrschule-in-dortmund.de/blog/fuehrerschein-in-14-tagen-5-meilenstein-plan">unseres bewährten 5-Meilenstein-Prozesses</a> und der Grund, warum unsere Schüler oft deutlich weniger Stunden benötigen.</p>
+
+            <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.5,6.5H19V5.75A2.75,2.75,0,0,0,16.25,3h-8.5A2.75,2.75,0,0,0,5,5.75V6.5H4.5A2.5,2.5,0,0,0,2,9V16.5A2.5,2.5,0,0,0,4.5,19H5v1.25A2.75,2.75,0,0,0,7.75,23h8.5A2.75,2.75,0,0,0,19,20.25V19h.5a2.5,2.5,0,0,0,2.5-2.5V9A2.5,2.5,0,0,0,19.5,6.5ZM17.5,20.25a1.25,1.25,0,0,1-1.25,1.25h-8.5a1.25,1.25,0,0,1-1.25-1.25V3.75a1.25,1.25,0,0,1,1.25-1.25h8.5A1.25,1.25,0,0,1,17.5,3.75Z" transform="translate(-1 -1)"/><path d="M13,9h3.5v3.5H13Z"/><path d="M7,14h2.5v2.5H7Z"/><path d="M11,14h2.5v2.5H11Z"/><path d="M15,14h2.5v2.5H15Z"/><path d="M7,18h2.5v2.5H7Z"/><path d="M11,18h2.5v2.5H11Z"/><path d="M15,18h2.5v2.5H15Z"/></svg>Säule 1: Der "Fahrstundensparer" – Sicher üben, clever sparen</h3>
+            <p>Stell dir vor, du könntest das Anfahren am Berg an der steilsten Straße Dortmunds, das seitliche Einparken am Phönixsee oder das Einfädeln auf die B1 so lange üben, bis es perfekt sitzt – ganz ohne den Druck des nachfolgenden Verkehrs, ohne Hupkonzerte und ohne dass der Zähler für die Fahrstunde tickt. Genau das ermöglicht unser hochmoderner Fahrsimulator. Er ist kein Videospiel, sondern ein professionelles Trainingsgerät, das dich reale Verkehrssituationen in einer absolut sicheren und fehlerverzeihenden Umgebung erleben lässt. Du baust hier das entscheidende Muskelgedächtnis für die Fahrzeugbedienung auf und gewinnst eine Routine, die dir im echten Verkehr eine immense Sicherheit gibt.</p>
+            
+            <img src="fsgh-master-foto-fahrsimulator-cockpit-technologie-2025-07-28_v01.jpg" alt="Die Cockpit-Ansicht des modernen Fahrsimulators, der für eine effiziente Ausbildung eingesetzt wird." class="in-article-image">
+
+            <blockquote>
+                <p>"Ich dachte, der Simulator sei nur Spielerei, aber er hat mir locker 5 teure Fahrstunden auf der Straße erspart."</p>
+                <footer>– Ein zufriedener Absolvent</footer>
+            </blockquote>
+
+            <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,2.24,6.52,1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42A8,8,0,1,1,12,20a1,1,0,0,0,0,2,10,10,0,0,0,0-20Z"/><path d="M12,6a1,1,0,0,0-1,1V9a1,1,0,0,0,2,0V7A1,1,0,0,0,12,6Z"/><path d="M12,11a1,1,0,0,0-1,1v5a1,1,0,0,0,2,0V12A1,1,0,0,0,12,11Z"/></svg>Säule 2: Praxisnahe Theorie – Wissen, das sich auszahlt</h3>
+            <p>Unser Theorieunterricht ist mehr als nur das Auswendiglernen von Regeln für die Prüfung. Wir nennen es das "Bedienungsanleitung"-Konzept: Wir vermitteln dir das "Warum" hinter den Verkehrsregeln so praxisnah, dass du es im Auto direkt anwenden kannst. Anstatt nur "Rechts vor Links" zu pauken, analysieren wir gemeinsam typische, knifflige Kreuzungen hier in Dortmund und besprechen, worauf man achten muss. Wenn du komplexe Vorfahrtsregeln nicht nur kennst, sondern im Kopf bereits verinnerlicht und auf reale Situationen übertragen hast, reagierst du auf der Straße schneller, vorausschauender und sicherer. Dieses tiefe Verständnis beschleunigt deine Lernkurve im Auto enorm und macht dich zu einem besseren Fahrer – und das spart am Ende wieder wertvolle und teure Fahrstunden.</p>
+
+            <img src="fsgh-master-foto-theorie-unterricht-raum-ausstattung-2025-08-02_v01.jpg" alt="Heller, moderner Theorieraum, der ein professionelles Lernumfeld zeigt." class="in-article-image">
+            
+            <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,1.5a4.49,4.49,0,0,0-4.5,4.5A4.49,4.49,0,0,0,12,10.5a4.49,4.49,0,0,0,4.5-4.5A4.49,4.49,0,0,0,12,1.5Zm0,7.5a3,3,0,1,1,3-3A3,3,0,0,1,12,9Z"/><path d="M19.34,18.33,18,17.29a3,3,0,0,0-1.2-1.29L15.34,15a1,1,0,0,0-1.09.21L12.5,17a.5.5,0,0,1-.5,0l-1.75-1.75a.5.5,0,0,1,0-.5l1.75-1.75a1,1,0,0,0,.21-1.09l-1-1.46A3,3,0,0,0,8,6.71L6.66,5.67a1,1,0,0,0-1.32.32,10,10,0,0,0,12.33,12.33A1,1,0,0,0,19.34,18.33Z"/></svg>Säule 3: Der Mensch – Der entscheidende Faktor</h3>
+            <p>Technologie und ein guter Plan sind mächtige Werkzeuge. Aber die beste Ausstattung nützt nichts ohne den richtigen Handwerker. Die dritte und vielleicht wichtigste Säule unseres Systems ist der erfahrene Fahrlehrer. Er ist kein bloßer Beifahrer, sondern dein persönlicher Coach. Er analysiert deine Fortschritte im Simulator, versteht deine individuellen Unsicherheiten und passt den praktischen Unterricht exakt darauf an. Ein guter Lehrer erkennt, wann du bereit für den nächsten Schritt bist, wo deine Unsicherheiten liegen und wie er dich gezielt fördern kann. Er sorgt dafür, dass die gewonnene Effizienz auch wirklich in weniger Fahrstunden resultiert und du nicht nur die Prüfung bestehst, sondern ein Leben lang sicher fährst.</p>
+            
+            <img src="fsgh-master-foto-portrait-team-wolfgang-nolte-2025-07-28_v01.jpg" alt="Porträt eines erfahrenen und sympathischen Fahrlehrers, der den menschlichen Faktor repräsentiert." class="in-article-image">
+            
+            <h2>Die Anatomie einer (in)effizienten Fahrstunde: Ein Vergleich</h2>
+            <p>Um den Unterschied greifbar zu machen, vergleichen wir zwei typische Szenarien für eine 45-minütige Fahrstunde zum Thema "Parken":</p>
+            <ul>
+                <li><strong>Szenario A (Ineffizient):</strong> Die ersten 10 Minuten gehen für die Suche nach einer geeigneten, ruhigen Straße zum Üben drauf. In den nächsten 20 Minuten werden die Grundlagen des Einparkens am realen Objekt erklärt, was zu Unsicherheit, Korrekturen und Stress führt. Die verbleibende Zeit reicht für 3-4 Parkversuche, von denen vielleicht einer gut klappt. Ergebnis: wenig Wiederholung, hoher Stress, langsame Lernkurve.</li>
+                <li><strong>Szenario B (Effizient mit G+H):</strong> Der Schüler hat das Parken bereits 20 Mal im Simulator geübt und kennt die Abläufe im Schlaf. Der Fahrlehrer fährt direkt eine bekannte Übungsstrecke an (5 Minuten). Die restlichen 40 Minuten werden genutzt, um das Gelernte unter realen Bedingungen zu perfektionieren. Ergebnis: 10-12 erfolgreiche Parkversuche, Aufbau von Selbstvertrauen, steile Lernkurve.</li>
+            </ul>
+
+            <div class="infographic-box">
+                <svg width="100%" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#009ee2;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#007bb5;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="1" y="1" width="798" height="298" rx="10" fill="#fff" stroke="#e0e0e0"/>
+                    <text x="400" y="50" font-family="Poppins, sans-serif" font-size="28" font-weight="900" text-anchor="middle" fill="#1d1d1d">Ihr Fahrplan zur Kostenersparnis</text>
+                    
+                    <rect x="50" y="100" width="220" height="150" rx="8" fill="#f0f8ff" stroke="#bde0fe" />
+                    <text x="160" y="130" font-family="Poppins, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1d1d1d">1. Clevere Theorie</text>
+                    <text x="160" y="170" font-family="Roboto, sans-serif" font-size="16" text-anchor="middle" fill="#333" dy="0">
+                        <tspan x="160" dy="1.2em">Wissen, das direkt</tspan>
+                        <tspan x="160" dy="1.2em">auf der Straße hilft</tspan>
+                        <tspan x="160" dy="1.2em">und Zeit spart.</tspan>
+                    </text>
+                    
+                    <rect x="290" y="100" width="220" height="150" rx="8" fill="#f0f8ff" stroke="#bde0fe" />
+                    <text x="400" y="130" font-family="Poppins, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1d1d1d">2. Smarter Simulator</text>
+                    <text x="400" y="170" font-family="Roboto, sans-serif" font-size="16" text-anchor="middle" fill="#333">
+                        <tspan x="400" dy="1.2em">Sicher üben ohne</tspan>
+                        <tspan x="400" dy="1.2em">laufende Kosten und</tspan>
+                        <tspan x="400" dy="1.2em">ohne Stress.</tspan>
+                    </text>
+                    
+                    <rect x="530" y="100" width="220" height="150" rx="8" fill="#f0f8ff" stroke="#bde0fe" />
+                    <text x="640" y="130" font-family="Poppins, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1d1d1d">3. Effiziente Praxis</text>
+                    <text x="640" y="170" font-family="Roboto, sans-serif" font-size="16" text-anchor="middle" fill="#333">
+                        <tspan x="640" dy="1.2em">Perfekte Vorbereitung</tspan>
+                        <tspan x="640" dy="1.2em">sorgt für maximalen</tspan>
+                        <tspan x="640" dy="1.2em">Lernerfolg im Auto.</tspan>
+                    </text>
+                </svg>
+            </div>
+            
+            <div class="calculator-container interactive-section">
+                <h2>Wie viel könntest DU sparen?</h2>
+                <p style="font-size: 1rem; color: #555;">Verschiebe den Regler, um die Anzahl der Fahrstunden (Übungsfahrten) zu schätzen, die du bei einer herkömmlichen Fahrschule benötigen würdest.</p>
+                <div class="calculator-input-group">
+                    <label for="lessonsSlider">Geschätzte Fahrstunden:</label>
+                    <input type="range" id="lessonsSlider" min="15" max="50" value="30">
+                    <span id="lessonsCount">30</span>
+                </div>
+                <div class="calculator-results">
+                    <div class="result-box result-standard">
+                        <h4>Kosten (Standard)</h4>
+                        <p id="standardCost">1800 €</p>
+                    </div>
+                    <div class="result-box result-gh">
+                        <h4>Kosten (mit G+H System)</h4>
+                        <p id="ghCost">1500 €</p>
+                    </div>
+                </div>
+                <div id="savings">Deine potenzielle Ersparnis: <strong>300 €</strong></div>
+            </div>
+
+            <h2>Fazit: Klug investieren statt draufzahlen</h2>
+            <p>Die <a href="https://www.adac.de/verkehr/rund-um-den-fuehrerschein/fahrausbildung/fuehrerscheinkosten/" target="_blank" rel="noopener">durchschnittlichen Kosten</a> für einen Führerschein sind eine erhebliche finanzielle Belastung. Doch Sie haben die Kontrolle. Die Entscheidung für eine Fahrschule, die in moderne Technologie, effiziente Lehrmethoden und exzellente menschliche Betreuung investiert, ist nicht nur eine Entscheidung für eine bessere Ausbildung, sondern auch die klügste für Ihr Budget. Statt am falschen Ende zu sparen und einen niedrigen Stundenpreis mit vielen ineffizienten Stunden zu bezahlen, investieren Sie in ein System, das Ihnen hilft, die Gesamtkosten aktiv zu senken und Ihr Kind optimal auf eine sichere Zukunft im Straßenverkehr vorzubereiten.</p>
+            
+            <div class="faq-container interactive-section">
+                 <h2><svg style="width:38px; height:38px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,1.5A9.5,9.5,0,0,0,2.5,11v.5a1,1,0,0,0,1,1h.5a1,1,0,0,0,1-1V11a8,8,0,0,1,14.5,3.5,1,1,0,0,0,.5,1,1,1,0,0,0,1,0,10,10,0,0,0,1-1.5,1,1,0,0,0-1-1.5H20a8,8,0,0,1-7-7.93V2.5a1,1,0,0,0-2,0v.57A8,8,0,0,1,5.5,11a1,1,0,0,0,0,2,6,6,0,0,0,11,0,1,1,0,0,0-2,0,4,4,0,0,1-8,0,6,6,0,0,1,6-6,5.92,5.92,0,0,1,4.24,1.76,1,1,0,0,0,1.42-1.42A8,8,0,0,0,12,3.5Z"/><path d="M12,18.5a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,12,18.5Z"/></svg>Noch Fragen zu den Kosten?</h2>
+                 <details>
+                    <summary>Ist der Simulator wirklich kostenlos?</summary>
+                    <p>Ja, der Einsatz des Fahrsimulators zur Vorbereitung ist in unseren Ausbildungspaketen enthalten und verursacht keine zusätzlichen Kosten. Wir sehen ihn als Investition in deine Effizienz.</p>
+                 </details>
+                 <details>
+                    <summary>Was ist, wenn ich doch mehr Stunden brauche?</summary>
+                    <p>Unser System zielt darauf ab, die Stundenzahl zu reduzieren, aber die Ausbildung ist immer individuell. Solltest du mehr Zeit benötigen, planen wir das transparent mit dir. Unser Ziel ist immer deine Sicherheit, nicht eine bestimmte Stundenzahl.</p>
+                 </details>
+                 <details>
+                    <summary>Sind die Sonderfahrten in der Ersparnis schon mitgerechnet?</summary>
+                    <p>Nein. Die gesetzlich vorgeschriebenen 12 Sonderfahrten (Autobahn, Überland, Nachtfahrt) sind fix und müssen von jedem absolviert werden. Unsere Ersparnis bezieht sich rein auf die variablen Übungsfahrten, wo die größten Kostenunterschiede entstehen.</p>
+                 </details>
+            </div>
+
+            <p>Fühlen Sie sich bereit, den cleveren Weg zum Führerschein zu gehen? Holen Sie sich als ersten Schritt <a href="https://fahrschule-in-dortmund.de/downloads/anti-chaos-checkliste">unsere kostenlose Anti-Chaos-Checkliste</a>, um bei der Wahl Ihrer Fahrschule die richtigen Fragen zu stellen und Kostenfallen von vornherein zu vermeiden.</p>
+
+            <hr style="margin-top: 40px; border: 1px solid #f0f0f0;">
+            <p><strong>Welche Erfahrungen habt ihr mit den Kosten beim Führerschein gemacht? Teilt eure Tipps zum Sparen in den Kommentaren!</strong></p>
+
+        </article>
+    </div>
+
+    <script>
+        const lessonsSlider = document.getElementById('lessonsSlider');
+        const lessonsCount = document.getElementById('lessonsCount');
+        const standardCostEl = document.getElementById('standardCost');
+        const ghCostEl = document.getElementById('ghCost');
+        const savingsEl = document.getElementById('savings');
+
+        const PRICE_PER_LESSON = 60;
+        const SAVED_LESSONS_BY_SYSTEM = 5;
+
+        function calculateCosts() {
+            const lessons = parseInt(lessonsSlider.value);
+            lessonsCount.textContent = lessons;
+
+            const standardCost = lessons * PRICE_PER_LESSON;
+            const ghCost = Math.max(0, (lessons - SAVED_LESSONS_BY_SYSTEM)) * PRICE_PER_LESSON;
+            const savings = standardCost - ghCost;
+
+            standardCostEl.textContent = `${standardCost} €`;
+            ghCostEl.textContent = `${ghCost} €`;
+            savingsEl.innerHTML = `Deine potenzielle Ersparnis: <strong>${savings} €</strong>`;
+        }
+
+        lessonsSlider.addEventListener('input', calculateCosts);
+        
+        calculateCosts();
+    </script>
+
+</body>
+</html>
+

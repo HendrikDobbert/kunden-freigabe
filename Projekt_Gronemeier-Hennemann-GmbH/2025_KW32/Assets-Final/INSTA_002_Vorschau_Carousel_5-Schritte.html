@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finale Instagram Carousel Vorschau (Responsiv)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --phone-bg: #111;
+            --screen-bg: #ffffff;
+            --border-color: #dbdbdb;
+            --text-color: #262626;
+            --dot-inactive: #a8a8a8;
+            --dot-active: #0095f6;
+            --arrow-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .phone-frame {
+            position: relative; /* Wichtig für die Positionierung der Details */
+            height: 90vh;
+            max-height: 800px;
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 420 / 800;
+            background: #1c1c1c;
+            border-radius: 40px;
+            padding: 12px; /* Etwas weniger Padding für einen dünneren Rand */
+            box-shadow: 
+                inset 0 0 2px 2px rgba(255,255,255,0.1), /* Innerer Glanz */
+                0 20px 50px rgba(0,0,0,0.5); /* Tieferer Schatten */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Realistische Smartphone-Details --- */
+        .phone-frame .notch {
+            position: absolute;
+            top: 12px; /* Selber Wert wie Padding */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 25px;
+            background-color: var(--phone-bg);
+            border-radius: 0 0 15px 15px;
+            z-index: 20;
+        }
+
+        .phone-frame .notch::before { /* Simuliert den Lautsprecher */
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 5px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .phone-frame .side-button {
+            position: absolute;
+            background-color: #2f2f2f;
+            border-radius: 3px;
+        }
+
+        .phone-frame .volume-up {
+            top: 120px;
+            left: -3px;
+            width: 3px;
+            height: 50px;
+        }
+        .phone-frame .volume-down {
+            top: 180px;
+            left: -3px;
+            width: 3px;
+            height: 50px;
+        }
+        .phone-frame .power-button {
+            top: 150px;
+            right: -3px;
+            width: 3px;
+            height: 80px;
+        }
+        /* -------------------------------------- */
+
+        .phone-screen {
+            background-color: var(--screen-bg);
+            flex-grow: 1;
+            border-radius: 28px; /* Angepasster Radius */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative; /* Wichtig für Notch-Z-Index */
+        }
+
+        .insta-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .insta-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url('408510062_770377664925139_2253200024654655244_n.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .insta-username {
+            font-weight: 700;
+            margin-left: 10px;
+            color: var(--text-color);
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            flex-shrink: 0;
+            cursor: grab;
+        }
+        .carousel-container:active {
+            cursor: grabbing;
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            user-select: none;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--arrow-bg);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 5;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--dot-inactive);
+            margin: 0 3px;
+        }
+
+        .dot.active { background-color: var(--dot-active); }
+
+        .insta-caption {
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.4;
+            flex-grow: 1;
+            overflow-y: auto;
+            color: var(--text-color);
+        }
+
+        .insta-caption strong { font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="notch"></div>
+        <div class="side-button volume-up"></div>
+        <div class="side-button volume-down"></div>
+        <div class="side-button power-button"></div>
+        
+        <div class="phone-screen">
+            <div class="insta-header">
+                <div class="insta-logo"></div>
+                <span class="insta-username">fahrschulegh</span>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="slide"><img src="insta_slide_01_titel_final.png" alt="Titel"></div>
+                    <div class="slide"><img src="insta_slide_02_step1_final.png" alt="Schritt 1"></div>
+                    <div class="slide"><img src="insta_slide_03_step2_final.png" alt="Schritt 2"></div>
+                    <div class="slide"><img src="insta_slide_04_step3_final.png" alt="Schritt 3"></div>
+                    <div class="slide"><img src="insta_slide_05_step4_final.png" alt="Schritt 4"></div>
+                    <div class="slide"><img src="insta_slide_06_step5_final.png" alt="Schritt 5"></div>
+                    <div class="slide"><img src="insta_slide_07_cta_final.png" alt="CTA"></div>
+                </div>
+                <button class="nav-arrow prev">&#10094;</button>
+                <button class="nav-arrow next">&#10095;</button>
+                <div class="slide-indicators"></div>
+            </div>
+            <div class="insta-caption">
+                <p><strong>fahrschulegh</strong> Dein Weg zum Führerschein in 5 klaren Schritten! 🗺️✨ Swipe dich durch unseren bewährten 5-Meilenstein-Plan und entdecke, wie wir deine Ausbildung von Anfang an planbar und stressfrei gestalten. #führerschein #fahrschule #dortmund</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.carousel-container');
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+        const indicatorsContainer = document.querySelector('.slide-indicators');
+        
+        let currentIndex = 0;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let animationID;
+
+        const slideWidth = () => slides[0].getBoundingClientRect().width;
+
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            indicatorsContainer.appendChild(dot);
+        });
+        const dots = Array.from(indicatorsContainer.children);
+
+        nextButton.addEventListener('click', () => navigate(1));
+        prevButton.addEventListener('click', () => navigate(-1));
+        window.addEventListener('resize', setPositionByIndex);
+
+        container.addEventListener('touchstart', touchStart, { passive: true });
+        container.addEventListener('touchmove', touchMove);
+        container.addEventListener('touchend', touchEnd);
+        container.addEventListener('mousedown', touchStart);
+        container.addEventListener('mousemove', touchMove);
+        container.addEventListener('mouseup', touchEnd);
+        container.addEventListener('mouseleave', touchEnd);
+
+        function touchStart(event) {
+            isDragging = true;
+            startPos = getPositionX(event);
+            track.style.transition = 'none';
+            animationID = requestAnimationFrame(animation);
+        }
+
+        function touchMove(event) {
+            if (isDragging) {
+                const currentPosition = getPositionX(event);
+                currentTranslate = prevTranslate + currentPosition - startPos;
+            }
+        }
+
+        function touchEnd() {
+            cancelAnimationFrame(animationID);
+            isDragging = false;
+            const movedBy = currentTranslate - prevTranslate;
+
+            if (movedBy < -50 && currentIndex < slides.length - 1) {
+                currentIndex += 1;
+            }
+            if (movedBy > 50 && currentIndex > 0) {
+                currentIndex -= 1;
+            }
+            
+            setPositionByIndex();
+            track.style.transition = 'transform 0.3s ease-in-out';
+        }
+
+        function getPositionX(event) {
+            return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+        }
+
+        function animation() {
+            setSliderPosition();
+            if (isDragging) requestAnimationFrame(animation);
+        }
+        
+        function setSliderPosition() {
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        }
+
+        function setPositionByIndex() {
+            currentTranslate = currentIndex * -slideWidth();
+            prevTranslate = currentTranslate;
+            setSliderPosition();
+            updateUI();
+        }
+
+        function updateUI() {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+            prevButton.style.display = currentIndex === 0 ? 'none' : 'flex';
+            nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'flex';
+        }
+
+        function navigate(direction) {
+            const newIndex = currentIndex + direction;
+            if (newIndex >= 0 && newIndex < slides.length) {
+                currentIndex = newIndex;
+                setPositionByIndex();
+            }
+        }
+        
+        setPositionByIndex();
+    </script>
+</body>
+</html>

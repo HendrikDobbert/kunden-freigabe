@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategische Ausrichtung: Q3 2025 - Ihr Plan zum Erfolg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ci-dark-blue: #1a2c48;
+            --ci-bright-blue: #009ee2;
+            --ci-gold: #FFD700;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f6;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .header {
+            background-color: var(--ci-dark-blue);
+            color: var(--bg-white);
+            padding: 30px;
+            text-align: center;
+        }
+        .header img {
+            max-height: 60px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+            color: var(--bg-white);
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-of-type {
+            border-bottom: none;
+        }
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 20px;
+            color: var(--ci-bright-blue);
+            border-bottom: 2px solid var(--ci-bright-blue);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .kpi-box {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            border-left: 5px solid var(--ci-bright-blue);
+        }
+        .kpi-box-title {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .kpi-box ul {
+            padding-left: 20px;
+            margin: 0;
+            font-size: 14px;
+        }
+        .kpi-box p {
+             font-size: 14px;
+             margin: 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #aaaaaa;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+        
+        /* --- Freigabe Tabelle --- */
+        #approvalDashboard table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        #approvalDashboard th, #approvalDashboard td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: left;
+            vertical-align: middle;
+        }
+        #approvalDashboard thead th {
+            background-color: #f9f9f9;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            border-bottom-width: 2px;
+        }
+
+        /* --- Interaktive Elemente --- */
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; gap: 2px; }
+        .rating > input { display: none; }
+        .rating > label { position: relative; width: 1.2em; font-size: 22px; color: #cccccc; cursor: pointer; transition: color 0.2s; }
+        .rating > label::before { content: "\2605"; }
+        .rating > label:hover, .rating > label:hover ~ label { color: var(--ci-gold); }
+        .rating > input:checked ~ label { color: var(--ci-gold); }
+
+        .feedback-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 50px;
+        }
+        
+        .approval-checkbox { display: none; }
+        .approval-label { display: inline-block; background-color: #6c757d; color: var(--bg-white); padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: all 0.2s ease; text-align: center; min-width: 100px; }
+        .approval-checkbox:checked + .approval-label { background-color: #28a745; }
+        .approval-label .text-approve { display: inline; }
+        .approval-label .text-approved { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approve { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approved { display: inline; }
+
+        #submitFeedback {
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #0078D4;
+            color: white;
+            transition: background-color 0.2s ease;
+            float: right;
+        }
+        #submitFeedback:hover { background-color: var(--ci-dark-blue); }
+        #successMessage, #errorMessage { display: none; text-align: center; margin-top: 20px; padding: 12px; border-radius: 8px; font-weight: bold; clear: both; }
+        #successMessage { color: #28a745; background-color: #eaf7ec; border: 1px solid #28a745; }
+        #errorMessage { color: #dc3545; background-color: #fff0f1; border: 1px solid #dc3545; }
+        
+        /* =================================== */
+        /* === MOBILE OPTIMIERUNG (NEU) === */
+        /* =================================== */
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .brochure { border: none; box-shadow: none; }
+            .header, .section { padding: 20px 15px; }
+            .header h1 { font-size: 24px; }
+            .kpi-grid { grid-template-columns: 1fr; }
+
+            /* Tabellen-Transformation in Karten-Layout */
+            #approvalDashboard table, 
+            #approvalDashboard thead, 
+            #approvalDashboard tbody, 
+            #approvalDashboard th, 
+            #approvalDashboard td, 
+            #approvalDashboard tr {
+                display: block;
+            }
+
+            #approvalDashboard thead {
+                display: none; /* Kopfzeile ausblenden, da Labels jetzt in den Zellen sind */
+            }
+
+            #approvalDashboard tr {
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                margin-bottom: 20px;
+                padding: 15px;
+                background: #f9f9f9;
+            }
+
+            #approvalDashboard td {
+                border: none;
+                border-bottom: 1px dotted #ccc;
+                position: relative;
+                padding-left: 50%; /* Platz für das Label schaffen */
+                padding-top: 8px;
+                padding-bottom: 8px;
+                text-align: right; /* Inhalt rechts ausrichten */
+                min-height: 24px;
+            }
+             #approvalDashboard td:last-child {
+                border-bottom: none;
+            }
+
+            #approvalDashboard td:before {
+                content: attr(data-label); /* Label aus dem data-Attribut holen */
+                position: absolute;
+                left: 10px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+                text-align: left; /* Label links ausrichten */
+                color: var(--text-dark);
+            }
+            
+            .feedback-textarea, .approval-label {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .rating {
+                justify-content: flex-end; /* Sterne nach rechts verschieben */
+            }
+
+            #submitFeedback {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="fahrschule-gronemeier-hennemann-logo.svg" alt="Kundenlogo">
+            <h1>Strategische Ausrichtung: Q3 2025</h1>
+            <p>Unsere gemeinsame Marschroute für die kommenden zwei Monate.</p>
+        </header>
+
+        <section class="section">
+            <h2>Die strategische Blaupause</h2>
+            <p>Basierend auf unserer Analyse haben wir die folgende strategische Ausrichtung für das kommende Quartal entwickelt. Unser Ziel ist es, die größte Lücke im Markt zu besetzen und die Themen zu dominieren, die für Ihre wertvollsten Kunden am wichtigsten sind.</p>
+            
+            <div class="kpi-box" style="margin-top: 20px; border-color: var(--ci-gold);">
+                <span class="kpi-box-title">🎯 QUARTALS-MOTTO & HAUPTZIEL</span>
+                <p><strong>"Proof of Value"-Sprint: Dominanz im Intensivkurs-Markt</strong></p>
+                <p>Innerhalb von 2 Monaten eine messbare Steigerung der qualifizierten Anfragen für die hoch-profitablen Intensivkurse nachweisen.</p>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-box">
+                    <span class="kpi-box-title">👥 FOKUS-PERSONA</span>
+                    <ul>
+                        <li><b>Der engagierte Effiziente Lerner:</b> Sucht den schnellsten Weg zum Ziel, ist digital affin und preisbewusst.</li>
+                    </ul>
+                </div>
+                <div class="kpi-box">
+                    <span class="kpi-box-title">🔑 FOKUS-THEMEN</span>
+                    <ul>
+                        <li>Intensivkurs (Geschwindigkeit & Effizienz)</li>
+                        <li>Kosten-Transparenz (Vertrauen & Planbarkeit)</li>
+                        <li>Prüfungs-Sicherheit (Erfolgsgarantie)</li>
+                    </ul>
+                </div>
+                <div class="kpi-box">
+                    <span class="kpi-box-title">📈 PRIMÄRE ERFOLGSMETRIKEN</span>
+                    <ul>
+                        <li>15 qualifizierte Leads für Intensivkurse</li>
+                        <li>Top-10-Ranking für "Intensivkurs"-Keywords</li>
+                        <li>25% Steigerung der Anrufe über Google Business</li>
+                    </ul>
+                </div>
+                <div class="kpi-box">
+                    <span class="kpi-box-title">📢 KANAL-FOKUS</span>
+                    <ul>
+                        <li>Google Business Profile (Lokale Sichtbarkeit)</li>
+                        <li>SEO-Blog (Organische Reichweite)</li>
+                        <li>Instagram (Visuelle Ansprache)</li>
+                        <li>Lokaler Outreach (Partnerschaften)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Strategisches Feedback & Freigabe</h2>
+            <p>Wir sind überzeugt, dass dies der schlagkräftigste Plan ist. Wie bewerten Sie diese strategische Ausrichtung? Ihr Feedback ist entscheidend für den gemeinsamen Erfolg.</p>
+
+            <div id="approvalDashboard">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 45%;">Strategie-Element</th>
+                            <th style="text-align: center;">Bewertung</th>
+                            <th style="width: 35%;">Änderungswunsch / Anmerkung</th>
+                            <th style="text-align: center;">Freigabe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-asset-id="Gesamtstrategie_Q3_2025">
+                            <td data-label="Element">
+                                <strong style="display: block; color: var(--text-dark);">Gesamtstrategie Q3 2025</strong>
+                                <span style="font-size: 13px;">"Proof of Value"-Sprint</span>
+                            </td>
+                            <td data-label="Bewertung">
+                                <div class="rating">
+                                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+                                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
+                                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
+                                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
+                                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1"></label>
+                                </div>
+                            </td>
+                            <td data-label="Feedback">
+                                <textarea name="feedback" placeholder="Ihre Anmerkungen..." class="feedback-textarea"></textarea>
+                            </td>
+                            <td data-label="Freigabe">
+                                <input type="checkbox" name="approve" id="approve-strategy" class="approval-checkbox">
+                                <label for="approve-strategy" class="approval-label">
+                                    <span class="text-approve">Freigeben</span>
+                                    <span class="text-approved">Freigegeben ✔</span>
+                                </label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 20px; overflow: hidden;">
+                    <button id="submitFeedback">Feedback Senden</button>
+                </div>
+                <div id="successMessage"></div>
+                <div id="errorMessage"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Erstellt für Fahrschule Gronemeier + Hennemann | August 2025</p>
+        </footer>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // =================================================================
+        // Konfiguration & UI-Elemente
+        // =================================================================
+        const submitButton = document.getElementById('submitFeedback');
+        const dashboard = document.getElementById('approvalDashboard');
+        const successMessageDiv = document.getElementById('successMessage');
+        const errorMessageDiv = document.getElementById('errorMessage');
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyLR5IeOkJzIi_O2EvDeNcbYwqWxDt5SuwpKGeBH__YruV4vGKKkjQN-9-3XzRbrUX6Ig/exec'; 
+        const storageKey = 'approvalState_Strategy_Q3_2025';
+
+        // =================================================================
+        // Logik zum Laden und Speichern von Entwürfen
+        // =================================================================
+        const saveData = () => {
+            const data = {};
+            dashboard.querySelectorAll('input[type="checkbox"], input[type="radio"], textarea').forEach(el => {
+                if (el.type === 'checkbox') { data[el.name] = el.checked; } 
+                else if (el.type === 'radio') { if (el.checked) { data[el.name] = el.value; } } 
+                else { data[el.name] = el.value; }
+            });
+            localStorage.setItem(storageKey, JSON.stringify(data));
+        };
+
+        const loadData = () => {
+            const savedData = localStorage.getItem(storageKey);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                for (const name in data) {
+                    if (name.startsWith('rating')) {
+                        const el = dashboard.querySelector(`input[name="${name}"][value="${data[name]}"]`);
+                        if (el) el.checked = true;
+                    } else {
+                        const el = dashboard.querySelector(`[name="${name}"]`);
+                        if (el) {
+                            if (el.type === 'checkbox') el.checked = data[name];
+                            else el.value = data[name];
+                        }
+                    }
+                }
+            }
+        };
+        
+        dashboard.addEventListener('input', saveData);
+        loadData();
+
+        // =================================================================
+        // Kernfunktion: Feedback-System
+        // =================================================================
+        submitButton.addEventListener('click', () => {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sende...';
+            
+            successMessageDiv.style.display = 'none';
+            errorMessageDiv.style.display = 'none';
+
+            const ratingInput = dashboard.querySelector('input[name="rating"]:checked');
+            const feedbackInput = dashboard.querySelector('textarea[name="feedback"]');
+            const approvalInput = dashboard.querySelector('input[name="approve"]');
+            
+            const approved = approvalInput ? approvalInput.checked : false;
+            const statusText = approved ? 'Freigegeben' : 'Änderungswunsch';
+            
+            const payload = {
+                kundenId: 'Fahrschule-Gronemeier-Hennemann',
+                freigabeTyp: 'Strategie',
+                strategieId: 'Q3_2025',
+                daten: [{
+                    assetId: 'Gesamtstrategie_Q3_2025',
+                    bewertung: ratingInput ? ratingInput.value : 'N/A',
+                    feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                    status: statusText
+                }]
+            };
+
+            const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${encodeURIComponent(JSON.stringify(payload))}`;
+            let scriptTag = document.createElement('script');
+            scriptTag.src = finalUrl;
+            document.body.appendChild(scriptTag);
+
+             // Timeout für den Fall, dass die Antwort ausbleibt
+            setTimeout(() => {
+                if (submitButton.disabled) {
+                    errorMessageDiv.innerHTML = `Ein Fehler ist aufgetreten: Zeitüberschreitung bei der Anfrage.`;
+                    errorMessageDiv.style.display = 'block';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Erneut versuchen';
+                }
+            }, 8000);
+        });
+
+        window.feedbackGesendet = function(response) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Feedback senden';
+
+            if (response.status === 'Erfolg') {
+                successMessageDiv.innerHTML = `✔ Vielen Dank! Ihr Feedback wurde erfolgreich übermittelt. Sie können es bei Bedarf erneut senden, um es zu aktualisieren.`;
+                successMessageDiv.style.display = 'block';
+                submitButton.textContent = 'Feedback aktualisieren';
+                localStorage.removeItem(storageKey); // Entwurf nach Erfolg löschen
+
+                setTimeout(() => { successMessageDiv.style.display = 'none'; }, 6000);
+            } else {
+                errorMessageDiv.innerHTML = `Ein Fehler ist aufgetreten: ${response.nachricht || 'Unbekannter Fehler'}`;
+                errorMessageDiv.style.display = 'block';
+            }
+             // Entfernt das temporäre Script-Tag
+            const scripts = document.querySelectorAll('script[src*="script.google.com"]');
+            scripts.forEach(s => s.remove());
+        };
+    });
+    </script>
+</body>
+</html>

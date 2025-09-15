@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drehbuch: Instagram Reel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Basis-Stile (Desktop First) --- */
+        :root {
+            --primary-blue: #009ee2;
+            --dark-text: #212529;
+            --light-bg: #f4f7f6;
+            --white: #fff;
+            --border-color: #ddd;
+            --header-font: 'Poppins', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+        }
+        body {
+            font-family: var(--body-font);
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            font-family: var(--header-font);
+            font-weight: 900;
+            color: #000;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-blue);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        h2 {
+            margin-top: 40px;
+            font-size: 2rem;
+        }
+        .summary {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .summary-item {
+            font-size: 1rem;
+        }
+        .summary-item strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+            font-family: var(--header-font);
+            font-weight: 700;
+        }
+        table.storyboard {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table.storyboard th, table.storyboard td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        table.storyboard th {
+            background-color: #f2f2f2;
+            font-family: var(--header-font);
+            font-weight: 700;
+        }
+        .on-screen-text {
+            font-family: var(--header-font);
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+        }
+        .assets-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .assets-list li {
+            background-color: #f0f8ff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        /* --- Mobile Optimierungen --- */
+        @media (max-width: 768px) {
+            body {
+                margin: 0;
+                -webkit-text-size-adjust: 100%; /* Verhindert Auto-Zoom von Text auf iOS */
+            }
+            .container {
+                padding: 15px;
+                margin: 10px;
+                width: auto;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .summary {
+                grid-template-columns: 1fr; /* Stacking der Grid-Items */
+                gap: 15px;
+            }
+            /* Responsive Tabelle: Umwandlung in ein kartenbasiertes Layout */
+            table.storyboard thead {
+                display: none; /* Tabellenkopf auf Mobilgeräten ausblenden */
+            }
+            table.storyboard tr {
+                display: block;
+                margin-bottom: 20px;
+                border: 1px solid var(--border-color);
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+            table.storyboard td {
+                display: block;
+                text-align: right; /* Text rechts ausrichten */
+                padding-left: 50%; /* Platz für das Label schaffen */
+                position: relative;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+            table.storyboard td:last-child {
+                border-bottom: none;
+            }
+            /* Erstellt die "Labels" (Spaltenüberschriften) vor jedem Datenpunkt */
+            table.storyboard td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: calc(50% - 20px);
+                padding-right: 10px;
+                text-align: left;
+                font-weight: bold;
+                font-family: var(--header-font);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Drehbuch: Instagram Reel</h1>
+
+        <div class="summary">
+            <div class="summary-item">
+                <strong>Arbeitstitel:</strong>
+                <span>"So sieht eine stressfreie Fahrausbildung aus!"</span>
+            </div>
+            <div class="summary-item">
+                <strong>Asset-ID:</strong>
+                <span>INSTA_001</span>
+            </div>
+            <div class="summary-item">
+                <strong>Konzept:</strong>
+                <span>Dynamisches "Vorher/Nachher"-Video, das Chaos mit Struktur kontrastiert.</span>
+            </div>
+            <div class="summary-item">
+                <strong>Zieldauer:</strong>
+                <span>ca. 9-10 Sekunden</span>
+            </div>
+            <div class="summary-item">
+                <strong>Audio:</strong>
+                <span>Trend-Sound mit klarem Beat-Switch (vom Social-Media-Dynamiker auszuwählen).</span>
+            </div>
+            <div class="summary-item">
+                <strong>CTA:</strong>
+                <span>Link in Bio zum Blogartikel</span>
+            </div>
+        </div>
+
+        <h2>Storyboard & Shotlist</h2>
+        <table class="storyboard">
+            <thead>
+                <tr>
+                    <th style="width:5%;">Szene</th>
+                    <th style="width:10%;">Zeit (ca.)</th>
+                    <th style="width:35%;">Visuelle Anweisung (für Kamera & Schnitt)</th>
+                    <th style="width:25%;">On-Screen Text</th>
+                    <th style="width:25%;">Audio & Produktionsnotiz</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Szene"><strong>1</strong></td>
+                    <td data-label="Zeit (ca.)">0-3 Sek.</td>
+                    <td data-label="Visuelle Anweisung"><strong>Visuell: "Das Chaos".</strong> Eine Szene auf einem unordentlichen Schreibtisch.
+                        <ul>
+                            <li><strong>Kamera:</strong> Handkamera, leicht wackelig, kurze, schnelle Schwenks über die Details.</li>
+                            <li><strong>Props:</strong> Verstreute Zettel, ein alter Lernbogen, ein voller Aschenbecher, ein Kalender mit unklaren Terminen.</li>
+                            <li><strong>Licht/Farbe:</strong> Etwas düster, kühle, graue Töne.</li>
+                        </ul>
+                    </td>
+                    <td data-label="On-Screen Text"><span class="on-screen-text">Deine Ausbildung?</span></td>
+                    <td data-label="Audio & Notiz"><strong>Audio:</strong> Schneller, leicht stressiger Anfang des Trend-Sounds.<br><strong>Notiz:</strong> Die Szene muss unorganisiert, aber nicht schmutzig wirken. Es geht um mentales, nicht physisches Chaos.</td>
+                </tr>
+                <tr>
+                    <td data-label="Szene"><strong>2</strong></td>
+                    <td data-label="Zeit (ca.)">3-3.5 Sek.</td>
+                    <td data-label="Visuelle Anweisung"><strong>Visuell: "Der Wandel".</strong> Ein harter, schneller Schnitt oder ein "Whip-Pan"-Effekt (schneller Kameraschwenk, der in einer Bewegungsunschärfe resultiert).</td>
+                    <td data-label="On-Screen Text">(kein Text)</td>
+                    <td data-label="Audio & Notiz"><strong>Audio:</strong> Der "Beat Drop" des Sounds. Der Takt wechselt hier zu einem positiven, klaren Rhythmus. Der Schnitt muss exakt auf diesen Wechsel abgestimmt sein.</td>
+                </tr>
+                <tr>
+                    <td data-label="Szene"><strong>3</strong></td>
+                    <td data-label="Zeit (ca.)">3.5-8 Sek.</td>
+                    <td data-label="Visuelle Anweisung"><strong>Visuell: "Die Struktur".</strong> Eine saubere, helle und dynamische Animation der 5 Meilensteine. Die Grafik soll sich Schritt für Schritt aufbauen.
+                        <ul>
+                            <li><strong>Vorlage:</strong> Das Konzept der Infografik von der Bürowand.</li>
+                            <li><strong>Ablauf:</strong> Die 5 Icons mit Titel erscheinen nacheinander im Takt der Musik.</li>
+                        </ul>
+                    </td>
+                    <td data-label="On-Screen Text"><span class="on-screen-text">Unsere Ausbildung:</span><br><br>(Text erscheint nacheinander)<br>1. Planung<br>2. Theorie<br>3. Simulator<br>4. Praxis<br>5. Prüfung</td>
+                    <td data-label="Audio & Notiz"><strong>Audio:</strong> Der positive, rhythmische Teil des Sounds läuft.<br><strong>Notiz:</strong> Die Animation muss minimalistisch und im Corporate Design (Farben, Schriftart Poppins) gehalten sein.</td>
+                </tr>
+                <tr>
+                    <td data-label="Szene"><strong>4</strong></td>
+                    <td data-label="Zeit (ca.)">8-9.5 Sek.</td>
+                    <td data-label="Visuelle Anweisung"><strong>Visuell: "Der CTA".</strong> Die fertige 5-Meilenstein-Grafik bleibt stehen. Das G+H Logo wird sauber in der Mitte oder oben eingeblendet.</td>
+                    <td data-label="On-Screen Text">(Text von Szene 3 bleibt)<br><br><span class="on-screen-text" style="font-size: 1rem;">Der ganze Plan im Blog. Link in Bio!</span></td>
+                    <td data-label="Audio & Notiz"><strong>Audio:</strong> Der Sound endet auf einem finalen Beat. <br><strong>Notiz:</strong> Der CTA-Text muss gut lesbar sein, ohne die Hauptgrafik zu überladen.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="margin-top: 40px;">Benötigte Assets</h2>
+        <div class="assets-list">
+            <ul>
+                <li><strong>Videomaterial:</strong> 1x Szene "Chaotischer Schreibtisch" (ca. 5 Sekunden Rohmaterial in 4K/HD).</li>
+                <li><strong>Grafik-Assets:</strong> G+H Logo, idealerweise als Vektor oder hochauflösendes PNG. Konzept-Vorlage für die 5-Meilenstein-Animation.</li>
+                <li><strong>Schriftart:</strong> Poppins (Bold/Black für On-Screen Text).</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

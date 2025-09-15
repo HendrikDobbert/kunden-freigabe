@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampagnen-Vorschau & Freigabe: August 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ci-dark-blue: #1a2c48;
+            --ci-bright-blue: #009ee2;
+            --ci-green-approve: #28a745;
+            --ci-red-reset: #dc3545;
+            --ci-gold: #FFD700;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f4f7f6;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .header {
+            background-color: var(--ci-dark-blue);
+            color: var(--bg-white);
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+            color: var(--bg-white);
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-of-type { border-bottom: none; }
+        
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--ci-bright-blue);
+            border-bottom: 2px solid var(--ci-bright-blue);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .kpi-box {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            border-left: 5px solid var(--ci-bright-blue);
+        }
+        .kpi-box-title {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 5px;
+        }
+        .week-plan { margin-bottom: 25px; }
+        .week-plan:last-child { margin-bottom: 0; }
+        .week-plan h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        .week-plan ul { 
+            list-style-type: '✓ '; 
+            padding-left: 20px; 
+            margin: 0; 
+            font-size: 14px; 
+            line-height: 1.8;
+        }
+        .week-plan ul li::marker {
+            color: var(--ci-green-approve);
+            font-weight: bold;
+        }
+        
+        /* --- Feedback Section --- */
+        .feedback-item { 
+            background-color: #f9f9f9; 
+            border-radius: 8px; 
+            padding: 20px; 
+            margin-bottom: 15px; 
+            border: 1px solid var(--border-color);
+        }
+        .feedback-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;}
+        .feedback-item-header h4 { margin: 0; font-family: 'Oswald', sans-serif; color: var(--text-dark); font-size: 16px;}
+        .rating { display: inline-flex; flex-direction: row-reverse; justify-content: center; }
+        .rating > input { display:none; }
+        .rating > label { position: relative; width: 1.1em; font-size: 2rem; color: #FFD700; cursor: pointer; }
+        .rating > label::before { content: "\2605"; position: absolute; opacity: 0.2; }
+        .rating > label:hover:before, .rating > label:hover ~ label:before { opacity: 0.6 !important; }
+        .rating > input:checked ~ label:before { opacity:1 !important; }
+        
+        .feedback-textarea { 
+            width: 100%; 
+            box-sizing: border-box; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            padding: 12px; 
+            font-family: 'Lato', sans-serif; 
+            font-size: 14px; 
+            margin-top: 10px; 
+            resize: vertical; 
+        }
+
+        .submit-button { 
+            border: none; 
+            padding: 12px 25px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            background-color: var(--ci-green-approve); 
+            color: white; 
+            transition: background-color 0.2s ease;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+        }
+        .submit-button:hover { background-color: #218838; }
+
+        .submit-button .button-spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        .submit-button.loading .button-spinner { display: block; }
+        .submit-button.loading .button-text { display: none; }
+
+        #successMessage, #errorMessage { display: none; padding: 12px; margin-top: 20px; border-radius: 8px; font-weight: bold; }
+        #successMessage { color: var(--ci-green-approve); background-color: #eaf7ec; border: 1px solid var(--ci-green-approve); }
+        #errorMessage { color: var(--ci-red-reset); background-color: #fff0f1; border: 1px solid var(--ci-red-reset); }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #aaaaaa;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .brochure { border: none; box-shadow: none; }
+            .header, .section { padding: 25px 15px; }
+            .header h1 { font-size: 24px; }
+            .feedback-item-header { flex-direction: column; align-items: flex-start; }
+            .submit-button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" alt="Kundenlogo" style="max-height: 60px; margin-bottom: 15px;">
+            <h1>Kampagnen-Vorschau & Redaktionsplan-Freigabe</h1>
+            <p>August 2025</p>
+        </header>
+
+        <section class="section">
+            <h2>Unsere Mission für August</h2>
+            <p>Basierend auf der übergeordneten Quartals-Strategie starten wir in diesem Monat die Kampagne <strong>"Sommer-Intensiv 2025"</strong>. Unser Hauptziel ist es, <strong>die Dominanz im Bereich der Intensivkurse weiter auszubauen und über klar kommunizierte USPs (Planbarkeit, Effizienz, Vertrauen) qualifizierte Anfragen zu generieren.</strong></p>
+            <div class="kpi-box">
+                <span class="kpi-box-title">Primärer KPI für den Erfolg dieser Kampagne:</span>
+                <span>Anzahl der Anmeldungen zum Info-Abend und für Beratungsgespräche</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Der Content-Fahrplan im Überblick</h2>
+            <p>Um dieses Ziel zu erreichen, haben wir einen detaillierten, kanalübergreifenden Redaktionsplan für die kommenden vier Wochen erstellt.</p>
+            
+            <div class="week-plan">
+                <h3>KW 32: Fokus - Planbarkeit & Struktur</h3>
+                <ul>
+                    <li><strong>Lead Magnet:</strong> Anti-Chaos-Checkliste: 10 Fragen, die du jeder Fahrschule stellen musst</li>
+                    <li><strong>Blog:</strong> Das Anti-Chaos-Prinzip: Wie unser 5-Meilenstein-Plan dir den Führerschein ohne Stress garantiert</li>
+                    <li><strong>GMB:</strong> Neuigkeit: Teaser für den "Anti-Chaos-Prinzip" Blog</li>
+                    <li><strong>Instagram:</strong> Reel: "So sieht eine stressfreie Fahrausbildung aus!"</li>
+                    <li><strong>GMB:</strong> Angebot: "Sichere dir deinen Platz im nächsten Intensivkurs!"</li>
+                    <li><strong>E-Mail:</strong> Betreff: Schluss mit dem Fahrschul-Chaos!</li>
+                    <li><strong>Instagram:</strong> Carousel: 5 Schritte zu deinem Führerschein</li>
+                </ul>
+            </div>
+
+            <div class="week-plan">
+                <h3>KW 33: Fokus - Kosteneffizienz & Simulator</h3>
+                <ul>
+                    <li><strong>Blog:</strong> Weniger Fahrstunden, mehr im Portemonnaie: Wie unser System dir bares Geld spart</li>
+                    <li><strong>GMB:</strong> Neuigkeit: "Der teuerste Fehler in der Fahrausbildung..."</li>
+                    <li><strong>Instagram:</strong> Carousel: 3 Wege, wie wir deine Ausbildungskosten senken</li>
+                    <li><strong>GMB:</strong> Kennst du schon unseren Fahrstundensparer?</li>
+                    <li><strong>Instagram:</strong> Reel: Fahrstunden-Mythen aufgedeckt!</li>
+                    <li><strong>E-Mail:</strong> Betreff: Zahl nicht mehr als nötig für deinen Führerschein.</li>
+                </ul>
+            </div>
+
+            <div class="week-plan">
+                <h3>KW 34: Fokus - Geschwindigkeit & Intensivkurse</h3>
+                <ul>
+                    <li><strong>Blog:</strong> Führerschein in Rekordzeit? Warum unsere Erfahrung deine Abkürzung ist.</li>
+                    <li><strong>GMB:</strong> Neuigkeit: "In den Sommerferien zum Führerschein!"</li>
+                    <li><strong>Instagram:</strong> Reel: Ein typischer Tag im Intensivkurs</li>
+                    <li><strong>GMB:</strong> Event: "Info-Abend: Dein Intensivkurs zum Führerschein"</li>
+                    <li><strong>Instagram:</strong> Story: "Fragen zum Intensivkurs? Her damit!"</li>
+                    <li><strong>E-Mail:</strong> Betreff: Deine Abkürzung zum Führerschein?</li>
+                </ul>
+            </div>
+
+            <div class="week-plan">
+                <h3>KW 35: Fokus - Erfahrung & Vertrauen</h3>
+                <ul>
+                    <li><strong>Blog:</strong> Seit 1957 auf der Überholspur: Wie unsere Tradition deinen Erfolg heute garantiert.</li>
+                    <li><strong>GMB:</strong> Neuigkeit: "Erfahrung kann man nicht downloaden."</li>
+                    <li><strong>Instagram:</strong> Reel: Damals vs. Heute</li>
+                    <li><strong>GMB:</strong> "Unser Team: Geballte Erfahrung für deinen Erfolg"</li>
+                    <li><strong>Instagram:</strong> Carousel: Das Team hinter deinem Führerschein</li>
+                    <li><strong>E-Mail:</strong> Betreff: Warum Erfahrung der beste Beifahrer ist.</li>
+                </ul>
+            </div>
+
+            <div class="week-plan">
+                <h3>Laufende Monatsaufgaben (Outreach & Kooperationen)</h3>
+                <ul>
+                    <li><strong>Gastbeitrag:</strong> Erstellung: "5 Anzeichen, dass du in der falschen Fahrschule bist (und wie du wechselst)"</li>
+                    <li><strong>Outreach:</strong> Recherche: Partner für GAST_001</li>
+                    <li><strong>Outreach:</strong> Recherche & Pitch: Social Media Kooperation</li>
+                    <li><strong>Outreach:</strong> Recherche & Pitch: Link-Partnerschaften</li>
+                </ul>
+            </div>
+
+        </section>
+        
+        <section class="section">
+            <h2>Strategisches Feedback & Freigabe des Plans</h2>
+            <p>Wir sind überzeugt, dass dieser Plan die richtige strategische Ausrichtung hat. Bitte geben Sie uns Ihr finales "Go", damit wir mit der Produktion der Inhalte beginnen können.</p>
+
+            <div id="feedbackDashboard">
+                <div class="feedback-item">
+                    <div class="feedback-item-header">
+                        <h4>Ihre Gesamteinschätzung des Redaktionsplans:</h4>
+                        <div class="rating">
+                            <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-5" value="5"><label for="rating-redaktionsplan-5">☆</label>
+                            <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-4" value="4"><label for="rating-redaktionsplan-4">☆</label>
+                            <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-3" value="3"><label for="rating-redaktionsplan-3">☆</label>
+                            <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-2" value="2"><label for="rating-redaktionsplan-2">☆</label>
+                            <input type="radio" name="rating-redaktionsplan" id="rating-redaktionsplan-1" value="1"><label for="rating-redaktionsplan-1">☆</label>
+                        </div>
+                    </div>
+                    <textarea name="feedback-text-redaktionsplan" class="feedback-textarea" rows="3" placeholder="Ihre Anmerkungen, Wünsche oder Bedenken zum Gesamtplan..."></textarea>
+                </div>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button id="submitFeedback" class="submit-button">
+                        <span class="button-text">Redaktionsplan freigeben & Produktion starten</span>
+                        <span class="button-spinner"></span>
+                    </button>
+                </div>
+                <div id="successMessage"></div>
+                <div id="errorMessage"></div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Erstellt für Fahrschule Gronemeier + Hennemann | August 2025</p>
+        </footer>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyLR5IeOkJzIi_O2EvDeNcbYwqWxDt5SuwpKGeBH__YruV4vGKKkjQN-9-3XzRbrUX6Ig/exec';
+        const storageKey = 'campaignApproval_Aug_2025';
+
+        const feedbackDashboard = document.getElementById('feedbackDashboard');
+        if (!feedbackDashboard) return;
+
+        const submitButton = document.getElementById('submitFeedback');
+        const successMessageDiv = document.getElementById('successMessage');
+        const errorMessageDiv = document.getElementById('errorMessage');
+
+        const showMessage = (element, message) => {
+            element.textContent = message;
+            element.style.display = 'block';
+        };
+
+        const hideMessages = () => {
+            successMessageDiv.style.display = 'none';
+            errorMessageDiv.style.display = 'none';
+        };
+
+        const setLoadingState = (isLoading) => {
+            if (isLoading) {
+                submitButton.classList.add('loading');
+                submitButton.disabled = true;
+            } else {
+                submitButton.classList.remove('loading');
+                submitButton.disabled = false;
+            }
+        };
+
+        window.feedbackGesendet = function(response) {
+            setLoadingState(false);
+            if (response.status === 'Erfolg') {
+                showMessage(successMessageDiv, `✔ ${response.processedCount} Einträge erfolgreich übermittelt. Sie können Ihre Eingaben aktualisieren.`);
+                submitButton.querySelector('.button-text').textContent = 'Eingaben aktualisieren';
+                setTimeout(() => { successMessageDiv.style.display = 'none'; }, 6000);
+            } else {
+                showMessage(errorMessageDiv, "Ein Fehler ist aufgetreten: " + response.nachricht);
+            }
+        };
+
+        const saveData = () => {
+            const data = {};
+            feedbackDashboard.querySelectorAll('input[type="radio"]:checked, textarea').forEach(el => {
+                data[el.name] = el.value;
+            });
+            localStorage.setItem(storageKey, JSON.stringify(data));
+        };
+
+        const loadData = () => {
+            const savedData = localStorage.getItem(storageKey);
+            if (!savedData) return;
+            const data = JSON.parse(savedData);
+            for (const name in data) {
+                const el = feedbackDashboard.querySelector(`[name="${name}"][value="${data[name]}"]`);
+                if (el && el.type === 'radio') {
+                    el.checked = true;
+                } else {
+                    const textarea = feedbackDashboard.querySelector(`[name="${name}"]`);
+                    if (textarea) textarea.value = data[name];
+                }
+            }
+        };
+
+        submitButton.addEventListener('click', function() {
+            hideMessages();
+            const ratingInput = feedbackDashboard.querySelector('input[name="rating-redaktionsplan"]:checked');
+            if (!ratingInput) {
+                showMessage(errorMessageDiv, 'Bitte geben Sie eine Sterne-Bewertung ab, um den Plan freizugeben.');
+                return;
+            }
+
+            setLoadingState(true);
+            const feedbackInput = feedbackDashboard.querySelector('textarea[name="feedback-text-redaktionsplan"]');
+            
+            const payload = {
+                kundenId: 'Fahrschule-Gronemeier-Hennemann',
+                freigabeTyp: 'Kampagnenplan',
+                kampagnenId: 'AUG-2025-Sommer-Intensiv',
+                zeitraum: 'August-2025',
+                daten: [{
+                    bewertung: ratingInput.value,
+                    feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                    status: 'Freigegeben'
+                }]
+            };
+
+            const dataString = encodeURIComponent(JSON.stringify(payload));
+            const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${dataString}`;
+            
+            let scriptTag = document.createElement('script');
+            scriptTag.src = finalUrl;
+            scriptTag.onerror = () => {
+                setLoadingState(false);
+                showMessage(errorMessageDiv, 'Netzwerkfehler: Das Feedback konnte nicht gesendet werden.');
+            };
+            document.body.appendChild(scriptTag);
+        });
+
+        feedbackDashboard.addEventListener('input', saveData);
+        loadData();
+    });
+    </script>
+</body>
+</html>

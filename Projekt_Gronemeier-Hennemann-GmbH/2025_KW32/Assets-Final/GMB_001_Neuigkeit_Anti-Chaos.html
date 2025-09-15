@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMB Post Vorschau: GMB_001 (Realistisch, korrigiert)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #dcdcdc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .gmb-card {
+            width: 380px;
+            background-color: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+        }
+        .gmb-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+        }
+        .gmb-header-left {
+            display: flex;
+            align-items: center;
+        }
+.gmb-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('408510062_770377664925139_2253200024654655244_n.jpg');
+            /* KORREKTUR HIER: 'cover' durch 'contain' ersetzt und zentriert */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #f0f8ff;
+            border: 1px solid #eee;
+}
+        .gmb-title {
+            margin-left: 12px;
+        }
+        .gmb-title h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #202124;
+        }
+        .gmb-title p {
+            margin: 0;
+            font-size: 12px;
+            color: #5f6368;
+        }
+        .gmb-menu {
+            color: #5f6368;
+        }
+        .gmb-content {
+            padding: 0 16px 16px 16px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #3c4043;
+            white-space: pre-wrap;
+        }
+        .gmb-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .gmb-cta {
+            padding: 8px 16px;
+        }
+        .gmb-button {
+            /* KORREKTUR HIER: "width: 100%;" wurde entfernt */
+            display: block;
+            box-sizing: border-box; /* Zusätzliche Sicherheit für alle Browser */
+            padding: 8px;
+            background-color: #f1f3f4;
+            border: 1px solid #f1f3f4;
+            border-radius: 4px;
+            color: #1a73e8;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .gmb-button:hover {
+            background-color: #e8eaed;
+        }
+        .gmb-footer {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 8px 16px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .gmb-likes {
+            font-size: 14px;
+            color: #5f6368;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gmb-card">
+        <div class="gmb-header">
+            <div class="gmb-header-left">
+                <div class="gmb-logo"></div>
+                <div class="gmb-title">
+                    <h3>Fahrschule Gronemeier + Hennemann</h3>
+                    <p>Vor 1 Std.</p>
+                </div>
+            </div>
+            <div class="gmb-menu">
+                <span>&#8942;</span> </div>
+        </div>
+        
+        <div class="gmb-content">
+            <p>Keine Lust auf Fahrschul-Chaos? 🤯<br><br>Unklare Pläne, wechselnde Lehrer und keine Ahnung, wann es endlich zur Prüfung geht? Wir machen Schluss damit! ✅<br><br>In unserem neuen Blogartikel erklären wir dir unseren bewährten 5-Meilenstein-Plan, der dir eine stressfreie und 100% planbare Ausbildung garantiert.<br><br>Lies jetzt, wie du sicher und ohne böse Überraschungen zum Führerschein kommst. 👇</p>
+        </div>
+        
+        <img src="gmb_post_anti_chaos.png" alt="Grafik-Teaser für den Blogartikel zum 5-Meilenstein-Plan." class="gmb-image">
+
+        <div class="gmb-cta">
+            <a href="https://fahrschule-in-dortmund.de/blog/fuehrerschein-in-14-tagen-5-meilenstein-plan" class="gmb-button" target="_blank">Weitere Informationen</a>
+        </div>
+
+        <div class="gmb-footer">
+            <div class="gmb-likes">👍 12 Gefällt-mir-Angaben</div>
+        </div>
+    </div>
+
+</body>
+</html>

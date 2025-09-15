@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finale Content-Freigabe: KW 32 (August 2025)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- NEU: Stile für den Lade-Button --- */
+.submit-global-button .button-spinner {
+    display: none;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+.submit-global-button.loading .button-spinner {
+    display: block;
+}
+
+.submit-global-button.loading .button-text {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- NEU: Stil für die Fehler-Box --- */
+#errorMessage {
+    display: none; 
+    color: var(--ci-red-reset); 
+    font-weight: bold; 
+    text-align: center; 
+    margin-top: 20px;
+    background-color: #fff0f1;
+    padding: 12px;
+    border: 1px solid var(--ci-red-reset);
+    border-radius: 8px;
+}
+        :root {
+            --ci-dark-blue: #1a2c48;
+            --ci-bright-blue: #009ee2;
+            --ci-green-approve: #28a745;
+            --ci-grey-approved: #6c757d;
+            --ci-red-reset: #dc3545;
+            --ci-text-dark: #333;
+            --ci-text-light: #666;
+            --ci-background-light: #f4f7f6;
+            --ci-background-white: #ffffff;
+            --ci-border-color: #e0e0e0;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--ci-background-light);
+            color: var(--ci-text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--ci-background-white);
+            border: 1px solid var(--ci-border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .header {
+            background-color: var(--ci-dark-blue);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--ci-border-color);
+        }
+        .section:last-child { border-bottom: none; }
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 20px;
+            color: var(--ci-bright-blue);
+            border-bottom: 2px solid var(--ci-bright-blue);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        /* --- Stile für die Freigabe-Tabelle --- */
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .responsive-table th {
+            padding: 12px;
+            border-bottom: 2px solid var(--ci-border-color);
+            text-align: left;
+            font-family: 'Oswald', sans-serif;
+        }
+        .responsive-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--ci-border-color);
+            vertical-align: middle;
+        }
+        .responsive-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .asset-title {
+            display: block;
+            color: var(--ci-text-dark);
+            font-weight: 700;
+        }
+        .asset-description {
+            font-size: 14px;
+        }
+        
+        /* --- Interaktive Elemente in der Tabelle --- */
+        .view-button {
+            display: inline-block;
+            background-color: var(--ci-dark-blue);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .feedback-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 40px;
+        }
+        .approval-checkbox { display: none; }
+        .approval-label {
+            display: inline-block;
+            background-color: var(--ci-green-approve);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            min-width: 90px;
+        }
+        .approval-label .text-approve { display: inline; }
+        .approval-label .text-approved { display: none; }
+        .approval-checkbox:checked + .approval-label {
+            background-color: var(--ci-grey-approved);
+        }
+        .approval-checkbox:checked + .approval-label .text-approve { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approved { display: inline; }
+        
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; }
+        .rating input { display: none; }
+        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; }
+        .rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label { color: #FFD700; }
+
+        /* --- Buttons am Ende des Formulars --- */
+        .footer-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--ci-border-color);
+        }
+        .footer-button {
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .reset-button {
+            background-color: var(--ci-background-white);
+            color: var(--ci-red-reset);
+            border: 2px solid var(--ci-red-reset);
+        }
+        .submit-global-button {
+            background-color: var(--ci-bright-blue);
+            color: #ffffff;
+        }
+        .submit-global-button:disabled {
+            background-color: var(--ci-grey-approved);
+            cursor: not-allowed;
+        }
+        /* --- Stile für den Content-Funnel --- */
+.content-funnel {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Abstand zwischen den Elementen */
+}
+
+.funnel-stage {
+    background-color: #f9f9f9;
+    border: 1px solid var(--ci-border-color);
+    border-radius: 8px;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.funnel-stage:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.funnel-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background-color: #f0f8ff; /* Leicht bläulicher Header */
+    border-bottom: 1px solid var(--ci-border-color);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.funnel-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.funnel-stage-title {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: var(--ci-dark-blue);
+}
+
+.funnel-body {
+    padding: 20px;
+}
+
+.funnel-content-piece {
+    font-weight: 700;
+    color: var(--ci-text-dark);
+    margin-top: 0;
+}
+
+.funnel-explanation {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+        /* --- Responsive Anpassungen --- */
+        @media (max-width: 768px) {
+            .responsive-table thead { display: none; }
+            .responsive-table tr {
+                display: block;
+                margin-bottom: 20px;
+                border: 1px solid var(--ci-border-color);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            .responsive-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 15px;
+                text-align: right;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                text-align: left;
+                margin-right: 15px;
+                color: var(--ci-text-dark);
+            }
+            .responsive-table td:first-child {
+                display: block;
+                text-align: left;
+                background-color: #f9f9f9;
+                font-size: 16px;
+                font-weight: 700;
+            }
+            .responsive-table td:first-child::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="fahrschule-gronemeier-hennemann-logo.svg" alt="Kundenlogo" style="max-height: 60px; margin-bottom: 15px;">
+            <h1>Content-Freigabe: KW 32</h1>
+            <p>Kampagne: SOMMER_2025 | Fokus: Das Anti-Chaos-Prinzip</p>
+        </header>
+<section class="section">
+    <h2>Die Anti-Chaos-Strategie: Unser Content-Plan für KW 32</h2>
+    <p>Diese Woche launchen wir die "SOMMER_2025"-Kampagne. Das Ziel: Ihre Expertise im Bereich planbarer, stressfreier Fahrausbildung ("Anti-Chaos-Prinzip") zu zementieren und qualifizierte Anfragen zu generieren. So spielen die Inhalte zusammen:</p>
+    
+    <div class="content-funnel">
+        <div class="funnel-stage">
+            <div class="funnel-header">
+                <span class="funnel-icon">🧲</span>
+                <h3 class="funnel-stage-title">Der Köder (Lead-Generierung)</h3>
+            </div>
+            <div class="funnel-body">
+                <p class="funnel-content-piece"><strong>Asset:</strong> Lead Magnet: Anti-Chaos-Checkliste</p>
+                <p class="funnel-explanation"><strong>Die Rolle:</strong> Das Kernstück der Kampagne. Dieses hochwertige PDF löst ein echtes Problem potenzieller Kunden und sammelt im Gegenzug wertvolle E-Mail-Adressen für das Marketing.</p>
+            </div>
+        </div>
+
+        <div class="funnel-stage">
+            <div class="funnel-header">
+                <span class="funnel-icon">📚</span>
+                <h3 class="funnel-stage-title">Das Herzstück (Vertrauen & SEO)</h3>
+            </div>
+            <div class="funnel-body">
+                <p class="funnel-content-piece"><strong>Asset:</strong> Blog-Artikel: Das Anti-Chaos-Prinzip</p>
+                <p class="funnel-explanation"><strong>Die Rolle:</strong> Dieser umfassende Artikel etabliert Sie als Autorität. Er erklärt Ihren einzigartigen Prozess, schafft Vertrauen und ist für Suchmaschinen optimiert. Viele andere Inhalte führen hierher.</p>
+            </div>
+        </div>
+
+        <div class="funnel-stage">
+            <div class="funnel-header">
+                <span class="funnel-icon">🚀</span>
+                <h3 class="funnel-stage-title">Die Verstärker (Traffic & Reichweite)</h3>
+            </div>
+            <div class="funnel-body">
+                <p class="funnel-content-piece"><strong>Assets:</strong> Instagram Reel & Carousel</p>
+                <p class="funnel-explanation"><strong>Die Rolle:</strong> Diese visuellen Formate erzeugen Aufmerksamkeit auf Social Media. Sie teasern die Probleme sowie Lösungen an und leiten Nutzer gezielt zum Blog-Artikel.</p>
+            </div>
+        </div>
+
+        <div class="funnel-stage">
+            <div class="funnel-header">
+                <span class="funnel-icon">📢</span>
+                <h3 class="funnel-stage-title">Die Verteiler (Bestehende Kontakte & lokale Suche)</h3>
+            </div>
+            <div class="funnel-body">
+                <p class="funnel-content-piece"><strong>Assets:</strong> E-Mail Newsletter & GMB Teaser</p>
+                <p class="funnel-explanation"><strong>Die Rolle:</strong> Wir aktivieren Ihre bestehende E-Mail-Liste und nutzen die lokale Stärke von Google, um den Traffic auf Blog und Lead Magnet zu maximieren.</p>
+            </div>
+        </div>
+
+        <div class="funnel-stage">
+            <div class="funnel-header">
+                <span class="funnel-icon">✅</span>
+                <h3 class="funnel-stage-title">Die Konversion (Direktes Angebot)</h3>
+            </div>
+            <div class="funnel-body">
+                <p class="funnel-content-piece"><strong>Asset:</strong> GMB Angebot-Post</p>
+                <p class="funnel-explanation"><strong>Die Rolle:</strong> Ein klares, direktes Angebot für den Intensivkurs an lokal suchende, hochinteressierte Nutzer. Dieser Post zielt auf eine schnelle, unkomplizierte Konversion ab.</p>
+            </div>
+        </div>
+    </div>
+</section>
+        <section class="section" id="approvalSection">
+            <h2>Entwürfe zur finalen Prüfung</h2>
+            <p>Hier finden Sie die finalen Entwürfe für alle geplanten Inhalte der Kalenderwoche 32. Bitte prüfen Sie die Dokumente, geben Sie uns kurzes Feedback und erteilen Sie Ihre Freigabe direkt in der Tabelle.</p>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Inhalt (Asset)</th>
+                        <th>Entwurf</th>
+                        <th style="text-align: center;">Bewertung</th>
+                        <th style="width: 25%;">Änderungswunsch</th>
+                        <th style="text-align: center;">Freigabe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-asset-id="LM_001">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Lead Magnet: Checkliste</span>
+                            <span class="asset-description">Anti-Chaos-Checkliste: 10 Fragen, die du jeder Fahrschule stellen musst</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/LM_001_Anti-Chaos-Checkliste.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-lm" name="rating-LM_001" value="5"><label for="star5-lm">★</label>
+                                <input type="radio" id="star4-lm" name="rating-LM_001" value="4"><label for="star4-lm">★</label>
+                                <input type="radio" id="star3-lm" name="rating-LM_001" value="3"><label for="star3-lm">★</label>
+                                <input type="radio" id="star2-lm" name="rating-LM_001" value="2"><label for="star2-lm">★</label>
+                                <input type="radio" id="star1-lm" name="rating-LM_001" value="1"><label for="star1-lm">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-LM_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-lm" name="approve-LM_001" class="approval-checkbox">
+                            <label for="approve-lm" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="BLOG_001">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Blog-Artikel (Pillar Content)</span>
+                            <span class="asset-description">Das Anti-Chaos-Prinzip: Wie unser 5-Meilenstein-Plan dir den Führerschein ohne Stress garantiert</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/BLOG_001_Anti-Chaos-Prinzip.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-blog" name="rating-BLOG_001" value="5"><label for="star5-blog">★</label>
+                                <input type="radio" id="star4-blog" name="rating-BLOG_001" value="4"><label for="star4-blog">★</label>
+                                <input type="radio" id="star3-blog" name="rating-BLOG_001" value="3"><label for="star3-blog">★</label>
+                                <input type="radio" id="star2-blog" name="rating-BLOG_001" value="2"><label for="star2-blog">★</label>
+                                <input type="radio" id="star1-blog" name="rating-BLOG_001" value="1"><label for="star1-blog">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-BLOG_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-blog" name="approve-BLOG_001" class="approval-checkbox">
+                            <label for="approve-blog" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="INSTA_001">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Instagram: Reel</span>
+                            <span class="asset-description">Reel: "So sieht eine stressfreie Fahrausbildung aus!"</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/INSTA_001_Drehbuch_Stressfreie-Ausbildung.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-insta1" name="rating-INSTA_001" value="5"><label for="star5-insta1">★</label>
+                                <input type="radio" id="star4-insta1" name="rating-INSTA_001" value="4"><label for="star4-insta1">★</label>
+                                <input type="radio" id="star3-insta1" name="rating-INSTA_001" value="3"><label for="star3-insta1">★</label>
+                                <input type="radio" id="star2-insta1" name="rating-INSTA_001" value="2"><label for="star2-insta1">★</label>
+                                <input type="radio" id="star1-insta1" name="rating-INSTA_001" value="1"><label for="star1-insta1">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-INSTA_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-insta1" name="approve-INSTA_001" class="approval-checkbox">
+                            <label for="approve-insta1" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="INSTA_002">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Instagram: Carousel-Post</span>
+                            <span class="asset-description">Carousel: 5 Schritte zu deinem Führerschein</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/INSTA_002_Vorschau_Carousel_5-Schritte.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-insta2" name="rating-INSTA_002" value="5"><label for="star5-insta2">★</label>
+                                <input type="radio" id="star4-insta2" name="rating-INSTA_002" value="4"><label for="star4-insta2">★</label>
+                                <input type="radio" id="star3-insta2" name="rating-INSTA_002" value="3"><label for="star3-insta2">★</label>
+                                <input type="radio" id="star2-insta2" name="rating-INSTA_002" value="2"><label for="star2-insta2">★</label>
+                                <input type="radio" id="star1-insta2" name="rating-INSTA_002" value="1"><label for="star1-insta2">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-INSTA_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-insta2" name="approve-INSTA_002" class="approval-checkbox">
+                            <label for="approve-insta2" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="GMB_001">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Google My Business: Neuigkeit</span>
+                            <span class="asset-description">Teaser für den "Anti-Chaos-Prinzip" Blog</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/GMB_001_Neuigkeit_Anti-Chaos.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-gmb1" name="rating-GMB_001" value="5"><label for="star5-gmb1">★</label>
+                                <input type="radio" id="star4-gmb1" name="rating-GMB_001" value="4"><label for="star4-gmb1">★</label>
+                                <input type="radio" id="star3-gmb1" name="rating-GMB_001" value="3"><label for="star3-gmb1">★</label>
+                                <input type="radio" id="star2-gmb1" name="rating-GMB_001" value="2"><label for="star2-gmb1">★</label>
+                                <input type="radio" id="star1-gmb1" name="rating-GMB_001" value="1"><label for="star1-gmb1">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-gmb1" name="approve-GMB_001" class="approval-checkbox">
+                            <label for="approve-gmb1" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="GMB_002">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Google My Business: Angebot</span>
+                            <span class="asset-description">Angebot: "Sichere dir deinen Platz im nächsten Intensivkurs!"</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/GMB_002_Angebot_Intensivkurs.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-gmb2" name="rating-GMB_002" value="5"><label for="star5-gmb2">★</label>
+                                <input type="radio" id="star4-gmb2" name="rating-GMB_002" value="4"><label for="star4-gmb2">★</label>
+                                <input type="radio" id="star3-gmb2" name="rating-GMB_002" value="3"><label for="star3-gmb2">★</label>
+                                <input type="radio" id="star2-gmb2" name="rating-GMB_002" value="2"><label for="star2-gmb2">★</label>
+                                <input type="radio" id="star1-gmb2" name="rating-GMB_002" value="1"><label for="star1-gmb2">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-gmb2" name="approve-GMB_002" class="approval-checkbox">
+                            <label for="approve-gmb2" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="MAIL_001">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">E-Mail Newsletter</span>
+                            <span class="asset-description">Betreff: Schluss mit dem Fahrschul-Chaos!</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/MAIL_001_Newsletter_Anti-Chaos.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-mail" name="rating-MAIL_001" value="5"><label for="star5-mail">★</label>
+                                <input type="radio" id="star4-mail" name="rating-MAIL_001" value="4"><label for="star4-mail">★</label>
+                                <input type="radio" id="star3-mail" name="rating-MAIL_001" value="3"><label for="star3-mail">★</label>
+                                <input type="radio" id="star2-mail" name="rating-MAIL_001" value="2"><label for="star2-mail">★</label>
+                                <input type="radio" id="star1-mail" name="rating-MAIL_001" value="1"><label for="star1-mail">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-MAIL_001" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-mail" name="approve-MAIL_001" class="approval-checkbox">
+                            <label for="approve-mail" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+<div class="footer-button-container">
+    <button id="resetButton" class="footer-button reset-button">Eingaben zurücksetzen</button>
+    <button id="submitButton" class="footer-button submit-global-button">
+        <span class="button-text">Alle Freigaben & Feedback Senden</span>
+        <span class="button-spinner"></span>
+    </button>
+</div>
+<div id="successMessage" style="display: none; color: var(--ci-green-approve); font-weight: bold; text-align: center; margin-top: 20px;"></div>
+<div id="errorMessage"></div>
+        </section>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- KONFIGURATION ---
+    const approvalSection = document.getElementById('approvalSection');
+    const submitButton = document.getElementById('submitButton');
+    const resetButton = document.getElementById('resetButton');
+    
+    // WICHTIG: Ersetzen Sie dies mit Ihrer finalen Web-App-URL
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyLR5IeOkJzIi_O2EvDeNcbYwqWxDt5SuwpKGeBH__YruV4vGKKkjQN-9-3XzRbrUX6Ig/exec';
+    
+    // Eindeutiger Speicher-Schlüssel für die Eingaben in dieser Broschüre
+    const storageKey = 'contentApproval_KW32_2025';
+
+    // --- KERNFUNKTIONALITÄT ---
+
+    /**
+     * Event-Listener für den "Senden"-Button.
+     * Zeigt den Lade-Spinner an und sendet die Daten.
+     */
+    submitButton.addEventListener('click', function() {
+        // Lade-Zustand korrekt aktivieren (mit CSS-Klasse, nicht mit Text)
+        submitButton.disabled = true;
+        submitButton.classList.add('loading');
+        
+        // Alte Nachrichten vor dem Senden ausblenden
+        document.getElementById('successMessage').style.display = 'none';
+        document.getElementById('errorMessage').style.display = 'none';
+
+        // Daten sammeln
+        const feedbackPayload = [];
+        const assetRows = approvalSection.querySelectorAll('tbody tr[data-asset-id]');
+        assetRows.forEach(row => {
+            const assetId = row.dataset.assetId;
+            const ratingInput = row.querySelector(`input[name="rating-${assetId}"]:checked`);
+            const feedbackInput = row.querySelector(`textarea[name="feedback-${assetId}"]`);
+            const approvalInput = row.querySelector(`input[name="approve-${assetId}"]`);
+            feedbackPayload.push({
+                asset_id: assetId,
+                bewertung: ratingInput ? ratingInput.value : 'N/A',
+                feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                status: approvalInput.checked ? 'Freigegeben' : 'Offen'
+            });
+        });
+        const payload = {
+            kundenId: 'Fahrschule-Gronemeier-Hennemann', // Passen Sie dies bei Bedarf an
+            freigabeTyp: 'Wochenfreigabe',
+            zeitraum: 'KW 32-2025',
+            daten: feedbackPayload
+        };
+        
+        // Daten an Google senden
+        const dataString = encodeURIComponent(JSON.stringify(payload));
+        const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${dataString}`;
+        let scriptTag = document.createElement('script');
+        scriptTag.src = finalUrl;
+        document.body.appendChild(scriptTag);
+    });
+
+    /**
+    * Callback-Funktion, die die Server-Antwort verarbeitet.
+    * Zeigt eine Inline-Erfolgs- oder Fehlermeldung an.
+    */
+    window.feedbackGesendet = function(response) {
+        console.log("Antwort von der Web App:", response);
+        const successMessageDiv = document.getElementById('successMessage');
+        const errorMessageDiv = document.getElementById('errorMessage');
+
+        // Lade-Zustand immer beenden
+        submitButton.disabled = false;
+        submitButton.classList.remove('loading');
+
+        if (response.status === 'Erfolg') {
+            // Erfolgsmeldung anzeigen
+            successMessageDiv.innerHTML = `✔ ${response.processedCount} Einträge erfolgreich übermittelt. Sie können Ihre Eingaben weiter bearbeiten.`;
+            successMessageDiv.style.display = 'block';
+            
+            // Button-Text präzise ändern
+            document.querySelector('#submitButton .button-text').textContent = 'Eingaben aktualisieren';
+            
+            // Erfolgsmeldung nach 5 Sekunden ausblenden
+            setTimeout(() => {
+                successMessageDiv.style.display = 'none';
+            }, 5000);
+
+        } else {
+            // Fehlermeldung im Div anzeigen (statt alert)
+            errorMessageDiv.innerHTML = `Ein Fehler ist aufgetreten: ${response.nachricht}`;
+            errorMessageDiv.style.display = 'block';
+        }
+    };
+
+    /**
+     * Speichert den aktuellen Zustand aller Formularfelder im Local Storage.
+     */
+    const saveData = () => {
+        const data = {};
+        approvalSection.querySelectorAll('input[type="radio"], input[type="checkbox"], textarea').forEach(el => {
+            const name = el.name;
+            if (el.type === 'radio') {
+                if (el.checked) data[name] = el.value;
+            } else if (el.type === 'checkbox') {
+                data[name] = el.checked;
+            } else {
+                data[name] = el.value;
+            }
+        });
+        localStorage.setItem(storageKey, JSON.stringify(data));
+    };
+
+    /**
+     * Lädt den gespeicherten Zustand und füllt die Formularfelder aus.
+     */
+    const loadData = () => {
+        const savedData = localStorage.getItem(storageKey);
+        if (!savedData) return;
+        const data = JSON.parse(savedData);
+        for (const name in data) {
+            const elements = approvalSection.querySelectorAll(`[name="${name}"]`);
+            elements.forEach(el => {
+                if (el.type === 'radio') {
+                    if (el.value === data[name]) el.checked = true;
+                } else if (el.type === 'checkbox') {
+                    el.checked = data[name];
+                } else {
+                    el.value = data[name];
+                }
+            });
+        }
+    };
+    
+    /**
+     * Event-Listener für den "Zurücksetzen"-Button.
+     */
+    resetButton.addEventListener('click', function() {
+        if (confirm('Möchten Sie wirklich alle Bewertungen, Kommentare und Freigaben in diesem Formular zurücksetzen?')) {
+            approvalSection.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(el => el.checked = false);
+            approvalSection.querySelectorAll('textarea').forEach(el => el.value = '');
+            localStorage.removeItem(storageKey);
+            // Setzt den Button-Text auf den Ursprung zurück
+            document.querySelector('#submitButton .button-text').textContent = 'Alle Freigaben & Feedback Senden';
+        }
+    });
+
+    // --- INITIALISIERUNG ---
+    approvalSection.addEventListener('input', saveData);
+    loadData();
+});
+    </script>
+</body>
+</html>

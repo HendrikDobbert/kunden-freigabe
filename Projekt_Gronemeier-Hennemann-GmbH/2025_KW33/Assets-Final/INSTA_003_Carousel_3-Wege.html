@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Carousel Vorschau: INSTA_003 (Optimiert)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+            <link rel="icon" href="../Bilder/fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" sizes="32x32">
+
+    <style>
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .phone-frame {
+            width: 420px;
+            height: 800px;
+            background-color: #1c1c1c;
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        .phone-screen {
+            background-color: #ffffff;
+            flex-grow: 1;
+            border-radius: 25px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .insta-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .insta-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url('../Bilder/fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: 1px solid #eee;
+        }
+        .insta-username {
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 390px;
+            overflow: hidden;
+            scroll-snap-type: x mandatory;
+            display: flex;
+            align-items: center;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+        .slide {
+            width: 390px;
+            height: 390px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            position: relative;
+        }
+        .slide::before { /* Dunkler Overlay für bessere Lesbarkeit */
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 0;
+        }
+        .slide-content {
+            position: relative;
+            z-index: 2;
+        }
+        .slide h2, .slide h3, .slide p, .poll-box {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .slide-title h2 { font-size: 32px; font-weight: 900; }
+        .slide-title h3 { font-size: 18px; font-weight: 700; opacity: 0.8; }
+        .slide h2 { font-size: 26px; font-weight: 900; text-transform: uppercase; }
+        .slide p { font-size: 16px; font-weight: 400; max-width: 90%; line-height: 1.5; margin-top: 15px; }
+        .testimonial-slide p { font-style: italic; font-size: 20px; }
+        .poll-box {
+            margin-top: 20px;
+            background-color: rgba(255,255,255,0.9);
+            color: #000;
+            border-radius: 10px;
+            padding: 15px 25px;
+            text-shadow: none;
+        }
+        .poll-box strong { color: #009ee2; }
+        .cta-button {
+            display: inline-block;
+            background-color: #009ee2;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 700;
+            text-shadow: none;
+        }
+        .nav-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.7); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 18px; z-index: 10;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .slide-indicators { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; }
+        .dot { width: 6px; height: 6px; border-radius: 50%; background-color: #a8a8a8; margin: 0 3px; }
+        .dot.active { background-color: #fff; border: 1px solid #a8a8a8; }
+        .insta-caption { padding: 15px; font-size: 14px; line-height: 1.4; }
+        .insta-caption strong { font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="insta-header">
+                <div class="insta-logo"></div>
+                <span class="insta-username">fahrschulegh</span>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Slide 1 -->
+                    <div class="slide slide-title" style="background-image: url('gmb_post_teuerster_fehler.png');">
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide" style="background-image: url('fsgh-master-foto-tiktok-kosten-ueber-4000-euro-2025-08-02_v01.jpg');">
+                        <div class="slide-content">
+                            <h2>...ist für Stunden zu zahlen, die du nie gebraucht hättest.</h2>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide" style="background-image: url('fsgh-master-foto-theorie-unterricht-klasse-laptop-2025-07-28_v01.jpg');">
+                        <div class="slide-content">
+                            <h2>Weg #1: Wissen, das Geld spart</h2>
+                            <p>Unsere praxisnahe Theorie bereitet dich im Kopf so gut vor, dass du auf der Straße weniger Zeit für die Grundlagen brauchst.</p>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="slide" style="background-image: url('fsgh-master-foto-fahrsimulator-cockpit-technologie-2025-07-28_v01.jpg');">
+                        <div class="slide-content">
+                            <h2>Weg #2: Üben ohne Taxameter</h2>
+                            <p>Im Simulator trainierst du komplexe Situationen sicher und ohne Druck. Jede Minute hier spart dir bares Geld für echte Fahrstunden.</p>
+                        </div>
+                    </div><!-- Slide 5 -->
+                    <div class="slide" style="background-image: url('fsgh-master-grafik-app-drivebuzz-mockup-screens-2025-07-28_v01.png');">
+                        <div class="slide-content">
+                            <h2>Weg #3: Planung, die sich auszahlt</h2>
+                            <p>Unser 5-Meilenstein-Plan sorgt für einen klaren Ablauf und verhindert unnötige "Füll-Stunden". Du hast immer die volle Kostenkontrolle.</p>
+                        </div>
+                    </div>
+                    <!-- Slide 6 -->
+                    <div class="slide testimonial-slide" style="background-color: #009ee2;">
+                        <div class="slide-content">
+                            <p>"Preis-Leistungsverhältnis top!"</p>
+                            <h3>- Frank H. (Google-Bewertung)</h3>
+                        </div>
+                    </div>
+                    <!-- Slide 7 -->
+                    <div class="slide" style="background-image: url('fsgh-master-foto-buero-wartebereich-gruen-2025-07-28_v01.jpg');">
+                        <div class="slide-content">
+                            <h2>Dein Top-Spar-Tipp?</h2>
+                             <div class="poll-box">
+                                <strong>Stimm ab!</strong>
+                                <p>[ Hier wäre ein Instagram Poll-Sticker ]</p>
+                                <p><strong>Simulator</strong> vs. <strong>Planung</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 8 -->
+                    <div class="slide" style="background-image: url('fsgh-master-foto-portrait-team-vanessa-fiala-2025-07-28_v01.jpg');">
+                        <div class="slide-content">
+                            <h2>Bereit, clever zu sparen?</h2>
+                            <p>Alle Details zu unserem System für weniger Fahrstunden findest du im neuen Blogartikel.</p>
+                            <span class="cta-button">Link in Bio!</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-arrow prev" onclick="navigate(-1)">&#10094;</button>
+                <button class="nav-arrow next" onclick="navigate(1)">&#10095;</button>
+                <div class="slide-indicators"></div>
+            </div>
+            <div class="insta-caption">
+                <p><strong>fahrschulegh</strong> Der teuerste Fehler bei der Fahrausbildung? Unnötige Fahrstunden! 💸 Wir zeigen dir 3 Wege, wie du mit unserem System aktiv Kosten sparst. Swipe dich durch & erfahre mehr im neuen Blogartikel. Link in Bio! #führerscheinkosten #geldsparen #fahrschule #dortmund #spartipps</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+        const indicatorsContainer = document.querySelector('.slide-indicators');
+        let currentIndex = 0;
+        slides.forEach((_, i) => { const dot = document.createElement('div'); dot.classList.add('dot'); if (i === 0) dot.classList.add('active'); indicatorsContainer.appendChild(dot); });
+        const dots = Array.from(indicatorsContainer.children);
+        const updateSlide = () => { track.style.transform = 'translateX(-' + 390 * currentIndex + 'px)'; dots.forEach(dot => dot.classList.remove('active')); dots[currentIndex].classList.add('active'); prevButton.style.display = currentIndex === 0 ? 'none' : 'block'; nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'block'; };
+        const navigate = (direction) => { const newIndex = currentIndex + direction; if (newIndex >= 0 && newIndex < slides.length) { currentIndex = newIndex; updateSlide(); } };
+        updateSlide();
+    </script>
+</body>
+</html>

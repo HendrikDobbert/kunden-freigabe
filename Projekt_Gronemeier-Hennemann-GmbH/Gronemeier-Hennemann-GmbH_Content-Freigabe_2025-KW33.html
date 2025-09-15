@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finale Content-Freigabe: KW 33 (August 2025)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ci-dark-blue: #1a2c48;
+            --ci-bright-blue: #009ee2;
+            --ci-green-approve: #28a745;
+            --ci-grey-approved: #6c757d;
+            --ci-red-reset: #dc3545;
+            --ci-text-dark: #333;
+            --ci-text-light: #666;
+            --ci-background-light: #f4f7f6;
+            --ci-background-white: #ffffff;
+            --ci-border-color: #e0e0e0;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--ci-background-light);
+            color: var(--ci-text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--ci-background-white);
+            border: 1px solid var(--ci-border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .header {
+            background-color: var(--ci-dark-blue);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--ci-border-color);
+        }
+        .section:last-child { border-bottom: none; }
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 20px;
+            color: var(--ci-bright-blue);
+            border-bottom: 2px solid var(--ci-bright-blue);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        /* Freigabe-Tabelle */
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .responsive-table th {
+            padding: 12px;
+            border-bottom: 2px solid var(--ci-border-color);
+            text-align: left;
+            font-family: 'Oswald', sans-serif;
+        }
+        .responsive-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--ci-border-color);
+            vertical-align: middle;
+        }
+        .responsive-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .asset-title {
+            display: block;
+            color: var(--ci-text-dark);
+            font-weight: 700;
+        }
+        .asset-description {
+            font-size: 14px;
+        }
+        
+        /* Interaktive Elemente */
+        .view-button {
+            display: inline-block;
+            background-color: var(--ci-dark-blue);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .feedback-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 40px;
+        }
+        .approval-checkbox { display: none; }
+        .approval-label {
+            display: inline-block;
+            background-color: var(--ci-green-approve);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            min-width: 90px;
+        }
+        .approval-label .text-approve { display: inline; }
+        .approval-label .text-approved { display: none; }
+        .approval-checkbox:checked + .approval-label {
+            background-color: var(--ci-grey-approved);
+        }
+        .approval-checkbox:checked + .approval-label .text-approve { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approved { display: inline; }
+        
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; }
+        .rating input { display: none; }
+        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; }
+        .rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label { color: #FFD700; }
+
+        /* Buttons am Ende */
+        .footer-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--ci-border-color);
+        }
+        .footer-button {
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .reset-button {
+            background-color: var(--ci-background-white);
+            color: var(--ci-red-reset);
+            border: 2px solid var(--ci-red-reset);
+        }
+        .submit-global-button {
+            background-color: var(--ci-bright-blue);
+            color: #ffffff;
+        }
+        
+        /* Content-Funnel */
+        .content-funnel {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .funnel-stage {
+            background-color: #f9f9f9;
+            border: 1px solid var(--ci-border-color);
+            border-radius: 8px;
+        }
+        .funnel-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background-color: #f0f8ff;
+            border-bottom: 1px solid var(--ci-border-color);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .funnel-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        .funnel-stage-title {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            color: var(--ci-dark-blue);
+        }
+        .funnel-body {
+            padding: 20px;
+        }
+        .funnel-content-piece {
+            font-weight: 700;
+            color: var(--ci-text-dark);
+            margin-top: 0;
+        }
+        .funnel-explanation {
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="fsgh-master-logo-primaer-transparent-2025-07-28_v01.png" alt="Kundenlogo" style="max-height: 60px; margin-bottom: 15px;">
+            <h1>Content-Freigabe: KW 33</h1>
+            <p>Kampagne: SOMMER_2025 | Fokus: Kosteneffizienz & clevere Ausbildung</p>
+        </header>
+
+        <section class="section">
+            <h2>Die Effizienz-Strategie: Unser Content-Plan für KW 33</h2>
+            <p>In der zweiten Woche der "SOMMER_2025"-Kampagne fokussieren wir uns auf den Schmerzpunkt "hohe Kosten". Wir positionieren Sie nicht als Billig-Anbieter, sondern als die cleverste und effizienteste Wahl, die dem Kunden am Ende bares Geld spart. So greifen die Inhalte ineinander:</p>
+            
+            <div class="content-funnel">
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">🧠</span>
+                        <h3 class="funnel-stage-title">Das Herzstück (Beweisführung & SEO)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Asset:</strong> Blog-Artikel: Weniger Fahrstunden, mehr im Portemonnaie</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Dieser umfassende Artikel ist der Beweis. Er erklärt detailliert, *wie* Ihr System aus Simulator und praxisnaher Theorie die Fahrstunden-Anzahl reduziert und somit die Gesamtkosten senkt.</p>
+                    </div>
+                </div>
+                
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">🚀</span>
+                        <h3 class="funnel-stage-title">Die Verstärker (Neugier & Reichweite)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Assets:</strong> Instagram Reel & Carousel</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Das Reel weckt mit dem "Mythen"-Format Aufmerksamkeit, während das Carousel die 3 konkreten Spar-Methoden visuell aufschlüsselt. Beide leiten Traffic zum neuen Blogartikel.</p>
+                    </div>
+                </div>
+
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">📢</span>
+                        <h3 class="funnel-stage-title">Die Verteiler (Lokale Sichtbarkeit)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Assets:</strong> Google My Business Posts</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Ein provokanter Teaser-Post schafft Neugier für den Blog, während ein direkter Feature-Post den Simulator als "Fahrstundensparer" bewirbt und auf eine direkte Anfrage (Beratungstermin) abzielt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="approvalSection">
+            <h2>Entwürfe zur finalen Prüfung</h2>
+            <p>Hier finden Sie die finalen Entwürfe für alle geplanten Inhalte der Kalenderwoche 33. Bitte prüfen Sie die Dokumente, geben Sie uns kurzes Feedback und erteilen Sie Ihre Freigabe direkt in der Tabelle.</p>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Inhalt (Asset)</th>
+                        <th>Entwurf</th>
+                        <th style="text-align: center;">Bewertung</th>
+                        <th style="width: 25%;">Änderungswunsch</th>
+                        <th style="text-align: center;">Freigabe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-asset-id="BLOG_002">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Blog-Artikel: Kostenersparnis</span>
+                            <span class="asset-description">Weniger Fahrstunden, mehr im Portemonnaie...</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/BLOG_002_Weniger-Fahrstunden.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-blog2" name="rating-BLOG_002" value="5"><label for="star5-blog2">★</label>
+                                <input type="radio" id="star4-blog2" name="rating-BLOG_002" value="4"><label for="star4-blog2">★</label>
+                                <input type="radio" id="star3-blog2" name="rating-BLOG_002" value="3"><label for="star3-blog2">★</label>
+                                <input type="radio" id="star2-blog2" name="rating-BLOG_002" value="2"><label for="star2-blog2">★</label>
+                                <input type="radio" id="star1-blog2" name="rating-BLOG_002" value="1"><label for="star1-blog2">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-BLOG_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-blog2" name="approve-BLOG_002" class="approval-checkbox">
+                            <label for="approve-blog2" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="GMB_003">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Google Post: Blog-Teaser</span>
+                            <span class="asset-description">Neuigkeit: "Der teuerste Fehler..."</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/GMB_003_Neuigkeit_Teuerster-Fehler.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                             <div class="rating">
+                                <input type="radio" id="star5-gmb3" name="rating-GMB_003" value="5"><label for="star5-gmb3">★</label>
+                                <input type="radio" id="star4-gmb3" name="rating-GMB_003" value="4"><label for="star4-gmb3">★</label>
+                                <input type="radio" id="star3-gmb3" name="rating-GMB_003" value="3"><label for="star3-gmb3">★</label>
+                                <input type="radio" id="star2-gmb3" name="rating-GMB_003" value="2"><label for="star2-gmb3">★</label>
+                                <input type="radio" id="star1-gmb3" name="rating-GMB_003" value="1"><label for="star1-gmb3">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_003" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-gmb3" name="approve-GMB_003" class="approval-checkbox">
+                            <label for="approve-gmb3" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="INSTA_003">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Instagram: Carousel-Post</span>
+                            <span class="asset-description">Carousel: 3 Wege, wie wir Kosten senken</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/INSTA_003_Carousel_3-Wege.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                             <div class="rating">
+                                <input type="radio" id="star5-insta3" name="rating-INSTA_003" value="5"><label for="star5-insta3">★</label>
+                                <input type="radio" id="star4-insta3" name="rating-INSTA_003" value="4"><label for="star4-insta3">★</label>
+                                <input type="radio" id="star3-insta3" name="rating-INSTA_003" value="3"><label for="star3-insta3">★</label>
+                                <input type="radio" id="star2-insta3" name="rating-INSTA_003" value="2"><label for="star2-insta3">★</label>
+                                <input type="radio" id="star1-insta3" name="rating-INSTA_003" value="1"><label for="star1-insta3">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-INSTA_003" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-insta3" name="approve-INSTA_003" class="approval-checkbox">
+                            <label for="approve-insta3" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="GMB_004">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Google Post: Feature-Fokus</span>
+                            <span class="asset-description">Kennst du schon unseren Fahrstundensparer?</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/GMB_004_Neuigkeit_Fahrstundensparer.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                             <div class="rating">
+                                <input type="radio" id="star5-gmb4" name="rating-GMB_004" value="5"><label for="star5-gmb4">★</label>
+                                <input type="radio" id="star4-gmb4" name="rating-GMB_004" value="4"><label for="star4-gmb4">★</label>
+                                <input type="radio" id="star3-gmb4" name="rating-GMB_004" value="3"><label for="star3-gmb4">★</label>
+                                <input type="radio" id="star2-gmb4" name="rating-GMB_004" value="2"><label for="star2-gmb4">★</label>
+                                <input type="radio" id="star1-gmb4" name="rating-GMB_004" value="1"><label for="star1-gmb4">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_004" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-gmb4" name="approve-GMB_004" class="approval-checkbox">
+                            <label for="approve-gmb4" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                     <tr data-asset-id="INSTA_004">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Instagram: Reel</span>
+                            <span class="asset-description">Reel: Fahrstunden-Mythen aufgedeckt!</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="https://kunden-kampagnen.vercel.app/INSTA_004_Drehbuch_Mythen.html" class="view-button">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-insta4" name="rating-INSTA_004" value="5"><label for="star5-insta4">★</label>
+                                <input type="radio" id="star4-insta4" name="rating-INSTA_004" value="4"><label for="star4-insta4">★</label>
+                                <input type="radio" id="star3-insta4" name="rating-INSTA_004" value="3"><label for="star3-insta4">★</label>
+                                <input type="radio" id="star2-insta4" name="rating-INSTA_004" value="2"><label for="star2-insta4">★</label>
+                                <input type="radio" id="star1-insta4" name="rating-INSTA_004" value="1"><label for="star1-insta4">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-INSTA_004" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-insta4" name="approve-INSTA_004" class="approval-checkbox">
+                            <label for="approve-insta4" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="footer-button-container">
+                <button class="footer-button reset-button">Eingaben zurücksetzen</button>
+                <button class="footer-button submit-global-button">Alle Freigaben & Feedback Senden</button>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
