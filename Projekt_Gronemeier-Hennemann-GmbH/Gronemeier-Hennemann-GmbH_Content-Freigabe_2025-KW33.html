@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-            <link rel="icon" href="https://fahrschule-in-dortmund.de/assets/images/5/fahrschule-gronemeier-hennemann-logo-zeilen-7af28125.svg" sizes="32x32">
+    <link rel="icon" href="https://fahrschule-in-dortmund.de/assets/images/5/fahrschule-gronemeier-hennemann-logo-zeilen-7af28125.svg" sizes="32x32">
 
     <style>
         :root {
@@ -36,12 +36,18 @@
             background-color: var(--ci-background-white);
             border: 1px solid var(--ci-border-color);
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
         }
         .header {
             background-color: var(--ci-dark-blue);
             color: #ffffff;
             padding: 30px;
             text-align: center;
+        }
+        .header img {
+            max-height: 60px;
+            margin-bottom: 15px;
         }
         .header h1 {
             font-family: 'Oswald', sans-serif;
@@ -109,6 +115,10 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+        .view-button:hover {
+            background-color: #2c4a75;
         }
         .feedback-textarea {
             width: 100%;
@@ -133,6 +143,7 @@
             transition: background-color 0.2s ease;
             text-align: center;
             min-width: 90px;
+            box-sizing: border-box;
         }
         .approval-label .text-approve { display: inline; }
         .approval-label .text-approved { display: none; }
@@ -144,7 +155,7 @@
         
         .rating { display: flex; flex-direction: row-reverse; justify-content: center; }
         .rating input { display: none; }
-        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; }
+        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; padding: 0 2px; }
         .rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label { color: #FFD700; }
 
         /* Buttons am Ende */
@@ -166,15 +177,26 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: 700;
+            transition: all 0.2s ease;
+            flex-grow: 0;
         }
         .reset-button {
             background-color: var(--ci-background-white);
             color: var(--ci-red-reset);
             border: 2px solid var(--ci-red-reset);
         }
+        .reset-button:hover {
+            background-color: var(--ci-red-reset);
+            color: white;
+        }
         .submit-global-button {
             background-color: var(--ci-bright-blue);
             color: #ffffff;
+            border: 2px solid var(--ci-bright-blue);
+        }
+        .submit-global-button:hover {
+            background-color: #007bb5;
+            border-color: #007bb5;
         }
         
         /* Content-Funnel */
@@ -221,12 +243,110 @@
             font-size: 14px;
             margin-bottom: 0;
         }
+
+        /* =========================================== */
+        /* ==      MOBILE OPTIMIERUNG START         == */
+        /* =========================================== */
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .header {
+                padding: 20px 15px;
+            }
+            .header img {
+                max-height: 50px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .header p {
+                font-size: 14px;
+            }
+            .section {
+                padding: 20px 15px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+
+            /* Responsive Tabelle als Karten-Layout */
+            .responsive-table thead {
+                display: none; /* Tabellenkopf ausblenden */
+            }
+            .responsive-table tr {
+                display: block;
+                border: 1px solid var(--ci-border-color);
+                border-radius: 8px;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+            .responsive-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 15px;
+                border-bottom: 1px solid var(--ci-border-color);
+                text-align: right; /* Inhalt rechts ausrichten */
+            }
+            .responsive-table tr td:last-child {
+                border-bottom: none;
+            }
+            /* Pseudo-Element für die Spaltenüberschrift */
+            .responsive-table td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                text-align: left;
+                margin-right: 15px;
+                color: var(--ci-text-dark);
+            }
+            
+            /* Spezifische Anpassungen für Zelleninhalte */
+            .responsive-table td[data-label="Inhalt"] {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+             .responsive-table td[data-label="Inhalt"]::before {
+                margin-bottom: 8px;
+            }
+            .responsive-table td[data-label="Änderungswunsch"] {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .responsive-table td[data-label="Änderungswunsch"]::before {
+                 margin-bottom: 8px;
+            }
+            .feedback-textarea {
+                min-height: 60px;
+            }
+            .rating {
+                justify-content: flex-end;
+            }
+
+            /* Footer Buttons auf Mobilgeräten */
+            .footer-button-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-button {
+                width: 100%;
+                padding: 15px;
+                font-size: 15px;
+            }
+            .submit-global-button {
+                /* Wichtigeren Button nach oben verschieben für bessere Erreichbarkeit */
+                order: -1;
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="brochure">
         <header class="header">
-            <img src="https://fahrschule-in-dortmund.de/assets/images/b/fahrschule-gronemeier-hennemann-logo-755aefb5.svg" alt="Kundenlogo" style="max-height: 60px; margin-bottom: 15px;">
+            <img src="https://fahrschule-in-dortmund.de/assets/images/b/fahrschule-gronemeier-hennemann-logo-755aefb5.svg" alt="Kundenlogo">
             <h1>Content-Freigabe: KW 33</h1>
             <p>Kampagne: SOMMER_2025 | Fokus: Kosteneffizienz & clevere Ausbildung</p>
         </header>
@@ -290,7 +410,7 @@
                             <span class="asset-title">Blog-Artikel: Kostenersparnis</span>
                             <span class="asset-description">Weniger Fahrstunden, mehr im Portemonnaie...</span>
                         </td>
-                        <td data-label="Entwurf"><a href="/Projekt_Gronemeier-Hennemann-GmbH/2025_KW33/Assets-Final/BLOG_002_Weniger-Fahrstunden.html" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
                         <td data-label="Bewertung">
                             <div class="rating">
                                 <input type="radio" id="star5-blog2" name="rating-BLOG_002" value="5"><label for="star5-blog2">★</label>
@@ -311,7 +431,7 @@
                             <span class="asset-title">Google Post: Blog-Teaser</span>
                             <span class="asset-description">Neuigkeit: "Der teuerste Fehler..."</span>
                         </td>
-                        <td data-label="Entwurf"><a href="/Projekt_Gronemeier-Hennemann-GmbH/2025_KW33/Assets-Final/GMB_003_Neuigkeit_Teuerster-Fehler.html" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
                         <td data-label="Bewertung">
                              <div class="rating">
                                 <input type="radio" id="star5-gmb3" name="rating-GMB_003" value="5"><label for="star5-gmb3">★</label>
@@ -332,7 +452,7 @@
                             <span class="asset-title">Instagram: Carousel-Post</span>
                             <span class="asset-description">Carousel: 3 Wege, wie wir Kosten senken</span>
                         </td>
-                        <td data-label="Entwurf"><a href="/Projekt_Gronemeier-Hennemann-GmbH/2025_KW33/Assets-Final/INSTA_003_Carousel_3-Wege.html" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
                         <td data-label="Bewertung">
                              <div class="rating">
                                 <input type="radio" id="star5-insta3" name="rating-INSTA_003" value="5"><label for="star5-insta3">★</label>
@@ -353,7 +473,7 @@
                             <span class="asset-title">Google Post: Feature-Fokus</span>
                             <span class="asset-description">Kennst du schon unseren Fahrstundensparer?</span>
                         </td>
-                        <td data-label="Entwurf"><a href="/Projekt_Gronemeier-Hennemann-GmbH/2025_KW33/Assets-Final/GMB_004_Neuigkeit_Fahrstundensparer.html" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
                         <td data-label="Bewertung">
                              <div class="rating">
                                 <input type="radio" id="star5-gmb4" name="rating-GMB_004" value="5"><label for="star5-gmb4">★</label>
@@ -374,7 +494,7 @@
                             <span class="asset-title">Instagram: Reel</span>
                             <span class="asset-description">Reel: Fahrstunden-Mythen aufgedeckt!</span>
                         </td>
-                        <td data-label="Entwurf"><a href="/Projekt_Gronemeier-Hennemann-GmbH/2025_KW33/Assets-Final/INSTA_004_Drehbuch_Mythen.html" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
                         <td data-label="Bewertung">
                             <div class="rating">
                                 <input type="radio" id="star5-insta4" name="rating-INSTA_004" value="5"><label for="star5-insta4">★</label>
@@ -400,4 +520,3 @@
     </div>
 </body>
 </html>
-
