@@ -12,7 +12,7 @@
         :root {
             --ci-corporate-teal: #1E9B93;
             --ci-corporate-teal-hover: #16736E;
-            --ci-secondary-darkgrey: #545F;
+            --ci-secondary-darkgrey: #545F71; /* Updated for better contrast */
             --ci-accent-green: #61CE70;
             --ci-text-grey: #7A7A7A;
             --ci-red-reset: #dc3545;
@@ -27,7 +27,7 @@
             color: var(--ci-text-grey);
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 15px; /* Added padding for small screens */
         }
         .brochure {
             max-width: 800px;
@@ -36,6 +36,7 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border-radius: 8px;
+            overflow: hidden; /* Ensures child elements respect border-radius */
         }
         .header {
             background-color: var(--bg-white);
@@ -163,7 +164,7 @@
         
         .rating { display: flex; flex-direction: row-reverse; justify-content: center; }
         .rating input { display: none; }
-        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; }
+        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; padding: 0 2px; }
         .rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label { color: var(--ci-corporate-teal); }
 
         .footer-button-container {
@@ -229,15 +230,131 @@
         .funnel-content-piece { font-weight: 600; color: #000; margin-top: 0; font-family: 'Roboto', sans-serif; }
         .funnel-explanation { font-size: 15px; margin-bottom: 0; color: var(--ci-text-grey); }
 
+        /* --- Custom Modal Styles --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .modal-content h3 {
+            margin-top: 0;
+            font-family: 'Roboto Slab', serif;
+            color: var(--ci-secondary-darkgrey);
+        }
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .modal-button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        #modalConfirm {
+            background-color: var(--ci-red-reset);
+            color: white;
+        }
+        #modalConfirm:hover {
+            opacity: 0.8;
+        }
+        #modalCancel {
+            background-color: #f0f0f0;
+            color: #333;
+            border-color: #ccc;
+        }
+        #modalCancel:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* --- Responsive Styles --- */
         @media (max-width: 768px) {
+            body {
+                padding: 10px; /* Less padding on mobile body */
+            }
+            .header, .section {
+                padding: 20px; /* Reduced padding for sections */
+            }
+            .header h1 {
+                font-size: 22px; /* Smaller header font */
+            }
+            .header p {
+                font-size: 14px;
+            }
+             h2 {
+                font-size: 1.5rem; /* Smaller section titles */
+            }
+             .section p {
+                font-size: 16px;
+            }
+
             .responsive-table thead { display: none; }
-            .responsive-table tr { display: block; margin-bottom: 20px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
-            .responsive-table td { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; text-align: right; border-bottom: 1px solid #eee; }
+            .responsive-table tr { 
+                display: block; 
+                margin-bottom: 20px; 
+                border: 1px solid var(--border-color); 
+                border-radius: 8px; 
+                overflow: hidden; 
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+            .responsive-table td { 
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center; 
+                padding: 12px 15px; 
+                text-align: right; 
+                border-bottom: 1px solid #eee; 
+            }
             .responsive-table tr td:last-child { border-bottom: none; }
-            .responsive-table td::before { content: attr(data-label); font-weight: bold; text-align: left; margin-right: 15px; color: var(--ci-secondary-darkgrey); }
-            .responsive-table td:first-child { display: block; text-align: left; background-color: #f9f9f9; padding: 15px; }
+            .responsive-table td::before { 
+                content: attr(data-label); 
+                font-weight: bold; 
+                text-align: left; 
+                margin-right: 15px; 
+                color: var(--ci-secondary-darkgrey); 
+            }
+            .responsive-table td:first-child { 
+                display: block; 
+                text-align: left; 
+                background-color: #f9f9f9; 
+                padding: 15px; 
+                border-bottom: 1px solid var(--border-color);
+            }
             .responsive-table td:first-child::before { display: none; }
-            .footer-button-container {justify-content: center;}
+            .responsive-table .view-button, .responsive-table .approval-label {
+                padding: 10px 18px; /* Bigger tap targets */
+            }
+
+            .footer-button-container {
+                flex-direction: column; /* Stack buttons */
+                justify-content: center;
+                gap: 12px;
+            }
+            .footer-button {
+                width: 100%; /* Full-width buttons */
+                padding: 15px; /* Larger buttons for easier tapping */
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -263,7 +380,6 @@
                         <p class="funnel-explanation"><strong>Die Rolle:</strong> Schafft Vertrauen durch Transparenz, beantwortet die wichtigste Kundenfrage und positioniert Sie als ehrlichen Experten. Optimiert für das Keyword-Cluster "Fußbodenheizung Fräsen Kosten".</p>
                     </div>
                 </div>
-
                 <div class="funnel-stage">
                     <div class="funnel-header">
                         <span class="funnel-icon">📢</span>
@@ -292,42 +408,42 @@
                 <tbody>
                     <tr data-asset-id="BLOG_002">
                         <td data-label="Inhalt"><span class="asset-title">Blog-Artikel</span><span class="asset-description">Kosten- & Spar-Analyse</span></td>
-                        <td data-label="Entwurf"><a href="/Projekt_Arens-GmbH/2025_KW37_Fokus-Kosten/Assets-Final/BLOG_002_Kosten-Analyse-Fussbodenheizung.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" onclick="event.preventDefault(); alert('Link-Ziel nicht verfügbar in dieser Demo.');">Ansehen</a></td>
                         <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-blog2" name="rating-BLOG_002" value="5"><label for="star5-blog2">★</label><input type="radio" id="star4-blog2" name="rating-BLOG_002" value="4"><label for="star4-blog2">★</label><input type="radio" id="star3-blog2" name="rating-BLOG_002" value="3"><label for="star3-blog2">★</label><input type="radio" id="star2-blog2" name="rating-BLOG_002" value="2"><label for="star2-blog2">★</label><input type="radio" id="star1-blog2" name="rating-BLOG_002" value="1"><label for="star1-blog2">★</label></div></td>
                         <td data-label="Änderungswunsch"><textarea name="feedback-BLOG_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
                         <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-blog2" name="approve-BLOG_002" class="approval-checkbox"><label for="approve-blog2" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
                     </tr>
                     <tr data-asset-id="GMB_003">
                         <td data-label="Inhalt"><span class="asset-title">GMB: Neuigkeit</span><span class="asset-description">"Lohnt sich eine gefräste FBH für Sie?"</span></td>
-                        <td data-label="Entwurf"><a href="/Projekt_Arens-GmbH/2025_KW37_Fokus-Kosten/Assets-Final/GMB_003_Neuigkeit-Kosten-Teaser.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" onclick="event.preventDefault(); alert('Link-Ziel nicht verfügbar in dieser Demo.');">Ansehen</a></td>
                         <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-gmb3" name="rating-GMB_003" value="5"><label for="star5-gmb3">★</label><input type="radio" id="star4-gmb3" name="rating-GMB_003" value="4"><label for="star4-gmb3">★</label><input type="radio" id="star3-gmb3" name="rating-GMB_003" value="3"><label for="star3-gmb3">★</label><input type="radio" id="star2-gmb3" name="rating-GMB_003" value="2"><label for="star2-gmb3">★</label><input type="radio" id="star1-gmb3" name="rating-GMB_003" value="1"><label for="star1-gmb3">★</label></div></td>
                         <td data-label="Änderungswunsch"><textarea name="feedback-GMB_003" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
                         <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-gmb3" name="approve-GMB_003" class="approval-checkbox"><label for="approve-gmb3" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
                     </tr>
                     <tr data-asset-id="INSTA_002">
                         <td data-label="Inhalt"><span class="asset-title">Instagram: Carousel</span><span class="asset-description">"Die 3 größten Kostenfaktoren"</span></td>
-                        <td data-label="Entwurf"><a href="/Projekt_Arens-GmbH/2025_KW37_Fokus-Kosten/Assets-Final/INSTA_002_Carousel-Kostenfaktoren.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" onclick="event.preventDefault(); alert('Link-Ziel nicht verfügbar in dieser Demo.');">Ansehen</a></td>
                         <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-insta2" name="rating-INSTA_002" value="5"><label for="star5-insta2">★</label><input type="radio" id="star4-insta2" name="rating-INSTA_002" value="4"><label for="star4-insta2">★</label><input type="radio" id="star3-insta2" name="rating-INSTA_002" value="3"><label for="star3-insta2">★</label><input type="radio" id="star2-insta2" name="rating-INSTA_002" value="2"><label for="star2-insta2">★</label><input type="radio" id="star1-insta2" name="rating-INSTA_002" value="1"><label for="star1-insta2">★</label></div></td>
                         <td data-label="Änderungswunsch"><textarea name="feedback-INSTA_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
                         <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-insta2" name="approve-INSTA_002" class="approval-checkbox"><label for="approve-insta2" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
                     </tr>
                     <tr data-asset-id="FB_002">
                         <td data-label="Inhalt"><span class="asset-title">Facebook Post</span><span class="asset-description">Experten-Zitat zu Energieeffizienz</span></td>
-                        <td data-label="Entwurf"><a href="/Projekt_Arens-GmbH/2025_KW37_Fokus-Kosten/Assets-Final/FB_002_Experten-Zitat.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" onclick="event.preventDefault(); alert('Link-Ziel nicht verfügbar in dieser Demo.');">Ansehen</a></td>
                         <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-fb2" name="rating-FB_002" value="5"><label for="star5-fb2">★</label><input type="radio" id="star4-fb2" name="rating-FB_002" value="4"><label for="star4-fb2">★</label><input type="radio" id="star3-fb2" name="rating-FB_002" value="3"><label for="star3-fb2">★</label><input type="radio" id="star2-fb2" name="rating-FB_002" value="2"><label for="star2-fb2">★</label><input type="radio" id="star1-fb2" name="rating-FB_002" value="1"><label for="star1-fb2">★</label></div></td>
                         <td data-label="Änderungswunsch"><textarea name="feedback-FB_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
                         <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-fb2" name="approve-FB_002" class="approval-checkbox"><label for="approve-fb2" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
                     </tr>
                     <tr data-asset-id="MAIL_002">
                         <td data-label="Inhalt"><span class="asset-title">E-Mail Newsletter</span><span class="asset-description">"Was kostet der Komfort?"</span></td>
-                        <td data-label="Entwurf"><a href="/Projekt_Arens-GmbH/2025_KW37_Fokus-Kosten/Assets-Final/MAIL_002_Newsletter-Kosten-Analyse.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" onclick="event.preventDefault(); alert('Link-Ziel nicht verfügbar in dieser Demo.');">Ansehen</a></td>
                         <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-mail2" name="rating-MAIL_002" value="5"><label for="star5-mail2">★</label><input type="radio" id="star4-mail2" name="rating-MAIL_002" value="4"><label for="star4-mail2">★</label><input type="radio" id="star3-mail2" name="rating-MAIL_002" value="3"><label for="star3-mail2">★</label><input type="radio" id="star2-mail2" name="rating-MAIL_002" value="2"><label for="star2-mail2">★</label><input type="radio" id="star1-mail2" name="rating-MAIL_002" value="1"><label for="star1-mail2">★</label></div></td>
                         <td data-label="Änderungswunsch"><textarea name="feedback-MAIL_002" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
                         <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-mail2" name="approve-MAIL_002" class="approval-checkbox"><label for="approve-mail2" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
                     </tr>
                     <tr data-asset-id="GMB_004">
                         <td data-label="Inhalt"><span class="asset-title">GMB: Q&A</span><span class="asset-description">"Schadet das Fräsen meinem Estrich?"</span></td>
-                        <td data-label="Entwurf"><a href="/Projekt_Arens-GmbH/2025_KW37_Fokus-Kosten/Assets-Final/GMB_004_Q&A-Estrich.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" onclick="event.preventDefault(); alert('Link-Ziel nicht verfügbar in dieser Demo.');">Ansehen</a></td>
                         <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-gmb4" name="rating-GMB_004" value="5"><label for="star5-gmb4">★</label><input type="radio" id="star4-gmb4" name="rating-GMB_004" value="4"><label for="star4-gmb4">★</label><input type="radio" id="star3-gmb4" name="rating-GMB_004" value="3"><label for="star3-gmb4">★</label><input type="radio" id="star2-gmb4" name="rating-GMB_004" value="2"><label for="star2-gmb4">★</label><input type="radio" id="star1-gmb4" name="rating-GMB_004" value="1"><label for="star1-gmb4">★</label></div></td>
                         <td data-label="Änderungswunsch"><textarea name="feedback-GMB_004" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
                         <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-gmb4" name="approve-GMB_004" class="approval-checkbox"><label for="approve-gmb4" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
@@ -346,6 +462,19 @@
             <div id="errorMessage"></div>
         </section>
     </div>
+
+    <!-- Custom Modal for Reset Confirmation -->
+    <div id="customModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Eingaben zurücksetzen</h3>
+            <p>Möchten Sie wirklich alle Bewertungen, Kommentare und Freigaben löschen?</p>
+            <div class="modal-buttons">
+                <button id="modalCancel" class="modal-button">Abbrechen</button>
+                <button id="modalConfirm" class="modal-button">Zurücksetzen</button>
+            </div>
+        </div>
+    </div>
+
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const approvalSection = document.getElementById('approvalSection');
@@ -356,6 +485,11 @@
 
         const successMessageDiv = document.getElementById('successMessage');
         const errorMessageDiv = document.getElementById('errorMessage');
+
+        // Modal elements
+        const customModal = document.getElementById('customModal');
+        const modalConfirm = document.getElementById('modalConfirm');
+        const modalCancel = document.getElementById('modalCancel');
 
         submitButton.addEventListener('click', function() {
             submitButton.disabled = true;
@@ -435,14 +569,41 @@
             }
         };
         
+        // --- Modal Logic ---
+        const showModal = () => {
+            customModal.style.display = 'flex';
+        };
+        const hideModal = () => {
+            customModal.style.display = 'none';
+        };
+
         resetButton.addEventListener('click', function() {
-            if (confirm('Möchten Sie wirklich alle Bewertungen, Kommentare und Freigaben zurücksetzen?')) {
-                approvalSection.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(el => el.checked = false);
-                approvalSection.querySelectorAll('textarea').forEach(el => el.value = '');
-                localStorage.removeItem(storageKey);
-                document.querySelector('#submitButton .button-text').textContent = 'Alle Freigaben & Feedback Senden';
+            // Instead of confirm(), show our custom modal
+            showModal();
+        });
+
+        modalConfirm.addEventListener('click', function() {
+            // The user confirmed the action
+            approvalSection.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(el => el.checked = false);
+            approvalSection.querySelectorAll('textarea').forEach(el => el.value = '');
+            localStorage.removeItem(storageKey);
+            document.querySelector('#submitButton .button-text').textContent = 'Alle Freigaben & Feedback Senden';
+            saveData(); // Save the cleared state
+            hideModal();
+        });
+
+        modalCancel.addEventListener('click', function() {
+            // The user canceled
+            hideModal();
+        });
+
+        // Close modal if user clicks outside of the content
+        window.addEventListener('click', function(event) {
+            if (event.target == customModal) {
+                hideModal();
             }
         });
+
 
         approvalSection.addEventListener('input', saveData);
         loadData();
@@ -450,7 +611,3 @@
     </script>
 </body>
 </html>
-
-
-
-
