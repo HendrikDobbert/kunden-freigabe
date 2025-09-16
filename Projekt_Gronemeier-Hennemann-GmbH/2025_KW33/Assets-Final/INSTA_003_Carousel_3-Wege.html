@@ -2,33 +2,57 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <!-- Wichtigster Meta-Tag für responsives Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram Carousel Vorschau: INSTA_003 (Optimiert)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
-            <link rel="icon" href="../Bilder/fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" sizes="32x32">
+    <!-- Placeholder für Favicon -->
+    <link rel="icon" href="../Bilder/fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" sizes="32x32">
 
     <style>
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Grundlegende Stile und Animationen */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Body-Styling für mobile Ansicht optimiert */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #e0e0e0;
+            background-color: #ffffff; /* Weiß als Standard für ein sauberes mobiles Erlebnis */
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Wrapper, um das Telefon auf dem Desktop zu zentrieren */
+        .phone-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            background-color: #e0e0e0;
             padding: 20px;
+            box-sizing: border-box;
         }
+
+        /* Der Telefonrahmen selbst */
         .phone-frame {
-            width: 420px;
+            width: 100%;
+            max-width: 420px; /* Maximale Breite für Desktop */
             height: 800px;
+            max-height: 90vh; /* Verhindert Überlaufen auf kurzen Bildschirmen */
             background-color: #1c1c1c;
             border-radius: 40px;
             padding: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
+            transition: all 0.3s ease;
         }
+
         .phone-screen {
             background-color: #ffffff;
             flex-grow: 1;
@@ -37,158 +61,280 @@
             display: flex;
             flex-direction: column;
         }
+
         .insta-header {
             display: flex;
             align-items: center;
             padding: 10px 15px;
             border-bottom: 1px solid #dbdbdb;
+            flex-shrink: 0;
         }
+
         .insta-logo {
             width: 30px;
             height: 30px;
             border-radius: 50%;
+            /* Placeholder-Bild, da der ursprüngliche Pfad nicht zugänglich ist */
             background-image: url('../Bilder/fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             border: 1px solid #eee;
         }
+
         .insta-username {
             font-weight: 700;
             margin-left: 10px;
         }
+
         .carousel-container {
             position: relative;
             width: 100%;
-            height: 390px;
+            aspect-ratio: 1 / 1; /* Sorgt für ein quadratisches Format, wie bei Instagram */
             overflow: hidden;
-            scroll-snap-type: x mandatory;
-            display: flex;
-            align-items: center;
+            cursor: grab;
         }
+        .carousel-container:active {
+            cursor: grabbing;
+        }
+
         .carousel-track {
             display: flex;
+            height: 100%;
             transition: transform 0.3s ease-in-out;
         }
+
         .slide {
-            width: 390px;
-            height: 390px;
+            width: 100%; /* Dynamische Breite statt fester Pixel */
+            height: 100%;
             flex-shrink: 0;
-            scroll-snap-align: start;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
             box-sizing: border-box;
             background-size: cover;
             background-position: center;
             color: #fff;
             position: relative;
         }
-        /* Der Overlay wird bei Bedarf durch das Bild selbst erzeugt, daher hier auskommentiert
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0,0,0,0.5);
-            border-radius: 0;
-        }
-        */
+
         .slide-content {
             position: relative;
             z-index: 2;
+            padding: 20px;
         }
-        .slide h2, .slide h3, .slide p, .poll-box {
+
+        .slide h2, .slide h3, .slide p {
             font-family: 'Poppins', sans-serif;
             margin: 0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
             animation: fadeIn 0.5s ease-out forwards;
         }
-        .slide-title h2 { font-size: 32px; font-weight: 900; }
-        .slide-title h3 { font-size: 18px; font-weight: 700; opacity: 0.8; }
-        .slide h2 { font-size: 26px; font-weight: 900; text-transform: uppercase; }
+
+        .slide h2 { font-size: 26px; font-weight: 900; }
         .slide p { font-size: 16px; font-weight: 400; max-width: 90%; line-height: 1.5; margin-top: 15px; }
-        .testimonial-slide p { font-style: italic; font-size: 20px; }
-        .poll-box {
-            margin-top: 20px;
-            background-color: rgba(255,255,255,0.9);
-            color: #000;
-            border-radius: 10px;
-            padding: 15px 25px;
-            text-shadow: none;
-        }
-        .poll-box strong { color: #009ee2; }
-        .cta-button {
-            display: inline-block;
-            background-color: #009ee2;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-weight: 700;
-            text-shadow: none;
-        }
+
         .nav-arrow {
-            position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.7); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 18px; z-index: 10;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+
         .prev { left: 10px; }
         .next { right: 10px; }
-        .slide-indicators { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; }
-        .dot { width: 6px; height: 6px; border-radius: 50%; background-color: #a8a8a8; margin: 0 3px; }
-        .dot.active { background-color: #fff; border: 1px solid #a8a8a8; }
-        .insta-caption { padding: 15px; font-size: 14px; line-height: 1.4; }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 5;
+        }
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            margin: 0 4px;
+            transition: background-color 0.3s ease;
+        }
+        .dot.active {
+            background-color: #ffffff;
+        }
+
+        .insta-caption {
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            flex-shrink: 0;
+            overflow-y: auto; /* Erlaubt Scrollen, falls der Text zu lang ist */
+        }
+
         .insta-caption strong { font-weight: 700; }
+
+        /* Media Query: Stile für mobile Geräte (bis 480px Breite) */
+        @media (max-width: 480px) {
+            .phone-wrapper {
+                padding: 0;
+                background-color: #ffffff;
+                align-items: flex-start; /* Inhalt oben ausrichten */
+            }
+
+            .phone-frame {
+                max-width: 100%;
+                height: 100vh; /* Volle Höhe des Viewports */
+                max-height: none;
+                border-radius: 0;
+                padding: 0;
+                box-shadow: none;
+                background-color: #ffffff;
+            }
+
+            .phone-screen {
+                border-radius: 0;
+            }
+
+            /* Pfeile auf Mobilgeräten ausblenden, da Wischen bevorzugt wird */
+            .nav-arrow {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="phone-frame">
-        <div class="phone-screen">
-            <div class="insta-header">
-                <div class="insta-logo"></div>
-                <span class="insta-username">fahrschulegh</span>
-            </div>
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="slide slide-title" style="background-image: url('../Bilder/INSTA_003_1_gronemeier_2025-09-15.png');">
-                        </div>
-                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_2_gronemeier_2025-09-15.png');">
-                         </div>
-                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_3_gronemeier_2025-09-15.png');">
-                         </div>
-                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_4_gronemeier_2025-09-15.png');">
-                         </div>
-                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_5_gronemeier_2025-09-15.png');">
-                         </div>
-                    <div class="slide testimonial-slide" style="background-image: url('../Bilder/INSTA_003_6_gronemeier_2025-09-15.png');">
-                         </div>
-                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_7_gronemeier_2025-09-15.png');">
-                         </div>
-                    <div class="slide" style="background-image: url('../Bilder/INSTA_003_8_gronemeier_2025-09-15.png');">
-                         </div>
+
+    <div class="phone-wrapper">
+        <div class="phone-frame">
+            <div class="phone-screen">
+                <div class="insta-header">
+                    <div class="insta-logo"></div>
+                    <span class="insta-username">fahrschulegh</span>
                 </div>
-                <button class="nav-arrow prev" onclick="navigate(-1)">&#10094;</button>
-                <button class="nav-arrow next" onclick="navigate(1)">&#10095;</button>
-                <div class="slide-indicators"></div>
-            </div>
-            <div class="insta-caption">
-                <p><strong>fahrschulegh</strong> Der teuerste Fehler bei der Fahrausbildung? Unnötige Fahrstunden! 💸 Wir zeigen dir 3 Wege, wie du mit unserem System aktiv Kosten sparst. Swipe dich durch & erfahre mehr im neuen Blogartikel. Link in Bio! #führerscheinkosten #geldsparen #fahrschule #dortmund #spartipps</p>
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Hinweis: Lokale Bildpfade wurden durch Platzhalter ersetzt, damit die Vorschau funktioniert -->
+                        <div class="slide" style="background-image: url('../Bilder/INSTA_003_1_gronemeier_2025-09-15.png');"></div>
+                        <div class="slide" style="background-image: url('../Bilder/INSTA_003_2_gronemeier_2025-09-15.png');"></div>
+                        <div class="slide" style="background-image: url('../Bilder/INSTA_003_3_gronemeier_2025-09-15.png');"></div>
+                        <div class="slide" style="background-image: url('../Bilder/INSTA_003_4_gronemeier_2025-09-15.png');"></div>
+                        <div class="slide" style="background-image: url('../Bilder/INSTA_003_5_gronemeier_2025-09-15.png');"></div>
+                        <div class="slide" style="background-image: url('../Bilder/INSTA_003_6_gronemeier_2025-09-15.png');"></div>
+                        <div class="slide" style="background-image: url('../Bilder/INSTA_003_7_gronemeier_2025-09-15.png');"></div>
+                        <div class="slide" style="background-image: url('../Bilder/INSTA_003_8_gronemeier_2025-09-15.png');"></div>
+                    </div>
+                    <button class="nav-arrow prev" onclick="navigate(-1)">&#10094;</button>
+                    <button class="nav-arrow next" onclick="navigate(1)">&#10095;</button>
+                    <div class="slide-indicators"></div>
+                </div>
+                <div class="insta-caption">
+                    <p><strong>fahrschulegh</strong> Der teuerste Fehler bei der Fahrausbildung? Unnötige Fahrstunden! 💸 Wir zeigen dir 3 Wege, wie du mit unserem System aktiv Kosten sparst. Swipe dich durch & erfahre mehr im neuen Blogartikel. Link in Bio! #führerscheinkosten #geldsparen #fahrschule #dortmund #spartipps</p>
+                </div>
             </div>
         </div>
     </div>
+
     <script>
-        const track = document.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextButton = document.querySelector('.next');
-        const prevButton = document.querySelector('.prev');
-        const indicatorsContainer = document.querySelector('.slide-indicators');
-        let currentIndex = 0;
-        slides.forEach((_, i) => { const dot = document.createElement('div'); dot.classList.add('dot'); if (i === 0) dot.classList.add('active'); indicatorsContainer.appendChild(dot); });
-        const dots = Array.from(indicatorsContainer.children);
-        const updateSlide = () => { track.style.transform = 'translateX(-' + 390 * currentIndex + 'px)'; dots.forEach(dot => dot.classList.remove('active')); dots[currentIndex].classList.add('active'); prevButton.style.display = currentIndex === 0 ? 'none' : 'block'; nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'block'; };
-        const navigate = (direction) => { const newIndex = currentIndex + direction; if (newIndex >= 0 && newIndex < slides.length) { currentIndex = newIndex; updateSlide(); } };
-        updateSlide();
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextButton = document.querySelector('.next');
+            const prevButton = document.querySelector('.prev');
+            const indicatorsContainer = document.querySelector('.slide-indicators');
+            const carouselContainer = document.querySelector('.carousel-container');
+
+            let currentIndex = 0;
+            let slideWidth = 0;
+
+            // 1. Indikator-Punkte erstellen
+            slides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                });
+                indicatorsContainer.appendChild(dot);
+            });
+            const dots = Array.from(indicatorsContainer.children);
+
+            // 2. Funktion zum Setzen der Slide-Breite (wichtig für Responsivität)
+            const setSlideDimensions = () => {
+                slideWidth = slides[0].getBoundingClientRect().width;
+            };
+
+            // 3. Hauptfunktion, die die Karussell-Position aktualisiert
+            const updateCarousel = () => {
+                if (!track) return;
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+
+                // Update arrows visibility
+                prevButton.style.display = currentIndex === 0 ? 'none' : 'flex';
+                nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'flex';
+            };
+
+            // 4. Globale Navigationsfunktion (wird von den Pfeil-Buttons aufgerufen)
+            window.navigate = (direction) => {
+                const newIndex = currentIndex + direction;
+                if (newIndex >= 0 && newIndex < slides.length) {
+                    currentIndex = newIndex;
+                    updateCarousel();
+                }
+            };
+
+            // 5. Event Listener für Wischgesten (Touch)
+            let touchstartX = 0;
+            let touchendX = 0;
+
+            carouselContainer.addEventListener('touchstart', e => {
+                touchstartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            carouselContainer.addEventListener('touchend', e => {
+                touchendX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 50; // Mindestdistanz für eine Wischgeste
+                if (touchendX < touchstartX - swipeThreshold) { // Nach links wischen
+                    navigate(1);
+                }
+                if (touchendX > touchstartX + swipeThreshold) { // Nach rechts wischen
+                    navigate(-1);
+                }
+            }
+
+            // 6. Initialisierung und Event Listener für Fenstergrößenänderung
+            const initializeCarousel = () => {
+                setSlideDimensions();
+                updateCarousel();
+            };
+            
+            window.addEventListener('resize', initializeCarousel);
+            initializeCarousel(); // Einmal beim Laden ausführen
+        });
     </script>
 </body>
 </html>
+
