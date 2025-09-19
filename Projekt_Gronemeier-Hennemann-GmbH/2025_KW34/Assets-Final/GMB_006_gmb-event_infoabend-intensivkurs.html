@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMB Post Vorschau: GMB_006 (Event)</title>
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .gmb-card {
+            width: 100%;
+            max-width: 500px;
+            background-color: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            overflow: hidden; /* Verhindert, dass Bilder über den Radius hinausragen */
+        }
+        .gmb-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+        }
+        .gmb-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('https://placehold.co/40x40/1a2c48/FFFFFF?text=G%2BH');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #eee;
+        }
+        .gmb-title {
+            margin-left: 12px;
+        }
+        .gmb-title h3 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 500;
+            color: #202124;
+        }
+        .gmb-title p {
+            margin: 0;
+            font-size: 13px;
+            color: #5f6368;
+        }
+        .gmb-content {
+            padding: 4px 16px 16px 16px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #3c4043;
+            white-space: pre-wrap; /* Wichtig für Zeilenumbrüche */
+        }
+        .gmb-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .gmb-cta {
+            padding: 8px 16px 16px 16px;
+        }
+        .gmb-button {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            background-color: #1a73e8; 
+            border-radius: 8px;
+            color: #ffffff;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s;
+        }
+        .gmb-button:hover {
+            background-color: #185abc;
+        }
+        .event-details {
+            font-weight: 500;
+            color: #202124;
+        }
+        
+        /* Mobile Optimierungen */
+        @media (max-width: 600px) {
+            body {
+                padding: 0;
+                align-items: flex-start;
+            }
+            .gmb-card {
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .gmb-content {
+                font-size: 16px; /* Bessere Lesbarkeit auf dem Handy */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gmb-card">
+        <div class="gmb-header">
+            <div class="gmb-logo"></div>
+            <div class="gmb-title">
+                <h3>Fahrschule Gronemeier + Hennemann</h3>
+                <p>Event gepostet: 21. Aug. 2025</p>
+            </div>
+        </div>
+        
+        <div class="gmb-content">
+            🗓️ <b>EVENT: Info-Abend zum Intensivkurs</b>
+
+Du überlegst, den Führerschein in Rekordzeit zu machen, hast aber noch Fragen? Dann ist unser kostenloser (und virtueller) Info-Abend genau das Richtige für dich!
+
+Wir stellen unser bewährtes Konzept vor, beantworten alle deine Fragen und zeigen dir, wie dein persönlicher Weg zum Führerschein aussehen kann. Ganz unverbindlich.
+
+<span class="event-details">
+Datum: Do, 28. August 2025
+Uhrzeit: 19:00 - 20:00 Uhr
+Ort: Online (Link nach Anmeldung)
+</span>
+        </div>
+        
+        <img src="https://placehold.co/500x281/1a2c48/FFFFFF?text=Info-Abend%0AIntensivkurs" alt="Grafik für den Info-Abend zum Intensivkurs" class="gmb-image">
+
+        <div class="gmb-cta">
+            <a href="https://fahrschule-in-dortmund.de/kontakt.html" class="gmb-button" target="_blank">Jetzt anmelden</a>
+        </div>
+    </div>
+
+</body>
+</html>
+
