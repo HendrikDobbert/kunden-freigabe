@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drehbuch: Instagram Carousel (INSTA_003 - Arens GmbH)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+
+   <style>
+        :root {
+            --primary-color: #1E9B93; 
+            --dark-text: #212529;
+            --light-bg: #f4f7f6;
+            --white: #fff;
+            --border-color: #ddd;
+            --header-font: 'Poppins', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+            --slab-font: 'Roboto Slab', serif;
+        }
+        body {
+            font-family: var(--body-font);
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            font-family: var(--header-font);
+            font-weight: 900;
+            color: #000;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        h2 {
+            margin-top: 40px;
+            font-size: 2rem;
+        }
+        .summary {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .summary-item strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+            font-family: var(--header-font);
+            font-weight: 700;
+        }
+        table.storyboard {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table.storyboard th, table.storyboard td {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+        table.storyboard th {
+            background-color: #f2f2f2;
+            font-family: var(--header-font);
+            font-weight: 700;
+        }
+        .card-headline {
+            font-family: var(--slab-font);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+        .assets-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .assets-list li {
+            background-color: #eaf7f6;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            body { margin: 0; }
+            .container { padding: 15px; margin: 10px; width: auto; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            .summary { grid-template-columns: 1fr; gap: 15px; }
+            table.storyboard thead { display: none; }
+            table.storyboard tr {
+                display: block;
+                margin-bottom: 20px;
+                border: 1px solid var(--border-color);
+                border-radius: 5px;
+            }
+            table.storyboard td {
+                display: block;
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+            table.storyboard td:last-child { border-bottom: none; }
+            table.storyboard td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: calc(50% - 20px);
+                padding-right: 10px;
+                text-align: left;
+                font-weight: bold;
+                font-family: var(--header-font);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Drehbuch: Instagram Carousel</h1>
+
+        <div class="summary">
+            <div class="summary-item">
+                <strong>Arbeitstitel:</strong>
+                <span>Vorher/Nachher: Mehr Raum, mehr Stil!</span>
+            </div>
+            <div class="summary-item">
+                <strong>Asset-ID:</strong>
+                <span>INSTA_003</span>
+            </div>
+            <div class="summary-item">
+                <strong>Konzept:</strong>
+                <span>Ein visuelles Vorher/Nachher-Carousel, das den ästhetischen Gewinn durch den Wegfall von Heizkörpern aufzeigt und direkt zum Lead Magneten (LM_001) führt.</span>
+            </div>
+            <div class="summary-item">
+                <strong>Anzahl Slides:</strong>
+                <span>5 (Problem, Schmerz, Lösung, Vorteile, CTA)</span>
+            </div>
+            <div class="summary-item">
+                <strong>Audio:</strong>
+                <span>Dezente, inspirierende Hintergrundmusik (vom Social-Media-Dynamiker auszuwählen).</span>
+            </div>
+            <div class="summary-item">
+                <strong>CTA:</strong>
+                <span>Link in Bio zum Download der Checkliste (LM_001)</span>
+            </div>
+        </div>
+
+        <h2>Carousel-Karten (1080x1080px)</h2>
+        <table class="storyboard">
+            <thead>
+                <tr>
+                    <th style="width:15%;">Slide</th>
+                    <th style="width:40%;">Visuelles Konzept & Layout</th>
+                    <th style="width:45%;">Text-Inhalte</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Slide"><strong>1 / 5</strong></td>
+                    <td data-label="Visuelles Konzept">
+                        <strong>Layout:</strong> Hochwertiges Foto eines stilvoll eingerichteten Wohnraums, in dem ein alter, klobiger Heizkörper an der Wand stört.
+                        <ul>
+                            <li><strong>Bild:</strong> Ein Foto, das den Pain-Point visuell darstellt.</li>
+                             <li><strong>Branding:</strong> Arens-Logo dezent unten rechts.</li>
+                        </ul>
+                    </td>
+                    <td data-label="Text-Inhalte">
+                        <p class="card-headline">Ein Relikt aus der Vergangenheit?</p>
+                        <p>Alte Heizkörper rauben Platz und schränken Ihre gestalterische Freiheit ein. Kennen Sie das?</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Slide"><strong>2 / 5</strong></td>
+                    <td data-label="Visuelles Konzept">
+                        <strong>Layout:</strong> Grafisch aufbereitete Liste mit Icons.
+                         <ul>
+                            <li><strong>Hintergrund:</strong> Helle, saubere Fläche im Arens CI.</li>
+                            <li><strong>Icons:</strong> Klare, einfache SVGs für "Platz", "Staub" und "Design".</li>
+                            <li><strong>Branding:</strong> Arens-Logo dezent unten rechts.</li>
+                        </ul>
+                    </td>
+                    <td data-label="Text-Inhalte">
+                        <p class="card-headline">Die unsichtbaren Nachteile:</p>
+                        <p>❌ <strong>Raumfresser:</strong> Blockiert wertvolle Wandfläche.<br>❌ <strong>Staubfänger:</strong> Schwer zu reinigen und schlecht für Allergiker.<br>❌ <strong>Design-Bremse:</strong> Passt nicht zum modernen Wohnstil.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Slide"><strong>3 / 5</strong></td>
+                    <td data-label="Visuelles Konzept">
+                        <strong>Layout:</strong> Das exakt gleiche Zimmer wie auf Slide 1, aber ohne den Heizkörper. Die Wand ist frei, der Raum wirkt größer und aufgeräumter.
+                         <ul>
+                            <li><strong>Bild:</strong> Eine "Nachher"-Aufnahme, die den Benefit klar kommuniziert.</li>
+                            <li><strong>Branding:</strong> Arens-Logo dezent unten rechts.</li>
+                        </ul>
+                    </td>
+                    <td data-label="Text-Inhalte">
+                        <p class="card-headline">Die Revolution ist unsichtbar!</p>
+                        <p>Eine gefräste Fußbodenheizung schafft nicht nur Wohlfühl-Wärme, sondern auch maximale Freiheit für Ihr Interior Design.</p>
+                    </td>
+                </tr>
+                 <tr>
+                    <td data-label="Slide"><strong>4 / 5</strong></td>
+                    <td data-label="Visuelles Konzept">
+                        <strong>Layout:</strong> Grafische Darstellung der Vorteile mit Icons.
+                        <ul>
+                             <li><strong>Hintergrund:</strong> Helle, saubere Fläche im Arens CI.</li>
+                            <li><strong>Icons:</strong> SVGs für "Wärme", "Wert" und "Freiheit".</li>
+                            <li><strong>Branding:</strong> Arens-Logo dezent unten rechts.</li>
+                        </ul>
+                    </td>
+                    <td data-label="Text-Inhalte">
+                        <p class="card-headline">Ihre Vorteile auf einen Blick:</p>
+                        <p>✅ <strong>Wohlfühlwärme:</strong> Gleichmäßige, angenehme Wärme von unten.<br>✅ <strong>Wertsteigerung:</strong> Eine moderne Heizung steigert den Immobilienwert.<br>✅ <strong>Designfreiheit:</strong> Gestalten Sie Ihre Räume ohne Kompromisse.</p>
+                    </td>
+                </tr>
+                 <tr>
+                    <td data-label="Slide"><strong>5 / 5</strong></td>
+                    <td data-label="Visuelles Konzept">
+                        <strong>Layout:</strong> Call-to-Action-Fokus.
+                        <ul>
+                            <li><strong>Hintergrund:</strong> Vollflächig in der Arens-Markenfarbe.</li>
+                            <li><strong>Grafik:</strong> Hochwertiges Mockup der Lead-Magnet-Checkliste (`LM_001`).</li>
+                        </ul>
+                    </td>
+                    <td data-label="Text-Inhalte">
+                        <p class="card-headline" style="color: white;">Bereit für mehr Freiraum?</p>
+                        <p style="color: white;">Prüfen Sie mit unserer kostenlosen Checkliste, ob Ihr Zuhause für eine Fußbodenheizung geeignet ist.</p>
+                        <p style="font-size: 1.5rem; font-weight: 700; color: white; margin-top: 20px;">Der Link ist in der Bio! 🔗</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="margin-top: 40px;">Benötigte Assets</h2>
+        <div class="assets-list">
+            <ul>
+                <li><strong>Grafik-Assets:</strong> Fliesen Arens GmbH Logo, Vorher/Nachher-Bildmaterial, SVG-Icons, finale Mockup-Grafik für LM_001.</li>
+                <li><strong>Schriftarten:</strong> Roboto, Roboto Slab & Poppins.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

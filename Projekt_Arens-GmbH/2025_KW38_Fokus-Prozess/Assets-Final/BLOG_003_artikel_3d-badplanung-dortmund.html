@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO: Optimierter Titel mit primärem Keyword und Standort -->
+    <title>3D Badplanung Dortmund im Experten-Check | Fliesen Arens GmbH</title>
+    
+    <!-- SEO: Optimierte Meta-Beschreibung mit Keywords, Nutzenversprechen und CTA -->
+    <meta name="description" content="Professionelle 3D Badplanung in Dortmund: Entdecken Sie, wie wir mit Profi-Software & VR Ihr Traumbad gestalten und teure Fehler vermeiden. Jetzt beraten lassen!">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+
+    <style>
+        :root {
+            --color-primary: #1E9B93;
+            --color-primary-darker: #16736E;
+            --color-secondary: #4AEADC;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.7;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        h1, h2, h3 {
+             line-height: 1.3;
+             color: var(--color-primary);
+             font-family: 'Roboto Slab', serif;
+             font-weight: 700;
+             text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+        }
+        h1 { font-size: 40px; text-align: center; }
+        h2 { font-size: 32px; margin-top: 50px; border-bottom: 2px solid var(--color-secondary); padding-bottom: 10px;}
+        h3 { font-size: 24px; margin-top: 40px; color: var(--color-primary-darker);}
+        a {
+            color: var(--color-primary-darker);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid var(--color-secondary);
+            transition: all 0.2s;
+        }
+        a:hover {
+            background-color: #f4f8f7;
+        }
+        .button-cta {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: #FFFFFF !important;
+            padding: 12px 24px;
+            border-radius: 3px;
+            text-decoration: none;
+            border: none;
+            transition: all .3s;
+            font-weight: 700;
+        }
+        .button-cta:hover {
+            background-color: var(--color-primary-darker);
+            transform: scale(1.05);
+            border-bottom: none;
+        }
+        .special-text-block {
+            background: #f4f8f7;
+            padding: 25px;
+            font-size: 18px;
+            border-left: 4px solid var(--color-secondary);
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 50px 0;
+        }
+        .header-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .icon-list { list-style: none; padding-left: 0; }
+        .icon-list-item { display: flex; align-items: flex-start; margin-bottom: 15px; font-size: 18px;}
+        .icon-list-icon { margin-right: 15px; width: 24px; height: 24px; fill: var(--color-primary); flex-shrink: 0; margin-top: 4px;}
+        .fact-check-box {
+            background-color: #eaf7f6;
+            border: 1px solid var(--color-primary);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        .faq details {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        .faq summary {
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Roboto Slab', serif;
+            color: var(--color-primary-darker);
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            margin: 30px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slider-image-before-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            border-right: 4px solid white;
+        }
+        .slider-range {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            cursor: ew-resize;
+        }
+        .checklist { list-style: none; padding: 0; margin-top: 20px; }
+        .checklist li { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist input[type="checkbox"] {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--color-primary);
+        }
+        .checklist label {
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+        .checklist input[type="checkbox"]:checked + label {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+        .step-icon {
+            margin-right: 20px;
+            width: 40px;
+            height: 40px;
+            fill: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        .step-content h3 {
+            margin-top: 0;
+        }
+        
+        .precision-comparison {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .precision-box {
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+        }
+        .precision-box h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+        .precision-svg {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        .precision-svg .object {
+            transition: all 0.5s ease-in-out;
+        }
+        .precision-svg.profi .object {
+            stroke: var(--color-primary);
+            stroke-width: 2;
+        }
+        .precision-svg.gratis .object {
+            stroke: #aaa;
+            stroke-width: 1;
+        }
+
+        .animated-checkmark {
+            width: 24px;
+            height: 24px;
+        }
+        .animated-checkmark path {
+            stroke-dasharray: 50;
+            stroke-dashoffset: 50;
+            transition: stroke-dashoffset 0.5s ease-in-out;
+        }
+        .animated-checkmark.visible path {
+            stroke-dashoffset: 0;
+        }
+        
+        /* Neue Stile für Sketch-to-CAD SVG */
+        .sketch-to-cad-svg {
+             width: 100%; max-width: 500px; margin: 20px auto; display: block;
+        }
+        .sketch-to-cad-svg .cad-lines {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .sketch-to-cad-svg.visible .cad-lines {
+            opacity: 1;
+        }
+        .sketch-to-cad-svg.visible .sketch-lines {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Neue Stile für Tile-Pattern SVG */
+        .tile-pattern-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .tile-pattern-svg {
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid var(--border-color);
+        }
+        .tile-pattern-svg rect {
+            transition: all 0.5s ease-in-out;
+        }
+        .tile-pattern-svg.layout-2 rect:nth-child(4n+2),
+        .tile-pattern-svg.layout-2 rect:nth-child(4n+3) {
+            transform: translateX(50px);
+        }
+         .tile-pattern-svg.layout-3 rect:nth-child(odd) {
+            transform: rotate(45deg) scale(0.7);
+        }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "3D Badplanung Dortmund im Experten-Check",
+      "author": {
+        "@type": "Organization",
+        "name": "Fliesen Arens GmbH",
+        "url": "https://fliesen-arens.de/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Fliesen Arens GmbH",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH.jpg"
+        }
+      },
+      "image": "https://placehold.co/800x400/1E9B93/FFFFFF?text=Professionelle+3D-Badplanung",
+      "datePublished": "2025-09-19",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://fliesen-arens.de/blog/3d-badplanung-software-check"
+      },
+      "articleBody": "Ein neues Bad ist eine Investition für Jahrzehnte. Mit professioneller 3D Badplanung in Dortmund stellen Sie sicher, dass Ihr Traumbad Realität wird. Wir zeigen die Unterschiede zwischen Gratis-Tools und Profi-Software und wie Sie mit VR teure Fehler vermeiden.",
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was kostet eine professionelle 3D-Badplanung?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die Kosten für die 3D-Planung sind Teil unseres umfassenden Angebots. Bei Beauftragung der kompletten Badsanierung wird die Planungsleistung oft verrechnet. So investieren Sie nicht nur in ein Design, sondern direkt in die Realisierung."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was muss ich zum ersten Planungstermin mitbringen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Idealerweise bringen Sie einen Grundriss Ihres Raumes (falls vorhanden), einige Fotos der aktuellen Situation und gerne auch Inspirationsbilder mit. Unsere interaktive Checkliste hilft Ihnen bei der Vorbereitung."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich eigene Ideen und Wünsche einbringen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Selbstverständlich! Der gesamte Prozess ist ein Dialog. Ihre Ideen, Wünsche und Inspirationen sind die Grundlage unserer Arbeit. Unsere Technologie dient dazu, Ihre Vision sichtbar und realisierbar zu machen."
+            }
+          }
+        ]
+      }
+    }
+    </script>
+</head>
+<body>
+<main>
+    <header>
+        <h1>3D Badplanung in Dortmund: Der Experten-Check</h1>
+        <p style="font-size: 1.2em; color: #555; text-align: center;">So planen Profis heute Traumbäder und vermeiden teure Fehler.</p>
+        <img src="../Bilder/BLOG_003-header.png" alt="Professionelle 3D Badplanung in Dortmund mit moderner Visualisierungs-Software" class="header-image">
+        <p>Ein neues Bad ist eine Investition für Jahrzehnte. Doch wie stellt man sicher, dass am Ende alles so aussieht, wie man es sich erträumt hat? Die größte Hürde ist oft die Vorstellungskraft. Falsche Entscheidungen sind hier nicht nur ärgerlich, sondern auch teuer. Genau deshalb ist eine <strong>professionelle Badplanung</strong> mit moderner Software kein Luxus, sondern eine Notwendigkeit für ein perfektes Ergebnis bei Ihrer Badsanierung in Dortmund.</p>
+    </header>
+
+    <section class="special-text-block">
+        <h2>Das Wichtigste zur professionellen Badplanung</h2>
+        <ul class="icon-list">
+            <li class="icon-list-item">
+                <svg class="icon-list-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span><strong>Profi-Software</strong> liefert millimetergenaue, technische Pläne, während kostenlose Online-Tools oft ungenau und irreführend sind.</span>
+            </li>
+            <li class="icon-list-item">
+                <svg class="icon-list-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span><strong>Virtual Reality (VR)</strong> und digitale Showrooms ermöglichen es Ihnen, Ihr Bad in Dortmund vor dem Umbau virtuell zu betreten und Materialien live zu erleben.</span>
+            </li>
+            <li class="icon-list-item">
+                <svg class="icon-list-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <span>Der entscheidende Faktor ist der <strong>menschliche Badplaner-Experte</strong>, der die Technologie mit Fachwissen über Ergonomie, Normen und Design kombiniert.</span>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Gratis-Planer vs. Profi-Software: Der sichtbare Unterschied</h2>
+        <p>Das Internet ist voll von kostenlosen Badplaner-Tools. Für eine erste, grobe Idee können sie hilfreich sein. Doch für eine verbindliche Bauplanung sind sie ungeeignet. Der Unterschied liegt in der Präzision – und diese Präzision entscheidet über Gelingen oder Scheitern Ihres Projekts.</p>
+        
+        <div class="precision-comparison">
+            <div class="precision-box">
+                <h3>Gratis-Planer</h3>
+                <svg class="precision-svg gratis" viewBox="0 0 100 80">
+                    <rect x="1" y="1" width="98" height="78" fill="#f8f9fa" stroke="#ccc" stroke-width="0.5"/>
+                    <rect class="object" x="10" y="10" width="22" height="17" fill="none" stroke="#aaa" transform="rotate(-2 21 18.5)"/>
+                    <rect class="object" x="10" y="55" width="22" height="15" fill="none" stroke="#aaa" transform="rotate(1 21 62.5)"/>
+                    <rect class="object" x="75" y="10" width="15" height="60" fill="none" stroke="#aaa" transform="rotate(2 82.5 40)"/>
+                </svg>
+            </div>
+            <div class="precision-box">
+                <h3>Profi-Software (CAD)</h3>
+                <svg class="precision-svg profi animated-precision" viewBox="0 0 100 80">
+                    <rect x="1" y="1" width="98" height="78" fill="#eaf7f6" stroke="var(--color-primary-darker)" stroke-width="0.5"/>
+                    <rect class="object" x="10" y="10" width="22" height="17" fill="none" />
+                    <rect class="object" x="10" y="55" width="22" height="15" fill="none" />
+                    <rect class="object" x="75" y="10" width="15" height="60" fill="none" />
+                </svg>
+            </div>
+        </div>
+        
+        <p>Auf den ersten Blick mag dies wie ein kleines Detail wirken, doch in der Realität bedeuten die ungenauen Linien eines Gratis-Tools teure Probleme: Ein Fliesenspiegel, der nicht exakt passt, eine Nische, die wenige Zentimeter zu klein für den Spiegelschrank ist, oder Laufwege, die sich plötzlich als zu eng erweisen. Unser CAD-Plan ist hingegen mehr als nur eine Zeichnung – es ist ein millimetergenauer, digitaler Zwilling Ihres zukünftigen Bades und die verbindliche Bauanleitung für unsere Handwerker.</p>
+        
+        <div class="slider-container">
+            <img src="../Bilder/BGs/ki-bild-mail-003-links-chaos.png" alt="Nachher: Eine professionelle 3D Badplanung für ein stilvolles Badezimmer" class="slider-image slider-image-after">
+            <div class="slider-image-before-wrapper">
+                 <img src="../Bilder/BGs/ki-bild-mail-003-rechts-planung.png" alt="Vorher: Ein einfaches Bad-Design aus einem Gratis-Online-Planer" class="slider-image slider-image-before">
+            </div>
+            <input type="range" min="0" max="100" value="50" class="slider-range" aria-label="Vergleichs-Slider zwischen Profi- und Standard-Planung">
+        </div>
+
+        <p>Der Unterschied geht weit über die reine Anordnung hinaus. Während ein Gratis-Tool lediglich Objekte im Raum platziert, erschaffen wir mit unserer Profi-Software eine Atmosphäre. Wir simulieren den exakten Lichteinfall zu verschiedenen Tageszeiten, testen die Wirkung von matten versus glänzenden Fliesen und finden die perfekte Fugenfarbe, die das Gesamtbild harmonisch abrundet. So sehen Sie nicht nur, wo Ihre Dusche steht, sondern spüren bereits, wie sich Ihr zukünftiges Bad anfühlen wird.</p>
+
+        <div class="fact-check-box">
+            <h3>Typische Fehler, die Sie mit einer Profi-Planung vermeiden:</h3>
+            <ul class="icon-list">
+                <li class="icon-list-item">
+                    <svg class="icon-list-icon animated-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                    <span><strong>Falsche Proportionen:</strong> Das Waschbecken ist zu wuchtig, die Laufwege sind blockiert.</span>
+                </li>
+                <li class="icon-list-item">
+                    <svg class="icon-list-icon animated-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                    <span><strong>Material-Kollision:</strong> Fliesen und Armaturen wirken auf der großen Fläche unruhig.</span>
+                </li>
+                <li class="icon-list-item">
+                     <svg class="icon-list-icon animated-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                    <span><strong>Vergessene Details:</strong> Fehlende Steckdosen oder eine Tür, die gegen die Duschwand schlägt.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <hr>
+    
+    <section>
+        <h2>Unser Planungsprozess in Dortmund: Ihr Weg zum Traumbad</h2>
+        <p>Unsere Technologie ist eingebettet in einen bewährten, persönlichen Beratungsprozess. Wir führen Sie sicher von der ersten Idee bis zum fertigen Plan für Ihre Badsanierung.</p>
+        
+        <div class="step-item">
+            <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+            <div class="step-content">
+                <h3>Schritt 1: Bedarfsanalyse & Inspirations-Gespräch</h3>
+                <p>Am Anfang steht das Zuhören. Wir klären Ihre Wünsche, Ihren Stil und Ihre funktionalen Anforderungen. Wer wird das Bad nutzen? Welche Atmosphäre soll entstehen?</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16.54l-6.29-3.63 1.38-2.39 4.91 2.83 4.91-2.83 1.38 2.39L12 16.54zm0-11.08L3.42 12l8.58 4.95 8.58-4.95L12 5.46zM12 2L1 7l11 5 11-5L12 2z"/></svg>
+            <div class="step-content">
+                <h3>Schritt 2: Digitales Aufmaß & technische Prüfung</h3>
+                <p>Wir erstellen ein präzises digitales Aufmaß Ihres Raumes. Dies ist die unverzichtbare, fehlerfreie Grundlage für das 3D-Modell.</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+            <div class="step-content">
+                <h3>Schritt 3: Die Kreativphase im digitalen Showroom</h3>
+                <p>Gemeinsam entwickeln Sie am großen Bildschirm die Raumaufteilung, vergleichen Fliesen im Großformat und testen Verlegemuster in Echtzeit.</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 12h-2v3h-2v-3H9v3H7v-3H5c-1.1 0-2 .9-2 2v5h18v-5c0-1.1-.9-2-2-2zM4.98 6.02c-.33-.32-.33-.84 0-1.16.32-.32.84-.32 1.16 0 .88.88 2.14 1.45 3.53 1.45 1.39 0 2.65-.57 3.53-1.45.32-.32.84-.32 1.16 0s.32.84 0 1.16C13.09 7.18 11.5 7.83 9.74 7.83c-1.76 0-3.35-.65-4.76-1.81z"/></svg>
+            <div class="step-content">
+                <h3>Schritt 4: Der VR-Check & die Detail-Abstimmung</h3>
+                <p>Mit der VR-Brille machen Sie den finalen Realitäts-Check. Fühlt sich der Abstand zwischen Toilette und Wand richtig an? Ist die Höhe des Spiegelschranks ergonomisch?</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <svg class="step-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            <div class="step-content">
+                <h3>Schritt 5: Übergabe der finalen Pläne</h3>
+                <p>Am Ende erhalten Sie millimetergenaue technische Pläne für alle Gewerke, die für einen reibungslosen Ablauf auf der Baustelle sorgen.</p>
+            </div>
+        </div>
+    </section>
+    
+    <hr>
+
+    <section>
+        <h2>Ein Blick hinter unsere digitale Badplaner-Software</h2>
+        <p>Als Pioniere in der digitalen Badplanung in Deutschland setzen wir auf eine Kombination aus bewährten Architekten-Tools und exklusiven Visualisierungstechnologien.</p>
+        
+        <h3>Vom Moodboard zur gebauten Realität</h3>
+        <p>Viele unserer Kunden kommen mit einer Sammlung von Ideen, oft von Plattformen wie Pinterest. Unsere Aufgabe ist es, diese abstrakte Stimmung in einen konkreten, umsetzbaren Plan zu übersetzen. Die Software ist dabei die Brücke zwischen Inspiration und Realität. Wir nehmen Ihre Vision auf und prüfen sie auf technische Machbarkeit, ergonomische Sinnhaftigkeit und räumliche Wirkung.</p>
+
+        <svg class="sketch-to-cad-svg animated-element" viewBox="0 0 200 100">
+            <g class="sketch-lines">
+                <path d="M 20,80 C 40,20 60,100 80,50 S 120,0 140,50 S 180,80 180,80" stroke="#aaa" stroke-width="1" fill="none" />
+                <path d="M 30,70 C 50,30 70,90 90,60 S 130,10 150,60 S 170,70 170,70" stroke="#ccc" stroke-width="0.5" fill="none" />
+            </g>
+            <g class="cad-lines">
+                <rect x="10" y="30" width="180" height="50" fill="none" stroke="var(--color-primary)" stroke-width="1.5" />
+                <circle cx="50" cy="55" r="15" fill="none" stroke="var(--color-primary-darker)" stroke-width="1" />
+                <rect x="120" y="40" width="40" height="30" fill="none" stroke="var(--color-primary-darker)" stroke-width="1" />
+            </g>
+        </svg>
+
+        <h3>Die Architekten-Software: Das technische Fundament</h3>
+        <p>Mit spezialisierter CAD-Software erstellen wir ein detailliertes 3D-Modell. Hier werden nicht nur Wände exakt positioniert, sondern auch alle technischen Anschlüsse berücksichtigt. So stellen wir sicher, dass Design und technische Machbarkeit von Anfang an Hand in Hand gehen.</p>
+        
+        <h3>Unsere digitale Materialbibliothek: Tausende Fliesen zum Greifen nah</h3>
+        <p>Unsere Software ist gefüllt mit riesigen Bibliotheken realer Produkte führender Hersteller. Das bedeutet, Sie wählen nicht nur eine "graue Fliese", sondern ein exaktes Produkt mit realistischer Oberflächenstruktur und Farbe. Wir können verschiedene Fugenfarben simulieren und zeigen, wie das Material bei unterschiedlichem Lichteinfall wirkt. So wird die Materialauswahl zu einer sicheren und inspirierenden Erfahrung.</p>
+
+        <h3>Die Macht des Musters: Verlegemuster live testen</h3>
+        <p>Großformatfliese oder kleines Mosaik? Klassischer Kreuzverband, moderner Drittelverband oder elegantes Fischgrätmuster? Das Verlegemuster hat einen enormen Einfluss auf die Raumwirkung. Anstatt sich dies mühsam vorstellen zu müssen, klicken wir uns gemeinsam durch die Optionen. Sie sehen sofort, welches Muster Ihren Raum größer, ruhiger oder dynamischer wirken lässt – eine Entscheidung, die Sie so mit absoluter Sicherheit treffen können.</p>
+
+        <div class="tile-pattern-container">
+            <svg class="tile-pattern-svg animated-element" viewBox="0 0 200 100">
+                <defs>
+                    <pattern id="tile-pattern" patternUnits="userSpaceOnUse" width="50" height="25">
+                        <rect x="0" y="0" width="50" height="25" fill="#f8f9fa" stroke="var(--color-primary)" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="200" height="100" fill="url(#tile-pattern)" />
+            </svg>
+        </div>
+        
+        <h3>Lichtplanung: Der unterschätzte Erfolgsfaktor</h3>
+        <p>Ein entscheidender Vorteil unserer Software ist die realitätsgetreue Simulation des Lichteinfalls. Wir können Ihnen exakt zeigen, wie Ihre ausgewählte Fliese im hellen Morgenlicht, bei künstlicher Abendbeleuchtung oder an einem bewölkten Tag wirkt. Dies ist essenziell, um die finale Atmosphäre des Raumes zu beurteilen und sicherzustellen, dass die Farben und Oberflächen ihre volle Wirkung entfalten.</p>
+        
+        <h3>Virtual Reality: Betreten Sie Ihr zukünftiges Bad</h3>
+        <p>Mit einer VR-Brille betreten Sie Ihr fertig geplantes Bad, noch bevor die Arbeiten begonnen haben. Wir können sogar verschiedene Lichtstimmungen simulieren – vom hellen Tageslicht am Morgen bis zur gedimmten Wellness-Beleuchtung am Abend.</p>
+        
+        <div class="fact-check-box">
+             <h3>Mehr als nur Software: Die entscheidende Rolle des Experten</h3>
+             <p>Die beste Technologie ist nur so gut wie der Mensch, der sie bedient. Unsere erfahrenen Bad-Designer bringen ihr ganzes Wissen über Ergonomie, Materialkunde, technische Normen (z.B. DIN-Vorschriften) und aktuelle Designtrends in Ihre Planung ein. Der Planer fragt die richtigen Fragen: Ist der Duschbereich für eine barrierefreie Nutzung in 20 Jahren vorbereitet? Passt die Rutschhemmungsklasse der Fliese zur gewünschten Nutzung? Diese entscheidenden Details machen den Unterschied zwischen einem 'schönen' und einem 'perfekten' Bad aus. Die Software ist unser Werkzeug – unsere Expertise ist der Garant für ein Ergebnis, das über Jahre hinweg Freude bereitet.</p>
+             <a href="https://fliesen-arens.de/rundum-sorglos-paket/" class="button-cta" style="margin-top: 15px;">Jetzt kostenlose Erstberatung vereinbaren</a>
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Mehr als nur schöne Bilder: Der Wert einer professionellen Planung</h2>
+        <h3>Planungssicherheit ist Investitionsschutz</h3>
+        <p>Jeder Euro, der in eine professionelle Planung fließt, ist eine Versicherung gegen unvorhergesehene Kosten und Kompromisse während des Baus. Eine ungenaue Planung kann zu teuren Nachbesserungen führen – sei es, weil Anschlüsse falsch liegen oder das Endergebnis schlichtweg nicht den Erwartungen entspricht. Mit einem digitalen Zwilling Ihres Bades eliminieren wir diese Risiken, bevor sie entstehen, und garantieren Ihnen absolute Budget- und Termintreue.</p>
+        <h3>Die Blaupause für alle Gewerke: Perfekte Koordination</h3>
+        <p>Unsere detaillierten Pläne sind die "eine Quelle der Wahrheit" für alle beteiligten Handwerker. Der Elektriker weiß genau, wo die Anschlüsse für die Spiegelschrank-Beleuchtung liegen müssen. Der Installateur sieht die exakte Position der Unterputz-Armatur. Diese Klarheit verhindert Missverständnisse, reduziert Fehlerquellen und ist die Grundlage für unser <a href="https://fliesen-arens.de/rundum-sorglos-paket/">Rundum-Sorglos-Paket</a>.</p>
+        <h3>Emotionale Sicherheit: Von der "Vorfreude" statt "Bauchschmerzen"</h3>
+        <p>Eine Badsanierung ist oft mit Unsicherheit und Stress verbunden. Die realistische Visualisierung nimmt Ihnen diese Sorge. Sie sehen das Endergebnis nicht nur, Sie erleben es. Diese Gewissheit verwandelt "Bauchschmerzen" in pure Vorfreude und gibt Ihnen die emotionale Sicherheit, während des gesamten Umbaus entspannt zu bleiben, weil Sie genau wissen, welches Traumergebnis Sie erwartet.</p>
+        <h3>Unsichtbare Details: Die Planung hinter der Wand</h3>
+        <p>Ein Traumbad besteht nicht nur aus sichtbaren Oberflächen. Unsere Planung geht tiefer und berücksichtigt alle unsichtbaren, aber kritischen Elemente. Von der exakten Positionierung der Wasserleitungen bis zur Platzierung von elektrischen Leitungen – alles wird im 3D-Modell erfasst. Das stellt sicher, dass es auf der Baustelle nicht zu Konflikten zwischen den Gewerken kommt und die Technik perfekt mit dem Design harmoniert.</p>
+        <h3>Zukunftssicher planen: Barrierefreiheit und Langlebigkeit</h3>
+        <p>Ein Bad wird für Jahrzehnte gebaut. Deshalb denken wir heute schon an morgen. Unsere Planung kann zukünftige Bedürfnisse wie Barrierefreiheit von Anfang an berücksichtigen. Eine bodengleiche Dusche ist heute ein Design-Statement und morgen eine wichtige Alltagshilfe. Wir planen Laufwege, Türbreiten und Montagehöhen so, dass Ihr Bad Ihnen in jeder Lebensphase maximalen Komfort bietet.</p>
+        <h3>Ihre digitale Bauakte: Sicherheit für die Zukunft</h3>
+        <p>Ihr Projekt wird bei uns digital archiviert. Sollten Sie Jahre später eine Änderung vornehmen wollen oder eine Reparatur ansteht, haben wir den exakten Plan zur Hand. Wir wissen genau, wo welche Leitung verläuft und welche Fliese damals verlegt wurde. Das spart bei zukünftigen Arbeiten Zeit, Geld und Nerven und macht Ihre Sanierung zu einer nachhaltigen, wertbeständigen Investition.</p>
+    </section>
+
+    <hr>
+    
+    <section>
+        <h2>Ihr Fahrplan zur 3D Badplanung: Die interaktive Checkliste</h2>
+        <p>Eine gute Vorbereitung ist der Schlüssel zu einem effizienten und kreativen ersten Planungstermin. Nutzen Sie unsere Checkliste, um alle wichtigen Informationen zusammenzutragen.</p>
+        <ul class="checklist">
+            <li><input type="checkbox" id="check1"><label for="check1">Grundriss des Raumes (falls vorhanden)</label></li>
+            <li><input type="checkbox" id="check2"><label for="check2">Fotos vom aktuellen Zustand des Bades</label></li>
+            <li><input type="checkbox" id="check3"><label for="check3">3-5 Inspirationsbilder (z.B. von Pinterest)</label></li>
+            <li><input type="checkbox" id="check4"><label for="check4">Liste mit Must-Haves (z.B. "bodengleiche Dusche")</label></li>
+            <li><input type="checkbox" id="check5"><label for="check5">Ungefähre Budgetvorstellung</label></li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section class="faq">
+        <h2>Häufig gestellte Fragen zur Badplanung in Dortmund</h2>
+        <details>
+            <summary>Was kostet eine professionelle 3D-Badplanung?</summary>
+            <p>Die Kosten für die 3D-Planung sind Teil unseres umfassenden Angebots. Bei Beauftragung der kompletten Badsanierung wird die Planungsleistung oft verrechnet. So investieren Sie nicht nur in ein Design, sondern direkt in die Realisierung.</p>
+        </details>
+        <details>
+            <summary>Was muss ich zum ersten Planungstermin mitbringen?</summary>
+            <p>Idealerweise bringen Sie einen Grundriss Ihres Raumes (falls vorhanden), einige Fotos der aktuellen Situation und gerne auch Inspirationsbilder mit. Unsere interaktive Checkliste oben hilft Ihnen dabei!</p>
+        </details>
+        <details>
+            <summary>Kann ich eigene Ideen und Wünsche einbringen?</summary>
+            <p>Selbstverständlich! Der gesamte Prozess ist ein Dialog. Ihre Ideen, Wünsche und Inspirationen sind die Grundlage unserer Arbeit. Unsere Technologie dient dazu, Ihre Vision sichtbar und realisierbar zu machen.</p>
+        </details>
+    </section>
+</main>
+
+<script>
+    // Slider-Logik
+    const slider = document.querySelector('.slider-range');
+    const beforeWrapper = document.querySelector('.slider-image-before-wrapper');
+    if (slider && beforeWrapper) {
+        slider.addEventListener('input', (e) => {
+            beforeWrapper.style.width = e.target.value + '%';
+        });
+    }
+
+    // Logik für dynamische SVGs beim Scrollen
+    const animatedElements = document.querySelectorAll('.animated-checkmark, .animated-precision, .animated-element');
+    const tilePatternSvg = document.querySelector('.tile-pattern-svg');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Spezielle Logik für das Kachelmuster-SVG
+                if (entry.target.classList.contains('tile-pattern-svg')) {
+                    let layout = 1;
+                    setInterval(() => {
+                        layout = (layout % 3) + 1;
+                        entry.target.classList.remove('layout-1', 'layout-2', 'layout-3');
+                        entry.target.classList.add('layout-' + layout);
+                    }, 2000);
+                }
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
+
+</script>
+
+</body>
+</html>
+
