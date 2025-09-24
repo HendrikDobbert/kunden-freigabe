@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Carousel Vorschau: INSTA_008 (Team)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://placehold.co/32x32/1a2c48/FFFFFF?text=G%2BH" type="image/png">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #dbdbdb;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .phone-mockup {
+            width: 375px;
+            height: 812px;
+            background-color: #fff;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 18px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .screen {
+            background-color: #fff;
+            flex-grow: 1;
+            border-radius: 22px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        .insta-header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .insta-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url('https://placehold.co/40x40/1a2c48/FFFFFF?text=G%2BH');
+            background-size: cover;
+        }
+        .insta-username {
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            position: relative;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            padding: 40px 15px 15px 15px;
+            color: white;
+        }
+        .slide-overlay h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.2rem;
+        }
+        .slide-overlay p {
+            margin: 0;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .dot.active {
+            background-color: #fff;
+        }
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .insta-caption {
+            padding: 10px 15px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-mockup">
+        <div class="screen">
+            <div class="insta-header">
+                <div class="insta-logo"></div>
+                <div class="insta-username">fahrschulegh</div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="" alt="Porträt von Fahrlehrer Frank">
+                        <div class="slide-overlay">
+                            <h4>Frank</h4>
+                            <p>"Mein Tipp für die Prüfung? Vertrau auf das, was wir geübt haben. Du kannst mehr, als du denkst!"</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/500x500/009ee2/FFFFFF?text=Marcel" alt="Porträt von Fahrlehrer Marcel">
+                        <div class="slide-overlay">
+                            <h4>Marcel</h4>
+                            <p>"Ich liebe meinen Job, weil kein Tag wie der andere ist und ich junge Menschen auf dem Weg in ihre Freiheit begleiten darf."</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/500x500/333333/FFFFFF?text=Christian" alt="Porträt von Fahrlehrer Christian">
+                        <div class="slide-overlay">
+                            <h4>Christian</h4>
+                            <p>"Das Wichtigste ist, immer einen kühlen Kopf zu bewahren und vorausschauend zu fahren. Den Rest bringe ich euch bei."</p>
+                        </div>
+                    </div>
+                     <div class="carousel-slide">
+                        <img src="https://placehold.co/500x500/cccccc/000000?text=Das+Team" alt="Das Team der Fahrschule G+H">
+                        <div class="slide-overlay">
+                            <h4>Dein G+H Team</h4>
+                            <p>"Zusammen bringen wir dich sicher ans Ziel. Wir sind dein Partner auf dem Weg zum Führerschein!"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots"></div>
+                <div class="nav-arrow prev">&lt;</div>
+                <div class="nav-arrow next">&gt;</div>
+            </div>
+            <div class="insta-caption">
+                <strong>fahrschulegh</strong> Das ist die Erfahrung, die hinter deinem Führerschein steckt! 🤝 Unser Team aus Profis wie Frank, Marcel und Christian sorgt dafür, dass du dich nicht nur sicher fühlst, sondern es auch bist.<br><br>
+                Swipe dich durch und lerne einen Teil des Teams kennen, das dich auf deinem Weg begleitet!<br><br>
+                #FahrschuleDortmund #Team #Fahrlehrer #Erfahrung #Sicherheit #Führerschein
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+        const dotsNav = document.querySelector('.carousel-dots');
+        const slideWidth = slides[0].getBoundingClientRect().width;
+
+        let currentIndex = 0;
+
+        const setSlidePosition = (slide, index) => {
+            slide.style.left = slideWidth * index + 'px';
+        };
+        
+        const createDots = () => {
+             dotsNav.innerHTML = '';
+             slides.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if(index === 0) dot.classList.add('active');
+                dotsNav.appendChild(dot);
+            });
+        };
+        
+        createDots();
+        const dots = Array.from(dotsNav.children);
+
+        const moveToSlide = (currentSlide, targetSlide) => {
+            const amountToMove = (targetSlide - currentSlide) * -slideWidth;
+            track.style.transform = 'translateX(' + amountToMove + 'px)';
+            currentIndex = targetSlide;
+        };
+        
+         const updateDots = (currentDot, targetDot) => {
+            dots[currentDot].classList.remove('active');
+            dots[targetDot].classList.add('active');
+        };
+
+        nextButton.addEventListener('click', e => {
+            const nextIndex = (currentIndex + 1) % slides.length;
+            moveToSlide(currentIndex, nextIndex);
+            updateDots(currentIndex, nextIndex);
+            currentIndex = nextIndex;
+        });
+
+        prevButton.addEventListener('click', e => {
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            moveToSlide(currentIndex, prevIndex);
+            updateDots(currentIndex, prevIndex);
+             currentIndex = prevIndex;
+        });
+        
+         window.addEventListener('resize', () => {
+            const newSlideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transition = 'none'; // Disable transition for instant resize
+            track.style.transform = `translateX(${-currentIndex * newSlideWidth}px)`;
+            setTimeout(() => {
+                track.style.transition = 'transform 0.3s ease-in-out';
+            }, 0);
+        });
+
+    </script>
+</body>
+</html>
