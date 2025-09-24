@@ -196,8 +196,20 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            /* Prevent image dragging */
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
         }
+        /* KORREKTUR: Hinzugefügte Positionierungseigenschaften, damit der Container als Overlay funktioniert */
         .comparison-before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
             width: 50%;
             overflow: hidden;
             z-index: 1;
@@ -503,23 +515,36 @@
             const handle = slider.querySelector('.comparison-handle');
             let isDragging = false;
 
+            // KORREKTUR: Cursor wird auf dem body geändert für ein besseres Drag-Gefühl
             const startDrag = (e) => {
                 e.preventDefault();
                 isDragging = true;
-                slider.style.cursor = 'col-resize';
+                document.body.style.cursor = 'col-resize';
             };
 
             const stopDrag = () => {
-                isDragging = false;
-                slider.style.cursor = 'default';
+                if (isDragging) {
+                    isDragging = false;
+                    document.body.style.cursor = 'default';
+                }
             };
 
+            // KORREKTUR: Funktion optimiert für Maus- und Touch-Events
             const onDrag = (e) => {
                 if (!isDragging) return;
-                e.preventDefault();
-                const rect = slider.getBoundingClientRect();
-                let x = (e.clientX || e.touches[0].clientX) - rect.left;
                 
+                // Verhindert das Scrollen der Seite auf Touch-Geräten
+                if (e.type.startsWith('touch')) {
+                    e.preventDefault();
+                }
+
+                const rect = slider.getBoundingClientRect();
+                // Prüft, ob es ein Touch- oder Maus-Event ist und holt die Koordinate
+                const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+                
+                let x = clientX - rect.left;
+                
+                // Beschränkt die Bewegung auf den Bereich des Sliders
                 x = Math.max(0, Math.min(x, rect.width));
 
                 const percentage = (x / rect.width) * 100;
@@ -528,17 +553,17 @@
                 before.style.width = `${percentage}%`;
             };
 
+            // Event Listeners für Maus
             slider.addEventListener('mousedown', startDrag);
-            slider.addEventListener('touchstart', startDrag, { passive: false });
-
             window.addEventListener('mouseup', stopDrag);
-            window.addEventListener('touchend', stopDrag);
-
             window.addEventListener('mousemove', onDrag);
+
+            // Event Listeners für Touch
+            slider.addEventListener('touchstart', startDrag, { passive: false });
+            window.addEventListener('touchend', stopDrag);
             window.addEventListener('touchmove', onDrag, { passive: false });
         });
     </script>
 
 </body>
 </html>
-
