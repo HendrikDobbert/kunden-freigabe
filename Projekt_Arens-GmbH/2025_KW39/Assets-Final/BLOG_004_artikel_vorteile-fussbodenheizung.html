@@ -149,30 +149,6 @@
         @keyframes dash {
             to { stroke-dashoffset: 0; }
         }
-        #designSvg .interactive-object {
-            cursor: pointer;
-            transition: opacity 0.5s ease-in-out;
-        }
-        #designSvg .plant {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        #valueSvg .value-line {
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            transition: stroke-dashoffset 3s ease-out;
-        }
-        #valueSvg.visible .value-line {
-            stroke-dashoffset: 0;
-        }
-        #valueSvg .value-text {
-            opacity: 0;
-            transition: opacity 1s ease-in;
-            transition-delay: 2s;
-        }
-        #valueSvg.visible .value-text {
-            opacity: 1;
-        }
         .calculator-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -348,27 +324,8 @@
     <section>
         <h2>Vorteil #2: Die neue Freiheit für Ihr Design</h2>
         <h3>Minimalismus und freie Wände</h3>
-        <p>Erinnern Sie sich, als Sie Möbel umstellen wollten, aber der klobige Heizkörper im Weg war? Dieses Problem gehört der Vergangenheit an. Ihre Wände sind frei. Klicken Sie in der Grafik auf den Heizkörper, um ihn zu entfernen und den neuen Freiraum zu entdecken!</p>
-
-        <div class="svg-container">
-             <svg id="designSvg" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-label="Interaktive Grafik, die den Raumgewinn durch Entfernen eines Heizkörpers zeigt">
-                <rect x="1" y="1" width="398" height="248" fill="#f8f9fa" stroke="#e0e0e0"/>
-                <line x1="1" y1="220" x2="399" y2="220" stroke="#ccc" stroke-width="2"/>
-                <g id="radiator" class="interactive-object" onclick="toggleDesign()">
-                    <rect x="50" y="150" width="100" height="60" fill="#fff" stroke="#aaa" />
-                    <rect x="55" y="155" width="90" height="50" fill="none" stroke="#ddd" stroke-width="2" stroke-dasharray="5,5"/>
-                    <text x="100" y="185" text-anchor="middle" font-size="10" fill="#aaa">Klicken!</text>
-                </g>
-                <g id="plant" class="plant">
-                    <path d="M 90 220 C 80 180, 120 180, 110 220 Z" fill="#8B4513"/>
-                    <circle cx="100" cy="150" r="30" fill="#228B22"/>
-                    <circle cx="80" cy="160" r="25" fill="#32CD32"/>
-                    <circle cx="120" cy="160" r="25" fill="#32CD32"/>
-                </g>
-                 <text id="designButtonText" x="200" y="240" text-anchor="middle" font-size="12" fill="var(--color-primary-darker)" style="cursor: pointer;" onclick="toggleDesign()">Heizkörper entfernen</text>
-            </svg>
-        </div>
-
+        <p>Erinnern Sie sich, als Sie Möbel umstellen wollten, aber der klobige Heizkörper im Weg war? Dieses Problem gehört der Vergangenheit an. Mit einer Fußbodenheizung bleiben Ihre Wände frei und eröffnen völlig neue Möglichkeiten für Ihr Interior Design.</p>
+        
         <h3>Ein Gewinn an Raum und Ästhetik</h3>
         <p>Dieser Gewinn an Gestaltungsfreiheit lässt Ihre Räume nicht nur größer und aufgeräumter wirken, sondern eröffnet völlig neue Möglichkeiten für Ihr Interior Design. Gerade bei großformatigen Fliesen entsteht so eine durchgehende, fugenlose Optik. Selbst die Bodenreinigung wird einfacher. Es ist Ihr Zuhause – gestalten Sie es ohne Kompromisse. Mehr über unsere Design-Philosophie erfahren Sie bei <a href="https://fliesen-arens.de/ueber-uns/">unserem Team</a>.</p>
     </section>
@@ -424,6 +381,8 @@
 
         <div class="fact-check-box">
             <h3>Starten Sie Ihr Komfort-Upgrade!</h3>
+            <!-- Hier wurde die Grafik für die Checkliste eingefügt -->
+            <img src="../Bilder/MAIL_001_Mockup-Grafik.png" alt="Grafik zur Fußbodenheizung Eignung" class="article-image">
             <p>Sie möchten wissen, ob Ihr Zuhause für die Vorteile einer Fußbodenheizung bereit ist? Unser kostenloser Eignungs-Check ist der perfekte erste Schritt. Beantworten Sie 10 Fragen und erhalten Sie eine fundierte Ersteinschätzung.</p>
             <a href="LM_001_Checkliste.html" class="button-cta" style="margin-top: 15px;">Jetzt kostenlose Checkliste starten</a>
         </div>
@@ -460,25 +419,6 @@
         observer.observe(el);
     });
 
-    let radiatorVisible = true;
-    function toggleDesign() {
-        const radiator = document.getElementById('radiator');
-        const plant = document.getElementById('plant');
-        const buttonText = document.getElementById('designButtonText');
-        
-        radiatorVisible = !radiatorVisible;
-        
-        if (radiatorVisible) {
-            radiator.style.opacity = '1';
-            plant.style.opacity = '0';
-            buttonText.textContent = 'Heizkörper entfernen';
-        } else {
-            radiator.style.opacity = '0';
-            plant.style.opacity = '1';
-            buttonText.textContent = 'Raum zurücksetzen';
-        }
-    }
-
     const heatingCostsInput = document.getElementById('heatingCosts');
     const areaSizeInput = document.getElementById('areaSize');
     const areaValueSpan = document.getElementById('areaValue');
@@ -502,4 +442,3 @@
 </script>
 </body>
 </html>
-
