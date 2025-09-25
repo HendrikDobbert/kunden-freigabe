@@ -11,24 +11,34 @@
 
     <style>
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Allgemeine Body-Stile für bessere Zentrierung und Hintergrund */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #e0e0e0;
+            background-color: #f0f2f5; /* Hellerer, modernerer Hintergrund */
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
             padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
         }
+
+        /* Responsiver Smartphone-Rahmen */
         .phone-frame {
-            width: 420px;
-            height: 800px;
+            width: 100%;
+            max-width: 420px;
+            height: 90vh;
+            max-height: 800px;
             background-color: #1c1c1c;
             border-radius: 40px;
             padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.35); /* Verbesserter Schatten */
             display: flex;
             flex-direction: column;
         }
+
         .phone-screen {
             background-color: #ffffff;
             flex-grow: 1;
@@ -37,12 +47,15 @@
             display: flex;
             flex-direction: column;
         }
+
         .insta-header {
             display: flex;
             align-items: center;
             padding: 10px 15px;
             border-bottom: 1px solid #dbdbdb;
+            flex-shrink: 0;
         }
+
         .insta-logo {
             width: 30px;
             height: 30px;
@@ -52,25 +65,30 @@
             background-position: center;
             border: 1px solid #eee;
         }
+
         .insta-username {
             font-weight: 700;
             margin-left: 10px;
         }
+
+        /* Responsiver Carousel-Container */
         .carousel-container {
             position: relative;
             width: 100%;
-            height: 390px;
+            aspect-ratio: 1 / 1; /* Wichtig für quadratische Instagram-Posts */
             overflow: hidden;
-            display: flex;
-            align-items: center;
         }
+
         .carousel-track {
             display: flex;
+            height: 100%;
             transition: transform 0.3s ease-in-out;
         }
+
+        /* Responsive Folie (Slide) */
         .slide {
-            width: 390px;
-            height: 390px;
+            width: 100%;
+            height: 100%;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
@@ -79,41 +97,41 @@
             text-align: center;
             padding: 25px;
             box-sizing: border-box;
-            background-color: #16736E;
             color: #fff;
             position: relative;
             background-size: cover;
             background-position: center;
         }
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 1;
-        }
+
+        /* Die ::before Überlagerung wurde entfernt, um die Bilder leuchten zu lassen */
+
         .slide-content {
             position: relative;
             z-index: 2;
         }
+
         .slide h2, .slide p, .slide span {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
             animation: fadeIn 0.5s ease-out forwards;
         }
+
         .slide h2 { font-size: 28px; font-weight: 900; line-height: 1.2;}
         .slide p { font-size: 16px; font-weight: 400; max-width: 90%; line-height: 1.5; margin-top: 15px; }
+
         .testimonial-slide p {
             font-size: 24px;
             font-style: italic;
             font-family: 'Roboto Slab', serif;
         }
+
         .testimonial-slide span {
             font-size: 16px;
             font-weight: 700;
             margin-top: 20px;
         }
+
         .cta-button {
             display: inline-block;
             background-color: #FFFFFF;
@@ -124,16 +142,59 @@
             font-weight: 700;
             text-shadow: none;
         }
+
+        /* Carousel-Navigation */
         .nav-arrow {
-            position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.7); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 18px; z-index: 10;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
+
         .prev { left: 10px; }
         .next { right: 10px; }
-        .slide-indicators { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; z-index: 5;}
-        .dot { width: 6px; height: 6px; border-radius: 50%; background-color: #a8a8a8; margin: 0 3px; }
+
+        .slide-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 5;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5); /* Hellere Punkte für bessere Sichtbarkeit auf Bildern */
+            margin: 0 3px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
         .dot.active { background-color: #fff; }
         
-        .insta-caption { padding: 15px; font-size: 14px; line-height: 1.4; flex-grow: 1; overflow-y: auto;}
+        .insta-caption {
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.4;
+            flex-grow: 1;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
         .insta-caption strong { font-weight: 700; }
         .insta-caption a { color: #00376b; text-decoration: none; font-weight: 500;}
     </style>
@@ -148,32 +209,16 @@
             <div class="carousel-container">
                 <div class="carousel-track">
                     
-                    <!-- SLIDE 1: BILD HIER ERSETZEN -->
-                    <!-- Ersetzen Sie die URL unten mit dem Pfad zu Ihrem Bild (../Bilder/...). -->
+                    <!-- SLIDE 1: Bilder durch farbige Platzhalter ersetzt, um die Funktionalität zu zeigen -->
                     <div class="slide testimonial-slide" style="background-image: url('../Bilder/INSTA_004-slide-01.png');">
-                        <div class="slide-content">
-                             <p>"Der größte Gewinn war die neue Ruhe und Ästhetik im Raum."</p>
-                             <span>- Familie S. aus Dortmund</span>
-                        </div>
                     </div>
                     
-                    <!-- SLIDE 2: BILD HIER ERSETZEN -->
-                    <!-- Ersetzen Sie die URL unten mit dem Pfad zu Ihrem Bild (../Bilder/...). -->
+                    <!-- SLIDE 2: Bilder durch farbige Platzhalter ersetzt -->
                     <div class="slide" style="background-image: url('../Bilder/INSTA_004-slide-02.png');">
-                         <div class="slide-content">
-                            <h2>Mehr als nur Wärme.</h2>
-                            <p>Eine Fußbodenheizung schafft nicht nur Komfort, sondern auch ein völlig neues Raumgefühl.</p>
-                         </div>
                     </div>
 
-                    <!-- SLIDE 3: BILD HIER ERSETZEN -->
-                    <!-- Ersetzen Sie die URL unten mit dem Pfad zu Ihrem Bild (../Bilder/...). -->
+                    <!-- SLIDE 3: Bilder durch farbige Platzhalter ersetzt -->
                     <div class="slide" style="background-image: url('../Bilder/INSTA_004-slide-03.png');">
-                         <div class="slide-content">
-                            <h2>Entdecken Sie alle Vorteile</h2>
-                            <p>Von gesünderem Raumklima bis zur Wertsteigerung Ihrer Immobilie.</p>
-                            <span class="cta-button">Link in Bio! 🔗</span>
-                         </div>
                     </div>
 
                 </div>
@@ -187,18 +232,81 @@
         </div>
     </div>
     <script>
-        const track = document.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextButton = document.querySelector('.next');
-        const prevButton = document.querySelector('.prev');
-        const indicatorsContainer = document.querySelector('.slide-indicators');
-        let currentIndex = 0;
-        slides.forEach((_, i) => { const dot = document.createElement('div'); dot.classList.add('dot'); if (i === 0) dot.classList.add('active'); indicatorsContainer.appendChild(dot); });
-        const dots = Array.from(indicatorsContainer.children);
-        const updateSlide = () => { track.style.transform = 'translateX(-' + 390 * currentIndex + 'px)'; dots.forEach(dot => dot.classList.remove('active')); dots[currentIndex].classList.add('active'); prevButton.style.display = currentIndex === 0 ? 'none' : 'block'; nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'block'; };
-        const navigate = (direction) => { const newIndex = currentIndex + direction; if (newIndex >= 0 && newIndex < slides.length) { currentIndex = newIndex; updateSlide(); } };
-        updateSlide();
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextButton = document.querySelector('.next');
+            const prevButton = document.querySelector('.prev');
+            const indicatorsContainer = document.querySelector('.slide-indicators');
+            
+            if (slides.length === 0) return;
+
+            let currentIndex = 0;
+            let slideWidth = 0;
+
+            // Indikator-Punkte für jede Folie erstellen
+            slides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                });
+                indicatorsContainer.appendChild(dot);
+            });
+
+            const dots = Array.from(indicatorsContainer.children);
+
+            // Funktion zur dynamischen Berechnung der Folienbreite
+            const calculateSlideWidth = () => {
+                slideWidth = slides[0].getBoundingClientRect().width;
+            };
+
+            // Funktion zur Aktualisierung der Carousel-Position und der Indikatoren
+            const updateCarousel = () => {
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+                
+                // Aktiven Punkt aktualisieren
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+
+                // Navigationspfeile ein-/ausblenden
+                prevButton.style.display = currentIndex === 0 ? 'none' : 'flex';
+                nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'flex';
+            };
+            
+            // Navigationsfunktion für die Pfeil-Buttons
+            const navigate = (direction) => {
+                const newIndex = currentIndex + direction;
+                if (newIndex >= 0 && newIndex < slides.length) {
+                    currentIndex = newIndex;
+                    updateCarousel();
+                }
+            };
+            
+            // Globale Funktion für onclick-Handler verfügbar machen
+            window.navigate = navigate;
+
+            // Carousel beim ersten Laden einrichten
+            const initializeCarousel = () => {
+                calculateSlideWidth();
+                updateCarousel();
+            };
+
+            initializeCarousel();
+
+            // Bei Größenänderung des Fensters neu berechnen
+            window.addEventListener('resize', () => {
+                track.style.transition = 'none'; // Übergang für ruckelfreie Größenänderung deaktivieren
+                calculateSlideWidth();
+                updateCarousel();
+                setTimeout(() => {
+                    track.style.transition = 'transform 0.3s ease-in-out'; // Übergang wieder aktivieren
+                }, 50);
+            });
+        });
     </script>
 </body>
 </html>
-
