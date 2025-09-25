@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arens GmbH: Finale Content-Freigabe KW 40</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ci-corporate-teal: #1E9B93;
+            --ci-corporate-teal-hover: #16736E;
+            --ci-secondary-darkgrey: #545F71;
+            --ci-accent-green: #61CE70;
+            --ci-text-grey: #7A7A7A;
+            --ci-red-reset: #dc3545;
+            --bg-light: #F7F7F7;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--ci-text-grey);
+            line-height: 1.6;
+            margin: 0;
+            padding: 15px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header {
+            background-color: var(--bg-white);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header img {
+            max-height: 50px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+            color: var(--ci-corporate-teal);
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section:last-of-type { border-bottom: none; }
+
+        .section p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        h2 {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--ci-corporate-teal);
+            border-bottom: 2px solid var(--ci-corporate-teal);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .responsive-table th {
+            padding: 12px;
+            border-bottom: 2px solid var(--border-color);
+            text-align: left;
+            font-family: 'Roboto Slab', serif;
+            color: var(--ci-secondary-darkgrey);
+        }
+        .responsive-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+        .responsive-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .asset-title {
+            display: block;
+            color: var(--ci-secondary-darkgrey);
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .asset-description {
+            font-size: 14px;
+            color: var(--ci-text-grey);
+        }
+        
+        .view-button {
+            display: inline-block;
+            background-color: var(--ci-secondary-darkgrey);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all .2s;
+        }
+        .view-button:hover {
+            background-color: var(--ci-corporate-teal);
+        }
+        .feedback-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 40px;
+        }
+        .approval-checkbox { display: none; }
+        .approval-label {
+            display: inline-block;
+            background-color: var(--ci-accent-green);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            min-width: 90px;
+        }
+        .approval-label .text-approve { display: inline; }
+        .approval-label .text-approved { display: none; }
+        .approval-checkbox:checked + .approval-label {
+            background-color: var(--ci-secondary-darkgrey);
+        }
+        .approval-checkbox:checked + .approval-label .text-approve { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approved { display: inline; }
+        
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; }
+        .rating input { display: none; }
+        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; padding: 0 2px; }
+        .rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label { color: var(--ci-corporate-teal); }
+
+        .footer-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-button {
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .reset-button {
+            background-color: var(--bg-white);
+            color: var(--ci-red-reset);
+            border: 2px solid var(--ci-red-reset);
+        }
+        .reset-button:hover {
+            background-color: var(--ci-red-reset);
+            color: white;
+        }
+        .submit-global-button {
+            background-color: var(--ci-corporate-teal);
+            color: #ffffff;
+        }
+        .submit-global-button:hover {
+            background-color: var(--ci-corporate-teal-hover);
+            transform: scale(1.05);
+        }
+        .submit-global-button.loading .button-spinner { display: inline-block; width: 18px; height: 18px; border: 3px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top-color: #ffffff; animation: spin 1s ease-in-out infinite; vertical-align: middle; margin-right: 5px;}
+        .submit-global-button .button-spinner { display: none; }
+        .submit-global-button.loading .button-text { display: none; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        #successMessage, #errorMessage { display: none; text-align:center; padding: 12px; margin-top: 20px; border-radius: 8px; font-weight: bold; }
+        #successMessage { color: var(--ci-corporate-teal); background-color: #eaf7ec; border: 1px solid var(--ci-corporate-teal); }
+        #errorMessage { color: var(--ci-red-reset); background-color: #fff0f1; border: 1px solid var(--ci-red-reset); }
+        
+        .content-funnel { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
+        .funnel-stage { background-color: var(--bg-light); border: 1px solid var(--border-color); border-radius: 8px; }
+        .funnel-header {
+            display: flex; align-items: center; gap: 15px;
+            padding: 15px 20px; background-color: #eaf7f6;
+            border-bottom: 1px solid var(--border-color);
+            border-top-left-radius: 8px; border-top-right-radius: 8px;
+        }
+        .funnel-icon { font-size: 1.8rem; line-height: 1; }
+        .funnel-stage-title {
+            margin: 0; font-family: 'Roboto Slab', serif;
+            font-size: 18px; color: var(--ci-secondary-darkgrey);
+        }
+        .funnel-body { padding: 20px; }
+        .funnel-content-piece { font-weight: 600; color: #000; margin-top: 0; font-family: 'Roboto', sans-serif; }
+        .funnel-explanation { font-size: 15px; margin-bottom: 0; color: var(--ci-text-grey); }
+
+        /* --- Progress Bar Styles --- */
+        .progress-container {
+            margin-bottom: 25px;
+            margin-top: 15px;
+        }
+        .progress-bar-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ci-secondary-darkgrey);
+        }
+        .progress-bar-background {
+            background-color: var(--border-color);
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .progress-bar-fill {
+            background-color: var(--ci-corporate-teal);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out;
+        }
+        .progress-bar-labels {
+             display: flex; 
+             justify-content: space-between; 
+             font-size: 12px; 
+             margin-top: 4px;
+             color: var(--ci-text-grey);
+        }
+
+        /* --- Custom Modal Styles --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .modal-content h3 {
+            margin-top: 0;
+            font-family: 'Roboto Slab', serif;
+            color: var(--ci-secondary-darkgrey);
+        }
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .modal-button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        #modalConfirm {
+            background-color: var(--ci-red-reset);
+            color: white;
+        }
+        #modalConfirm:hover {
+            opacity: 0.8;
+        }
+        #modalCancel {
+            background-color: #f0f0f0;
+            color: #333;
+            border-color: #ccc;
+        }
+        #modalCancel:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .header, .section {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .header p {
+                font-size: 14px;
+            }
+             h2 {
+                font-size: 1.5rem;
+            }
+             .section p {
+                font-size: 16px;
+            }
+
+            .responsive-table thead { display: none; }
+            .responsive-table tr { 
+                display: block; 
+                margin-bottom: 20px; 
+                border: 1px solid var(--border-color); 
+                border-radius: 8px; 
+                overflow: hidden; 
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+            .responsive-table td { 
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center; 
+                padding: 12px 15px; 
+                text-align: right; 
+                border-bottom: 1px solid #eee; 
+            }
+            .responsive-table tr td:last-child { border-bottom: none; }
+            .responsive-table td::before { 
+                content: attr(data-label); 
+                font-weight: bold; 
+                text-align: left; 
+                margin-right: 15px; 
+                color: var(--ci-secondary-darkgrey); 
+            }
+            .responsive-table td:first-child { 
+                display: block; 
+                text-align: left; 
+                background-color: #f9f9f9; 
+                padding: 15px; 
+                border-bottom: 1px solid var(--border-color);
+            }
+            .responsive-table td:first-child::before { display: none; }
+            .responsive-table .view-button, .responsive-table .approval-label {
+                padding: 10px 18px;
+            }
+
+            .footer-button-container {
+                flex-direction: column;
+                justify-content: center;
+                gap: 12px;
+            }
+            .footer-button {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH.jpg" alt="Logo Fliesen Arens GmbH">
+            <h1>Content-Freigabe: KW 40</h1>
+            <p>Kampagne: FBH_Q3_2025 | Fokus: Gesundheit, Wohnwert & Wertsteigerung</p>
+        </header>
+        <section class="section">
+            <h2>Die Strategie für KW 40</h2>
+             <div class="progress-container">
+                <div class="progress-bar-info">
+                    <span>Kampagnen-Fortschritt</span>
+                    <span>Woche 4 von 9</span>
+                </div>
+                <div class="progress-bar-background">
+                    <div class="progress-bar-fill" style="width: 44%;"></div>
+                </div>
+                <div class="progress-bar-labels">
+                    <span>Start: KW 36</span>
+                    <span>Verbleibend: 5 Wochen</span>
+                    <span>Ende: KW 44</span>
+                </div>
+            </div>
+            <p>Hallo Herr Arens, in dieser Woche heben wir das Gespräch auf die nächste Ebene. Wir sprechen nicht mehr nur über die Sanierung selbst, sondern über die langfristigen, lebensverbessernden Vorteile. Jedes Asset ist darauf ausgerichtet, die Fußbodenheizung als eine kluge Investition in Gesundheit, Lebensqualität und den Immobilienwert zu positionieren.</p>
+            
+            <div class="content-funnel">
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">💡</span>
+                        <h3 class="funnel-stage-title">Das Herzstück (Benefit-Kommunikation)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Asset:</strong> Blog-Artikel "Mehr als nur warme Füße..."</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Dieser Artikel ist die zentrale Anlaufstelle, die die drei Kernvorteile (Gesundheit, Ästhetik, Wertsteigerung) detailliert und überzeugend darlegt. Er dient dazu, potenzielle Kunden von einer reinen Kosten-Betrachtung zu einer Wert-Betrachtung zu führen.</p>
+                    </div>
+                </div>
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">📢</span>
+                        <h3 class="funnel-stage-title">Die Verstärker (Gezielte Ansprache)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Assets:</strong> Social Media, GMB Posts & E-Mail</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Jedes dieser Assets greift sich einen spezifischen Vorteil heraus, um unterschiedliche Kundensegmente gezielt anzusprechen (z.B. Allergiker, Design-Liebhaber, Kapitalanleger) und sie zum Hauptartikel zu führen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="approvalSection">
+            <h2>Entwürfe zur finalen Prüfung & Freigabe</h2>
+            <p>Hier finden Sie die finalen Entwürfe für alle geplanten Inhalte der KW 40. Bitte prüfen, bewerten und freigeben.</p>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Inhalt (Asset)</th>
+                        <th>Entwurf</th>
+                        <th style="text-align: center;">Bewertung</th>
+                        <th style="width: 25%;">Änderungswunsch</th>
+                        <th style="text-align: center;">Freigabe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-asset-id="BLOG_004">
+                        <td data-label="Inhalt"><span class="asset-title">Blog-Artikel</span><span class="asset-description">Mehr als nur warme Füße...</span></td>
+                        <td data-label="Entwurf"><a href="./BLOG_004_Vorteile-FBH.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-blog4" name="rating-BLOG_004" value="5"><label for="star5-blog4">★</label><input type="radio" id="star4-blog4" name="rating-BLOG_004" value="4"><label for="star4-blog4">★</label><input type="radio" id="star3-blog4" name="rating-BLOG_004" value="3"><label for="star3-blog4">★</label><input type="radio" id="star2-blog4" name="rating-BLOG_004" value="2"><label for="star2-blog4">★</label><input type="radio" id="star1-blog4" name="rating-BLOG_004" value="1"><label for="star1-blog4">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-BLOG_004" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-blog4" name="approve-BLOG_004" class="approval-checkbox"><label for="approve-blog4" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="GMB_007">
+                        <td data-label="Inhalt"><span class="asset-title">GMB: Neuigkeit</span><span class="asset-description">"Heizung an, Allergie aus?"</span></td>
+                        <td data-label="Entwurf"><a href="./GMB_007_Neuigkeit-Raumklima.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-gmb7" name="rating-GMB_007" value="5"><label for="star5-gmb7">★</label><input type="radio" id="star4-gmb7" name="rating-GMB_007" value="4"><label for="star4-gmb7">★</label><input type="radio" id="star3-gmb7" name="rating-GMB_007" value="3"><label for="star3-gmb7">★</label><input type="radio" id="star2-gmb7" name="rating-GMB_007" value="2"><label for="star2-gmb7">★</label><input type="radio" id="star1-gmb7" name="rating-GMB_007" value="1"><label for="star1-gmb7">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_007" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-gmb7" name="approve-GMB_007" class="approval-checkbox"><label for="approve-gmb7" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="INSTA_004">
+                        <td data-label="Inhalt"><span class="asset-title">Instagram: Zitat-Post</span><span class="asset-description">"Gewinn an Ruhe & Ästhetik"</span></td>
+                        <td data-label="Entwurf"><a href="./INSTA_004_Zitat-Post-Wohnkomfort.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-insta4" name="rating-INSTA_004" value="5"><label for="star5-insta4">★</label><input type="radio" id="star4-insta4" name="rating-INSTA_004" value="4"><label for="star4-insta4">★</label><input type="radio" id="star3-insta4" name="rating-INSTA_004" value="3"><label for="star3-insta4">★</label><input type="radio" id="star2-insta4" name="rating-INSTA_004" value="2"><label for="star2-insta4">★</label><input type="radio" id="star1-insta4" name="rating-INSTA_004" value="1"><label for="star1-insta4">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-INSTA_004" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-insta4" name="approve-INSTA_004" class="approval-checkbox"><label for="approve-insta4" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="FB_004">
+                        <td data-label="Inhalt"><span class="asset-title">Facebook Post</span><span class="asset-description">Video-Clip: "Gesunde Heizung"</span></td>
+                        <td data-label="Entwurf"><a href="./FB_004_Video-Clip-Gesundheit.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-fb4" name="rating-FB_004" value="5"><label for="star5-fb4">★</label><input type="radio" id="star4-fb4" name="rating-FB_004" value="4"><label for="star4-fb4">★</label><input type="radio" id="star3-fb4" name="rating-FB_004" value="3"><label for="star3-fb4">★</label><input type="radio" id="star2-fb4" name="rating-FB_004" value="2"><label for="star2-fb4">★</label><input type="radio" id="star1-fb4" name="rating-FB_004" value="1"><label for="star1-fb4">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-FB_004" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-fb4" name="approve-FB_004" class="approval-checkbox"><label for="approve-fb4" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="MAIL_004">
+                        <td data-label="Inhalt"><span class="asset-title">E-Mail Newsletter</span><span class="asset-description">"Ihr Zuhause ist mehr wert..."</span></td>
+                        <td data-label="Entwurf"><a href="./MAIL_004_Newsletter_Wertsteigerung.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-mail4" name="rating-MAIL_004" value="5"><label for="star5-mail4">★</label><input type="radio" id="star4-mail4" name="rating-MAIL_004" value="4"><label for="star4-mail4">★</label><input type="radio" id="star3-mail4" name="rating-MAIL_004" value="3"><label for="star3-mail4">★</label><input type="radio" id="star2-mail4" name="rating-MAIL_004" value="2"><label for="star2-mail4">★</label><input type="radio" id="star1-mail4" name="rating-MAIL_004" value="1"><label for="star1-mail4">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-MAIL_004" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-mail4" name="approve-MAIL_004" class="approval-checkbox"><label for="approve-mail4" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                    <tr data-asset-id="GMB_008">
+                        <td data-label="Inhalt"><span class="asset-title">GMB: Angebot</span><span class="asset-description">"Investition in Immobilienwert"</span></td>
+                        <td data-label="Entwurf"><a href="./GMB_008_Angebot_Wertsteigerung.html" class="view-button" target="_blank">Ansehen</a></td>
+                        <td data-label="Bewertung"><div class="rating"><input type="radio" id="star5-gmb8" name="rating-GMB_008" value="5"><label for="star5-gmb8">★</label><input type="radio" id="star4-gmb8" name="rating-GMB_008" value="4"><label for="star4-gmb8">★</label><input type="radio" id="star3-gmb8" name="rating-GMB_008" value="3"><label for="star3-gmb8">★</label><input type="radio" id="star2-gmb8" name="rating-GMB_008" value="2"><label for="star2-gmb8">★</label><input type="radio" id="star1-gmb8" name="rating-GMB_008" value="1"><label for="star1-gmb8">★</label></div></td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_008" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;"><input type="checkbox" id="approve-gmb8" name="approve-GMB_008" class="approval-checkbox"><label for="approve-gmb8" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="footer-button-container">
+                <button id="resetButton" class="footer-button reset-button">Eingaben zurücksetzen</button>
+                <button id="submitButton" class="footer-button submit-global-button">
+                    <span class="button-spinner"></span>
+                    <span class="button-text">Alle Freigaben & Feedback Senden</span>
+                </button>
+            </div>
+            <div id="successMessage"></div>
+            <div id="errorMessage"></div>
+        </section>
+    </div>
+
+    <!-- Custom Modal for Reset Confirmation -->
+    <div id="customModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Eingaben zurücksetzen</h3>
+            <p>Möchten Sie wirklich alle Bewertungen, Kommentare und Freigaben löschen?</p>
+            <div class="modal-buttons">
+                <button id="modalCancel" class="modal-button">Abbrechen</button>
+                <button id="modalConfirm" class="modal-button">Zurücksetzen</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const approvalSection = document.getElementById('approvalSection');
+        const submitButton = document.getElementById('submitButton');
+        const resetButton = document.getElementById('resetButton');
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz35C09lLH_3fICgTdAWZl9_6dVlAKUyv0dwl7Z5dE3-Au8HO7sIqZm4lsXC6MCHEj6/exec';
+        const storageKey = 'contentApproval_Arens_KW40_2025';
+
+        const successMessageDiv = document.getElementById('successMessage');
+        const errorMessageDiv = document.getElementById('errorMessage');
+
+        const customModal = document.getElementById('customModal');
+        const modalConfirm = document.getElementById('modalConfirm');
+        const modalCancel = document.getElementById('modalCancel');
+
+        submitButton.addEventListener('click', function() {
+            submitButton.disabled = true;
+            submitButton.classList.add('loading');
+            successMessageDiv.style.display = 'none';
+            errorMessageDiv.style.display = 'none';
+
+            const feedbackPayload = [];
+            const assetRows = approvalSection.querySelectorAll('tbody tr[data-asset-id]');
+            
+            assetRows.forEach(row => {
+                const assetId = row.dataset.assetId;
+                const ratingInput = row.querySelector(`input[name="rating-${assetId}"]:checked`);
+                const feedbackInput = row.querySelector(`textarea[name="feedback-${assetId}"]`);
+                const approvalInput = row.querySelector(`input[name="approve-${assetId}"]`);
+                feedbackPayload.push({
+                    asset_id: assetId,
+                    bewertung: ratingInput ? ratingInput.value : 'N/A',
+                    feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                    status: approvalInput.checked ? 'Freigegeben' : 'Offen'
+                });
+            });
+
+            const payload = {
+                kundenId: 'Fliesen-Arens-GmbH',
+                freigabeTyp: 'Wochenfreigabe',
+                zeitraum: 'KW40-2025',
+                daten: feedbackPayload
+            };
+            
+            const dataString = encodeURIComponent(JSON.stringify(payload));
+            const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${dataString}`;
+            
+            document.querySelectorAll('script[src*="script.google.com"]').forEach(s => s.remove());
+            
+            let scriptTag = document.createElement('script');
+            scriptTag.src = finalUrl;
+            document.body.appendChild(scriptTag);
+        });
+
+        window.feedbackGesendet = function(response) {
+            submitButton.disabled = false;
+            submitButton.classList.remove('loading');
+            if (response.status === 'Erfolg') {
+                successMessageDiv.innerHTML = `✔ ${response.processedCount} Einträge erfolgreich übermittelt.`;
+                successMessageDiv.style.display = 'block';
+                document.querySelector('#submitButton .button-text').textContent = 'Eingaben aktualisieren';
+                setTimeout(() => { successMessageDiv.style.display = 'none'; }, 5000);
+            } else {
+                errorMessageDiv.innerHTML = `Ein Fehler ist aufgetreten: ${response.nachricht}`;
+                errorMessageDiv.style.display = 'block';
+            }
+        };
+
+        const saveData = () => {
+            const data = {};
+            approvalSection.querySelectorAll('input[type="radio"], input[type="checkbox"], textarea').forEach(el => {
+                const name = el.name;
+                if (el.type === 'radio') { if (el.checked) data[name] = el.value; } 
+                else if (el.type === 'checkbox') { data[name] = el.checked; } 
+                else { data[name] = el.value; }
+            });
+            localStorage.setItem(storageKey, JSON.stringify(data));
+        };
+
+        const loadData = () => {
+            const savedData = localStorage.getItem(storageKey);
+            if (!savedData) return;
+            const data = JSON.parse(savedData);
+            for (const name in data) {
+                const elements = approvalSection.querySelectorAll(`[name="${name}"]`);
+                elements.forEach(el => {
+                    if (el.type === 'radio') { if (el.value === data[name]) el.checked = true; } 
+                    else if (el.type === 'checkbox') { el.checked = data[name]; } 
+                    else { el.value = data[name]; }
+                });
+            }
+        };
+        
+        const showModal = () => {
+            customModal.style.display = 'flex';
+        };
+        const hideModal = () => {
+            customModal.style.display = 'none';
+        };
+
+        resetButton.addEventListener('click', function() {
+            showModal();
+        });
+
+        modalConfirm.addEventListener('click', function() {
+            approvalSection.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(el => el.checked = false);
+            approvalSection.querySelectorAll('textarea').forEach(el => el.value = '');
+            localStorage.removeItem(storageKey);
+            document.querySelector('#submitButton .button-text').textContent = 'Alle Freigaben & Feedback Senden';
+            saveData();
+            hideModal();
+        });
+
+        modalCancel.addEventListener('click', function() {
+            hideModal();
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == customModal) {
+                hideModal();
+            }
+        });
+
+        approvalSection.addEventListener('input', saveData);
+        loadData();
+    });
+    </script>
+</body>
+</html>

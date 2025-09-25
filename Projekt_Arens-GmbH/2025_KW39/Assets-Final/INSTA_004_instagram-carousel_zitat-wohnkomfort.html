@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Carousel Vorschau: INSTA_004 (Zitat-Post)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+
+    <style>
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .phone-frame {
+            width: 420px;
+            height: 800px;
+            background-color: #1c1c1c;
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+        }
+        .phone-screen {
+            background-color: #ffffff;
+            flex-grow: 1;
+            border-radius: 25px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .insta-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .insta-logo {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url('https://placehold.co/40x40/1E9B93/FFFFFF?text=A');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #eee;
+        }
+        .insta-username {
+            font-weight: 700;
+            margin-left: 10px;
+        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 390px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+        .slide {
+            width: 390px;
+            height: 390px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+            box-sizing: border-box;
+            background-color: #16736E;
+            color: #fff;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+        .slide-content {
+            position: relative;
+            z-index: 2;
+        }
+        .slide h2, .slide p, .slide span {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .slide h2 { font-size: 28px; font-weight: 900; line-height: 1.2;}
+        .slide p { font-size: 16px; font-weight: 400; max-width: 90%; line-height: 1.5; margin-top: 15px; }
+        .testimonial-slide p {
+            font-size: 24px;
+            font-style: italic;
+            font-family: 'Roboto Slab', serif;
+        }
+        .testimonial-slide span {
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #FFFFFF;
+            color: #1E9B93;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 700;
+            text-shadow: none;
+        }
+        .nav-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.7); border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 18px; z-index: 10;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .slide-indicators { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; z-index: 5;}
+        .dot { width: 6px; height: 6px; border-radius: 50%; background-color: #a8a8a8; margin: 0 3px; }
+        .dot.active { background-color: #fff; }
+        
+        .insta-caption { padding: 15px; font-size: 14px; line-height: 1.4; flex-grow: 1; overflow-y: auto;}
+        .insta-caption strong { font-weight: 700; }
+        .insta-caption a { color: #00376b; text-decoration: none; font-weight: 500;}
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="insta-header">
+                <div class="insta-logo"></div>
+                <span class="insta-username">fliesen_arens_gmbh</span>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    
+                    <!-- SLIDE 1: BILD HIER ERSETZEN -->
+                    <!-- Ersetzen Sie die URL unten mit dem Pfad zu Ihrem Bild (../Bilder/...). -->
+                    <div class="slide testimonial-slide" style="background-image: url('../Bilder/INSTA_004-slide-01.png');">
+                        <div class="slide-content">
+                             <p>"Der größte Gewinn war die neue Ruhe und Ästhetik im Raum."</p>
+                             <span>- Familie S. aus Dortmund</span>
+                        </div>
+                    </div>
+                    
+                    <!-- SLIDE 2: BILD HIER ERSETZEN -->
+                    <!-- Ersetzen Sie die URL unten mit dem Pfad zu Ihrem Bild (../Bilder/...). -->
+                    <div class="slide" style="background-image: url('../Bilder/INSTA_004-slide-02.png');">
+                         <div class="slide-content">
+                            <h2>Mehr als nur Wärme.</h2>
+                            <p>Eine Fußbodenheizung schafft nicht nur Komfort, sondern auch ein völlig neues Raumgefühl.</p>
+                         </div>
+                    </div>
+
+                    <!-- SLIDE 3: BILD HIER ERSETZEN -->
+                    <!-- Ersetzen Sie die URL unten mit dem Pfad zu Ihrem Bild (../Bilder/...). -->
+                    <div class="slide" style="background-image: url('../Bilder/INSTA_004-slide-03.png');">
+                         <div class="slide-content">
+                            <h2>Entdecken Sie alle Vorteile</h2>
+                            <p>Von gesünderem Raumklima bis zur Wertsteigerung Ihrer Immobilie.</p>
+                            <span class="cta-button">Link in Bio! 🔗</span>
+                         </div>
+                    </div>
+
+                </div>
+                <button class="nav-arrow prev" onclick="navigate(-1)">&#10094;</button>
+                <button class="nav-arrow next" onclick="navigate(1)">&#10095;</button>
+                <div class="slide-indicators"></div>
+            </div>
+            <div class="insta-caption">
+                <p><strong>fliesen_arens_gmbh</strong> Es sind die Dinge, die man nicht sofort sieht, die den größten Unterschied machen.<br><br>Für Familie S. war es die neue Ruhe und Ästhetik in ihrem Zuhause – einer der vielen Vorteile einer modernen Fußbodenheizung. ✨<br><br>Entdecken Sie in unserem neuen Blogartikel, wie Sie nicht nur Ihr Wohlbefinden, sondern auch den Wert Ihrer Immobilie steigern können.<br><br>👉 Link in Bio!<br><br><a>#wohnkomfort</a> <a>#schönerwohnen</a> <a>#modernisierung</a> <a>#dortmund</a> <a>#fußbodenheizung</a> <a>#gesundwohnen</a> <a>#immobilienwert</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+        const indicatorsContainer = document.querySelector('.slide-indicators');
+        let currentIndex = 0;
+        slides.forEach((_, i) => { const dot = document.createElement('div'); dot.classList.add('dot'); if (i === 0) dot.classList.add('active'); indicatorsContainer.appendChild(dot); });
+        const dots = Array.from(indicatorsContainer.children);
+        const updateSlide = () => { track.style.transform = 'translateX(-' + 390 * currentIndex + 'px)'; dots.forEach(dot => dot.classList.remove('active')); dots[currentIndex].classList.add('active'); prevButton.style.display = currentIndex === 0 ? 'none' : 'block'; nextButton.style.display = currentIndex === slides.length - 1 ? 'none' : 'block'; };
+        const navigate = (direction) => { const newIndex = currentIndex + direction; if (newIndex >= 0 && newIndex < slides.length) { currentIndex = newIndex; updateSlide(); } };
+        updateSlide();
+    </script>
+</body>
+</html>
+
