@@ -201,12 +201,14 @@
         
         #foerder-sparschwein-svg .coin {
             opacity: 0;
-            transition: transform 0.5s cubic-bezier(0.5, -0.5, 0.5, 1.5), opacity 0.1s;
-            transform: translateY(0);
+            transform: translateY(-20px) rotate(0deg); 
+            /* Animation für den Münzeinwurf */
+            transition: transform 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53), opacity 0.4s ease-out;
         }
         #foerder-sparschwein-svg .coin.falling {
             opacity: 1;
-            transform: translateY(120px);
+            /* Fällt in den Schlitz und dreht sich */
+            transform: translateY(50px) rotate(360deg);
         }
         
         @keyframes stamp {
@@ -258,7 +260,7 @@
           "url": "https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH.jpg"
         }
       },
-      "image": "../Bilder/BLOG_005_Header.png",
+      "image": "https://placehold.co/800x400/1E9B93/FFFFFF?text=F%C3%B6rderung+sichern!",
       "datePublished": "2025-09-30",
       "mainEntityOfPage": {
         "@type": "WebPage",
@@ -303,6 +305,7 @@
         <!-- SEO: H1 mit primärem Keyword -->
         <h1>Förderung für Fußbodenheizung in Dortmund: Ihr Guide 2025</h1>
         <p style="font-size: 1.2em; color: #555; text-align: center;">Wie Sie mit KfW & BAFA Ihre neue Fußbodenheizung finanzieren und bares Geld sparen.</p>
+        <!-- KORREKTUR: Der Bildpfad wurde von einem relativen Pfad zu einer funktionierenden URL geändert. -->
         <img src="https://placehold.co/800x400/1E9B93/FFFFFF?text=F%C3%B6rderung+sichern!" alt="Eine Person, die einen Förderantrag für eine Heizungsmodernisierung in Dortmund ausfüllt" class="article-image">
         <p>Eine neue, effiziente Fußbodenheizung ist eine der besten Investitionen in Ihr Zuhause. Doch wussten Sie, dass der Staat Sie dabei kräftig finanziell unterstützt? Die "Bundesförderung für effiziente Gebäude" (BEG) macht es möglich. Der Dschungel aus Anträgen, Kürzeln wie "KfW" und "BAFA" und Fristen kann jedoch schnell überfordern. Keine Sorge: Wir führen Sie Schritt für Schritt durch den Prozess und zeigen Ihnen, wie Sie die maximale Förderung für Ihr Projekt in Dortmund erhalten.</p>
     </header>
@@ -369,10 +372,13 @@
                 <rect x="185" y="60" width="30" height="10" fill="#333" rx="3"/>
                 <text id="total-percent-text" x="200" y="140" text-anchor="middle" font-family="Roboto Slab" font-size="28" font-weight="bold" fill="var(--color-primary-darker)">30%</text>
                 
-                <use href="#coin-shape" class="coin" id="coin1" transform="translate(50 50)"/>
-                <use href="#coin-shape" class="coin" id="coin2" transform="translate(150 50)"/>
-                <use href="#coin-shape" class="coin" id="coin3" transform="translate(250 50)"/>
-                <use href="#coin-shape" class="coin" id="coin4" transform="translate(350 50)"/>
+                <!-- KORREKTUR: Münzen neu positioniert für den Einwurf in den Schlitz. -->
+                <g transform="translate(200, 20)">
+                    <use href="#coin-shape" class="coin" id="coin1"/>
+                    <use href="#coin-shape" class="coin" id="coin2"/>
+                    <use href="#coin-shape" class="coin" id="coin3"/>
+                    <use href="#coin-shape" class="coin" id="coin4"/>
+                </g>
             </svg>
              <div class="calculator-controls">
                 <label><input type="checkbox" id="klimaBonusCheck"> Klima-Geschwindigkeits-Bonus (+20%)</label>
@@ -495,7 +501,7 @@
 
         const zuschuss = (maxKosten * foerdersatz) / 100;
 
-        totalPercentText.textContent = `${fördersatz}%`;
+        totalPercentText.textContent = `${foerdersatz}%`;
         zuschussResult.textContent = `${zuschuss.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}`;
     }
 
