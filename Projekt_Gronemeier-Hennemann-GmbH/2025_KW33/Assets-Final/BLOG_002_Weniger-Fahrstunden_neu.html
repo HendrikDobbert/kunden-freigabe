@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="So sparst du bares Geld beim Führerschein in Dortmund: Unser System aus Simulator & praxisnaher Theorie reduziert teure Fahrstunden. Jetzt Ersparnis berechnen!">
+    <title>Weniger Fahrstunden, mehr im Portemonnaie | G+H Fahrschule Dortmund</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../Bilder/fahrschule-gronemeier-hennemann-logo-zeilen-49efb60b.svg" sizes="32x32">
+
+    <style>
+        :root {
+            --ci-dark-blue: #1a2c48;
+            --ci-bright-blue: #009ee2;
+            --ci-text-dark: #212529;
+            --ci-background-white: #ffffff;
+            --ci-background-light-grey: #f9f9f9;
+            --ci-border-color: #e0e0e0;
+            --ci-border-accent: #bde0fe;
+            --success-green: #28a745;
+            --danger-red: #dc3545;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            color: var(--ci-text-dark);
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            color: #000;
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2.25rem;
+            margin-top: 3rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            color: #1d1d1d;
+            display: flex;
+            align-items: center;
+        }
+        h3 svg {
+            width: 32px;
+            height: 32px;
+            margin-right: 15px;
+            fill: var(--ci-bright-blue);
+        }
+        p, li {
+            font-size: 1.1rem;
+        }
+        a {
+            color: var(--ci-bright-blue);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img.header-image, img.in-article-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        blockquote {
+            border-left: 5px solid var(--ci-bright-blue);
+            margin: 25px 0;
+            padding: 20px 25px;
+            font-style: italic;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background-color: var(--ci-background-light-grey);
+            color: #1d1d1d;
+        }
+        
+        /* Interaktive Elemente & Infografik */
+        .interactive-section {
+            background-color: var(--ci-background-light-grey);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 3rem 0;
+            border: 1px solid var(--ci-border-accent);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Hinzugefügt für besseren Kontrast */
+        }
+        .interactive-section h2 {
+            margin-top: 0;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        /* NEUER RECHNER START */
+        .calculator-intro {
+            font-size: 1rem; 
+            color: #555; 
+            margin-bottom: 30px;
+        }
+        .base-lessons-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: var(--ci-background-white);
+            border: 1px solid var(--ci-border-color);
+        }
+        .base-lessons-input label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1d1d1d;
+        }
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            border: 1px solid var(--ci-border-accent);
+            border-radius: 8px;
+            background-color: var(--ci-background-white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .input-group label { 
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700; 
+            margin-bottom: 5px;
+            color: var(--ci-dark-blue);
+            font-size: 1.1rem;
+        }
+        .input-group p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .input-stepper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; 
+            margin-top: 5px; 
+        }
+        .base-lessons-input .input-stepper {
+            justify-content: center;
+        }
+        .input-stepper .stepper-btn {
+            width: 44px; 
+            height: 44px; 
+            background-color: var(--ci-bright-blue);
+            color: var(--ci-background-white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            line-height: 1;
+            padding: 0;
+            margin: 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .input-stepper .stepper-btn:hover {
+            background-color: var(--ci-dark-blue);
+        }
+        .input-stepper input[type="number"] {
+            padding: 8px;
+            width: 60px;
+            border: 2px solid var(--ci-dark-blue);
+            border-radius: 5px;
+            font-size: 1.4rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            text-align: center;
+            color: var(--ci-dark-blue);
+            margin: 0; 
+        }
+        .calculator-results {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .result-box {
+            padding: 15px;
+            border-radius: 8px;
+            width: 45%;
+            min-width: 250px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .result-box h4 { 
+            margin: 0 0 10px 0; 
+            font-family: 'Poppins', sans-serif; 
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .result-box p { 
+            font-size: 2.8rem; 
+            font-weight: 900; 
+            margin: 0; 
+            line-height: 1;
+        }
+        .result-standard { 
+            background-color: #fde2e2;
+            color: var(--danger-red); 
+        }
+        .result-gh { 
+            background-color: #dcfce7;
+            color: var(--success-green); 
+        }
+        #totalSavedLessons {
+            font-size: 1.8rem; 
+            color: var(--ci-bright-blue);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+        #savings {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fffff0; 
+            border: 2px dashed var(--danger-red);
+            border-radius: 8px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ci-text-dark);
+        }
+        #savings strong {
+            color: var(--danger-red); 
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+        }
+        /* NEUER RECHNER ENDE */
+
+
+        .calculator-input-group { 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .calculator-input-group label { font-weight: 700; }
+        .calculator-input-group input[type="range"] { width: 200px; }
+        #lessonsCount {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--ci-bright-blue);
+            min-width: 50px;
+            display: inline-block;
+        }
+        
+        .checklist-container { text-align: left; }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .checklist-item input {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+        }
+
+        .faq-container { text-align: left; }
+        .faq-container details {
+            border-bottom: 1px solid var(--ci-border-color);
+            padding: 15px 0;
+        }
+        .faq-container details:last-child {
+            border-bottom: none;
+        }
+        .faq-container summary {
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-container summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--ci-bright-blue);
+        }
+        .faq-container details[open] summary::after {
+            content: '−';
+        }
+        .faq-container details p {
+            padding: 10px 0 0 0;
+            margin: 0;
+        }
+        
+        /* Infografik */
+        .infographic-box {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 3rem 0;
+            border: 1px solid var(--ci-border-accent);
+        }
+        /* Custom list style for 5 milestones */
+        .milestone-list {
+            list-style: none;
+            padding: 0;
+        }
+        .milestone-list li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-left: 5px solid var(--ci-bright-blue);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-weight: 700;
+        }
+        .milestone-list li strong {
+            color: var(--ci-dark-blue);
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            margin-right: 10px;
+        }
+        
+        /* NEUE STYLES FÜR DIE ERSPARNIS-AUFZÄHLUNG */
+        .savings-step-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .savings-step-list li {
+            margin-bottom: 25px;
+            padding-left: 45px; /* Platz für den Zeiger */
+            position: relative;
+            font-weight: 400; /* Standardgewicht für den Fließtext */
+        }
+        .savings-step-list li::before {
+            content: "👉"; 
+            position: absolute;
+            left: 0;
+            color: var(--ci-bright-blue); /* CI-Farbe für den Zeiger */
+            font-size: 1.5rem;
+            top: 2px;
+        }
+        .savings-step-list li strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: var(--ci-dark-blue);
+        }
+        .savings-step-list li p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ci-bright-blue); /* Text des Handlungshinweises hervorheben */
+        }
+
+
+        /* Quiz Styles */
+        .quiz-container {
+            text-align: left;
+        }
+        .quiz-page {
+            display: none;
+        }
+        .quiz-page.active {
+            display: block;
+        }
+        .quiz-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .quiz-options label {
+            display: block;
+            background-color: #fff;
+            padding: 15px;
+            border: 2px solid var(--ci-border-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .quiz-options label:hover {
+            border-color: var(--ci-bright-blue);
+        }
+        .quiz-options input[type="radio"] {
+            display: none;
+        }
+        .quiz-options input[type="radio"]:checked + label {
+            border-color: var(--ci-dark-blue);
+            background-color: #f0f8ff;
+        }
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .quiz-btn {
+            background-color: var(--ci-bright-blue);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .quiz-btn:hover {
+            background-color: var(--ci-dark-blue);
+        }
+        .quiz-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #results-screen {
+            display: none;
+            text-align: center;
+        }
+        #results-screen h2 {
+            border-bottom: none;
+        }
+        #score-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0 2rem 0;
+        }
+        .solution {
+            text-align: left;
+            margin-bottom: 1.5rem;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid;
+        }
+        .solution.correct {
+            border-color: var(--success-green);
+            background-color: #eafaf1;
+        }
+        .solution.incorrect {
+            border-color: var(--danger-red);
+            background-color: #fdeeee;
+        }
+        .solution p {
+            margin: 0;
+        }
+        .solution strong {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Media Queries for smaller screens */
+        @media (max-width: 650px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .result-box { 
+                width: 100%; 
+                min-width: auto; 
+            }
+            /* NEUE RECHNER CSS ANPASSUNGEN */
+            .input-grid { 
+                grid-template-columns: 1fr; 
+            }
+            .base-lessons-input { 
+                flex-direction: column; 
+                align-items: flex-start;
+            }
+            .base-lessons-input label { 
+                margin-bottom: 10px; 
+            }
+            .input-group .input-stepper { 
+                justify-content: flex-start; 
+            }
+            .base-lessons-input .input-stepper { 
+                justify-content: flex-start; 
+            } 
+            .input-stepper .stepper-btn {
+                margin: 0 7px 0 0; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <article>
+            
+            <img src="../Bilder/BLOG_002_IMAGES_1_gronemeier_2025-09-15.png" alt="Ein Sparschwein steht neben einem Fahrsimulator und symbolisiert das Sparen von Geld durch moderne Ausbildungsmethoden." class="header-image">
+            
+            <h1>Weniger Fahrstunden, mehr im Portemonnaie</h1>
+
+            <p>Der Führerschein ist für viele ein großer Schritt in die Selbstständigkeit – aber leider auch ein großer Kostenfaktor. Gerade junge Erwachsene, die noch in Ausbildung oder im Studium sind, sowie ihre Eltern merken schnell: Die Ausgaben für den Führerschein summieren sich. Neben Anmeldegebühren, Theorie- und Praxisprüfungen schlagen vor allem die Fahrstunden kräftig zu Buche.</p>
+
+            <p>Nicht selten hören Fahrschüler von Freunden oder Bekannten, dass sie am Ende <strong>50 oder sogar 60 Fahrstunden</strong> gebraucht haben. Da fragt man sich: Muss das wirklich sein? Denn mit jeder zusätzlichen Stunde wachsen die Kosten, und die Gesamtsumme wird schnell unüberschaubar. Viele Menschen machen sich deshalb Sorgen, ob sie den Führerschein überhaupt finanzieren können.</p>
+            
+            <p>Genau hier setzt unser Ansatz an: Wir zeigen, dass es auch anders geht. Mit einem klaren System, das dich gezielt und effizient auf die Prüfung vorbereitet, brauchst du <strong>weniger Fahrstunden – und sparst dadurch bares Geld</strong>. So bleibt der Führerschein nicht nur ein Meilenstein in deiner Freiheit, sondern auch eine Investition, die fair und planbar bleibt.</p>
+
+
+            <h2>Doch warum werden es so viele?</h2>
+            <p>Zwei Gründe sind besonders entscheidend, warum die Kosten und die Stundenzahl unnötig in die Höhe schießen:</p>
+            <ul>
+                <li><strong>Lücken in der Ausbildung:</strong> Wenn Fahrstunden nur unregelmäßig stattfinden – mal eine Woche Pause, mal zwei Wochen kein Termin – entsteht ein Bruch im Lernprozess. Das führt dazu, dass bereits Gelerntes wieder vergessen wird. Die Folge: zusätzliche, eigentlich unnötige Fahrstunden.</li>
+                <li><strong>Erster Kontakt mit dem Autofahren:</strong> Viele setzen sich das erste Mal ernsthaft mit dem Autofahren auseinander, wenn sie selbst hinterm Steuer sitzen. Davor fehlt oft die gedankliche Vorbereitung. Dadurch werden die ersten Fahrstunden zu teuren Übungsrunden, bei denen die Grundlagen erst mühsam erarbeitet werden müssen.</li>
+            </ul>
+
+            <img src="../Bilder/BLOG_002_IMAGES_2_gronemeier_2025-09-15.png" alt="Die Cockpit-Ansicht des modernen Fahrsimulators, der für eine effiziente Ausbildung eingesetzt wird." class="in-article-image">
+            
+            <h2>Unser System: Die 5 Meilensteine zum Erfolg</h2>
+            <p>Genau hier setzen wir an. Mit unserem klar strukturierten System begleiten wir dich Schritt für Schritt – effizient, planbar und ohne unnötige Kosten. Jede Stufe bereitet dich optimal auf die nächste vor:</p>
+            
+            <ol class="milestone-list">
+                <li><strong>Anmeldung & Tarifwahl:</strong> Schon bei der Anmeldung findest du den Tarif, der zu dir passt. Transparent und übersichtlich.</li>
+                <li><strong>Simulator:</strong> Im Fahrsimulator lernst du stressfrei die Grundlagen: Schalten, Anfahren, Lenken, einfache Vorfahrtsregeln. Ohne Druck, dafür mit viel Wiederholung, was <strong>teure erste Fahrstunden ersetzt</strong>.</li>
+                <li><strong>Unterricht in 7 Tagen:</strong> Unser Theorieunterricht ist kompakt gebündelt und praxisnah. Statt trockener Fakten lernst du konkrete Handlungsabläufe für Situationen auf der Straße. So entsteht eine persönliche Bedienungsanleitung, die dir sofort Sicherheit gibt.</li>
+                <li><strong>Geplante Fahrstunden ohne Lücken:</strong> Wir planen alle Fahrstunden im Voraus – gemeinsam mit dir. Dadurch entstehen keine Lernpausen, die dich zurückwerfen würden. Das spart Zeit, Nerven und vor allem Geld.</li>
+                <li><strong>Dein Heimspiel bei der Prüfung:</strong> Die Prüfung beginnt dort, wo du auch ausgebildet wurst. Keine unbekannten Strecken, keine langen Anfahrten – sondern vertraute Umgebung und volle Konzentration auf deine Leistung.</li>
+            </ol>
+            
+            
+            <div class="infographic-box">
+                <svg width="100%" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#009ee2;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#007bb5;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="1" y="1" width="798" height="298" rx="10" fill="#fff" stroke="#e0e0e0"/>
+                    <text x="400" y="50" font-family="Poppins, sans-serif" font-size="28" font-weight="900" text-anchor="middle" fill="#1d1d1d">Ihr Fahrplan zur Kostenersparnis</text>
+                    
+                    <rect x="50" y="100" width="220" height="150" rx="8" fill="#f0f8ff" stroke="#bde0fe" />
+                    <text x="160" y="130" font-family="Poppins, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1d1d1d">1. Theorie & Simulator</text>
+                    <text x="160" y="170" font-family="Roboto, sans-serif" font-size="16" text-anchor="middle" fill="#333" dy="0">
+                        <tspan x="160" dy="1.2em">Grundlagen stressfrei</tspan>
+                        <tspan x="160" dy="1.2em">erlernen und Routinen</tspan>
+                        <tspan x="160" dy="1.2em">bilden (Meilenstein 2 & 3).</tspan>
+                    </text>
+                    
+                    <rect x="290" y="100" width="220" height="150" rx="8" fill="#f0f8ff" stroke="#bde0fe" />
+                    <text x="400" y="130" font-family="Poppins, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1d1d1d">2. Planbare Stunden</text>
+                    <text x="400" y="170" font-family="Roboto, sans-serif" font-size="16" text-anchor="middle" fill="#333">
+                        <tspan x="400" dy="1.2em">Keine Lernpausen durch</tspan>
+                        <tspan x="400" dy="1.2em">gezielte, lückenlose</tspan>
+                        <tspan x="400" dy="1.2em">Terminplanung (Meilenstein 4).</tspan>
+                    </text>
+                    
+                    <rect x="530" y="100" width="220" height="150" rx="8" fill="#f0f8ff" stroke="#bde0fe" />
+                    <text x="640" y="130" font-family="Poppins, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1d1d1d">3. Prüfung als Heimspiel</text>
+                    <text x="640" y="170" font-family="Roboto, sans-serif" font-size="16" text-anchor="middle" fill="#333">
+                        <tspan x="640" dy="1.2em">Vertraute Strecken, </tspan>
+                        <tspan x="640" dy="1.2em">weniger Nervosität und</tspan>
+                        <tspan x="640" dy="1.2em">optimales Ergebnis (Meilenstein 5).</tspan>
+                    </text>
+                </svg>
+            </div>
+            
+            <blockquote>
+                <p>"Der Simulator hat mir geholfen, mich aufs reine Fahren zu konzentrieren, statt mich mit der Technik des Autos herumzuschlagen. Das hat viel Zeit und Geld gespart."</p>
+                <footer>– Ein G+H-Fahrschüler</footer>
+            </blockquote>
+
+            <h2>Dein persönlicher Fahrstunden- und Kostenrechner</h2>
+            <p>Viele unterschätzen, wie viel sich durch eine gute Vorbereitung und eine klare Struktur beim Führerschein sparen lässt. Mit unserem Rechner kannst du dir selbst ausrechnen, wie viele Fahrstunden – und damit wie viel Geld – du realistisch sparen kannst.</p>
+            <p>Gehen wir das Schritt für Schritt durch:</p>
+
+            <ul class="savings-step-list">
+                <li>
+                    <strong>Simulator statt teure erste Stunden:</strong> Stell dir vor: Du musst im Auto nicht erst mühsam den Schleifpunkt finden, die ersten Gänge ausprobieren oder herausfinden, wie du richtig lenkst. Das hast du alles schon stressfrei im Simulator trainiert.
+                    <p>Schreib dir auf, wie viele Fahrstunden du dadurch sparen könntest.</p>
+                </li>
+                <li>
+                    <strong>Handlungsabläufe statt Theorie-Frust:</strong> Du hörst nicht zum ersten Mal vom Stoppschild oder einem Überholvorgang, sondern hast dir vorher schon deinen eigenen Handlungsablauf notiert: Schritt für Schritt, wie du dich im Auto verhalten musst.
+                    <p>Trag die Zahl ein, die du an Einsparung siehst.</p>
+                </li>
+                <li>
+                    <strong>Fahrstunden ohne Lücken:</strong> Alle Termine sind von Anfang an fest geplant. Keine zwei Wochen Pause, kein Vergessen, kein ständiges Wiederholen. Jede Stunde baut auf der vorherigen auf.
+                    <p>Überlege dir, wie viele unnötige Wiederholungen du so vermeidest – und trag die Zahl ein.</p>
+                </li>
+                <li>
+                    <strong>Deine Prüfung als Heimspiel:</strong> Du fährst nicht in einer fremden Stadt, sondern machst deine Prüfung dort, wo du auch gelernt hast. Vertraute Strecken = weniger Nervosität = weniger zusätzliche Übungsstunden.
+                    <p>Auch hier eine Zahl notieren.</p>
+                </li>
+            </ul>
+            
+            <h3>Und jetzt kommt’s:</h3>
+            <p>Rechne deine gesparten Stunden zusammen. Multipliziere sie mit dem Preis einer Fahrstunde – im Schnitt 60 bis 80 €.</p>
+            <p><strong>&rarr; So siehst du sofort, wie viel Geld du durch ein strukturiertes System in der Tasche behalten kannst.</strong></p>
+
+
+            <!-- NEUER RECHNER EINGEFÜGT -->
+            <div class="calculator-container interactive-section">
+                <h2>Dein persönlicher Fahrstunden-Sparplan</h2>
+                <p class="calculator-intro" style="font-size: 1rem; color: #555;">Trage ein, wie viele Übungsfahrten (à 45 Minuten) du durch unsere vier Effizienzfaktoren realistisch einsparen könntest. Die <strong>geschätzten Gesamtkosten</strong> umfassen auch die gesetzlichen Pflichtstunden, den Grundbetrag und Prüfungsgebühren.</p>
+                
+                <!-- Basis-Input für den Vergleich -->
+                <div class="base-lessons-input">
+                    <label for="baseLessons">Geschätzte variable Übungsfahrten (Standard-Fahrschule):</label>
+                    <!-- Stepper für Basisstunden -->
+                    <div class="input-stepper">
+                        <button type="button" class="stepper-btn minus" data-input-id="baseLessons">-</button>
+                        <input type="number" id="baseLessons" min="15" max="50" value="30">
+                        <button type="button" class="stepper-btn plus" data-input-id="baseLessons">+</button>
+                    </div>
+                </div>
+
+
+                <!-- Input Grid für die 4 Sparfaktoren -->
+                <div class="input-grid">
+                    
+                    <!-- Faktor 1: Simulator -->
+                    <div class="input-group">
+                        <label for="savingSimulator">1. Simulator statt teure erste Stunden</label>
+                        <p>Stressfrei Anfahren, Schalten, Lenken im Simulator üben.</p>
+                        <!-- Stepper für Simulator -->
+                        <div class="input-stepper">
+                            <button type="button" class="stepper-btn minus" data-input-id="savingSimulator">-</button>
+                            <input type="number" id="savingSimulator" min="0" max="10" value="5">
+                            <button type="button" class="stepper-btn plus" data-input-id="savingSimulator">+</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Faktor 2: Handlungsabläufe -->
+                    <div class="input-group">
+                        <label for="savingActions">2. Handlungsabläufe statt Theorie-Frust</label>
+                        <p>Vorher notierte, verinnerlichte Abläufe sparen Erklärungszeit im Auto.</p>
+                        <!-- Stepper für Handlungsabläufe -->
+                        <div class="input-stepper">
+                            <button type="button" class="stepper-btn minus" data-input-id="savingActions">-</button>
+                            <input type="number" id="savingActions" min="0" max="5" value="2">
+                            <button type="button" class="stepper-btn plus" data-input-id="savingActions">+</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Faktor 3: Ohne Lücken -->
+                    <div class="input-group">
+                        <label for="savingNoGaps">3. Fahrstunden ohne Lücken</label>
+                        <p>Feste Planung ohne lange Pausen vermeidet unnötige Wiederholungen.</p>
+                        <!-- Stepper für ohne Lücken -->
+                        <div class="input-stepper">
+                            <button type="button" class="stepper-btn minus" data-input-id="savingNoGaps">-</button>
+                            <input type="number" id="savingNoGaps" min="0" max="7" value="3">
+                            <button type="button" class="stepper-btn plus" data-input-id="savingNoGaps">+</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Faktor 4: Heimspiel -->
+                    <div class="input-group">
+                        <label for="savingHomeGame">4. Deine Prüfung als Heimspiel</label>
+                        <p>Vertraute Prüfstrecken reduzieren Nervosität und Zusatzstunden.</p>
+                        <!-- Stepper für Heimspiel -->
+                        <div class="input-stepper">
+                            <button type="button" class="stepper-btn minus" data-input-id="savingHomeGame">-</button>
+                            <input type="number" id="savingHomeGame" min="0" max="5" value="1">
+                            <button type="button" class="stepper-btn plus" data-input-id="savingHomeGame">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ergebnisse der Berechnung -->
+                <div style="margin-bottom: 20px;">
+                    <p style="font-size: 1.1rem; font-weight: 700; margin: 0; color: var(--ci-dark-blue);">Deine errechnete Gesamtersparnis an Fahrstunden:</p>
+                    <div id="totalSavedLessons">11 Stunden</div>
+                </div>
+
+                <div class="calculator-results">
+                    <div class="result-box result-standard">
+                        <h4>Geschätzte Gesamtkosten (Standard-Vergleich)</h4>
+                        <p id="standardCost">3.120 €</p>
+                    </div>
+                    <div class="result-box result-gh">
+                        <h4>Deine geschätzten Gesamtkosten (mit G+H System)</h4>
+                        <p id="ghCost">2.460 €</p>
+                    </div>
+                </div>
+
+                <!-- Ersparnis-Anzeige -->
+                <div id="savings">Deine potenzielle Kostenersparnis beträgt: <strong>660 €</strong></div>
+            </div>
+            <!-- NEUER RECHNER ENDE -->
+
+            <p>Beeindruckend, oder? Der Rechner zeigt schwarz auf weiß, wie sich unser System auf deinen Geldbeutel auswirken kann. Aber echtes Sparen geht über reine Zahlen hinaus – es beginnt im Kopf. Denn jede Fahrstunde, die du nicht brauchst, ist das Ergebnis von solidem Wissen und dem Selbstvertrauen, das daraus entsteht. Bevor du also wieder an Kosten denkst, teste doch mal die Grundlage für deine zukünftige Ersparnis: dein Wissen. Wie fit bist du wirklich für die Straße?</p>
+
+            <!-- Quiz Section Start -->
+            <div class="quiz-container interactive-section">
+                <h2><svg style="width:38px; height:38px; margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,1.5H8A2.5,2.5,0,0,0,5.5,4V20a2.5,2.5,0,0,0,2.5,2.5h8A2.5,2.5,0,0,0,18.5,20V4A2.5,2.5,0,0,0,16,1.5ZM12,21a1,1,0,1,1,1-1A1,1,0,0,1,12,21Zm4-3.5H8A.5.5,0,0,1,7.5,17V4A.5.5,0,0,1,8,3.5h8A.5.5,0,0,1,16.5,4V17A.5.5,0,0,1,16,17.5Z"/></svg>Teste dein Wissen!</h2>
+                <p>Bist du fit für die Straße? Finde es mit unserem kleinen Quiz heraus!</p>
+
+                <form id="quizForm">
+                    <!-- Page 1 -->
+                    <div class="quiz-page active" id="page1">
+                        <p class="quiz-question">1/5: Sie nähern sich einer Kreuzung ohne Ampeln und Verkehrszeichen. Von rechts kommt ein anderes Fahrzeug. Wie verhalten Sie sich?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q1" id="q1a1" value="a"><label for="q1a1">Ich habe Vorfahrt, da ich auf der breiteren Straße fahre.</label>
+                            <input type="radio" name="q1" id="q1a2" value="b"><label for="q1a2">Ich hupe, um auf mich aufmerksam zu machen und fahre weiter.</label>
+                            <input type="radio" name="q1" id="q1a3" value="c"><label for="q1a3">Ich gewähre dem Fahrzeug von rechts die Vorfahrt.</label>
+                            <input type="radio" name="q1" id="q1a4" value="d"><label for="q1a4">Wer zuerst an der Kreuzung ist, darf zuerst fahren.</label>
+                        </div>
+                    </div>
+                    <!-- Page 2 -->
+                    <div class="quiz-page" id="page2">
+                        <p class="quiz-question">2/5: Sie fahren außerorts 100 km/h auf trockener Fahrbahn. Welchen Mindestabstand zum vorausfahrenden Fahrzeug sollten Sie einhalten?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q2" id="q2a1" value="a"><label for="q2a1">Ca. 15 Meter (eine Fahrzeuglänge).</label>
+                            <input type="radio" name="q2" id="q2a2" value="b"><label for="q2a2">Ca. 50 Meter (halber Tachowert).</label>
+                            <input type="radio" name="q2" id="q2a3" value="c"><label for="q2a3">Ca. 100 Meter (voller Tachowert).</label>
+                            <input type="radio" name="q2" id="q2a4" value="d"><label for="q2a4">Der Abstand spielt keine Rolle, solange ich bremsbereit bin.</label>
+                        </div>
+                    </div>
+                    <!-- Page 3 -->
+                    <div class="quiz-page" id="page3">
+                        <p class="quiz-question">3/5: Was bedeutet das "Reißverschlussverfahren"?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q3" id="q3a1" value="a"><label for="q3a1">Alle Fahrzeuge auf der linken Spur haben absolute Vorfahrt.</label>
+                            <input type="radio" name="q3" id="q3a2" value="b"><label for="q3a2">Fahrzeuge müssen sich abwechselnd direkt am Hindernis einordnen.</label>
+                            <input type="radio" name="q3" id="q3a3" value="c"><label for="q3a3">Man muss so früh wie möglich auf die freie Spur wechseln.</label>
+                            <input type="radio" name="q3" id="q3a4" value="d"><label for="q3a4">LKWs müssen immer bis zum Ende warten.</label>
+                        </div>
+                    </div>
+                    <!-- Page 4 -->
+                    <div class="quiz-page" id="page4">
+                        <p class="quiz-question">4/5: Wann dürfen Sie die Nebelschlussleuchte einschalten?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q4" id="q4a1" value="a"><label for="q4a1">Bei jeder Art von Nebel, um besser gesehen zu werden.</label>
+                            <input type="radio" name="q4" id="q4a2" value="b"><label for="q4a2">Nur bei starkem Regen oder Schneefall.</label>
+                            <input type="radio" name="q4" id="q4a3" value="c"><label for="q4a3">Nur wenn die Sichtweite durch Nebel unter 50 Meter beträgt.</label>
+                            <input type="radio" name="q4" id="q4a4" value="d"><label for="q4a4">Wenn das vorausfahrende Fahrzeug sie auch eingeschaltet hat.</label>
+                        </div>
+                    </div>
+                    <!-- Page 5 -->
+                    <div class="quiz-page" id="page5">
+                        <p class="quiz-question">5/5: Ein Bus mit eingeschaltetem Warnblinklicht steht an einer Haltestelle. Sie nähern sich in dieselbe Richtung. Wie müssen Sie sich verhalten?</p>
+                        <div class="quiz-options">
+                            <input type="radio" name="q5" id="q5a1" value="a"><label for="q5a1">Mit mäßiger Geschwindigkeit vorbeifahren.</label>
+                            <input type="radio" name="q5" id="q5a2" value="b"><label for="q5a2">Anhalten und warten, bis der Bus weiterfährt.</label>
+                            <input type="radio" name="q5" id="q5a3" value="c"><label for="q5a3">Nur mit Schrittgeschwindigkeit vorbeifahren, auch auf der Gegenfahrbahn.</label>
+                            <input type="radio" name="q5" id="q5a4" value="d"><label for="q5a4">Hupen, um Fußgänger zu warnen und dann normal weiterfahren.</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-navigation">
+                        <button type="button" id="prevBtn" class="quiz-btn" onclick="navigateQuiz(-1)" disabled>Zurück</button>
+                        <button type="button" id="nextBtn" class="quiz-btn" onclick="navigateQuiz(1)">Weiter</button>
+                        <button type="button" id="submitBtn" class="quiz-btn" style="display: none;" onclick="submitQuiz()">Ergebnis anzeigen</button>
+                    </div>
+                </form>
+
+                <div id="results-screen">
+                    <h2>Quiz Auswertung</h2>
+                    <p id="score-text"></p>
+                    <div id="solutions-container"></div>
+                    <button type="button" class="quiz-btn" onclick="restartQuiz()">Quiz neustarten</button>
+                </div>
+            </div>
+            <!-- Quiz Section End -->
+
+            <h2>Fazit: Klug investieren statt draufzahlen</h2>
+            <p>Der Führerschein muss kein Fass ohne Boden sein. Mit einer <strong>strukturierten Ausbildung</strong>, ohne unnötige Lücken und mit klaren Meilensteinen sparst du nicht nur wertvolle Fahrstunden, sondern auch bares Geld. So wird der Weg zum Führerschein überschaubar – und dein Ziel schneller erreicht. Die Entscheidung für eine Fahrschule, die in moderne Technologie, effiziente Lehrmethoden und exzellente menschliche Betreuung investiert, ist nicht nur eine Entscheidung für eine bessere Ausbildung, sondern auch die klügste für dein Budget.</p>
+            
+            <div class="faq-container interactive-section">
+                <h2><svg style="width:38px; height:38px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,1.5A9.5,9.5,0,0,0,2.5,11v.5a1,1,0,0,0,1,1h.5a1,1,0,0,0,1-1V11a8,8,0,0,1,14.5,3.5,1,1,0,0,0,.5,1,1,1,0,0,0,1,0,10,10,0,0,0,1-1.5,1,1,0,0,0-1-1.5H20a8,8,0,0,1-7-7.93V2.5a1,1,0,0,0-2,0v.57A8,8,0,0,1,5.5,11a1,1,0,0,0,0,2,6,6,0,0,0,11,0,1,1,0,0,0-2,0,4,4,0,0,1-8,0,6,6,0,0,1,6-6,5.92,5.92,0,0,1,4.24,1.76,1,1,0,0,0,1.42-1.42A8,8,0,0,0,12,3.5Z"/><path d="M12,18.5a1.5,1.5,0,1,0,1.5,1.5A1.5,1.5,0,0,0,12,18.5Z"/></svg>Noch Fragen zu den Kosten?</h2>
+                <details>
+                    <summary>Ist der Simulator wirklich kostenlos?</summary>
+                    <p>Ja, der Einsatz des Fahrsimulators zur Vorbereitung ist in unseren Ausbildungspaketen enthalten und verursacht keine zusätzlichen Kosten. Wir sehen ihn als Investition in deine Effizienz.</p>
+                </details>
+                <details>
+                    <summary>Was ist, wenn ich doch mehr Stunden brauche?</summary>
+                    <p>Unser System zielt darauf ab, die Stundenzahl zu reduzieren, aber die Ausbildung ist immer individuell. Solltest du mehr Zeit benötigen, planen wir das transparent mit dir. Unser Ziel ist immer deine Sicherheit, nicht eine bestimmte Stundenzahl.</p>
+                </details>
+                <details>
+                    <summary>Sind die Sonderfahrten in der Ersparnis schon mitgerechnet?</summary>
+                    <p>Nein. Die gesetzlich vorgeschriebenen 12 Sonderfahrten (Autobahn, Überland, Nachtfahrt) sind fix und müssen von jedem absolviert werden. Unsere Ersparnis bezieht sich rein auf die variablen Übungsfahrten, wo die größten Kostenunterschiede entstehen.</p>
+                </details>
+            </div>
+
+            <p>Fühlen Sie sich bereit, den cleveren Weg zum Führerschein zu gehen? Holen Sie sich als ersten Schritt <a href="#">unsere kostenlose Anti-Chaos-Checkliste</a>, um bei der Wahl Ihrer Fahrschule die richtigen Fragen zu stellen und Kostenfallen von vornherein zu vermeiden.</p>
+
+            <hr style="margin-top: 40px; border: 1px solid #f0f0f0;">
+            <p><strong>Welche Erfahrungen habt ihr mit den Kosten beim Führerschein gemacht? Teilt eure Tipps zum Sparen in den Kommentaren!</strong></p>
+
+        </article>
+    </div>
+
+    <script>
+        // DOM-Elemente abrufen für den Rechner
+        const baseLessonsInput = document.getElementById('baseLessons');
+        const savingSimulator = document.getElementById('savingSimulator');
+        const savingActions = document.getElementById('savingActions');
+        const savingNoGaps = document.getElementById('savingNoGaps');
+        const savingHomeGame = document.getElementById('savingHomeGame');
+        
+        const totalSavedLessonsEl = document.getElementById('totalSavedLessons');
+        const standardCostEl = document.getElementById('standardCost');
+        const ghCostEl = document.getElementById('ghCost');
+        const savingsEl = document.getElementById('savings');
+
+        // NEUE KONSTANTEN FÜR REALISTISCHE KOSTEN
+        const PRICE_PER_LESSON = 60; // Preis pro (Übungs- oder Sonder-) Fahrstunde
+        const BASIC_FEE = 450; // Grundbetrag (Anmeldung, Theorie)
+        const SPECIAL_LESSONS_COUNT = 12; // Gesetzlich vorgeschriebene Sonderfahrten (Autobahn, Nacht, Überland)
+        const EXAM_FEE = 150; // Geschätzte Prüfungsgebühren (Vorstellung zur praktischen Prüfung)
+        
+        /**
+         * Behandelt das Erhöhen/Verringern der Input-Werte durch die Stepper-Buttons.
+         */
+        function handleStepper(event) {
+            const target = event.currentTarget;
+            const inputId = target.getAttribute('data-input-id');
+            const inputEl = document.getElementById(inputId);
+            
+            if (!inputEl) return;
+            
+            let currentValue = parseInt(inputEl.value) || 0;
+            const min = parseInt(inputEl.min) || 0;
+            const max = parseInt(inputEl.max) || Infinity;
+            
+            if (target.classList.contains('plus')) {
+                // Wert erhöhen, Max-Grenze beachten
+                if (currentValue < max) {
+                    inputEl.value = currentValue + 1;
+                }
+            } else if (target.classList.contains('minus')) {
+                // Wert verringern, Min-Grenze beachten
+                if (currentValue > min) {
+                    inputEl.value = currentValue - 1;
+                }
+            }
+            
+            // Kosten neu berechnen
+            calculateCosts();
+        }
+
+        /**
+         * Berechnet und aktualisiert die Kosten und die Ersparnis basierend auf den vier Sparfaktoren.
+         */
+        function calculateCosts() {
+            // 1. Inputs auslesen und sicherstellen, dass sie Zahlen sind (Standardwert 0 falls leer)
+            const baseLessons = parseInt(baseLessonsInput.value) || 0; // Variable Übungsstunden
+            const savedSim = parseInt(savingSimulator.value) || 0;
+            const savedAct = parseInt(savingActions.value) || 0;
+            const savedGap = parseInt(savingNoGaps.value) || 0;
+            const savedHome = parseInt(savingHomeGame.value) || 0;
+            
+            // 2. Gesamtgesparte Stunden berechnen (betrifft NUR variable Übungsstunden)
+            const totalSavedLessons = savedSim + savedAct + savedGap + savedHome;
+            
+            // 3. Kostenberechnung
+            
+            // Feste Kosten, die immer anfallen
+            const fixedCost = BASIC_FEE + EXAM_FEE;
+            // Kosten für die Sonderfahrten (immer 12)
+            const specialLessonsCost = SPECIAL_LESSONS_COUNT * PRICE_PER_LESSON;
+            
+            // --- Standard-Kosten (ohne Sparfaktoren) ---
+            // Kosten für alle Übungsstunden (variabel)
+            const baseLessonsCostStandard = baseLessons * PRICE_PER_LESSON;
+            const standardCost = baseLessonsCostStandard + specialLessonsCost + fixedCost; 
+            
+            // --- Kosten mit Effizienzsystem ---
+            // Verbleibende variable Übungsstunden (darf nicht negativ sein)
+            const ghLessonsVariable = Math.max(0, baseLessons - totalSavedLessons); 
+            // Kosten für die verbleibenden Übungsstunden
+            const baseLessonsCostGH = ghLessonsVariable * PRICE_PER_LESSON;
+            // Gesamtkosten mit System
+            const ghCost = baseLessonsCostGH + specialLessonsCost + fixedCost;
+            
+            // Gesamte Ersparnis (nur durch die eingesparten variablen Stunden)
+            // Die Ersparnis wird durch die tatsächlich gesparten Stunden berechnet, aber auf die verfügbaren Übungsstunden begrenzt
+            const actualSavedLessons = Math.min(baseLessons, totalSavedLessons);
+            const savings = actualSavedLessons * PRICE_PER_LESSON;
+
+            // 4. Anzeige der Ergebnisse
+            
+            // Formatierungshilfe für die deutsche Anzeige (Tausendertrenner und Komma, OHNE Dezimalstellen)
+            const formatCurrency = (value) => value.toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+            totalSavedLessonsEl.textContent = `${actualSavedLessons} Stunde${actualSavedLessons === 1 ? '' : 'n'}`; // Hier actualSavedLessons verwenden
+            standardCostEl.textContent = `${formatCurrency(standardCost)} €`;
+            ghCostEl.textContent = `${formatCurrency(ghCost)} €`;
+            
+            savingsEl.innerHTML = `Deine potenzielle Kostenersparnis beträgt: <strong>${formatCurrency(savings)} €</strong>`;
+            
+            // Optionaler Hinweis, falls die gesparten Stunden die Basisstunden übersteigen
+            if (totalSavedLessons > baseLessons && baseLessons > 0) {
+                 savingsEl.innerHTML += `<div style="font-size: 0.8rem; margin-top: 5px; color: var(--danger-red); font-weight: 400;">(Hinweis: Die Ersparnis ist auf die geschätzte Basisstundenzahl begrenzt.)</div>`;
+            }
+        }
+        
+        // Initialer Aufruf zur Anzeige der Standardwerte und Hinzufügen der Event-Listener nach dem Laden des DOM
+        window.onload = function() {
+            calculateCosts();
+            
+            // Füge Event-Listener zu allen Stepper-Buttons hinzu
+            document.querySelectorAll('.stepper-btn').forEach(button => {
+                button.addEventListener('click', handleStepper);
+            });
+            
+            // Behalte Event-Listener für manuelle Eingabe bei
+            document.getElementById('baseLessons').addEventListener('input', calculateCosts);
+            document.getElementById('savingSimulator').addEventListener('input', calculateCosts);
+            document.getElementById('savingActions').addEventListener('input', calculateCosts);
+            document.getElementById('savingNoGaps').addEventListener('input', calculateCosts);
+            document.getElementById('savingHomeGame').addEventListener('input', calculateCosts);
+
+            // --- Script for Quiz ---
+            const quizData = [
+                { question: "Sie nähern sich einer Kreuzung ohne Ampeln und Verkehrszeichen. Von rechts kommt ein anderes Fahrzeug. Wie verhalten Sie sich?", answer: "c", options: { a: "Ich habe Vorfahrt, da ich auf der breiteren Straße fahre.", b: "Ich hupe, um auf mich aufmerksam zu machen und fahre weiter.", c: "Ich gewähre dem Fahrzeug von rechts die Vorfahrt.", d: "Wer zuerst an der Kreuzung ist, darf zuerst fahren."}},
+                { question: "Sie fahren außerorts 100 km/h auf trockener Fahrbahn. Welchen Mindestabstand zum vorausfahrenden Fahrzeug sollten Sie einhalten?", answer: "b", options: { a: "Ca. 15 Meter (eine Fahrzeuglänge).", b: "Ca. 50 Meter (halber Tachowert).", c: "Ca. 100 Meter (voller Tachowert).", d: "Der Abstand spielt keine Rolle, solange ich bremsbereit bin."}},
+                { question: "Was bedeutet das \"Reißverschlussverfahren\"?", answer: "b", options: { a: "Alle Fahrzeuge auf der linken Spur haben absolute Vorfahrt.", b: "Fahrzeuge müssen sich abwechselnd direkt am Hindernis einordnen.", c: "Man muss so früh wie möglich auf die freie Spur wechseln.", d: "LKWs müssen immer bis zum Ende warten."}},
+                { question: "Wann dürfen Sie die Nebelschlussleuchte einschalten?", answer: "c", options: {a: "Bei jeder Art von Nebel, um besser gesehen zu werden.", b: "Nur bei starkem Regen oder Schneefall.", c: "Nur wenn die Sichtweite durch Nebel unter 50 Meter beträgt.", d: "Wenn das vorausfahrende Fahrzeug sie auch eingeschaltet hat."}},
+                { question: "Ein Bus mit eingeschaltetem Warnblinklicht steht an einer Haltestelle. Sie nähern sich in dieselbe Richtung. Wie müssen Sie sich verhalten?", answer: "c", options: {a: "Mit mäßiger Geschwindigkeit vorbeifahren.", b: "Anhalten und warten, bis der Bus weiterfährt.", c: "Nur mit Schrittgeschwindigkeit vorbeifahren, auch auf der Gegenfahrbahn.", d: "Hupen, um Fußgänger zu warnen und dann normal weiterfahren."}}
+            ];
+
+            let currentPage = 1;
+            const totalPages = quizData.length;
+            const userAnswers = {};
+
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            function showPage(pageNumber) {
+                document.querySelectorAll('.quiz-page').forEach(page => page.classList.remove('active'));
+                document.getElementById(`page${pageNumber}`).classList.add('active');
+
+                prevBtn.disabled = pageNumber === 1;
+                nextBtn.style.display = pageNumber === totalPages ? 'none' : 'inline-block';
+                submitBtn.style.display = pageNumber === totalPages ? 'inline-block' : 'none';
+            }
+
+            function navigateQuiz(direction) {
+                // Save answer before navigating
+                const currentPageElement = document.querySelector('.quiz-page.active');
+                const questionName = `q${currentPage}`;
+                const selectedOption = currentPageElement.querySelector(`input[name="${questionName}"]:checked`);
+                if (selectedOption) {
+                    userAnswers[questionName] = selectedOption.value;
+                }
+
+                currentPage += direction;
+                if (currentPage < 1) currentPage = 1;
+                if (currentPage > totalPages) currentPage = totalPages;
+                showPage(currentPage);
+            }
+
+            function submitQuiz() {
+                // Save answer of the last page
+                const currentPageElement = document.querySelector('.quiz-page.active');
+                const questionName = `q${currentPage}`;
+                const selectedOption = currentPageElement.querySelector(`input[name="${questionName}"]:checked`);
+                if (selectedOption) {
+                    userAnswers[questionName] = selectedOption.value;
+                }
+
+                let score = 0;
+                const solutionsContainer = document.getElementById('solutions-container');
+                solutionsContainer.innerHTML = ''; // Clear previous results
+
+                quizData.forEach((item, index) => {
+                    const questionNum = index + 1;
+                    const questionName = `q${questionNum}`;
+                    const correctAnswer = item.answer;
+                    const userAnswer = userAnswers[questionName];
+                    
+                    const solutionDiv = document.createElement('div');
+                    solutionDiv.classList.add('solution');
+                    
+                    let solutionHTML = `<p><strong>Frage ${questionNum}:</strong> ${item.question}</p>`;
+                    if (userAnswer === correctAnswer) {
+                        score++;
+                        solutionDiv.classList.add('correct');
+                        solutionHTML += `<p>Deine Antwort: "${item.options[userAnswer]}"</p><p><em>&#10003; Korrekt!</em></p>`;
+                    } else {
+                        solutionDiv.classList.add('incorrect');
+                        const userAnswerText = userAnswer ? `"${item.options[userAnswer]}"` : "Keine Antwort gegeben";
+                        solutionHTML += `<p>Deine Antwort: ${userAnswerText}</p>`;
+                        solutionHTML += `<p>Richtige Antwort: "${item.options[correctAnswer]}"</p>`;
+                    }
+                    solutionDiv.innerHTML = solutionHTML;
+                    solutionsContainer.appendChild(solutionDiv);
+                });
+                
+                document.getElementById('quizForm').style.display = 'none';
+                document.getElementById('results-screen').style.display = 'block';
+                document.getElementById('score-text').textContent = `Du hast ${score} von ${totalPages} Fragen richtig beantwortet!`;
+            }
+            
+            function restartQuiz() {
+                currentPage = 1;
+                for (let key in userAnswers) {
+                    delete userAnswers[key];
+                }
+                document.getElementById('quizForm').reset();
+                document.getElementById('quizForm').style.display = 'block';
+                document.getElementById('results-screen').style.display = 'none';
+                showPage(1);
+            }
+
+            // Initial call for quiz
+            showPage(currentPage);
+        }
+    </script>
+
+</body>
+</html>
