@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kispace GmbH - Web-Entwicklung, E-Commerce & KI-Automatisierung</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-color: #111827;
+            background-image:
+                radial-gradient(at 47% 33%, hsl(209.7, 89%, 35%) 0px, transparent 50%),
+                radial-gradient(at 82% 65%, hsl(282.6, 75%, 30%) 0px, transparent 50%);
+        }
+        .section-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1), transparent 70%);
+            transform: translate(-50%, -50%);
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                <span>kispace</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#leistungen" class="text-gray-300 hover:text-purple-400 transition-colors">Leistungen</a>
+                <a href="#prozess" class="text-gray-300 hover:text-purple-400 transition-colors">Unser Prozess</a>
+                <a href="#ueber-uns" class="text-gray-300 hover:text-purple-400 transition-colors">Über Uns</a>
+                <a href="#kontakt" class="text-gray-300 hover:text-purple-400 transition-colors">Kontakt</a>
+            </nav>
+            <a href="#kontakt" class="hidden md:inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-lg transition-transform hover:scale-105">
+                Erstgespräch vereinbaren
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg pt-32 pb-20 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                    Wir entwickeln die digitalen Lösungen, <br class="hidden md:block"> die Ihr Unternehmen voranbringen.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    Von maßgeschneiderten Webanwendungen und Onlineshops bis hin zu intelligenten KI-Agenten – wir sind Ihr Partner für Entwicklung, E-Commerce und Automatisierung.
+                </p>
+                <a href="#kontakt" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-10 rounded-lg text-lg transition-transform hover:scale-105 inline-block">
+                    Jetzt Potenziale entdecken
+                </a>
+                <div class="mt-16 mx-auto max-w-5xl">
+                    <div class="bg-gray-800/50 rounded-xl shadow-2
+
