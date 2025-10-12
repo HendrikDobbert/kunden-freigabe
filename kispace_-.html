@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kispace GmbH - KI-gestützte Prozessoptimierung</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-color: #111827;
+            background-image:
+                radial-gradient(at 47% 33%, hsl(209.7, 89%, 35%) 0px, transparent 50%),
+                radial-gradient(at 82% 65%, hsl(282.6, 75%, 30%) 0px, transparent 50%);
+        }
+        .section-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.1), transparent 70%);
+            transform: translate(-50%, -50%);
+            filter: blur(100px);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                <span>kispace</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#leistungen" class="text-gray-300 hover:text-purple-400 transition-colors">Leistungen</a>
+                <a href="#prozess" class="text-gray-300 hover:text-purple-400 transition-colors">Unser Prozess</a>
+                <a href="#ueber-uns" class="text-gray-300 hover:text-purple-400 transition-colors">Über Uns</a>
+                <a href="#kontakt" class="text-gray-300 hover:text-purple-400 transition-colors">Kontakt</a>
+            </nav>
+            <a href="#kontakt" class="hidden md:inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-lg transition-transform hover:scale-105">
+                Erstgespräch vereinbaren
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg pt-32 pb-20 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                    Wir transformieren Ihre Prozesse <br class="hidden md:block"> mit intelligenter KI.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    Die kispace GmbH entwickelt in interdisziplinären Arbeitskreisen maßgeschneiderte, KI-gestützte Tools, um Ihre internen Unternehmensprozesse nachhaltig zu automatisieren und zu optimieren.
+                </p>
+                <a href="#kontakt" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-10 rounded-lg text-lg transition-transform hover:scale-105 inline-block">
+                    Potenziale entdecken
+                </a>
+                 <!--  -->
+                <div class="mt-16 mx-auto max-w-5xl">
+                    <div class="bg-gray-800/50 rounded-xl shadow-2xl p-4 border border-gray-700">
+                        <img src="https://placehold.co/1000x500/1F2937/A78BFA?text=KI-Dashboard+Visualisierung" alt="Visualisierung eines KI-Dashboards" class="rounded-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leistungen Section -->
+        <section id="leistungen" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Unsere Kernkompetenzen</h2>
+                <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Vom ersten Workshop bis zur fertigen Lösung – wir begleiten Sie auf dem Weg zur intelligenten Automatisierung.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="bg-purple-600/20 text-purple-400 rounded-lg w-12 h-12 flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Prozessanalyse & -beratung</h3>
+                        <p class="text-gray-400">Wir identifizieren gemeinsam mit Ihnen die Prozesse mit dem größten Automatisierungspotenzial durch den Einsatz von KI.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+                         <div class="bg-purple-600/20 text-purple-400 rounded-lg w-12 h-12 flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Individuelle KI-Tool Entwicklung</h3>
+                        <p class="text-gray-400">Unsere Experten konzipieren und entwickeln maßgeschneiderte KI-Lösungen, die perfekt auf Ihre spezifischen Anforderungen zugeschnitten sind.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-purple-500 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+                         <div class="bg-purple-600/20 text-purple-400 rounded-lg w-12 h-12 flex items-center justify-center mb-4 mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Implementierung & Support</h3>
+                        <p class="text-gray-400">Wir sorgen für eine nahtlose Integration in Ihre bestehende IT-Infrastruktur und stehen Ihnen auch nach dem Go-Live zur Seite.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prozess Section -->
+        <section id="prozess" class="py-20 bg-gray-900/50 relative section-glow">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Unser kollaborativer Prozess</h2>
+                    <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Transparenz und enge Zusammenarbeit sind die Grundpfeiler unseres Erfolgs. So bringen wir Ihre Ideen zur Umsetzung.</p>
+                </div>
+                <div class="relative">
+                    <!-- Zeitlinie -->
+                    <div class="hidden md:block absolute top-5 left-1/2 w-0.5 h-full -translate-x-1/2 bg-gray-700"></div>
+                    
+                    <!-- Schritte -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                        <!-- Schritt 1 -->
+                        <div class="md:text-right">
+                             <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                                <span class="text-purple-400 font-bold">Schritt 1</span>
+                                <h3 class="text-xl font-bold text-white mt-1 mb-2">Workshop & Analyse</h3>
+                                <p class="text-gray-400">In einem interdisziplinären Workshop tauchen wir tief in Ihre Prozesse ein, verstehen Ihre Herausforderungen und definieren klare Ziele.</p>
+                            </div>
+                        </div>
+                        <div></div>
+                        
+                        <!-- Schritt 2 -->
+                        <div></div>
+                         <div class="md:text-left">
+                             <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                                <span class="text-purple-400 font-bold">Schritt 2</span>
+                                <h3 class="text-xl font-bold text-white mt-1 mb-2">Konzeption & Prototyping</h3>
+                                <p class="text-gray-400">Wir erstellen ein detailliertes Lösungskonzept und entwickeln einen ersten Prototypen, um die Funktionalität frühzeitig zu validieren.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Schritt 3 -->
+                        <div class="md:text-right">
+                             <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                                <span class="text-purple-400 font-bold">Schritt 3</span>
+                                <h3 class="text-xl font-bold text-white mt-1 mb-2">Agile Entwicklung</h3>
+                                <p class="text-gray-400">In agilen Sprints entwickeln wir Ihre KI-Anwendung. Sie erhalten regelmäßige Updates und können jederzeit Feedback geben.</p>
+                            </div>
+                        </div>
+                        <div></div>
+                        
+                        <!-- Schritt 4 -->
+                        <div></div>
+                        <div class="md:text-left">
+                             <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                                <span class="text-purple-400 font-bold">Schritt 4</span>
+                                <h3 class="text-xl font-bold text-white mt-1 mb-2">Integration & Skalierung</h3>
+                                <p class="text-gray-400">Nach erfolgreichen Tests implementieren wir die Lösung in Ihr System und stellen sicher, dass sie reibungslos und skalierbar läuft.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Über Uns Section -->
+        <section id="ueber-uns" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                         <!--  -->
+                        <img src="https://placehold.co/600x400/1F2937/A78BFA?text=Unser+Team+bei+kispace" alt="Das Team von kispace in einer Besprechung" class="rounded-xl shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Die Köpfe hinter dem Code.</h2>
+                        <p class="text-gray-400 mb-6 text-lg">
+                           kispace wurde aus der Überzeugung gegründet, dass die besten Lösungen an der Schnittstelle verschiedener Disziplinen entstehen. Unser Team besteht aus KI-Spezialisten, Prozessmanagern, Softwareentwicklern und Designern, die ihre vielfältigen Perspektiven bündeln, um wirklich innovative Werkzeuge zu schaffen.
+                        </p>
+                        <p class="text-gray-400">
+                            Wir sind mehr als nur ein Dienstleister – wir sind Ihr Partner auf der Reise zur digitalen Transformation. Wir glauben an offene Kommunikation, Transparenz und den gemeinsamen Erfolg.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt Section -->
+        <section id="kontakt" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="bg-gray-900 rounded-xl p-8 md:p-12 lg:p-16 border border-gray-700 shadow-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Bereit, Ihre Prozesse zu revolutionieren?</h2>
+                            <p class="text-gray-400 mb-6">Lassen Sie uns in einem unverbindlichen Gespräch herausfinden, wie KI Ihr Unternehmen voranbringen kann. Füllen Sie das Formular aus oder kontaktieren Sie uns direkt.</p>
+                            <div class="space-y-4 text-gray-300">
+                                <p class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-purple-400"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    Musterstraße 1, 12345 Musterstadt
+                                </p>
+                                <p class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-purple-400"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                    hallo@kispace.de
+                                </p>
+                            </div>
+                        </div>
+                        <form id="contact-form">
+                            <div class="space-y-4">
+                                <input type="text" placeholder="Ihr Name" class="w-full bg-gray-800 border border-gray-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                                <input type="email" placeholder="Ihre E-Mail-Adresse" class="w-full bg-gray-800 border border-gray-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                                <textarea placeholder="Ihre Nachricht" rows="5" class="w-full bg-gray-800 border border-gray-600 rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-purple-500" required></textarea>
+                                <button type="submit" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                                    Nachricht senden
+                                </button>
+                            </div>
+                            <p id="form-message" class="text-center mt-4"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <p class="text-gray-400">&copy; 2025 kispace GmbH i.G. Alle Rechte vorbehalten.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Impressum</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Contact form submission handling
+        const form = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            formMessage.textContent = 'Vielen Dank! Ihre Nachricht wird gesendet...';
+            formMessage.classList.remove('text-red-400');
+            formMessage.classList.add('text-green-400');
+
+            // Simulate form submission
+            setTimeout(() => {
+                formMessage.textContent = 'Ihre Nachricht wurde erfolgreich versendet.';
+                form.reset();
+                 setTimeout(() => {
+                    formMessage.textContent = '';
+                }, 5000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
