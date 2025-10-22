@@ -16,13 +16,64 @@
         .insta-username { font-weight: 700; margin-left: 10px; }
         .carousel-container { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; }
         .carousel-slides { display: flex; height: 100%; transition: transform 0.3s ease-in-out; }
-        .carousel-slide { flex: 0 0 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; text-align: center; }
+        
+        .carousel-slide { 
+            flex: 0 0 100%; 
+            height: 100%; 
+            display: flex; 
+            flex-direction: column; /* Anordnung von Bild und Text */
+            justify-content: center; 
+            align-items: center; 
+            padding: 20px; 
+            box-sizing: border-box; 
+            text-align: center; 
+        }
+
+        /* NEU: Bild-Container Stile */
+        .image-container {
+            width: 100%;
+            height: 50%; /* Bild nimmt die obere Hälfte ein */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Für abgerundete Ecken */
+            border-radius: 15px; /* Abrundung der Ecken */
+            margin-bottom: 15px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Bild füllt den Container aus und wird zugeschnitten */
+            border-radius: 15px; /* Abrundung der Bildecken */
+        }
+
+        /* NEU: Text-Content Stile */
+        .text-content {
+            flex-grow: 1; /* Text nimmt den restlichen Platz ein */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        /* Farbschemata der Slides */
         .slide-title { background-color: #1a2c48; color: white; }
         .slide-mythos { background-color: #ffebee; color: #c62828; }
         .slide-fakt { background-color: #e8f5e9; color: #2e7d32; }
+        .slide-cta { background-color: #009ee2; color: white; } /* Für den letzten Slide */
+
         .carousel-slide h3, .carousel-slide p { font-family: 'Poppins', sans-serif; font-weight: 900; margin: 0; }
         .carousel-slide h3 { font-size: 2rem; text-transform: uppercase; }
         .carousel-slide p { font-size: 1.5rem; line-height: 1.4; }
+        
+        /* Spezielle Anpassungen für Titel-Slide, falls Bild unten oder kein Bild */
+        .slide-title .text-content { height: auto; margin-bottom: 0; } /* Text über Bild */
+        .slide-title .image-container { height: 50%; border-radius: 0; margin-bottom: 0; } /* Bild unten, keine Abrundung zum Text */
+        .slide-title img { border-top-left-radius: 0; border-top-right-radius: 0; } /* Nur untere Ecken des Bildes abrunden */
+
+
         .dots-container { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
         .dot { width: 6px; height: 6px; border-radius: 50%; background-color: #a8a8a8; transition: background-color 0.3s; }
         .dot.active { background-color: #0095f6; }
@@ -43,12 +94,64 @@
             </div>
             <div class="carousel-container">
                 <div class="carousel-slides">
-                    <div class="carousel-slide slide-title"><h3>Prüfungs-Mythen</h3></div>
-                    <div class="carousel-slide slide-mythos"><h3>Mythos</h3><p>"Der Prüfer will dich durchfallen lassen."</p></div>
-                    <div class="carousel-slide slide-fakt"><h3>Fakt</h3><p>"Der Prüfer will Sicherheit sehen. Darauf bereiten wir dich perfekt vor."</p></div>
-                    <div class="carousel-slide slide-mythos"><h3>Mythos</h3><p>"Man muss perfekt fahren, um zu bestehen."</p></div>
-                    <div class="carousel-slide slide-fakt"><h3>Fakt</h3><p>"Du musst sicher und vorausschauend fahren. Kleine Fehler sind menschlich."</p></div>
-                    <div class="carousel-slide slide-title" style="background-color: #009ee2;"><h3>Du bist bereit!</h3></div>
+                    <div class="carousel-slide slide-title" style="flex-direction: column;">
+                        <div class="text-content" style="height: auto; margin-bottom: 20px;">
+                            <h3>Prüfungs-Mythen</h3>
+                        </div>
+                        <div class="image-container" style="height: 50%;">
+                            <img src="../Bilder/INSTA_012-slide-01.png" alt="Kollision von Fragezeichen und Ausrufezeichen">
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide slide-mythos">
+                        <div class="image-container">
+                            <img src="../Bilder/INSTA_012-slide-02.png" alt="Karikatur eines grimmigen Prüfers">
+                        </div>
+                        <div class="text-content">
+                            <h3>Mythos</h3>
+                            <p>"Der Prüfer will dich durchfallen lassen."</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide slide-fakt">
+                        <div class="image-container">
+                            <img src="../Bilder/INSTA_012-slide-03.png" alt="Illustration eines freundlichen Prüfers und bestandener Prüfung">
+                        </div>
+                        <div class="text-content">
+                            <h3>Fakt</h3>
+                            <p>"Der Prüfer will Sicherheit sehen. Darauf bereiten wir dich perfekt vor."</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide slide-mythos">
+                        <div class="image-container">
+                            <img src="../Bilder/INSTA_012-slide-04.png" alt="Auto balanciert auf einem Seil als Symbol für Perfektion">
+                        </div>
+                        <div class="text-content">
+                            <h3>Mythos</h3>
+                            <p>"Man muss perfekt fahren, um zu bestehen."</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide slide-fakt">
+                        <div class="image-container">
+                            <img src="../Bilder/INSTA_012-slide-05.png" alt="Illustration von Sicherheit und Voraussicht">
+                        </div>
+                        <div class="text-content">
+                            <h3>Fakt</h3>
+                            <p>"Du musst sicher und vorausschauend fahren. Kleine Fehler sind menschlich."</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide slide-cta" style="flex-direction: column;">
+                        <div class="text-content" style="height: auto;">
+                            <h3>Du bist bereit!</h3>
+                            <p style="font-family: 'Roboto', sans-serif; font-weight: 400; font-size: 1rem; line-height: 1.5;">Mit der richtigen Vorbereitung und dem Wissen, was wirklich zählt, gehst du mit Selbstvertrauen in deine Prüfung.</p>
+                        </div>
+                        <div class="image-container" style="height: 40%; margin-top: 20px;">
+                            <img src="../Bilder/INSTA_012-slide-06.png" alt="CTA Bild - Bereit für die Prüfung">
+                        </div>
+                    </div>
                 </div>
                 <div class="dots-container"></div>
             </div>
@@ -68,15 +171,58 @@
         const slideCount = document.querySelectorAll('.carousel-slide').length;
         const dotsContainer = document.querySelector('.dots-container');
         let currentIndex = 0;
-        for (let i = 0; i < slideCount; i++) { const dot = document.createElement('div'); dot.classList.add('dot'); if (i === 0) dot.classList.add('active'); dotsContainer.appendChild(dot); }
+        
+        // Dots erstellen
+        for (let i = 0; i < slideCount; i++) { 
+            const dot = document.createElement('div'); 
+            dot.classList.add('dot'); 
+            if (i === 0) dot.classList.add('active'); 
+            dotsContainer.appendChild(dot); 
+        }
         const dots = document.querySelectorAll('.dot');
-        function updateDots() { dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentIndex); }); }
-        function goToSlide(index) { if (index < 0) index = 0; if (index >= slideCount) index = slideCount - 1; slides.style.transform = `translateX(-${index * 100}%)`; currentIndex = index; updateDots(); }
-        let touchstartX = 0; let touchendX = 0;
+        
+        // Dots aktualisieren
+        function updateDots() { 
+            dots.forEach((dot, index) => { 
+                dot.classList.toggle('active', index === currentIndex); 
+            }); 
+        }
+        
+        // Zu einem bestimmten Slide wechseln
+        function goToSlide(index) { 
+            if (index < 0) index = 0; 
+            if (index >= slideCount) index = slideCount - 1; 
+            slides.style.transform = `translateX(-${index * 100}%)`; 
+            currentIndex = index; 
+            updateDots(); 
+        }
+        
+        // Swipe-Funktionalität
+        let touchstartX = 0; 
+        let touchendX = 0;
         const carouselContainer = document.querySelector('.carousel-container');
-        carouselContainer.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; }, { passive: true });
-        carouselContainer.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleSwipe(); });
-        function handleSwipe() { if (touchendX < touchstartX) { if (currentIndex < slideCount - 1) { goToSlide(currentIndex + 1); } } if (touchendX > touchstartX) { if (currentIndex > 0) { goToSlide(currentIndex - 1); } } }
+        
+        carouselContainer.addEventListener('touchstart', e => { 
+            touchstartX = e.changedTouches[0].screenX; 
+        }, { passive: true });
+        
+        carouselContainer.addEventListener('touchend', e => { 
+            touchendX = e.changedTouches[0].screenX; 
+            handleSwipe(); 
+        });
+        
+        function handleSwipe() { 
+            if (touchendX < touchstartX) { // Nach links wischen
+                if (currentIndex < slideCount - 1) { 
+                    goToSlide(currentIndex + 1); 
+                } 
+            } 
+            if (touchendX > touchstartX) { // Nach rechts wischen
+                if (currentIndex > 0) { 
+                    goToSlide(currentIndex - 1); 
+                } 
+            } 
+        }
     </script>
 </body>
 </html>
