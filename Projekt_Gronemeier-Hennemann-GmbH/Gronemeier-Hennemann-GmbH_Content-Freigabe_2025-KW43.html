@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finale Content-Freigabe: KW 43 (Oktober 2025)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://fahrschule-in-dortmund.de/assets/images/5/fahrschule-gronemeier-hennemann-logo-zeilen-7af28125.svg" sizes="32x32">
+
+    <style>
+        :root {
+            --ci-dark-blue: #1a2c48;
+            --ci-bright-blue: #009ee2;
+            --ci-green-approve: #28a745;
+            --ci-grey-approved: #6c757d;
+            --ci-red-reset: #dc3545;
+            --ci-text-dark: #333;
+            --ci-text-light: #666;
+            --ci-background-light: #f4f7f6;
+            --ci-background-white: #ffffff;
+            --ci-border-color: #e0e0e0;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--ci-background-light);
+            color: var(--ci-text-light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .brochure {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--ci-background-white);
+            border: 1px solid var(--ci-border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header {
+            background-color: var(--ci-dark-blue);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+        .header img {
+            max-height: 60px;
+            margin-bottom: 15px;
+        }
+        .header h1 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 28px;
+            margin: 0;
+        }
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid var(--ci-border-color);
+        }
+        .section:last-child { border-bottom: none; }
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 20px;
+            color: var(--ci-bright-blue);
+            border-bottom: 2px solid var(--ci-bright-blue);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        /* Freigabe-Tabelle */
+        .responsive-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .responsive-table th {
+            padding: 12px;
+            border-bottom: 2px solid var(--ci-border-color);
+            text-align: left;
+            font-family: 'Oswald', sans-serif;
+        }
+        .responsive-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--ci-border-color);
+            vertical-align: middle;
+        }
+        .responsive-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .asset-title {
+            display: block;
+            color: var(--ci-text-dark);
+            font-weight: 700;
+        }
+        .asset-description {
+            font-size: 14px;
+        }
+        
+        /* Interaktive Elemente */
+        .view-button {
+            display: inline-block;
+            background-color: var(--ci-dark-blue);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+        .view-button:hover {
+            background-color: #2c4a75;
+        }
+        .feedback-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 40px;
+        }
+        .approval-checkbox { display: none; }
+        .approval-label {
+            display: inline-block;
+            background-color: var(--ci-green-approve);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            min-width: 90px;
+            box-sizing: border-box;
+        }
+        .approval-label .text-approve { display: inline; }
+        .approval-label .text-approved { display: none; }
+        .approval-checkbox:checked + .approval-label {
+            background-color: var(--ci-grey-approved);
+        }
+        .approval-checkbox:checked + .approval-label .text-approve { display: none; }
+        .approval-checkbox:checked + .approval-label .text-approved { display: inline; }
+        
+        .rating { display: flex; flex-direction: row-reverse; justify-content: center; }
+        .rating input { display: none; }
+        .rating label { font-size: 22px; color: #ccc; cursor: pointer; transition: color 0.2s; padding: 0 2px; }
+        .rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label { color: #FFD700; }
+
+        /* Buttons am Ende */
+        .footer-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--ci-border-color);
+        }
+        .footer-button {
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            flex-grow: 0;
+        }
+        .footer-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .reset-button {
+            background-color: var(--ci-background-white);
+            color: var(--ci-red-reset);
+            border: 2px solid var(--ci-red-reset);
+        }
+        .reset-button:hover {
+            background-color: var(--ci-red-reset);
+            color: white;
+        }
+        .submit-global-button {
+            background-color: var(--ci-bright-blue);
+            color: #ffffff;
+            border: 2px solid var(--ci-bright-blue);
+        }
+        .submit-global-button:hover {
+            background-color: #007bb5;
+            border-color: #007bb5;
+        }
+        
+        /* Content-Funnel */
+        .content-funnel {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .funnel-stage {
+            background-color: #f9f9f9;
+            border: 1px solid var(--ci-border-color);
+            border-radius: 8px;
+        }
+        .funnel-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background-color: #f0f8ff;
+            border-bottom: 1px solid var(--ci-border-color);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .funnel-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        .funnel-stage-title {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            color: var(--ci-dark-blue);
+        }
+        .funnel-body {
+            padding: 20px;
+        }
+        .funnel-content-piece {
+            font-weight: 700;
+            color: var(--ci-text-dark);
+            margin-top: 0;
+        }
+        .funnel-explanation {
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        /* Progress Bar & Feedback Messages */
+        #successMessage, #errorMessage { display: none; text-align:center; padding: 12px; margin-top: 20px; border-radius: 8px; font-weight: bold; }
+        #successMessage { color: #0f5132; background-color: #d1e7dd; border: 1px solid #badbcc; }
+        #errorMessage { color: #842029; background-color: #f8d7da; border: 1px solid #f5c2c7; }
+        
+        .progress-container {
+            margin-bottom: 25px;
+            margin-top: 15px;
+        }
+        .progress-bar-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--ci-text-dark);
+        }
+        .progress-bar-background {
+            background-color: var(--ci-border-color);
+            border-radius: 10px;
+            height: 12px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .progress-bar-fill {
+            background: linear-gradient(90deg, var(--ci-bright-blue), #00bfff);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease-in-out;
+        }
+        .progress-bar-labels {
+             display: flex; 
+             justify-content: space-between; 
+             font-size: 12px; 
+             margin-top: 4px;
+             color: var(--ci-text-light);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .header {
+                padding: 20px 15px;
+            }
+            .header img {
+                max-height: 50px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .header p {
+                font-size: 14px;
+            }
+            .section {
+                padding: 20px 15px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            .responsive-table thead {
+                display: none;
+            }
+            .responsive-table tr {
+                display: block;
+                border: 1px solid var(--ci-border-color);
+                border-radius: 8px;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+            .responsive-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 15px;
+                border-bottom: 1px solid var(--ci-border-color);
+                text-align: right;
+            }
+            .responsive-table tr td:last-child {
+                border-bottom: none;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                text-align: left;
+                margin-right: 15px;
+                color: var(--ci-text-dark);
+            }
+            
+            .responsive-table td[data-label="Inhalt"] {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+             .responsive-table td[data-label="Inhalt"]::before {
+                margin-bottom: 8px;
+            }
+            .responsive-table td[data-label="Änderungswunsch"] {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .responsive-table td[data-label="Änderungswunsch"]::before {
+                 margin-bottom: 8px;
+            }
+            .feedback-textarea {
+                min-height: 60px;
+            }
+            .rating {
+                justify-content: flex-end;
+            }
+
+            .footer-button-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-button {
+                width: 100%;
+                padding: 15px;
+                font-size: 15px;
+            }
+            .submit-global-button {
+                order: -1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="brochure">
+        <header class="header">
+            <img src="https://fahrschule-in-dortmund.de/assets/images/b/fahrschule-gronemeier-hennemann-logo-755aefb5.svg" alt="Kundenlogo">
+            <h1>Content-Freigabe: KW 43</h1>
+            <p>Kampagne: SOMMER_2025 | Fokus: Prüfungsangst & Heimvorteil</p>
+        </header>
+
+        <section class="section">
+            <h2>Das Heimvorteil-Konzept: Unser Content-Plan für KW 43</h2>
+            <div class="progress-container">
+                <div class="progress-bar-info">
+                    <span>Kampagnen-Fortschritt</span>
+                    <span>Woche 7 von 9</span>
+                </div>
+                <div class="progress-bar-background">
+                    <div class="progress-bar-fill" style="width: 77%;"></div>
+                </div>
+                <div class="progress-bar-labels">
+                    <span>Start: KW 37</span>
+                    <span>Verbleibend: 2 Wochen</span>
+                    <span>Ende: KW 45</span>
+                </div>
+            </div>
+            <p>In dieser Woche adressieren wir proaktiv das Thema <strong>Prüfungsangst (USP_007)</strong>. Wir stellen unser einzigartiges <strong>'Heimvorteil'-Konzept (USP_009)</strong> vor, bei dem die Prüfung in der vertrauten Umgebung des eigenen Viertels stattfindet. Dies baut Stress ab und schafft Vertrauen. Alle Inhalte zielen darauf ab, Sicherheit zu vermitteln und uns als empathischen Experten zu positionieren.</p>
+            
+            <div class="content-funnel">
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">🧠</span>
+                        <h3 class="funnel-stage-title">Das Herzstück (Empathie & Lösung)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Asset:</strong> Blog-Artikel: Prüfungsangst? So bringt dich unser 'Heimvorteil'-Konzept...</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Dieser empathische Artikel spricht Ängste direkt an und präsentiert unser 'Heimvorteil'-Konzept als die logische, stressfreie Lösung.</p>
+                    </div>
+                </div>
+                
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">👍</span>
+                        <h3 class="funnel-stage-title">Die Verstärker (Mehrwert & Social Proof)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Assets:</strong> Reel (3 Tipps), Carousel (Mythen) & GMB (Reviews)</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Wir liefern echten Mehrwert durch Experten-Tipps, entlarven Mythen und nutzen authentische Reviews als sozialen Beweis für unseren Erfolg.</p>
+                    </div>
+                </div>
+
+                <div class="funnel-stage">
+                    <div class="funnel-header">
+                        <span class="funnel-icon">🚀</span>
+                        <h3 class="funnel-stage-title">Die Verteiler (Traffic & Sichtbarkeit)</h3>
+                    </div>
+                    <div class="funnel-body">
+                        <p class="funnel-content-piece"><strong>Assets:</strong> Grafiken & Google My Business Post</p>
+                        <p class="funnel-explanation"><strong>Die Rolle:</strong> Visuelle Grafiken und ein GMB-Post bewerben das neue 'Heimvorteil'-Konzept und leiten gezielten Traffic auf den neuen Blog-Artikel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="approvalSection">
+            <h2>Entwürfe zur finalen Prüfung</h2>
+            <p>Hier finden Sie die Entwürfe für alle geplanten Inhalte der Kalenderwoche 43. Bitte prüfen Sie die Dokumente, geben Sie uns Feedback und erteilen Sie Ihre Freigabe direkt in der Tabelle.</p>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Inhalt (Asset)</th>
+                        <th>Entwurf</th>
+                        <th style="text-align: center;">Bewertung</th>
+                        <th style="width: 25%;">Änderungswunsch</th>
+                        <th style="text-align: center;">Freigabe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-asset-id="GRAPHIC_011">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Header-Grafik für Blog</span>
+                            <span class="asset-description">Konzept: Ein entspannt...</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-graphic11" name="rating-GRAPHIC_011" value="5"><label for="star5-graphic11">★</label>
+                                <input type="radio" id="star4-graphic11" name="rating-GRAPHIC_011" value="4"><label for="star4-graphic11">★</label>
+                                <input type="radio" id="star3-graphic11" name="rating-GRAPHIC_011" value="3"><label for="star3-graphic11">★</label>
+                                <input type="radio" id="star2-graphic11" name="rating-GRAPHIC_011" value="2"><label for="star2-graphic11">★</label>
+                                <input type="radio" id="star1-graphic11" name="rating-GRAPHIC_011" value="1"><label for="star1-graphic11">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GRAPHIC_011" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-graphic11" name="approve-GRAPHIC_011" class="approval-checkbox">
+                            <label for="approve-graphic11" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                     <tr data-asset-id="GRAPHIC_012">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Text-Grafik Social/GMB</span>
+                            <span class="asset-description">Headline: "Die größte Angst..."</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                             <div class="rating">
+                                <input type="radio" id="star5-graphic12" name="rating-GRAPHIC_012" value="5"><label for="star5-graphic12">★</label>
+                                <input type="radio" id="star4-graphic12" name="rating-GRAPHIC_012" value="4"><label for="star4-graphic12">★</label>
+                                <input type="radio" id="star3-graphic12" name="rating-GRAPHIC_012" value="3"><label for="star3-graphic12">★</label>
+                                <input type="radio" id="star2-graphic12" name="rating-GRAPHIC_012" value="2"><label for="star2-graphic12">★</label>
+                                <input type="radio" id="star1-graphic12" name="rating-GRAPHIC_012" value="1"><label for="star1-graphic12">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GRAPHIC_012" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-graphic12" name="approve-GRAPHIC_012" class="approval-checkbox">
+                            <label for="approve-graphic12" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="BLOG_006">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Blog-Artikel: Prüfungsangst</span>
+                            <span class="asset-description">Prüfungsangst? So bringt dich...</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-blog6" name="rating-BLOG_006" value="5"><label for="star5-blog6">★</label>
+                                <input type="radio" id="star4-blog6" name="rating-BLOG_006" value="4"><label for="star4-blog6">★</label>
+                                <input type="radio" id="star3-blog6" name="rating-BLOG_006" value="3"><label for="star3-blog6">★</label>
+                                <input type="radio" id="star2-blog6" name="rating-BLOG_006" value="2"><label for="star2-blog6">★</label>
+                                <input type="radio" id="star1-blog6" name="rating-BLOG_006" value="1"><label for="star1-blog6">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-BLOG_006" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-blog6" name="approve-BLOG_006" class="approval-checkbox">
+                            <label for="approve-blog6" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="GMB_011">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">GMB Post: Blog-Teaser</span>
+                            <span class="asset-description">Neuigkeit: "Deine Fahrprüfung..."</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                             <div class="rating">
+                                <input type="radio" id="star5-gmb11" name="rating-GMB_011" value="5"><label for="star5-gmb11">★</label>
+                                <input type="radio" id="star4-gmb11" name="rating-GMB_011" value="4"><label for="star4-gmb11">★</label>
+                                <input type="radio" id="star3-gmb11" name="rating-GMB_011" value="3"><label for="star3-gmb11">★</label>
+                                <input type="radio" id="star2-gmb11" name="rating-GMB_011" value="2"><label for="star2-gmb11">★</label>
+                                <input type="radio" id="star1-gmb11" name="rating-GMB_011" value="1"><label for="star1-gmb11">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_011" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-gmb11" name="approve-GMB_011" class="approval-checkbox">
+                            <label for="approve-gmb11" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="INSTA_011">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Instagram: Reel</span>
+                            <span class="asset-description">"3 Tipps gegen Prüfungsangst"</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                             <div class="rating">
+                                <input type="radio" id="star5-insta11" name="rating-INSTA_011" value="5"><label for="star5-insta11">★</label>
+                                <input type="radio" id="star4-insta11" name="rating-INSTA_011" value="4"><label for="star4-insta11">★</label>
+                                <input type="radio" id="star3-insta11" name="rating-INSTA_011" value="3"><label for="star3-insta11">★</label>
+                                <input type="radio" id="star2-insta11" name="rating-INSTA_011" value="2"><label for="star2-insta11">★</label>
+                                <input type="radio" id="star1-insta11" name="rating-INSTA_011" value="1"><label for="star1-insta11">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-INSTA_011" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-insta11" name="approve-INSTA_011" class="approval-checkbox">
+                            <label for="approve-insta11" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                    <tr data-asset-id="GMB_012">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">GMB Post: Reviews</span>
+                            <span class="asset-description">"Was unsere Absolventen sagen..."</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                             <div class="rating">
+                                <input type="radio" id="star5-gmb12" name="rating-GMB_012" value="5"><label for="star5-gmb12">★</label>
+                                <input type="radio" id="star4-gmb12" name="rating-GMB_012" value="4"><label for="star4-gmb12">★</label>
+                                <input type="radio" id="star3-gmb12" name="rating-GMB_012" value="3"><label for="star3-gmb12">★</label>
+                                <input type="radio" id="star2-gmb12" name="rating-GMB_012" value="2"><label for="star2-gmb12">★</label>
+                                <input type="radio" id="star1-gmb12" name="rating-GMB_012" value="1"><label for="star1-gmb12">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-GMB_012" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-gmb12" name="approve-GMB_012" class="approval-checkbox">
+                            <label for="approve-gmb12" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                     <tr data-asset-id="INSTA_012">
+                        <td data-label="Inhalt">
+                            <span class="asset-title">Instagram: Carousel</span>
+                            <span class="asset-description">"Prüfungs-Mythen"</span>
+                        </td>
+                        <td data-label="Entwurf"><a href="#" class="view-button" target="_blank" rel="noopener noreferrer">Ansehen</a></td>
+                        <td data-label="Bewertung">
+                            <div class="rating">
+                                <input type="radio" id="star5-insta12" name="rating-INSTA_012" value="5"><label for="star5-insta12">★</label>
+                                <input type="radio" id="star4-insta12" name="rating-INSTA_012" value="4"><label for="star4-insta12">★</label>
+                                <input type="radio" id="star3-insta12" name="rating-INSTA_012" value="3"><label for="star3-insta12">★</label>
+                                <input type="radio" id="star2-insta12" name="rating-INSTA_012" value="2"><label for="star2-insta12">★</label>
+                                <input type="radio" id="star1-insta12" name="rating-INSTA_012" value="1"><label for="star1-insta12">★</label>
+                            </div>
+                        </td>
+                        <td data-label="Änderungswunsch"><textarea name="feedback-INSTA_012" class="feedback-textarea" placeholder="Feedback..."></textarea></td>
+                        <td data-label="Freigabe" style="text-align: center;">
+                            <input type="checkbox" id="approve-insta12" name="approve-INSTA_012" class="approval-checkbox">
+                            <label for="approve-insta12" class="approval-label"><span class="text-approve">Freigeben</span><span class="text-approved">✔ Freigegeben</span></label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="footer-button-container">
+                <button id="resetButton" class="footer-button reset-button">Eingaben zurücksetzen</button>
+                <button id="submitButton" class="footer-button submit-global-button">
+                    <span class="button-text">Alle Freigaben & Feedback Senden</span>
+                </button>
+            </div>
+            <div id="successMessage"></div>
+            <div id="errorMessage"></div>
+        </section>
+    </div>
+
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- KONFIGURATION ---
+        const approvalSection = document.getElementById('approvalSection');
+        const submitButton = document.getElementById('submitButton');
+        const resetButton = document.getElementById('resetButton');
+        const successMessageDiv = document.getElementById('successMessage');
+        const errorMessageDiv = document.getElementById('errorMessage');
+        const submitButtonText = submitButton.querySelector('.button-text');
+        
+        // WICHTIG: Stellen Sie sicher, dass diese URL korrekt und für öffentliche GET-Anfragen freigegeben ist.
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyLR5IeOkJzIi_O2EvDeNcbYwqWxDt5SuwpKGeBH__YruV4vGKKkjQN-9-3XzRbrUX6Ig/exec';
+        
+        // Eindeutiger Speicher-Schlüssel für die Eingaben in dieser Broschüre
+        const storageKey = 'contentApproval_KW43_2025_Fahrschule';
+
+        // --- KERNFUNKTIONALITÄT ---
+
+        /**
+        * Globale Callback-Funktion, die die Server-Antwort verarbeitet.
+        */
+        window.feedbackGesendet = function(response) {
+            console.log("Antwort von der Web App:", response);
+            
+            // Lade-Zustand immer beenden
+            submitButton.disabled = false;
+            submitButtonText.textContent = 'Eingaben aktualisieren';
+
+            if (response && response.status === 'Erfolg') {
+                // Erfolgsmeldung anzeigen
+                successMessageDiv.innerHTML = `✔ ${response.processedCount} Einträge erfolgreich übermittelt. Sie können Ihre Eingaben weiter bearbeiten.`;
+                successMessageDiv.style.display = 'block';
+                errorMessageDiv.style.display = 'none';
+                
+                // Erfolgsmeldung nach 5 Sekunden ausblenden
+                setTimeout(() => {
+                    successMessageDiv.style.display = 'none';
+                }, 5000);
+
+            } else {
+                // Fehlermeldung anzeigen
+                const nachricht = response && response.nachricht ? response.nachricht : 'Unbekannter Fehler.';
+                errorMessageDiv.innerHTML = `Ein Fehler ist aufgetreten: ${nachricht}`;
+                errorMessageDiv.style.display = 'block';
+                successMessageDiv.style.display = 'none';
+                submitButtonText.textContent = 'Erneut versuchen';
+            }
+        };
+
+        /**
+        * Event-Listener für den "Senden"-Button.
+        */
+        submitButton.addEventListener('click', function() {
+            // Lade-Zustand aktivieren
+            submitButton.disabled = true;
+            submitButtonText.textContent = 'Sende...';
+            
+            // Alte Nachrichten ausblenden
+            successMessageDiv.style.display = 'none';
+            errorMessageDiv.style.display = 'none';
+
+            // Daten sammeln
+            const feedbackPayload = [];
+            const assetRows = approvalSection.querySelectorAll('tbody tr[data-asset-id]');
+            assetRows.forEach(row => {
+                const assetId = row.dataset.assetId;
+                const ratingInput = row.querySelector(`input[name="rating-${assetId}"]:checked`);
+                const feedbackInput = row.querySelector(`textarea[name="feedback-${assetId}"]`);
+                const approvalInput = row.querySelector(`input[name="approve-${assetId}"]`);
+                feedbackPayload.push({
+                    asset_id: assetId,
+                    bewertung: ratingInput ? ratingInput.value : 'N/A',
+                    feedback: feedbackInput ? feedbackInput.value.trim() : '',
+                    status: approvalInput.checked ? 'Freigegeben' : 'Offen'
+                });
+            });
+            
+            const payload = {
+                kundenId: 'Fahrschule-Gronemeier-Hennemann',
+                freigabeTyp: 'Wochenfreigabe',
+                zeitraum: 'KW 43-2025',
+                daten: feedbackPayload
+            };
+            
+            // Alte Skript-Tags entfernen, um Konflikte zu vermeiden
+            document.querySelectorAll('script[src*="script.google.com"]').forEach(s => s.remove());
+
+            // Daten an Google senden
+            const dataString = encodeURIComponent(JSON.stringify(payload));
+            const finalUrl = `${WEB_APP_URL}?callback=feedbackGesendet&data=${dataString}`;
+            
+            let scriptTag = document.createElement('script');
+            scriptTag.src = finalUrl;
+            
+            // Fehlerbehandlung für den Fall, dass das Skript nicht geladen werden kann
+            scriptTag.onerror = function() {
+                errorMessageDiv.innerHTML = 'Netzwerkfehler: Das Freigabe-Skript konnte nicht geladen werden. Bitte prüfen Sie Ihre Internetverbindung und die Web-App-URL.';
+                errorMessageDiv.style.display = 'block';
+                submitButton.disabled = false;
+                submitButtonText.textContent = 'Erneut versuchen';
+            };
+
+            document.body.appendChild(scriptTag);
+        });
+
+        /**
+        * Speichert den aktuellen Zustand aller Formularfelder im Local Storage.
+        */
+        const saveData = () => {
+            const data = {};
+            approvalSection.querySelectorAll('input[type="radio"], input[type="checkbox"], textarea').forEach(el => {
+                const name = el.name;
+                if (el.type === 'radio') {
+                    if (el.checked) data[name] = el.value;
+                } else if (el.type === 'checkbox') {
+                    data[name] = el.checked;
+                } else {
+                    data[name] = el.value;
+                }
+            });
+            localStorage.setItem(storageKey, JSON.stringify(data));
+        };
+
+        /**
+        * Lädt den gespeicherten Zustand und füllt die Formularfelder aus.
+        */
+        const loadData = () => {
+            const savedData = localStorage.getItem(storageKey);
+            if (!savedData) return;
+            const data = JSON.parse(savedData);
+            for (const name in data) {
+                const elements = approvalSection.querySelectorAll(`[name="${name}"]`);
+                elements.forEach(el => {
+                    if (el.type === 'radio') {
+                        if (el.value === data[name]) el.checked = true;
+                    } else if (el.type === 'checkbox') {
+                        el.checked = data[name];
+                    } else {
+                        el.value = data[name];
+                    }
+                });
+            }
+        };
+        
+        /**
+        * Event-Listener für den "Zurücksetzen"-Button.
+        */
+        resetButton.addEventListener('click', function() {
+            // Ersetzt das `confirm` durch eine einfachere Methode oder ein UI-Element
+            approvalSection.querySelectorAll('input[type=radio], input[type=checkbox]').forEach(el => el.checked = false);
+            approvalSection.querySelectorAll('textarea').forEach(el => el.value = '');
+            localStorage.removeItem(storageKey);
+            submitButtonText.textContent = 'Alle Freigaben & Feedback Senden';
+            
+            // Optional: Kurze Bestätigung anzeigen
+            const tempMsg = document.createElement('div');
+            tempMsg.textContent = 'Eingaben wurden zurückgesetzt.';
+            tempMsg.style.color = 'var(--ci-red-reset)';
+            tempMsg.style.marginTop = '10px';
+            tempMsg.style.textAlign = 'right';
+            resetButton.parentElement.insertAdjacentElement('afterend', tempMsg);
+            setTimeout(() => tempMsg.remove(), 2000);
+        });
+
+        // --- INITIALISIERUNG ---
+        approvalSection.addEventListener('input', saveData);
+        loadData();
+    });
+    </script>
+</body>
+</html>
+

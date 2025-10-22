@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Instagram Carousel Vorschau: Prüfungsmythen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #eef2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+        .phone-mockup { width: 100%; max-width: 400px; aspect-ratio: 9 / 19.5; background-color: #1c1c1c; border-radius: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); padding: 15px; box-sizing: border-box; display: flex; flex-direction: column; }
+        .screen { background-color: #fff; flex-grow: 1; border-radius: 25px; display: flex; flex-direction: column; overflow: hidden; }
+        .insta-header { display: flex; align-items: center; padding: 10px 15px; border-bottom: 1px solid #dbdbdb; }
+        .insta-logo { width: 30px; height: 30px; border-radius: 50%; background-image: url('https://placehold.co/30x30/1a2c48/FFFFFF?text=G%2BH'); }
+        .insta-username { font-weight: 700; margin-left: 10px; }
+        .carousel-container { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; }
+        .carousel-slides { display: flex; height: 100%; transition: transform 0.3s ease-in-out; }
+        .carousel-slide { flex: 0 0 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; text-align: center; }
+        .slide-title { background-color: #1a2c48; color: white; }
+        .slide-mythos { background-color: #ffebee; color: #c62828; }
+        .slide-fakt { background-color: #e8f5e9; color: #2e7d32; }
+        .carousel-slide h3, .carousel-slide p { font-family: 'Poppins', sans-serif; font-weight: 900; margin: 0; }
+        .carousel-slide h3 { font-size: 2rem; text-transform: uppercase; }
+        .carousel-slide p { font-size: 1.5rem; line-height: 1.4; }
+        .dots-container { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
+        .dot { width: 6px; height: 6px; border-radius: 50%; background-color: #a8a8a8; transition: background-color 0.3s; }
+        .dot.active { background-color: #0095f6; }
+        .insta-actions { display: flex; align-items: center; padding: 10px 15px; gap: 15px; }
+        .insta-actions svg { width: 24px; height: 24px; cursor: pointer; }
+        .insta-actions .bookmark { margin-left: auto; }
+        .insta-caption { padding: 0 15px 15px 15px; font-size: 14px; line-height: 1.5; flex-grow: 1; overflow-y: auto; }
+        .insta-caption strong { font-weight: 700; }
+        .insta-caption span { color: #00376b; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="phone-mockup">
+        <div class="screen">
+            <div class="insta-header">
+                <div class="insta-logo"></div>
+                <div class="insta-username">fahrschulegh</div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-slides">
+                    <div class="carousel-slide slide-title"><h3>Prüfungs-Mythen</h3></div>
+                    <div class="carousel-slide slide-mythos"><h3>Mythos</h3><p>"Der Prüfer will dich durchfallen lassen."</p></div>
+                    <div class="carousel-slide slide-fakt"><h3>Fakt</h3><p>"Der Prüfer will Sicherheit sehen. Darauf bereiten wir dich perfekt vor."</p></div>
+                    <div class="carousel-slide slide-mythos"><h3>Mythos</h3><p>"Man muss perfekt fahren, um zu bestehen."</p></div>
+                    <div class="carousel-slide slide-fakt"><h3>Fakt</h3><p>"Du musst sicher und vorausschauend fahren. Kleine Fehler sind menschlich."</p></div>
+                    <div class="carousel-slide slide-title" style="background-color: #009ee2;"><h3>Du bist bereit!</h3></div>
+                </div>
+                <div class="dots-container"></div>
+            </div>
+            <div class="insta-actions">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-6.256 6.343-3.604 1.384-5.256 1.834-5.256 3.185 0 .381.191.922.512 1.227a.999.999 0 0 1-.497 1.213c-.246.121-.533.165-.794.122-1.392-.194-3.23-1.424-3.766-3.138A4.991 4.991 0 0 1 2.5 9.122c0-2.828 2.208-5.218 5.008-5.218a4.989 4.989 0 0 1 4.28 2.58A4.989 4.989 0 0 1 16.792 3.904zm-4.784 9.165c.199-.44.43-1.04.43-1.576 0-1.288-1.02-2.308-2.308-2.308s-2.308 1.02-2.308 2.308c0 .536.231 1.136.43 1.576.279.62.73 1.43 1.878 1.938.995.45 2.155.77 2.795-.22a.998.998 0 0 0-.287-1.706c-.843-.39-1.423-.831-1.631-1.22z"></path></svg>
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22z"></path></svg>
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M22 3L9.218 10.083 2 3v18l6.9-7L17 21l-3-4 8 2z"></path></svg>
+                <svg class="bookmark" viewBox="0 0 24 24"><path fill="currentColor" d="M4 22V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v18l-8-4-8 4z"></path></svg>
+            </div>
+            <div class="insta-caption">
+                <p><strong>fahrschulegh</strong> "Der Prüfer will dich durchfallen lassen!" 😱 - Schon mal gehört? Es gibt viele Mythen rund um die praktische Prüfung, die für unnötigen Stress sorgen.<br><br>Wir decken die größten Mythen auf und zeigen dir, worauf es wirklich ankommt: Eine solide Vorbereitung, damit du mit Selbstvertrauen zeigst, was du kannst!<br><br><span>#Prüfungsmythen #Fahrschule #Prüfungsangst #Fakten #Dortmund #Führerschein</span></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const slides = document.querySelector('.carousel-slides');
+        const slideCount = document.querySelectorAll('.carousel-slide').length;
+        const dotsContainer = document.querySelector('.dots-container');
+        let currentIndex = 0;
+        for (let i = 0; i < slideCount; i++) { const dot = document.createElement('div'); dot.classList.add('dot'); if (i === 0) dot.classList.add('active'); dotsContainer.appendChild(dot); }
+        const dots = document.querySelectorAll('.dot');
+        function updateDots() { dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentIndex); }); }
+        function goToSlide(index) { if (index < 0) index = 0; if (index >= slideCount) index = slideCount - 1; slides.style.transform = `translateX(-${index * 100}%)`; currentIndex = index; updateDots(); }
+        let touchstartX = 0; let touchendX = 0;
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; }, { passive: true });
+        carouselContainer.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleSwipe(); });
+        function handleSwipe() { if (touchendX < touchstartX) { if (currentIndex < slideCount - 1) { goToSlide(currentIndex + 1); } } if (touchendX > touchstartX) { if (currentIndex > 0) { goToSlide(currentIndex - 1); } } }
+    </script>
+</body>
+</html>
