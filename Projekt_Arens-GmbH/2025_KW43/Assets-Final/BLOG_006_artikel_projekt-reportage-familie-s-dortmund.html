@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projekt-Reportage: Familie S. aus Dortmund – Von zugigen Ecken zur Wohlfühl-Oase</title>
+    <meta name="description" content="Eine echte Fallstudie aus Dortmund: Sehen Sie, wie wir das Zuhause von Familie S. mit einer staubfreien Sanierung und Fußbodenheizung in eine Wohlfühl-Oase verwandelt haben.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://fliesen-arens.de/wp-content/uploads/2021/05/Fliesen-Arens-GmbH-150x150.jpg" type="image/jpeg">
+    <style>
+        :root {
+            --color-primary: #1E9B93;
+            --color-primary-darker: #16736E;
+            --color-secondary: #4AEADC;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fdfdfd;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.7;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        h1, h2, h3 {
+             line-height: 1.3;
+             color: var(--color-primary);
+             font-family: 'Roboto Slab', serif;
+             font-weight: 700;
+             text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+        }
+        h1 { font-size: 40px; text-align: center; }
+        h2 { font-size: 32px; margin-top: 50px; border-bottom: 2px solid var(--color-secondary); padding-bottom: 10px;}
+        h3 { font-size: 24px; margin-top: 40px; color: var(--color-primary-darker);}
+        a {
+            color: var(--color-primary-darker);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid var(--color-secondary);
+            transition: all 0.2s;
+        }
+        a:hover {
+            background-color: #f4f8f7;
+        }
+        .button-cta {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: #FFFFFF !important;
+            padding: 12px 24px;
+            border-radius: 3px;
+            text-decoration: none;
+            border: none;
+            transition: all .3s;
+            font-weight: 700;
+        }
+        .button-cta:hover {
+            background-color: var(--color-primary-darker);
+            transform: scale(1.05);
+            border-bottom: none;
+        }
+        .special-text-block {
+            background: #f4f8f7;
+            padding: 25px;
+            font-size: 18px;
+            border-left: 4px solid var(--color-secondary);
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 50px 0;
+        }
+        .article-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .testimonial {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid var(--color-primary);
+        }
+        .testimonial p {
+            font-style: italic;
+            margin: 0 0 10px 0;
+            font-size: 1.1em;
+        }
+        .testimonial span {
+            font-weight: 700;
+            font-style: normal;
+        }
+        .interactive-container {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        .pain-point-slider {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            background-color: #fdeaea;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .solution-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            background-color: #eaf7f6;
+            overflow: hidden;
+        }
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--color-primary);
+            cursor: ew-resize;
+            transform: translateX(-2px);
+        }
+        .slider-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .slider-content > div { text-align: center; }
+        .solution-overlay .slider-content {
+            width: 200%;
+        }
+
+        .timeline { display: flex; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 5px;}
+        .timeline-step {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .timeline-step.active {
+            background-color: var(--color-primary);
+            color: white;
+            transform: scale(1.1);
+        }
+        .timeline-content {
+            background-color: var(--bg-light);
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .timeline-content p { margin: 0; }
+        .timeline-pane { display: none; }
+        .timeline-pane.active { display: block; }
+
+        /* New SVG Animation Styles */
+        #chaos-to-order-svg .chaos-icon { transition: transform 1s ease-in-out; }
+        #chaos-to-order-svg.visible .chaos-icon:nth-child(1) { transform: translate(150px, 0px); }
+        #chaos-to-order-svg.visible .chaos-icon:nth-child(2) { transform: translate(150px, 40px); }
+        #chaos-to-order-svg.visible .chaos-icon:nth-child(3) { transform: translate(150px, 80px); }
+        #chaos-to-order-svg.visible .chaos-icon:nth-child(4) { transform: translate(250px, 0px); opacity: 0;}
+        #chaos-to-order-svg .line { stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 1s ease-in-out .5s; }
+        #chaos-to-order-svg.visible .line { stroke-dashoffset: 0; }
+
+        @keyframes glow { 0% { fill: #cceeee; } 50% { fill: #FFFDE7; } 100% { fill: #cceeee; } }
+        #wohlfuehl-svg .glow { animation: glow 4s infinite; }
+        #wohlfuehl-svg .heatwave {
+            stroke-dasharray: 5 5;
+            stroke-dashoffset: 10;
+            opacity: 0;
+            transition: opacity 1s 1s;
+        }
+        #wohlfuehl-svg.visible .heatwave {
+            animation: dash 2s linear infinite;
+            opacity: 1;
+        }
+        @keyframes dash { to { stroke-dashoffset: 0; } }
+    </style>
+</head>
+<body>
+<main>
+    <header>
+        <h1>Projekt-Reportage: Familie S. aus Dortmund</h1>
+        <p style="font-size: 1.2em; color: #555; text-align: center;">Wie aus einem Altbau mit zugigen Ecken eine moderne Wohlfühl-Oase wurde.</p>
+        <img src="../Bilder/BLOG_006_Header.png" alt="Glückliche Familie in ihrem neu renovierten, warmen Wohnzimmer" class="article-image">
+        <p>Manchmal sind es die kleinen, alltäglichen Ärgernisse, die den Wunsch nach Veränderung wecken: Kalte Füße am Morgen, ungenutzte Ecken wegen klobiger Heizkörper und die ständige Sorge vor der nächsten Heizkostenabrechnung. Das war die Ausgangslage für Familie S. aus Dortmund. Heute leben sie in einem Zuhause, das nicht nur wärmer und schöner ist, sondern auch ihre Lebensqualität nachhaltig verbessert hat. Dies ist ihre Geschichte.</p>
+    </header>
+
+    <section>
+        <h2>Die Ausgangslage: Ein charmantes Haus mit kalten Füßen</h2>
+        <p>Das Eigenheim von Familie S. im Dortmunder Süden ist ein klassischer Altbau: charmant, aber mit den typischen energetischen Schwachstellen. "Im Winter hatten wir immer das Gefühl, gegen die Kälte anheizen zu müssen", erzählt Herr S. "Besonders im Erdgeschoss gab es immer zugige Ecken, und der Fliesenboden im Wohnbereich war einfach fußkalt."</p>
+
+        <div class="interactive-container">
+            <h3>Vom Schmerzpunkt zur Lösung</h3>
+            <div class="pain-point-slider" id="painSlider">
+                <div class="solution-overlay" id="solutionOverlay">
+                     <div class="slider-content">
+                        <div>☀️<p>Wohlfühlwärme</p></div>
+                        <div>🛋️<p>Freier Raum</p></div>
+                    </div>
+                </div>
+                <div class="slider-content">
+                    <div>❄️<p>Kalte Füße</p></div>
+                    <div>🚫<p>Platzmangel</p></div>
+                </div>
+                <div class="slider-handle" id="sliderHandle"></div>
+            </div>
+        </div>
+
+        <h3>Der Schmerzpunkt: Mehr als nur kalte Böden</h3>
+        <p>Die Unzufriedenheit von Familie S. ging tiefer als nur die reine Temperatur. Es war das Gefühl, im eigenen Zuhause nicht vollständig entspannen zu können. Die ständig laufende Heizung verursachte trockene Luft und wirbelte Staub auf, was für die Kinder nicht ideal war. Zudem stiegen die Heizkosten von Jahr zu Jahr, ohne dass sich der Wohnkomfort spürbar verbesserte. Die Familie stand vor der Wahl: Weiterhin Kompromisse eingehen oder eine grundlegende, zukunftssichere Lösung finden. Die Angst vor dem organisatorischen Aufwand und dem Baustaub, der sich im ganzen Haus verteilt, war die größte Hürde auf dem Weg zur Entscheidung.</p>
+
+        <p>Im Alltag manifestierte sich dieser Schmerz in vielen kleinen Momenten, die zusammengenommen die Lebensqualität minderten. Es war das ständige Ermahnen der Kinder, nicht barfuß auf dem kalten Fliesenboden zu laufen, und das wiederkehrende Niesen am Morgen, wenn die Konvektionswärme der alten Heizkörper den Staub der Nacht durch die Räume wirbelte. Die Möbel im Wohnzimmer waren nicht nach ästhetischen Gesichtspunkten oder optimaler Raumnutzung angeordnet, sondern mussten sich der unvorteilhaften Position der Heizkörper unterordnen, was zu ungenutzten "toten Ecken" führte. Jeder Blick auf die monatliche Energieabrechnung war mit einem leisen Seufzer verbunden, da die hohen Kosten in keinem Verhältnis zum tatsächlich empfundenen Komfort standen. Dieser Mix aus physischem Unbehagen, gestalterischen Kompromissen und finanzieller Belastung schuf einen stetig wachsenden Wunsch nach einer ganzheitlichen Veränderung, die nicht nur ein Problem löst, sondern das gesamte Wohnerlebnis transformiert.</p>
+        
+        <p>Diese latente Unzufriedenheit führte dazu, dass sich das eigene Zuhause immer weniger wie ein echter Rückzugsort anfühlte. Stattdessen wurde es zu einem Ort ständiger kleiner Kompromisse und suboptimaler Lösungen. Die Vorfreude auf gemütliche Winterabende wurde getrübt durch den Gedanken an die kalten Zonen im Haus und das Wissen, dass die Heizung auf Hochtouren laufen musste, um eine auch nur annähernd behagliche Atmosphäre zu schaffen. Diese Diskrepanz zwischen dem Potenzial ihres schönen Hauses und der tatsächlich erlebten Realität wurde für Familie S. zu einer emotionalen Belastung. Es war der Moment, in dem klar wurde, dass eine oberflächliche Lösung nicht ausreichen würde; es bedurfte eines grundlegenden Upgrades, das nicht nur heizt, sondern das Haus in eine echte Wohlfühl-Oase verwandelt, die den Namen "Zuhause" wirklich verdient.</p>
+    </section>
+
+    <hr>
+    
+    <section>
+        <h2>Die Entscheidung: Warum Fliesen Arens?</h2>
+        <p>Auf der Suche nach einer Lösung stieß Familie S. auf das Konzept der staubfrei gefrästen Fußbodenheizung (SVC_008). "Die Idee, den alten Estrich zu erhalten und ohne großen Abriss zu modernisieren, hat uns sofort überzeugt", so Frau S. Im persönlichen Beratungsgespräch mit Matthias Arens wurde aus der Idee ein konkreter Plan. "Was uns am meisten beeindruckt hat, war nicht nur die technische Expertise, sondern das Verständnis für unsere Sorgen", erinnert sich Herr S. Die Zusage einer nahezu staubfreien Sanierung (USP-FA-01) und die transparente Planung aller Gewerke im Rahmen des <a href="svc_010_rundum-sorglos-paket.html">Rundum-Sorglos-Pakets</a> (USP-FA-04) gaben den entscheidenden Ausschlag.</p>
+        
+        <p>Der entscheidende Wendepunkt im Entscheidungsprozess war die Art und Weise, wie im Beratungsgespräch auf die Ängste der Familie eingegangen wurde. Statt nur technische Daten aufzuzählen, visualisierte das Team von Arens den gesamten Prozess. Anhand von Referenzbildern und Videos früherer Projekte konnte die Familie sehen, wie sauber eine solche Sanierung tatsächlich abläuft. Die 3D-Planung am Computer machte das Endergebnis greifbar und nahm die Sorge, eine falsche ästhetische Entscheidung zu treffen. Es war dieser Moment, in dem aus einer vagen Hoffnung eine konkrete, greifbare Vision wurde. Die Familie verstand, dass es hier nicht nur um den Verkauf einer Dienstleistung ging, sondern um eine partnerschaftliche Begleitung auf dem Weg zu ihrem Traum-Zuhause. Dieses Gefühl, als Kunde mit seinen individuellen Bedürfnissen und Sorgen ernst genommen zu werden, schuf ein tiefes Vertrauen und machte die finale Entscheidung für Fliesen Arens zu einer logischen und emotional richtigen Konsequenz.</p>
+
+        <div class="interactive-container">
+            <h3>Vom Chaos zur Ordnung</h3>
+             <svg id="chaos-to-order-svg" viewBox="0 0 400 150">
+                <g>
+                    <g class="chaos-icon"><path d="M10 20 L30 40 M10 40 L30 20" stroke="red" stroke-width="2"/><circle cx="20" cy="30" r="15" fill="none" stroke="red"/></g>
+                    <g class="chaos-icon"><rect x="40" y="60" width="30" height="30" fill="lightblue" /></g>
+                    <g class="chaos-icon"><polygon points="20,100 50,120 10,130" fill="orange" /></g>
+                    <g class="chaos-icon"><circle cx="70" cy="30" r="10" fill="purple" opacity="0.5" /></g>
+                </g>
+                <path class="line" d="M100 80 H 150" stroke="var(--color-primary)" stroke-width="2"/>
+                <g transform="translate(300 75)">
+                    <rect x="-60" y="-50" width="120" height="100" fill="#f0f0f0" rx="5"/>
+                    <text x="0" y="-30" text-anchor="middle" font-size="12" font-weight="bold">Arens Paket</text>
+                    <path d="M -40 -10 L -20 5 L -5 -15" fill="none" stroke="var(--color-success)" stroke-width="3"/>
+                    <path d="M 0 0 H 40" stroke="#ccc" stroke-width="2"/>
+                    <path d="M 0 20 H 40" stroke="#ccc" stroke-width="2"/>
+                </g>
+             </svg>
+        </div>
+        
+        <h3>Der Prozess: Ein Versprechen wird eingelöst</h3>
+        <p>Die Sanierung selbst übertraf die Erwartungen der Familie. "Wir hatten uns auf Lärm und Dreck eingestellt, aber die Realität war eine andere", berichtet Frau S. Das Team von Fliesen Arens arbeitete mit modernster Absaugtechnik, die den feinen Frässtaub direkt an der Quelle entfernte. Die Koordination mit dem Heizungsbauer und Elektriker lief reibungslos im Hintergrund ab. Entdecken Sie den Prozess im Detail:</p>
+        
+        <div class="interactive-container">
+            <h3>Der 5-Tage-Plan im Detail</h3>
+            <div class="timeline" id="timeline">
+                <div class="timeline-step active" data-target="day1">Tag 1</div>
+                <div class="timeline-step" data-target="day2">Tag 2</div>
+                <div class="timeline-step" data-target="day3">Tag 3</div>
+                <div class="timeline-step" data-target="day4">Tag 4</div>
+                <div class="timeline-step" data-target="day5">Tag 5</div>
+            </div>
+            <div class="timeline-content">
+                <div id="day1" class="timeline-pane active">
+                    <p><strong>Vorbereitung & Schutz:</strong> Abdecken aller Möbel und Laufwege. Aufbau der professionellen Staubabsaugung.</p>
+                </div>
+                 <div id="day2" class="timeline-pane">
+                    <p><strong>Staubfreies Fräsen:</strong> Präzises Einfräsen der Kanäle für die Heizrohre in den bestehenden Estrich.</p>
+                </div>
+                 <div id="day3" class="timeline-pane">
+                    <p><strong>Verlegung & Anschluss:</strong> Fachgerechte Verlegung der Heizungsrohre und Anschluss an den Heizkreisverteiler.</p>
+                </div>
+                 <div id="day4" class="timeline-pane">
+                    <p><strong>Verfüllen & Vorbereiten:</strong> Die gefrästen Nuten werden mit einer speziellen Masse vergossen und der Boden für die Fliesen vorbereitet.</p>
+                </div>
+                 <div id="day5" class="timeline-pane">
+                    <p><strong>Finale Arbeiten:</strong> Verlegung der neuen Fliesen und abschließende Qualitätskontrolle. Ihr neuer warmer Boden ist fertig!</p>
+                </div>
+            </div>
+        </div>
+
+        <p>Was Familie S. besonders beeindruckte, war die Professionalität und die Ruhe, die das Handwerkerteam ausstrahlte. Jeder Tag begann mit einem kurzen Briefing, in dem der Plan für den Tag erklärt wurde, und endete mit einer makellos sauberen Baustelle. "Es war faszinierend zu sehen, wie die Fräsmaschine fast geräuschlos ihre Bahnen zog, während der riesige Sauger im Außenbereich jeglichen Staub sofort verschwinden ließ. Es gab keine unangenehmen Gerüche, keinen feinen Staubfilm auf den Möbeln in den angrenzenden Räumen – nichts von dem, was man von einer Kernsanierung erwartet", schwärmt Herr S. Diese Erfahrung, die Sanierung quasi live und ohne die üblichen Belastungen miterleben zu können, schuf ein tiefes Vertrauen in die Kompetenz des Teams und machte den gesamten Prozess zu einer positiven, spannenden Phase der Veränderung statt zu einer Belastungsprobe für die Familie.</p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Das Ergebnis: "Das hätte ich nicht erwartet..."</h2>
+        <p>Worte können das Gefühl eines warmen Bodens unter den Füßen nur schwer beschreiben. Deshalb lässt Familie S. am besten selbst die Bilder und ihre ehrliche Begeisterung sprechen. In diesem kurzen Video-Testimonial teilen sie ihre Erfahrungen – vom ersten Kontakt bis zum neuen Lebensgefühl in ihrem Zuhause.</p>
+        
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section>
+        <h2>Ein neues Lebensgefühl: Die Wohlfühl-Oase ist Realität</h2>
+        <p>Heute ist das Erdgeschoss des Hauses nicht wiederzuerkennen. Die neuen, großformatigen Fliesen erstrecken sich ohne Unterbrechung durch den gesamten Wohnbereich und schaffen eine offene, moderne Atmosphäre. "Die Kinder spielen jetzt am liebsten auf dem Boden", lacht Frau S. "Die Wärme ist so angenehm und gleichmäßig, ganz anders als die trockene Heizungsluft von früher." Auch die erste Heizkostenabrechnung nach der Sanierung sorgte für eine positive Überraschung. Die Investition hat sich nicht nur in Komfort, sondern auch finanziell bereits bezahlt gemacht.</p>
+
+        <div class="interactive-container">
+            <h3>Die Wohlfühl-Transformation</h3>
+            <svg id="wohlfuehl-svg" viewBox="0 0 400 200">
+                <path class="glow" d="M 100 180 L 100 100 L 200 50 L 300 100 L 300 180 Z" stroke="#ccc" stroke-width="2" />
+                <path class="heatwave" d="M120 180 C 140 160, 160 160, 180 180" fill="none" stroke="var(--color-primary)" stroke-width="2"/>
+                <path class="heatwave" d="M220 180 C 240 160, 260 160, 280 180" fill="none" stroke="var(--color-primary)" stroke-width="2" style="animation-delay: -1s;"/>
+            </svg>
+        </div>
+
+        <p>Die wahre Veränderung zeigt sich jedoch im veränderten Familienalltag. Die Wochenenden beginnen jetzt nicht mehr mit dicken Socken, sondern barfuß beim gemeinsamen Frühstück in der sonnendurchfluteten Küche, deren Boden eine sanfte, einladende Wärme ausstrahlt. Die neu gewonnene gestalterische Freiheit im Wohnzimmer wurde sofort genutzt: Eine große Leseecke mit einem bequemen Sessel steht nun genau dort, wo früher ein unansehnlicher Heizkörper die Wand blockierte. Das Raumklima hat sich spürbar verbessert; die Luft ist weniger trocken, und das morgendliche Niesen gehört der Vergangenheit an. Es ist die Summe dieser kleinen, täglichen Verbesserungen, die für Familie S. den Unterschied ausmacht – die Transformation von einem Haus, in dem man wohnte, zu einem Zuhause, in dem man sich rundum geborgen und wohlfühlt.</p>
+        
+        <p>Letztendlich war es die Kombination aus technischer Innovation und menschlicher Empathie, die dieses Projekt zu einem vollen Erfolg machte. Die staubfreie Frästechnik war das Werkzeug, aber das Verständnis für die Ängste und Wünsche der Familie war der Schlüssel, um diese Technologie in echte Lebensqualität zu verwandeln. Familie S. hat nicht nur in eine neue Heizung investiert, sondern in unzählige zukünftige Momente des Wohlbefindens, der Geborgenheit und der Freude am eigenen Zuhause. Es ist die Bestätigung, dass eine Sanierung mehr sein kann als nur eine Baumaßnahme – sie kann der Beginn eines neuen, besseren Wohngefühls sein, das jeden Tag aufs Neue begeistert und beweist, dass sich die Investition in Qualität und einen vertrauenswürdigen Partner immer auszahlt.</p>
+
+        <div class="testimonial">
+            <p>"Der größte Gewinn war die neue Ruhe und Ästhetik im Raum. Endlich keine Heizkörper mehr, die das Bild stören. Und die Sauberkeit während des Umbaus war wirklich beeindruckend. Wir können das Team von Fliesen Arens uneingeschränkt weiterempfehlen!"</p>
+            <span>- Familie S. aus Dortmund</span>
+        </div>
+
+        <div class="fact-check-box">
+            <h3>Möchten Sie, dass Ihr Zuhause die nächste Erfolgsgeschichte wird?</h3>
+            <p>Die Geschichte von Familie S. zeigt, was möglich ist, wenn man sich für die richtige Technologie und den richtigen Partner entscheidet. Wenn auch Sie von kalten Böden und hohen Heizkosten genug haben, ist der erste Schritt ganz einfach.</p>
+            <p>Prüfen Sie mit unserer <a href="LM_001_Checkliste.html">kostenlosen Checkliste</a>, ob Ihr Zuhause für eine staubfreie Sanierung mit einer Fußbodenheizung bereit ist. Es ist der perfekte Startpunkt für Ihre eigene Verwandlung.</p>
+            <a href="LM_001_Checkliste.html" class="button-cta" style="margin-top: 15px;">Jetzt kostenlose Checkliste starten</a>
+        </div>
+    </section>
+</main>
+<script>
+    // Pain Point Slider
+    const slider = document.getElementById('painSlider');
+    const handle = document.getElementById('sliderHandle');
+    const overlay = document.getElementById('solutionOverlay');
+    let isDragging = false;
+
+    handle.addEventListener('mousedown', () => { isDragging = true; });
+    document.addEventListener('mouseup', () => { isDragging = false; });
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const rect = slider.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        if (x < 0) x = 0;
+        if (x > rect.width) x = rect.width;
+        const percent = (x / rect.width) * 100;
+        handle.style.left = `${percent}%`;
+        overlay.style.width = `${percent}%`;
+    });
+
+    // Timeline
+    const timeline = document.getElementById('timeline');
+    const panes = document.querySelectorAll('.timeline-pane');
+    const steps = document.querySelectorAll('.timeline-step');
+
+    timeline.addEventListener('click', (e) => {
+        const targetStep = e.target.closest('.timeline-step');
+        if (!targetStep) return;
+        
+        const targetId = targetStep.dataset.target;
+        
+        steps.forEach(step => step.classList.remove('active'));
+        targetStep.classList.add('active');
+
+        panes.forEach(pane => {
+            if(pane.id === targetId){
+                pane.classList.add('active');
+            } else {
+                pane.classList.remove('active');
+            }
+        });
+    });
+
+    // Intersection Observer for SVG animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('#chaos-to-order-svg, #wohlfuehl-svg').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>
+
